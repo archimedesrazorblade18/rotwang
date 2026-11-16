@@ -1,0 +1,11 @@
+# private or machine-only files: never publish these
+radar_config.json
+rotwang_keys.json
+cv_bank/
+packets/
+radar.html
+radar_alert.md
+radar_log.txt
+rotwang_cache/
+__pycache__/
+*.tmp
