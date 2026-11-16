@@ -64,7 +64,7 @@ CONFIG    = HERE / "radar_config.json"      # SEC contact email
 HTML_OUT  = HERE / "radar.html"
 ALERT_OUT = HERE / "radar_alert.md"
 LOG       = HERE / "radar_log.txt"          # every run and every error, readable from Drive
-APP_DATA  = HERE / "docs" / "data.json"     # what the installed app reads
+APP_DATA  = HERE / "data.json"              # what the installed app reads
 META      = HERE / "radar_meta.json"        # when the universe was last rebuilt
 
 # ── knobs ────────────────────────────────────────────────────────────────────

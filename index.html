@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rotwang</title>
+<meta name="description" content="Contract work in life sciences and energy, read from company career sites every Monday.">
+<meta name="theme-color" content="#0A0F1C">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon-192.png">
+<style>
+@font-face{font-family:"Unbounded";font-weight:600;font-display:swap;src:url(unbounded-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:"Instrument Sans";font-weight:400;font-display:swap;src:url(instrument-sans-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Instrument Sans";font-weight:500;font-display:swap;src:url(instrument-sans-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"Instrument Sans";font-weight:600;font-display:swap;src:url(instrument-sans-latin-600-normal.woff2) format("woff2")}
+:root{
+  --ink:#0A0F1C; --panel:#0F1727; --raise:#162038; --line:#22304A; --line-soft:#18233A;
+  --text:#E8EDF6; --muted:#8C9BB3; --dim:#5F6E88;
+  --gold:#E9B44C; --arc:#6FD3FF; --ok:#7BD8A6; --warn:#F29E7A;
+  --display:"Unbounded","Instrument Sans",system-ui,sans-serif;
+  --body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--ink);color:var(--text);font:400 15px/1.5 var(--body);
+  -webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px;border-radius:4px}
+[hidden]{display:none!important}
+
+.app{display:grid;grid-template-columns:272px minmax(0,1fr) 400px;height:100vh;height:100dvh}
+
+/* ── rail ─────────────────────────────────────────────── */
+.rail{border-right:1px solid var(--line);padding:22px 20px 16px;display:flex;flex-direction:column;gap:22px;overflow-y:auto}
+.mark{font:600 19px/1 var(--display);letter-spacing:.02em;margin:0;display:flex;align-items:center;gap:10px}
+.scope{position:relative;width:100%;aspect-ratio:1;max-width:232px;align-self:center}
+.scope svg{width:100%;height:100%;display:block}
+.scope .ring{fill:none;stroke:var(--line);stroke-width:1}
+.scope .axis{stroke:var(--line-soft);stroke-width:1}
+.scope .sweep{transform-origin:100px 100px;animation:turn 9s linear infinite}
+.scope .blip{opacity:.95}
+.scope-read{position:absolute;inset:0;display:grid;place-items:center;text-align:center;pointer-events:none}
+.scope-read b{display:block;font:600 24px/1 var(--display);color:var(--gold)}
+.scope-read span{font-size:11.5px;color:var(--muted);display:block;max-width:74px;line-height:1.25;margin:3px auto 0}
+@keyframes turn{to{transform:rotate(360deg)}}
+.swept{font-size:13px;color:var(--muted);margin:-8px 0 0;text-align:center}
+.swept strong{color:var(--text);font-weight:500}
+
+.group h2{font:500 12.5px/1 var(--body);color:var(--dim);margin:0 0 10px}
+.seg{display:grid;gap:4px}
+.seg button{display:flex;justify-content:space-between;align-items:center;gap:8px;width:100%;text-align:left;
+  background:none;border:1px solid transparent;border-radius:8px;padding:8px 10px;color:var(--muted)}
+.seg button:hover{color:var(--text);background:var(--panel)}
+.seg button[aria-pressed=true]{background:var(--raise);border-color:var(--line);color:var(--text)}
+.seg i{width:8px;height:8px;border-radius:50%;flex:none;margin-right:2px}
+.seg .n{font-size:13px;color:var(--dim)}
+.seg span.l{display:flex;align-items:center;gap:8px}
+.checks{display:grid;gap:9px}
+.checks label{display:flex;align-items:center;gap:10px;color:var(--muted);cursor:pointer;font-size:14.5px}
+.checks input{appearance:none;width:16px;height:16px;border:1px solid #3A4B6B;border-radius:4px;margin:0;display:grid;place-items:center;flex:none}
+.checks input:checked{background:var(--gold);border-color:var(--gold)}
+.checks input:checked::after{content:"";width:8px;height:4px;border:2px solid var(--ink);border-top:0;border-right:0;transform:rotate(-45deg) translateY(-1px)}
+.checks input:checked + span{color:var(--text)}
+.rail-foot{margin-top:auto;display:grid;gap:8px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:9px 14px;border-radius:8px;
+  border:1px solid var(--line);background:var(--panel);text-decoration:none;font-weight:500;font-size:14.5px}
+.btn:hover{border-color:#3A4B6B;background:var(--raise)}
+.btn.primary{background:var(--gold);border-color:var(--gold);color:#1B1403}
+.btn.primary:hover{background:#F2C465}
+.btn.quiet{background:none;border-color:transparent;color:var(--muted);padding:6px 8px;font-weight:400}
+.btn.quiet:hover{color:var(--text);background:var(--panel)}
+.note{font-size:12.5px;color:var(--dim);margin:0}
+.note a{color:var(--muted)}
+
+/* ── board ────────────────────────────────────────────── */
+.board{display:flex;flex-direction:column;min-width:0;min-height:0}
+.top{display:flex;align-items:center;gap:14px;padding:16px 26px 0;flex-wrap:wrap}
+.tabs{display:flex;gap:2px;margin-right:auto}
+.tabs button{background:none;border:0;border-bottom:2px solid transparent;padding:8px 12px 12px;color:var(--muted);font-weight:500;white-space:nowrap}
+.tabs button:hover{color:var(--text)}
+.tabs button[aria-selected=true]{color:var(--text);border-bottom-color:var(--gold)}
+.tabs .n{color:var(--dim);font-weight:400;margin-left:5px}
+.tools{display:flex;gap:8px;padding-bottom:8px}
+.tools input,.tools select{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:7px 11px;height:36px}
+.tools input{width:210px}
+.tools input::placeholder{color:var(--dim)}
+.rule{height:1px;background:var(--line);margin:0}
+.banner{margin:14px 26px 0;padding:10px 14px;border:1px solid var(--line);border-left:3px solid var(--warn);border-radius:8px;background:var(--panel);font-size:14px;color:var(--muted)}
+.banner a{color:var(--text)}
+.list{overflow-y:auto;flex:1;padding:0 0 40px;position:relative}
+.loading{position:absolute;inset:0 0 auto 0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);background-size:40% 100%;background-repeat:no-repeat;animation:scan 1.1s linear infinite}
+@keyframes scan{from{background-position:-40% 0}to{background-position:140% 0}}
+
+.row{display:grid;grid-template-columns:132px minmax(0,1fr) auto;gap:18px;align-items:center;width:100%;text-align:left;
+  background:none;border:0;border-bottom:1px solid var(--line-soft);padding:15px 26px 15px 23px;border-left:3px solid transparent}
+.row:hover{background:var(--panel)}
+.row[aria-current=true]{background:var(--raise);border-left-color:var(--tick)}
+.row.health{--tick:var(--gold)} .row.energy{--tick:var(--arc)}
+.rate{display:block}
+.rate b{font:600 23px/1 var(--display);color:var(--tick);letter-spacing:-.01em}
+.rate small{font-size:12.5px;color:var(--muted);margin-left:3px}
+.rate .bar{display:block;height:2px;background:var(--line);margin-top:8px;border-radius:2px;overflow:hidden}
+.rate .bar i{display:block;height:100%;background:var(--tick)}
+.rate.none b{font:400 14px/1.2 var(--body);color:var(--dim);letter-spacing:0}
+.what{min-width:0}
+.what .t{display:block;font-weight:500;font-size:15.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.what .c{display:block;color:var(--muted);font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.meta{display:flex;align-items:center;gap:10px;color:var(--dim);font-size:13.5px;white-space:nowrap}
+.tag{font-size:12px;padding:2px 8px;border-radius:20px;border:1px solid var(--line);color:var(--muted)}
+.tag.new{border-color:transparent;background:rgba(123,216,166,.14);color:var(--ok)}
+.tag.saved{border-color:transparent;background:rgba(233,180,76,.14);color:var(--gold)}
+.empty{padding:70px 26px;max-width:520px;color:var(--muted)}
+.empty h3{font:600 17px/1.3 var(--display);color:var(--text);margin:0 0 10px}
+.empty p{margin:0 0 16px}
+
+/* ── detail ───────────────────────────────────────────── */
+.detail{border-left:1px solid var(--line);background:var(--panel);overflow-y:auto;padding:26px 26px 30px;display:flex;flex-direction:column;gap:20px}
+.detail .close{display:none}
+.detail .sect{font-size:13px;color:var(--tick,var(--gold))}
+.detail h1{font:600 21px/1.25 var(--display);margin:6px 0 4px;letter-spacing:-.005em;overflow-wrap:anywhere}
+.detail .co{color:var(--muted);font-size:16px;margin:0}
+.big{display:flex;align-items:baseline;gap:8px;padding:16px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.big b{font:600 38px/1 var(--display);color:var(--tick,var(--gold))}
+.big span{color:var(--muted)}
+.facts{display:grid;grid-template-columns:auto 1fr;gap:9px 18px;margin:0;font-size:14.5px}
+.facts dt{color:var(--dim)} .facts dd{margin:0}
+.why{margin:0;color:var(--muted);font-size:14.5px}
+.acts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.acts .primary{grid-column:1/-1;padding:12px}
+.acts .on{border-color:var(--gold);color:var(--gold)}
+.more h3{font:500 12.5px/1 var(--body);color:var(--dim);margin:0 0 8px}
+.more div{display:flex;flex-wrap:wrap;gap:6px}
+.keys{font-size:12.5px;color:var(--dim);margin-top:auto}
+kbd{font:inherit;border:1px solid var(--line);border-radius:4px;padding:0 5px;color:var(--muted)}
+.placeholder{margin:auto;text-align:center;color:var(--dim);max-width:240px}
+
+/* ── search elsewhere ─────────────────────────────────── */
+dialog{background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:14px;padding:0;width:min(760px,calc(100vw - 32px));max-height:calc(100dvh - 48px)}
+dialog::backdrop{background:rgba(4,7,14,.72)}
+.dlg{padding:24px 26px 26px}
+.dlg header{display:flex;justify-content:space-between;align-items:start;gap:16px;margin-bottom:6px}
+.dlg h2{font:600 18px/1.3 var(--display);margin:0}
+.dlg p{color:var(--muted);margin:0 0 18px;font-size:14.5px;max-width:60ch}
+.grid{display:grid;grid-template-columns:minmax(150px,1.3fr) repeat(4,auto);gap:0 6px;align-items:center}
+.grid .h{font-size:12.5px;color:var(--dim);padding:10px 0 6px;grid-column:1/-1;border-top:1px solid var(--line);margin-top:6px}
+.grid .h:first-child{border-top:0;margin-top:0}
+.grid .r{padding:6px 0;font-size:14.5px}
+.grid a{font-size:13.5px;padding:5px 10px;border:1px solid var(--line);border-radius:20px;text-decoration:none;color:var(--muted);white-space:nowrap;text-align:center}
+.grid a:hover{color:var(--text);border-color:#3A4B6B}
+
+/* ── narrower screens ─────────────────────────────────── */
+@media (max-width:1180px){
+  .app{grid-template-columns:248px minmax(0,1fr)}
+  .detail{position:fixed;inset:0 0 0 auto;width:min(420px,100vw);z-index:5;box-shadow:-30px 0 60px rgba(0,0,0,.5);transform:translateX(100%);transition:transform .22s ease}
+  .detail.open{transform:none}
+  .detail .close{display:inline-flex;align-self:flex-start;margin:-8px 0 -8px -8px}
+  .placeholder{display:none}
+}
+@media (max-width:760px){
+  .app{display:block;height:auto}
+  .rail{border-right:0;border-bottom:1px solid var(--line);padding:16px 16px 14px;gap:14px;overflow:visible}
+  .scope,.swept,.rail-foot .note{display:none}
+  .seg{grid-template-columns:repeat(3,1fr)} .seg .n{display:none} .seg button{justify-content:center;padding:8px 4px;font-size:14px}
+  .checks{grid-template-columns:1fr 1fr}
+  .rail-foot{grid-template-columns:1fr 1fr;margin-top:0}
+  .top{padding:10px 8px 0 4px;gap:6px}
+  .tabs{overflow-x:auto;max-width:100%;margin-right:0} .tabs button{padding:8px 10px 10px;font-size:14.5px}
+  .tools{width:100%;padding:0 8px 10px 12px} .tools input{flex:1;width:auto;min-width:0}
+  .banner{margin:12px 16px 0}
+  .list{overflow:visible}
+  .row{grid-template-columns:92px minmax(0,1fr);padding:13px 16px 13px 13px;gap:12px}
+  .rate b{font-size:19px} .meta{grid-column:2;font-size:13px;flex-wrap:wrap;gap:6px 8px;white-space:normal}
+  .what .t{white-space:normal}
+  .grid{grid-template-columns:1fr 1fr 1fr 1fr} .grid .r{grid-column:1/-1;padding-bottom:2px;font-weight:500} .grid a{margin-bottom:8px}
+}
+@media (prefers-reduced-motion:reduce){
+  .scope .sweep,.loading{animation:none} .detail{transition:none}
+}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <aside class="rail" aria-label="Filters">
+    <p class="mark">Rotwang</p>
+
+    <div class="scope" aria-hidden="true">
+      <svg viewBox="0 0 200 200">
+        <defs>
+          <linearGradient id="beam" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#E9B44C" stop-opacity="0"/><stop offset="1" stop-color="#E9B44C" stop-opacity=".34"/>
+          </linearGradient>
+        </defs>
+        <circle class="ring" cx="100" cy="100" r="96"/><circle class="ring" cx="100" cy="100" r="66"/><circle class="ring" cx="100" cy="100" r="36"/>
+        <line class="axis" x1="4" y1="100" x2="196" y2="100"/><line class="axis" x1="100" y1="4" x2="100" y2="196"/>
+        <g id="blips"></g>
+        <g class="sweep"><path d="M100 100 L100 4 A96 96 0 0 1 183.1 52 Z" fill="url(#beam)"/><line x1="100" y1="100" x2="183.1" y2="52" stroke="#E9B44C" stroke-width="1.2"/></g>
+        <circle cx="100" cy="100" r="44" fill="#0A0F1C" stroke="#22304A"/>
+      </svg>
+      <div class="scope-read"><div><b id="newCount">0</b><span id="newLabel">new in the last sweep</span></div></div>
+    </div>
+    <p class="swept" id="swept">Loading the list</p>
+
+    <div class="group">
+      <h2>Industry</h2>
+      <div class="seg" id="sectors">
+        <button data-s="all" aria-pressed="true"><span class="l">Both</span><span class="n"></span></button>
+        <button data-s="health" aria-pressed="false"><span class="l"><i style="background:var(--gold)"></i>Life sciences</span><span class="n"></span></button>
+        <button data-s="energy" aria-pressed="false"><span class="l"><i style="background:var(--arc)"></i>Energy</span><span class="n"></span></button>
+      </div>
+    </div>
+
+    <div class="group">
+      <h2>Show only</h2>
+      <div class="checks">
+        <label><input type="checkbox" id="fNew"><span>New in the last sweep</span></label>
+        <label><input type="checkbox" id="fRate"><span>Rate posted</span></label>
+        <label><input type="checkbox" id="fDirect"><span>Direct employers</span></label>
+        <label><input type="checkbox" id="fRemote"><span>Remote</span></label>
+      </div>
+    </div>
+
+    <div class="rail-foot">
+      <button class="btn" id="openElsewhere">Search other job sites</button>
+      <a class="btn" id="runNow" target="_blank" rel="noopener">Run a sweep now</a>
+      <p class="note" id="coverage"></p>
+      <p class="note" id="hiddenNote" hidden></p>
+    </div>
+  </aside>
+
+  <main class="board">
+    <div class="top">
+      <div class="tabs" role="tablist" id="tabs">
+        <button role="tab" data-t="contract" aria-selected="true">Contract<span class="n"></span></button>
+        <button role="tab" data-t="pitch" aria-selected="false">Pitch as contract<span class="n"></span></button>
+        <button role="tab" data-t="saved" aria-selected="false">Saved<span class="n"></span></button>
+        <button role="tab" data-t="applied" aria-selected="false">Applied<span class="n"></span></button>
+      </div>
+      <div class="tools">
+        <input type="search" id="q" placeholder="Search title or company" aria-label="Search title or company">
+        <select id="sort" aria-label="Sort">
+          <option value="rate">Highest rate</option>
+          <option value="new">Newest</option>
+          <option value="fit">Best match</option>
+        </select>
+      </div>
+    </div>
+    <hr class="rule">
+    <div class="banner" id="banner" hidden></div>
+    <div class="list" id="list" tabindex="-1"><div class="loading" id="loading"></div></div>
+  </main>
+
+  <section class="detail" id="detail" aria-label="Role details">
+    <p class="placeholder">Pick a role to see the details and open the posting.</p>
+  </section>
+</div>
+
+<dialog id="elsewhere" aria-labelledby="elsTitle">
+  <div class="dlg">
+    <header><h2 id="elsTitle">Search other job sites</h2><button class="btn quiet" id="closeElsewhere">Close</button></header>
+    <p>LinkedIn, Indeed and Dice don't let an app read their listings, so these open each site already filtered to contract roles from the past week.</p>
+    <div class="grid" id="elsGrid"></div>
+  </div>
+</dialog>
+
+<script>
+const REPO = "archimedesrazorblade18/rotwang";
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const store = {
+  get(k, d){ try { return JSON.parse(localStorage.getItem("rotwang." + k)) ?? d } catch { return d } },
+  set(k, v){ try { localStorage.setItem("rotwang." + k, JSON.stringify(v)) } catch {} }
+};
+const S = { data:null, tab:"contract", sector:"all", q:"", sort:"rate", cur:null,
+            marks: store.get("marks", {}) };          // id -> {saved, applied, hidden, snap}
+const SECTOR = { health:"Life sciences", energy:"Energy" };
+const day = 864e5;
+
+function mark(id){ return S.marks[id] || {} }
+function setMark(role, patch){
+  const m = { ...mark(role.id), ...patch };
+  // keep a copy of the role, so a saved role stays on the list after the posting closes
+  m.snap = { id:role.id, title:role.title, company:role.company, sector:role.sector, kind:role.kind, hourly:role.hourly,
+             pay:role.pay, location:role.location, url:role.url, engagement:role.engagement, first_seen:role.first_seen,
+             remote:role.remote, direct:role.direct, agency:role.agency, source:role.source, why:role.why };
+  if (!m.saved && !m.applied && !m.hidden) delete S.marks[role.id]; else S.marks[role.id] = m;
+  store.set("marks", S.marks);
+}
+function fmtDate(iso, long){
+  const d = new Date(iso); if (isNaN(d)) return "";
+  return d.toLocaleDateString(undefined, long ? {weekday:"long", month:"long", day:"numeric"} : {month:"short", day:"numeric"});
+}
+function isNew(r){
+  const g = new Date(S.data.generated), f = new Date(r.first_seen + "T12:00:00Z");
+  return g - f < 6.5 * day;
+}
+
+function pool(){
+  const live = S.data.roles, ids = new Set(live.map(r => r.id));
+  const kept = Object.values(S.marks).filter(m => (m.saved || m.applied) && m.snap && !ids.has(m.snap.id))
+                     .map(m => ({ ...m.snap, closed:true }));
+  return live.concat(kept);
+}
+function inTab(r, tab){
+  const m = mark(r.id);
+  if (tab === "saved") return !!m.saved;
+  if (tab === "applied") return !!m.applied;
+  return !r.closed && !m.hidden && !m.applied && r.kind === tab;
+}
+function passes(r){
+  if (S.sector !== "all" && r.sector !== S.sector) return false;
+  if ($("#fNew").checked && !(isNew(r) && !r.closed)) return false;
+  if ($("#fRate").checked && !r.hourly) return false;
+  if ($("#fDirect").checked && !r.direct) return false;
+  if ($("#fRemote").checked && !r.remote && !/remote/i.test(r.location || "")) return false;
+  if (S.q){ const q = S.q.toLowerCase(); if (!(`${r.title} ${r.company} ${r.location}`.toLowerCase().includes(q))) return false }
+  return true;
+}
+function sorted(rows){
+  const by = {
+    rate:(a,b) => (b.hourly||0) - (a.hourly||0) || isNew(b) - isNew(a) || (b.fit||0) - (a.fit||0),
+    new:(a,b) => (b.first_seen||"").localeCompare(a.first_seen||"") || (b.hourly||0) - (a.hourly||0),
+    fit:(a,b) => (b.fit||0) - (a.fit||0) || (b.hourly||0) - (a.hourly||0)
+  }[S.sort];
+  return rows.slice().sort(by);
+}
+function rateHTML(r){
+  if (!r.hourly) return `<span class="rate none"><b>Rate not posted</b></span>`;
+  const unit = r.kind === "pitch" || r.engagement === "permanent" || /,\d{3}|k\b/i.test(r.pay || "") ? "/hr equiv." : "/hr";
+  return `<span class="rate"><b>$${r.hourly}</b><small>${unit}</small><span class="bar"><i style="width:${Math.min(100, r.hourly / 2)}%"></i></span></span>`;
+}
+
+function render(){
+  if (!S.data) return;
+  const all = pool();
+  for (const b of $$("#tabs button")){
+    const n = all.filter(r => inTab(r, b.dataset.t) && (S.sector === "all" || r.sector === S.sector)).length;
+    b.querySelector(".n").textContent = n; b.setAttribute("aria-selected", b.dataset.t === S.tab);
+  }
+  for (const b of $$("#sectors button")){
+    const s = b.dataset.s;
+    b.querySelector(".n").textContent = all.filter(r => inTab(r, S.tab) && (s === "all" || r.sector === s)).length;
+    b.setAttribute("aria-pressed", s === S.sector);
+  }
+  const rows = sorted(all.filter(r => inTab(r, S.tab) && passes(r)));
+  S.rows = rows;
+  const list = $("#list");
+  if (!rows.length){ list.innerHTML = emptyHTML(all); wireEmpty(); }
+  else list.innerHTML = rows.map(r => {
+    const m = mark(r.id);
+    return `<button class="row ${r.sector}" data-id="${esc(r.id)}" aria-current="${S.cur === r.id}">
+      ${rateHTML(r)}
+      <span class="what"><span class="t">${esc(r.title)}</span><span class="c">${esc(r.company)}</span></span>
+      <span class="meta">${r.closed ? '<span class="tag">No longer listed</span>' : isNew(r) ? '<span class="tag new">New</span>' : ""}${m.saved && S.tab !== "saved" ? '<span class="tag saved">Saved</span>' : ""}<span>${esc(shortLoc(r))}</span></span>
+    </button>`;
+  }).join("");
+  if (S.cur && !rows.some(r => r.id === S.cur) && window.innerWidth > 1180) S.cur = null;
+  renderDetail();
+  const hidden = Object.values(S.marks).filter(m => m.hidden).length, hn = $("#hiddenNote");
+  hn.hidden = !hidden;
+  hn.innerHTML = hidden ? `${hidden} hidden. <a href="#" id="unhide">Bring them back</a>` : "";
+  if (hidden) $("#unhide").onclick = e => { e.preventDefault(); for (const [id, m] of Object.entries(S.marks)){ delete m.hidden; if (!m.saved && !m.applied) delete S.marks[id] } store.set("marks", S.marks); render() };
+}
+function shortLoc(r){
+  if (r.remote && !/remote/i.test(r.location || "")) return "Remote";
+  return (r.location || "").split(/[;|]/)[0].replace(/, (United States|USA?|us)$/i, "").slice(0, 34);
+}
+function emptyHTML(all){
+  const any = all.some(r => inTab(r, S.tab));
+  if (S.tab === "saved") return `<div class="empty"><h3>Nothing saved yet</h3><p>Open a role and choose Save. It stays here even after the posting closes.</p></div>`;
+  if (S.tab === "applied") return `<div class="empty"><h3>No applications tracked yet</h3><p>Mark a role as applied and it moves here, off the main lists.</p></div>`;
+  if (any) return `<div class="empty"><h3>No roles match these filters</h3><p>The filters on the left or the search box are hiding everything on this list.</p><button class="btn" id="clearF">Clear filters</button></div>`;
+  return `<div class="empty"><h3>Nothing on this list right now</h3><p>The next sweep runs Monday morning. You can also start one now.</p><a class="btn" target="_blank" rel="noopener" href="https://github.com/${REPO}/actions/workflows/weekly.yml">Run a sweep now</a></div>`;
+}
+function wireEmpty(){
+  const c = $("#clearF"); if (!c) return;
+  c.onclick = () => { $$(".checks input").forEach(i => i.checked = false); $("#q").value = ""; S.q = ""; S.sector = "all"; render() };
+}
+
+function renderDetail(){
+  const d = $("#detail"), r = pool().find(x => x.id === S.cur);
+  if (!r){ d.classList.remove("open"); d.innerHTML = `<p class="placeholder">Pick a role to see the details and open the posting.</p>`; return }
+  const m = mark(r.id), q = encodeURIComponent(`${r.title} ${r.company}`), cq = encodeURIComponent(r.company.replace(/\s*\(.*\)/, ""));
+  const how = r.source === "Web search" ? "Found by web search, not yet re-checked by a sweep" : r.direct ? `Company careers site${r.source ? " (" + esc(r.source) + ")" : ""}` : r.agency ? `Recruiter listing${r.source ? ", found on " + esc(r.source) : ""}` : `Found on ${esc(r.source || "a job index")}`;
+  const eng = { contract:"Contract", contract_to_hire:"Contract to hire", freelance:"Freelance", hourly:"Hourly", part_time_contract:"Part-time contract", permanent:"Posted as permanent", unclear:"Not stated" }[r.engagement] || "Contract";
+  d.style.setProperty("--tick", r.sector === "energy" ? "var(--arc)" : "var(--gold)");
+  d.innerHTML = `
+    <button class="btn quiet close" id="closeDetail">Back to the list</button>
+    <div><span class="sect">${SECTOR[r.sector] || ""}</span><h1>${esc(r.title)}</h1><p class="co">${esc(r.company)}</p></div>
+    <div class="big">${r.hourly ? `<b>$${r.hourly}</b><span>per hour${r.kind === "pitch" || /,\d{3}|k\b/i.test(r.pay || "") ? ", from the posted salary" : ""}</span>` : `<span>No rate in the posting</span>`}</div>
+    <dl class="facts">
+      ${r.pay ? `<dt>Posted pay</dt><dd>${esc(r.pay)}</dd>` : ""}
+      <dt>Engagement</dt><dd>${eng}</dd>
+      <dt>Location</dt><dd>${esc(r.location || (r.remote ? "Remote" : "Not stated"))}</dd>
+      <dt>Source</dt><dd>${how}</dd>
+      <dt>First seen</dt><dd>${fmtDate(r.first_seen + "T12:00:00Z")}${r.closed ? ", no longer listed" : ""}</dd>
+    </dl>
+    ${r.why ? `<p class="why">${esc(r.why)}</p>` : r.kind === "pitch" ? `<p class="why">Posted as a permanent senior role. The need behind it is work you can offer to cover on contract or fractionally.</p>` : ""}
+    <div class="acts">
+      <a class="btn primary" href="${esc(r.url)}" target="_blank" rel="noopener">Open the posting</a>
+      <button class="btn ${m.saved ? "on" : ""}" data-act="saved">${m.saved ? "Saved" : "Save"}</button>
+      <button class="btn ${m.applied ? "on" : ""}" data-act="applied">${m.applied ? "Applied" : "Mark applied"}</button>
+      <button class="btn quiet" data-act="hidden" style="grid-column:1/-1">${m.hidden ? "Show again" : "Hide this role"}</button>
+    </div>
+    <div class="more"><h3>Look further</h3><div>
+      <a class="btn" target="_blank" rel="noopener" href="https://www.linkedin.com/jobs/search/?keywords=${q}">This role on LinkedIn</a>
+      <a class="btn" target="_blank" rel="noopener" href="https://www.linkedin.com/search/results/people/?keywords=${cq}%20${encodeURIComponent(r.sector === "energy" ? "analytics OR data science" : "biostatistics OR biometrics")}">Who to contact</a>
+      <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/search?q=${cq}%20careers">Company careers</a>
+    </div></div>
+    <p class="keys"><kbd>↑</kbd> <kbd>↓</kbd> move, <kbd>Enter</kbd> open, <kbd>S</kbd> save, <kbd>A</kbd> applied, <kbd>H</kbd> hide</p>`;
+  if (window.innerWidth <= 1180) d.classList.add("open");
+  $("#closeDetail").onclick = () => { S.cur = null; render() };
+  d.querySelectorAll("[data-act]").forEach(b => b.onclick = () => act(r, b.dataset.act));
+}
+function act(r, k){
+  const on = !mark(r.id)[k];
+  setMark(r, { [k]: on });
+  if ((k === "hidden" || k === "applied") && on && (S.tab === "contract" || S.tab === "pitch")){
+    const i = S.rows.findIndex(x => x.id === r.id), next = S.rows[i + 1] || S.rows[i - 1];
+    S.cur = window.innerWidth > 1180 && next ? next.id : null;
+  }
+  render();
+}
+
+/* ── status, scope, coverage ── */
+function renderStatus(){
+  const d = S.data, g = new Date(d.generated), fresh = d.roles.filter(r => isNew(r));
+  $("#newCount").textContent = fresh.length;
+  $("#swept").innerHTML = `Last sweep <strong>${fmtDate(d.generated, true)}</strong>`;
+  const w = d.watched || {}, parts = [];
+  parts.push(`${(w.health || 0) + (w.energy || 0)} company career sites read, from ${(d.universe || 0).toLocaleString()} companies tracked.`);
+  if (!d.reader) parts.push(`Listings are filtered by keyword rules. <a target="_blank" rel="noopener" href="https://github.com/${REPO}#better-results">Turn on full reading</a>`);
+  $("#coverage").innerHTML = parts.join(" ");
+  // blips: one per new role, angle from the id so it stays put between loads
+  $("#blips").innerHTML = fresh.slice(0, 60).map(r => {
+    let h = 0; for (const c of r.id) h = (h * 31 + c.charCodeAt(0)) >>> 0;
+    const a = (h % 360) * Math.PI / 180, rad = r.hourly ? 88 - Math.min(160, r.hourly) / 160 * 36 : 60 + (h >>> 9) % 32;
+    return `<circle class="blip" cx="${(100 + rad * Math.cos(a)).toFixed(1)}" cy="${(100 + rad * Math.sin(a)).toFixed(1)}" r="${r.hourly ? 3 : 2}" fill="${r.sector === "energy" ? "#6FD3FF" : "#E9B44C"}"/>`;
+  }).join("");
+  const b = $("#banner"), age = (Date.now() - g) / day, msgs = [];
+  if (d.last_attempt_failed) msgs.push(`The sweep on ${fmtDate(d.last_attempt_failed + "T12:00:00Z")} couldn't reach the job boards, so this is the previous list.`);
+  else if (age > 9) msgs.push(`This list is from ${fmtDate(d.generated)}. The Monday sweep hasn't updated it since. <a target="_blank" rel="noopener" href="https://github.com/${REPO}/actions/workflows/weekly.yml">Run a sweep now</a>`);
+  if (d.seed) msgs.push(`Starting list: life sciences from your November 7 sweep, plus six energy contracts found by web search on November 16. The first Monday sweep replaces it with a full read of both industries.`);
+  b.hidden = !msgs.length; b.innerHTML = msgs.join("<br>");
+}
+
+/* ── search elsewhere ── */
+const ELSE = {
+  "Life sciences": ["biostatistician", "statistical programmer", "SAS programmer clinical", "real world evidence", "data scientist pharma", "biometrics", "machine learning biotech", "bioinformatics"],
+  "Energy": ["data scientist energy", "load forecasting", "quantitative analyst power", "energy analytics", "machine learning energy", "statistician utility", "energy trading analyst", "solar data analyst"]
+};
+function elsewhere(){
+  const e = encodeURIComponent, out = [];
+  for (const [label, terms] of Object.entries(ELSE)){
+    out.push(`<div class="h">${label}</div>`);
+    for (const t of terms) out.push(`<div class="r">${esc(t[0].toUpperCase() + t.slice(1))}</div>
+      <a target="_blank" rel="noopener" href="https://www.linkedin.com/jobs/search/?keywords=${e(t)}&f_JT=C&f_TPR=r604800&sortBy=DD">LinkedIn</a>
+      <a target="_blank" rel="noopener" href="https://www.indeed.com/jobs?q=${e(t)}&jt=contract&fromage=7&sort=date">Indeed</a>
+      <a target="_blank" rel="noopener" href="https://www.dice.com/jobs?q=${e(t)}&filters.employmentType=CONTRACTS&filters.postedDate=SEVEN">Dice</a>
+      <a target="_blank" rel="noopener" href="https://www.google.com/search?q=${e("contract " + t + " jobs")}&udm=8">Google</a>`);
+  }
+  $("#elsGrid").innerHTML = out.join("");
+}
+
+/* ── events ── */
+$("#tabs").onclick = e => { const b = e.target.closest("button"); if (b){ S.tab = b.dataset.t; S.cur = null; render(); $("#list").scrollTop = 0 } };
+$("#sectors").onclick = e => { const b = e.target.closest("button"); if (b){ S.sector = b.dataset.s; render() } };
+$$(".checks input").forEach(i => i.onchange = render);
+$("#q").oninput = e => { S.q = e.target.value.trim(); render() };
+$("#sort").onchange = e => { S.sort = e.target.value; store.set("sort", S.sort); render() };
+$("#list").onclick = e => { const b = e.target.closest(".row"); if (b){ S.cur = b.dataset.id; render() } };
+$("#openElsewhere").onclick = () => { elsewhere(); $("#elsewhere").showModal() };
+$("#closeElsewhere").onclick = () => $("#elsewhere").close();
+$("#elsewhere").onclick = e => { if (e.target.id === "elsewhere") e.target.close() };
+$("#runNow").href = `https://github.com/${REPO}/actions/workflows/weekly.yml`;
+document.addEventListener("keydown", e => {
+  if (!S.rows || e.target.matches("input,select,textarea") || $("#elsewhere").open || e.metaKey || e.ctrlKey || e.altKey) return;
+  const i = S.rows.findIndex(r => r.id === S.cur), r = S.rows[i];
+  if (e.key === "ArrowDown" || e.key === "ArrowUp"){
+    e.preventDefault();
+    const n = S.rows[Math.max(0, Math.min(S.rows.length - 1, i + (e.key === "ArrowDown" ? 1 : -1)))];
+    if (n){ S.cur = n.id; render(); document.querySelector(`.row[data-id="${CSS.escape(n.id)}"]`)?.scrollIntoView({block:"nearest"}) }
+  } else if (e.key === "Escape" && S.cur){ S.cur = null; render() }
+  else if (r && e.key === "Enter" && !e.target.closest("a,button")) window.open(r.url, "_blank", "noopener");
+  else if (r && /^[sah]$/i.test(e.key)) act(r, {s:"saved", a:"applied", h:"hidden"}[e.key.toLowerCase()]);
+});
+
+/* ── load ── */
+async function load(){
+  S.sort = store.get("sort", "rate"); $("#sort").value = S.sort;
+  try {
+    const res = await fetch("data.json?t=" + Date.now(), { cache:"no-store" });
+    if (!res.ok) throw new Error(res.status);
+    S.data = await res.json(); store.set("data", S.data);
+  } catch (err) {
+    S.data = store.get("data", null);
+    if (!S.data){
+      $("#list").innerHTML = `<div class="empty"><h3>The list didn't load</h3><p>Check your internet connection, then try again.</p><button class="btn" onclick="location.reload()">Try again</button></div>`;
+      $("#swept").textContent = "Not connected"; return;
+    }
+    S.offline = true;
+  }
+  S.data.roles = (S.data.roles || []).filter(r => r && r.id && r.title && r.url);
+  renderStatus();
+  if (S.offline){ const b = $("#banner"); b.hidden = false; b.innerHTML = "You're offline. Showing the list from the last time you opened the app." + (b.innerHTML ? "<br>" + b.innerHTML : "") }
+  render();
+}
+load();
+if ("serviceWorker" in navigator && location.protocol === "https:") navigator.serviceWorker.register("sw.js").catch(() => {});
+</script>
+</body>
+</html>

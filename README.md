@@ -16,7 +16,7 @@ under the Actions tab). That run:
 4. adds recruiter and job-index listings (Adzuna if a key is set; Remotive, Remote OK, Jobicy, Himalayas, The Muse),
 5. keeps contract roles in statistics, data science, programming and AI, plus senior
    leadership roles worth pitching as contract work,
-6. writes `docs/data.json`, which the app reads.
+6. writes `data.json`, which the app reads.
 
 To run it any other day: Actions, Weekly sweep, Run workflow.
 
