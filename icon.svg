@@ -1,8 +1,33 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-<rect width="512" height="512" rx="96" fill="#0A0F1C"/>
-<g fill="none" stroke="#2A3A58" stroke-width="10"><circle cx="256" cy="256" r="176"/><circle cx="256" cy="256" r="110"/></g>
-<path d="M256 256 L256 80 A176 176 0 0 1 408.4 168 Z" fill="#E9B44C" opacity=".28"/>
-<line x1="256" y1="256" x2="408.4" y2="168" stroke="#E9B44C" stroke-width="12" stroke-linecap="round"/>
-<circle cx="256" cy="256" r="16" fill="#E9B44C"/>
-<circle cx="330" cy="150" r="20" fill="#E9B44C"/><circle cx="160" cy="330" r="16" fill="#6FD3FF"/>
+  <defs>
+    <radialGradient id="sky" cx="256" cy="290" r="330" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1A2A4C"/><stop offset=".6" stop-color="#0A1020"/><stop offset="1" stop-color="#04060C"/>
+    </radialGradient>
+    <linearGradient id="metal" x1="170" y1="0" x2="342" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#7A501A"/><stop offset=".5" stop-color="#B98330"/>
+      <stop offset=".5" stop-color="#F7D27E"/><stop offset="1" stop-color="#E2A642"/>
+    </linearGradient>
+    <linearGradient id="shade" x1="0" y1="58" x2="0" y2="512" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/><stop offset=".7" stop-color="#000" stop-opacity=".1"/><stop offset="1" stop-color="#000" stop-opacity=".55"/>
+    </linearGradient>
+    <radialGradient id="spark"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".3" stop-color="#9EE6FF"/><stop offset="1" stop-color="#6FD3FF" stop-opacity="0"/></radialGradient>
+    <filter id="glow" filterUnits="userSpaceOnUse" x="-60" y="-60" width="632" height="632"><feGaussianBlur stdDeviation="9"/></filter>
+    <clipPath id="clip"><rect width="512" height="512" rx="108"/></clipPath>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect width="512" height="512" fill="url(#sky)"/>
+    <g>
+      <g transform="rotate(-9 256 300)">
+        <path d="M94,300 A162,38 0 0 1 418,300" fill="none" stroke="#6FD3FF" stroke-opacity=".32" stroke-width="15"/>
+      </g>
+      <path d="M256,58 L267,150 L281,150 L281,212 L299,212 L299,288 L319,288 L319,398 L342,398 L342,520 L170,520 L170,398 L193,398 L193,288 L213,288 L213,212 L231,212 L231,150 L245,150 Z" fill="url(#metal)"/>
+      <path d="M256,58 L267,150 L281,150 L281,212 L299,212 L299,288 L319,288 L319,398 L342,398 L342,520 L170,520 L170,398 L193,398 L193,288 L213,288 L213,212 L231,212 L231,150 L245,150 Z" fill="url(#shade)"/>
+      <g transform="rotate(-9 256 300)">
+        <path d="M94,300 A162,38 0 0 0 418,300" fill="none" stroke="#6FD3FF" stroke-width="34" stroke-opacity=".42" filter="url(#glow)"/>
+        <path d="M94,300 A162,38 0 0 0 418,300" fill="none" stroke="#6FD3FF" stroke-width="15"/>
+        <path d="M94,300 A162,38 0 0 0 418,300" fill="none" stroke="#E9FAFF" stroke-width="5"/>
+      </g>
+      <circle cx="256" cy="58" r="30" fill="url(#spark)"/>
+    </g>
+  </g>
 </svg>
