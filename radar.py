@@ -219,12 +219,10 @@ WORKDAY_TERMS = ["biostatistician", "biostatistics", "statistician", "statistics
                  "real world evidence", "epidemiologist", "epidemiology",
                  "computational biologist", "bioinformatics", "clinical data scientist",
                  "clinical evidence", "data scientist", "data science", "machine learning"]
-WORKDAY_ENERGY_TERMS = ["data scientist", "data science", "machine learning", "statistician",
-                        "statistics", "quantitative", "forecasting", "analytics", "optimization",
-                        "artificial intelligence", "contractor"]
-WORKDAY_TECH_TERMS = ["statistician", "statistics", "data scientist", "data science", "quantitative",
-                      "applied scientist", "research scientist", "machine learning", "analytics",
-                      "contractor", "contingent", "temporary"]
+WORKDAY_ENERGY_TERMS = ["data scientist", "statistician", "quantitative", "forecasting",
+                        "machine learning", "contractor"]
+WORKDAY_TECH_TERMS = ["statistician", "data scientist", "applied scientist", "quantitative",
+                      "machine learning", "contractor"]
 # Wide scope also asks Workday boards for contract work by name
 WORKDAY_WIDE_TERMS = ["contract", "contractor", "consultant", "temporary", "freelance"]
 TODAY = datetime.now(timezone.utc).strftime("%Y-%m-%d")
@@ -320,7 +318,7 @@ _JUNK = re.compile(
     r"blockchain|web3|pricing|payer|contracting|procurement|supply chain|facilities|strategy|"
     r"transformation|platform|infrastructure|security|help ?desk|video|finance|"
     r"evangelist|advocate|solutions? (engineer|consultant)|partner|program manag|project manag|"
-    r"technical program|site reliability|\bqa\b|test engineer", re.I)
+    r"technical program|site reliability|\bqa\b|test engineer|\bgrants?\b|tooling", re.I)
 _HEALTH_TITLE = re.compile(r"biostat|clinical|pharma|oncolog|real[- ]world|\brwe\b|\bheor\b|"
                            r"epidemiolog|bioinformat|biometric|pharmacometric|health|medical|patient", re.I)
 
@@ -506,6 +504,40 @@ def radar_session() -> requests.Session:
         total=1, backoff_factor=0.3, status_forcelist=[500, 502, 503, 504],
         respect_retry_after_header=False, allowed_methods=frozenset(["GET", "POST"]))))
     return s
+
+
+# Workday answers "429 Too Many Requests" to GitHub's computers when asked in a
+# burst, which on the 2026-11-24 run made 204 of 206 large companies look absent.
+# Every Workday request now goes through one shared pace, and a 429 is waited out.
+WD_GAP = 1.1                 # seconds between Workday requests, across all threads
+_wd_lock = threading.Lock()
+_wd_last = [0.0]
+WD_STATS = {"requests": 0, "limited": 0}
+
+
+def wd_request(s, method: str, url: str, **kw):
+    """A Workday request at the shared pace; a 429 is retried after its wait."""
+    kw.setdefault("timeout", 25)
+    for attempt in range(3):
+        with _wd_lock:
+            wait = WD_GAP - (time.time() - _wd_last[0])
+            if wait > 0:
+                time.sleep(wait)
+            _wd_last[0] = time.time()
+        WD_STATS["requests"] += 1
+        try:
+            r = s.request(method, url, **kw)
+        except requests.RequestException:
+            return None
+        if r.status_code != 429:
+            return r
+        WD_STATS["limited"] += 1
+        ra = r.headers.get("Retry-After", "")
+        pause = min(60, int(ra)) if ra.isdigit() else 15 * (attempt + 1)
+        with _wd_lock:                         # everyone waits, not only this thread
+            time.sleep(pause)
+            _wd_last[0] = time.time()
+    return None
 
 
 def _host(url: str) -> str:
@@ -1386,13 +1418,10 @@ def probe_workday(s, entries):
         if time.time() > deadline:
             return None
         host = f"{tenant}.wd{n}.myworkdayjobs.com"
-        try:
-            r = s.post(f"https://{host}/wday/cxs/{tenant}/{site}/jobs",
+        r = wd_request(s, "POST", f"https://{host}/wday/cxs/{tenant}/{site}/jobs",
                        json={"appliedFacets": {}, "limit": 1, "offset": 0, "searchText": ""},
                        timeout=TIMEOUT)
-        except Exception:
-            continue
-        if not r.ok:
+        if r is None or not r.ok:
             continue
         try:
             d = r.json() or {}
@@ -1558,16 +1587,15 @@ def read_workday(s, name: str, token: str, sector: str = ""):
     for term, offset in pages:
         if term in done_terms:
             continue
-        try:
-            r = s.post(f"https://{host}/wday/cxs/{tenant}/{site}/jobs",
-                       json={"appliedFacets": {}, "limit": 20, "offset": offset, "searchText": term},
-                       timeout=25)
-        except requests.RequestException:
-            continue
-        if not r.ok:
+        r = wd_request(s, "POST", f"https://{host}/wday/cxs/{tenant}/{site}/jobs",
+                       json={"appliedFacets": {}, "limit": 20, "offset": offset, "searchText": term})
+        if r is None or not r.ok:
             continue
         ok = True
-        d = r.json() or {}
+        try:
+            d = r.json() or {}
+        except ValueError:
+            continue
         if offset + 20 >= int(d.get("total") or 0):
             done_terms.add(term)                  # no further pages for this term
         for j in d.get("jobPostings", []) or []:
@@ -1580,7 +1608,6 @@ def read_workday(s, name: str, token: str, sector: str = ""):
                                contract=rw.is_contract(t), source=f"{name} · Workday",
                                url=f"https://{host}/{site}{path}",
                                remote="remote" in (j.get("locationsText", "") or "").lower()))
-        time.sleep(0.1)
     return out, ok
 
 
