@@ -214,11 +214,9 @@ SBIR_YEARS = 3            # NIH small-business grant years read
 FDA_DX_PANELS = {"chemistry", "clinical chemistry", "hematology", "immunology",
                  "microbiology", "pathology", "toxicology", "clinical toxicology",
                  "molecular genetics", "immunology and microbiology"}
-WORKDAY_TERMS = ["biostatistician", "biostatistics", "statistician", "statistics",
-                 "statistical programmer", "statistical programming", "biometrics",
-                 "real world evidence", "epidemiologist", "epidemiology",
-                 "computational biologist", "bioinformatics", "clinical data scientist",
-                 "clinical evidence", "data scientist", "data science", "machine learning"]
+WORKDAY_TERMS = ["biostatistician", "statistician", "statistical programmer", "biometrics",
+                 "real world evidence", "epidemiologist", "bioinformatics",
+                 "clinical evidence", "data scientist", "machine learning", "contractor"]
 WORKDAY_ENERGY_TERMS = ["data scientist", "statistician", "quantitative", "forecasting",
                         "machine learning", "contractor"]
 WORKDAY_TECH_TERMS = ["statistician", "data scientist", "applied scientist", "quantitative",
@@ -509,7 +507,7 @@ def radar_session() -> requests.Session:
 # Workday answers "429 Too Many Requests" to GitHub's computers when asked in a
 # burst, which on the 2026-11-24 run made 204 of 206 large companies look absent.
 # Every Workday request now goes through one shared pace, and a 429 is waited out.
-WD_GAP = 1.1                 # seconds between Workday requests, across all threads
+WD_GAP = 1.5                 # seconds between Workday requests, across all threads (grows on 429)
 _wd_lock = threading.Lock()
 _wd_last = [0.0]
 WD_STATS = {"requests": 0, "limited": 0}
@@ -532,6 +530,8 @@ def wd_request(s, method: str, url: str, **kw):
         if r.status_code != 429:
             return r
         WD_STATS["limited"] += 1
+        global WD_GAP
+        WD_GAP = min(4.0, WD_GAP + 0.5)        # ask more slowly from now on
         ra = r.headers.get("Retry-After", "")
         pause = min(60, int(ra)) if ra.isdigit() else 15 * (attempt + 1)
         with _wd_lock:                         # everyone waits, not only this thread
@@ -1401,27 +1401,34 @@ WORKDAY_ENERGY = {
 
 def _workday_variants(entries):
     """The stated address first, then the common alternatives, de-duplicated."""
+    # Workday limits how fast it can be asked, so only a few guesses per company:
+    # the stated address, the same site on the other common servers, then "External".
     out, seen = [], set()
     for tenant, wd, site in entries:
-        for n in [wd, 1, 3, 5]:
-            for st in [site, "External", "Careers", f"{tenant.capitalize()}Careers", "External_Careers"]:
-                key = (tenant, n, st)
-                if key not in seen:
-                    seen.add(key)
-                    out.append(key)
+        for n, st in [(wd, site), (1, site), (5, site), (3, site), (wd, "External")]:
+            key = (tenant, n, st)
+            if key not in seen:
+                seen.add(key)
+                out.append(key)
     return out
 
 
 def probe_workday(s, entries):
-    deadline = time.time() + 40
+    """(token, open jobs) when an address answers; None when every guess said no;
+    "limited" when Workday refused or timed out, so the company is tried again next run."""
+    deadline = time.time() + 120               # the shared pace makes each guess slow
+    limited = False
     for tenant, n, site in _workday_variants(entries):
         if time.time() > deadline:
-            return None
+            return "limited"
         host = f"{tenant}.wd{n}.myworkdayjobs.com"
         r = wd_request(s, "POST", f"https://{host}/wday/cxs/{tenant}/{site}/jobs",
                        json={"appliedFacets": {}, "limit": 1, "offset": 0, "searchText": ""},
                        timeout=TIMEOUT)
-        if r is None or not r.ok:
+        if r is None:
+            limited = True
+            continue
+        if not r.ok:
             continue
         try:
             d = r.json() or {}
@@ -1429,13 +1436,14 @@ def probe_workday(s, entries):
             continue
         if d.get("total") or d.get("jobPostings"):
             return f"{host}|{tenant}|{site}", int(d.get("total") or len(d.get("jobPostings") or []))
-    return None
+    return "limited" if limited else None
 
 
 def discover_workday(reg: dict) -> int:
     """Test every Workday candidate; keep only addresses that answer."""
     s = radar_session()
     todo = []
+    retry_after = (datetime.now(timezone.utc) - timedelta(days=28)).strftime("%Y-%m-%d")
     for name, entries in {**WORKDAY_CANDIDATES, **WORKDAY_ENERGY, **WORKDAY_TECH}.items():
         k = company_key(name)
         c = reg.setdefault(k, {"name": name, "sources": ["curated"], "status": "unresolved",
@@ -1446,6 +1454,10 @@ def discover_workday(reg: dict) -> int:
             c["sectors"].append("tech")
         if c.get("ats") == "workday" and c["status"] == "watching":
             continue                               # already confirmed on an earlier run
+        if c.get("status") == "watching":
+            continue                               # already read through another careers system
+        if (c.get("workday_tried") or "") >= retry_after:
+            continue                               # tried recently; Workday is retried monthly
         todo.append((k, name, entries))
     print(f"  Testing Workday careers sites for {len(todo)} large companies…")
     found = 0
@@ -1458,6 +1470,8 @@ def discover_workday(reg: dict) -> int:
             except Exception:
                 hit = None
             c = reg[k]
+            if hit == "limited":
+                continue                           # not a real answer: try again next run
             if hit:
                 token, total = hit
                 c.update({"status": "watching", "ats": "workday", "token": token,
@@ -1467,7 +1481,8 @@ def discover_workday(reg: dict) -> int:
             elif c["status"] != "watching":
                 c["workday_tried"] = TODAY
     save_json(COMPANIES, reg)
-    log(f"workday: {found} of {len(todo)} confirmed")
+    log(f"workday: {found} of {len(todo)} confirmed ({WD_STATS['requests']} requests, "
+        f"{WD_STATS['limited']} rate-limited)")
     print(f"  {found} of {len(todo)} Workday sites confirmed. For the rest, paste the careers URL:")
     print('    python radar.py --add "Company" https://company.wd1.myworkdayjobs.com/SiteName\n')
     return found

@@ -2163,8 +2163,7 @@
   "verified": "2026-11-07",
   "fails": 3,
   "swept": "2026-11-07",
-  "open": 31,
-  "workday_tried": "2026-11-25"
+  "open": 31
  },
  "bullfrogai": {
   "name": "BullFrog AI",
@@ -3328,8 +3327,7 @@
    "pharma",
    "biopharma"
   ],
-  "country": "US",
-  "workday_tried": "2026-11-25"
+  "country": "US"
  },
  "eliciotherapeutics": {
   "name": "Elicio Therapeutics",
@@ -4119,8 +4117,7 @@
   "verified": "2026-11-07",
   "fails": 3,
   "swept": "2026-11-07",
-  "open": 10,
-  "workday_tried": "2026-11-25"
+  "open": 10
  },
  "gtbiopharma": {
   "name": "GT Biopharma",
@@ -4805,8 +4802,7 @@
    "biopharma",
    "biotech"
   ],
-  "country": "US",
-  "workday_tried": "2026-11-25"
+  "country": "US"
  },
  "johnsonjohnson": {
   "name": "Johnson & Johnson",
@@ -4831,8 +4827,7 @@
   "verified": "2026-11-07",
   "fails": 3,
   "swept": "2026-11-07",
-  "open": 30,
-  "workday_tried": "2026-11-25"
+  "open": 30
  },
  "journeymedical": {
   "name": "Journey Medical",
@@ -5788,8 +5783,7 @@
   "verified": "2026-11-07",
   "fails": 3,
   "swept": "2026-11-07",
-  "open": 8,
-  "workday_tried": "2026-11-25"
+  "open": 8
  },
  "mereobiopharma": {
   "name": "Mereo BioPharma",
@@ -6832,8 +6826,7 @@
   ],
   "country": "US",
   "clearances": 1,
-  "specialty": "Obstetrics/Gynecology",
-  "workday_tried": "2026-11-25"
+  "specialty": "Obstetrics/Gynecology"
  },
  "oricpharmaceuticals": {
   "name": "ORIC Pharmaceuticals",
@@ -7101,8 +7094,7 @@
   "verified": "2026-11-07",
   "fails": 3,
   "swept": "2026-11-07",
-  "open": 13,
-  "workday_tried": "2026-11-25"
+  "open": 13
  },
  "pharmingnv": {
   "name": "Pharming Group N.V",
@@ -7908,8 +7900,7 @@
   "verified": "2026-11-07",
   "fails": 3,
   "swept": "2026-11-07",
-  "open": 26,
-  "workday_tried": "2026-11-25"
+  "open": 26
  },
  "reintherapeutics": {
   "name": "Rein Therapeutics",
@@ -10419,8 +10410,7 @@
   "verified": "2026-11-07",
   "fails": 3,
   "swept": "2026-11-07",
-  "open": 86,
-  "workday_tried": "2026-11-25"
+  "open": 86
  },
  "anavexlifesciences": {
   "name": "Anavex Life Sciences",
@@ -10674,8 +10664,7 @@
    "biotech",
    "biopharma"
   ],
-  "country": "US",
-  "workday_tried": "2026-11-25"
+  "country": "US"
  },
  "biogen": {
   "name": "Biogen",
@@ -13661,8 +13650,7 @@
   "sectors": [
    "diagnostics"
   ],
-  "country": "US",
-  "workday_tried": "2026-11-25"
+  "country": "US"
  },
  "trinitybiotech": {
   "name": "Trinity Biotech",
@@ -13852,8 +13840,7 @@
    "biopharma",
    "pharma"
   ],
-  "country": "US",
-  "workday_tried": "2026-11-25"
+  "country": "US"
  },
  "iqvia": {
   "name": "Iqvia",
@@ -14387,8 +14374,7 @@
   "sectors": [
    "biopharma",
    "pharma"
-  ],
-  "workday_tried": "2026-11-25"
+  ]
  },
  "insightec": {
   "name": "InSightec",
@@ -14435,8 +14421,7 @@
   "sectors": [
    "biopharma",
    "pharma"
-  ],
-  "workday_tried": "2026-11-25"
+  ]
  },
  "abbottmedicaldevices": {
   "name": "Abbott Medical Devices",
@@ -14558,8 +14543,7 @@
   "sectors": [
    "biopharma",
    "pharma"
-  ],
-  "workday_tried": "2026-11-25"
+  ]
  },
  "microventionterumo": {
   "name": "Microvention-Terumo",
@@ -15176,8 +15160,7 @@
   ],
   "country": "US",
   "clearances": 6,
-  "specialty": "Orthopedic",
-  "workday_tried": "2026-11-25"
+  "specialty": "Orthopedic"
  },
  "magichealthdbanollahealth": {
   "name": "Magic Health",
@@ -15741,8 +15724,7 @@
   "sectors": [
    "biopharma",
    "pharma"
-  ],
-  "workday_tried": "2026-11-25"
+  ]
  },
  "memeddiagnostics": {
   "name": "MeMed Diagnostics",
@@ -15772,8 +15754,7 @@
   "sectors": [
    "biopharma",
    "pharma"
-  ],
-  "workday_tried": "2026-11-25"
+  ]
  },
  "nociontherapeutics": {
   "name": "Nocion Therapeutics",
@@ -16011,8 +15992,7 @@
   ],
   "country": "US",
   "clearances": 612,
-  "specialty": "Cardiovascular",
-  "workday_tried": "2026-11-25"
+  "specialty": "Cardiovascular"
  },
  "penumbra": {
   "name": "Penumbra",
@@ -16033,8 +16013,7 @@
   ],
   "country": "US",
   "clearances": 14,
-  "specialty": "Cardiovascular",
-  "workday_tried": "2026-11-25"
+  "specialty": "Cardiovascular"
  },
  "powerlifesciences": {
   "name": "Power Life Sciences",
@@ -16312,8 +16291,7 @@
   "verified": "2026-11-07",
   "fails": 3,
   "swept": "2026-11-07",
-  "open": 1,
-  "workday_tried": "2026-11-25"
+  "open": 1
  },
  "wlgoreassociates": {
   "name": "W.L.Gore & Associates",
@@ -18465,8 +18443,7 @@
   ],
   "country": "US",
   "clearances": 1,
-  "specialty": "Anesthesiology",
-  "workday_tried": "2026-11-25"
+  "specialty": "Anesthesiology"
  },
  "quantatherapeutics": {
   "name": "Quanta Therapeutics",
@@ -19098,8 +19075,7 @@
   ],
   "country": "US",
   "clearances": 54,
-  "specialty": "Ophthalmic",
-  "workday_tried": "2026-11-25"
+  "specialty": "Ophthalmic"
  },
  "osel": {
   "name": "Osel",
@@ -19507,8 +19483,7 @@
    "healthai"
   ],
   "clearances": 24,
-  "specialty": "Pathology",
-  "workday_tried": "2026-11-25"
+  "specialty": "Pathology"
  },
  "biodesix": {
   "name": "Biodesix",
@@ -29043,8 +29018,7 @@
   ],
   "country": "US",
   "clearances": 33,
-  "specialty": "Microbiology",
-  "workday_tried": "2026-11-25"
+  "specialty": "Microbiology"
  },
  "nervianomedicalsciences": {
   "name": "Nerviano Medical Sciences",
@@ -38947,8 +38921,7 @@
   "sectors": [
    "device"
   ],
-  "country": "US",
-  "workday_tried": "2026-11-25"
+  "country": "US"
  },
  "flaretherapeutics": {
   "name": "Flare Therapeutics",
@@ -43626,8 +43599,7 @@
   ],
   "country": "US",
   "clearances": 29,
-  "specialty": "Orthopedic",
-  "workday_tried": "2026-11-25"
+  "specialty": "Orthopedic"
  },
  "neurogenbiomarking": {
   "name": "Neurogen Biomarking",
@@ -47688,8 +47660,7 @@
   "sectors": [
    "biopharma",
    "pharma"
-  ],
-  "workday_tried": "2026-11-25"
+  ]
  },
  "alterometherapeutics": {
   "name": "Alterome Therapeutics",
@@ -57249,8 +57220,7 @@
   "checked": "2026-11-19",
   "sectors": [
    "pharma"
-  ],
-  "workday_tried": "2026-11-25"
+  ]
  },
  "alcon": {
   "name": "Alcon",
@@ -57277,8 +57247,7 @@
   "verified": "2026-11-07",
   "fails": 3,
   "swept": "2026-11-07",
-  "open": 1,
-  "workday_tried": "2026-11-25"
+  "open": 1
  },
  "ascendispharma": {
   "name": "Ascendis Pharma",
@@ -58836,8 +58805,7 @@
   "verified": "2026-11-07",
   "fails": 3,
   "swept": "2026-11-07",
-  "open": 23,
-  "workday_tried": "2026-11-25"
+  "open": 23
  },
  "labcorp": {
   "name": "Labcorp",
@@ -59979,7 +59947,6 @@
   "fails": 3,
   "swept": "2026-11-07",
   "open": 5,
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "alamarbiosciences": {
@@ -60052,7 +60019,6 @@
   "country": "US",
   "clearances": 1,
   "specialty": "Microbiology",
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "bioforcenanosciences": {
@@ -60108,8 +60074,7 @@
    "tech"
   ],
   "country": "US",
-  "checked": "2026-11-25",
-  "workday_tried": "2026-11-25"
+  "checked": "2026-11-25"
  },
  "cytekbiosciences": {
   "name": "Cytek Biosciences",
@@ -60288,7 +60253,6 @@
   "country": "US",
   "clearances": 1,
   "specialty": "Immunology",
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-19"
  },
  "scientificindustries": {
@@ -60688,7 +60652,6 @@
   "fails": 3,
   "swept": "2026-11-07",
   "open": 1,
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "encision": {
@@ -60816,7 +60779,6 @@
   "country": "US",
   "clearances": 3,
   "specialty": "Hematology",
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "icumedical": {
@@ -60836,7 +60798,6 @@
   "country": "US",
   "clearances": 11,
   "specialty": "General Hospital",
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "infusystem": {
@@ -62198,7 +62159,6 @@
   "country": "US",
   "clearances": 32,
   "specialty": "General Hospital",
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-19"
  },
  "unitedhealthproducts": {
@@ -62978,7 +62938,6 @@
    "diagnostics"
   ],
   "country": "US",
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-19"
  },
  "radnet": {
@@ -123248,8 +123207,7 @@
   "country": "JP",
   "clearances": 1,
   "specialty": "Gastroenterology, Urology",
-  "checked": "2026-11-07",
-  "workday_tried": "2026-11-25"
+  "checked": "2026-11-07"
  },
  "sciencebiomaterialssas": {
   "name": "Science & Bio Materials Sas",
@@ -133367,8 +133325,7 @@
    "device",
    "tech"
   ],
-  "checked": "2026-11-25",
-  "workday_tried": "2026-11-25"
+  "checked": "2026-11-25"
  },
  "arvinasestrogenreceptor": {
   "name": "Arvinas Estrogen Receptor",
@@ -168104,7 +168061,6 @@
   "sectors": [
    "pharma"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-19"
  },
  "baxter": {
@@ -168222,7 +168178,6 @@
   "sectors": [
    "device"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-19"
  },
  "natusmedical": {
@@ -171824,8 +171779,7 @@
    "research",
    "tech"
   ],
-  "checked": "2026-11-16",
-  "workday_tried": "2026-11-25"
+  "checked": "2026-11-16"
  },
  "norcatuniversityofchicago": {
   "name": "NORC at the University of Chicago",
@@ -172126,8 +172080,7 @@
    "research",
    "tech"
   ],
-  "checked": "2026-11-25",
-  "workday_tried": "2026-11-25"
+  "checked": "2026-11-25"
  },
  "rand": {
   "name": "Rand Corporation",
@@ -172157,7 +172110,6 @@
    "research",
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "battelle": {
@@ -172412,7 +172364,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "conocophillips": {
@@ -172427,7 +172378,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "shell": {
@@ -172442,7 +172392,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "bp": {
@@ -172457,7 +172406,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "totalenergies": {
@@ -172500,7 +172448,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "eogresources": {
@@ -172515,7 +172462,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "devonenergy": {
@@ -172530,7 +172476,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "diamondbackenergy": {
@@ -172748,7 +172693,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "valeroenergy": {
@@ -172763,7 +172707,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-16"
  },
  "phillips66": {
@@ -172778,7 +172721,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "hfsinclair": {
@@ -173136,7 +173078,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "energytransfer": {
@@ -173151,7 +173092,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "oneok": {
@@ -173166,7 +173106,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "williams": {
@@ -173181,7 +173120,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-16"
  },
  "kindermorgan": {
@@ -173196,7 +173134,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "targaresources": {
@@ -173211,7 +173148,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-16"
  },
  "plainsallamerican": {
@@ -173254,7 +173190,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "tcenergy": {
@@ -173269,7 +173204,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-16"
  },
  "cheniereenergy": {
@@ -173284,7 +173218,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "ventureglobal": {
@@ -173940,7 +173873,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "dukeenergy": {
@@ -173955,7 +173887,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "southern": {
@@ -173970,7 +173901,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-16"
  },
  "dominionenergy": {
@@ -173985,7 +173915,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "americanelectricpower": {
@@ -174000,7 +173929,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "exelon": {
@@ -174015,7 +173943,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "constellationenergy": {
@@ -174052,7 +173979,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-16"
  },
  "nrgenergy": {
@@ -174067,7 +173993,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "xcelenergy": {
@@ -174082,7 +174007,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-16"
  },
  "sempra": {
@@ -174097,7 +174021,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "pge": {
@@ -174112,7 +174035,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "edisoninternational": {
@@ -174127,7 +174049,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "southerncaliforniaedison": {
@@ -174156,7 +174077,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "firstenergy": {
@@ -174199,7 +174119,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "dteenergy": {
@@ -174214,7 +174133,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "ameren": {
@@ -174271,7 +174189,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "centerpointenergy": {
@@ -174286,7 +174203,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "evergy": {
@@ -174371,7 +174287,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "talenenergy": {
@@ -174386,7 +174301,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-16"
  },
  "portlandgeneralelectric": {
@@ -174437,7 +174351,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25",
   "wrong_board": "greenhouse:national"
  },
@@ -174495,7 +174408,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "atmosenergy": {
@@ -174686,7 +174598,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "miso": {
@@ -174701,7 +174612,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "ercot": {
@@ -174716,7 +174626,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "californiaiso": {
@@ -175005,7 +174914,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25",
   "wrong_board": "greenhouse:clearway"
  },
@@ -175092,7 +175000,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "symxenergy": {
@@ -175477,7 +175384,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "enphaseenergy": {
@@ -175492,7 +175398,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "solaredge": {
@@ -175521,7 +175426,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-16"
  },
  "nextracker": {
@@ -175536,7 +175440,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "arraytechnologies": {
@@ -175586,7 +175489,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "stem": {
@@ -175637,7 +175539,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "edfrenewables": {
@@ -175652,7 +175553,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "edprenewablesnorthamerica": {
@@ -175681,7 +175581,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "avantus": {
@@ -176138,7 +176037,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25",
   "wrong_board": "lever:bloom"
  },
@@ -176168,7 +176066,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "enersys": {
@@ -177020,7 +176917,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "vineyardwind": {
@@ -177302,7 +177198,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-16"
  },
  "auroraenergyresearch": {
@@ -177906,7 +177801,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "aurorasolar": {
@@ -179914,7 +179808,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "nov": {
@@ -179929,7 +179822,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "weatherford": {
@@ -180042,7 +179934,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-16"
  },
  "schneiderelectric": {
@@ -180057,7 +179948,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "eaton": {
@@ -180086,7 +179976,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25",
   "wrong_board": "ashby:quanta"
  },
@@ -180158,7 +180047,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "blackveatch": {
@@ -180173,7 +180061,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "wood": {
@@ -180549,8 +180436,7 @@
    "energy",
    "tech"
   ],
-  "checked": "2026-11-25",
-  "workday_tried": "2026-11-25"
+  "checked": "2026-11-25"
  },
  "hubbell": {
   "name": "Hubbell",
@@ -180663,7 +180549,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "energyenvironmentaleconomics": {
@@ -180741,7 +180626,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "1898": {
@@ -181298,7 +181182,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "epri": {
@@ -181355,7 +181238,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "lawrenceberkeleynationallaboratory": {
@@ -181384,7 +181266,6 @@
   "sectors": [
    "energy"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "oakridgenationallaboratory": {
@@ -183454,7 +183335,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "lumentum": {
@@ -183469,7 +183349,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "ipgphotonics": {
@@ -183484,7 +183363,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "corning": {
@@ -183499,7 +183377,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "zeiss": {
@@ -183593,7 +183470,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "newport": {
@@ -183678,7 +183554,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "ciena": {
@@ -183693,7 +183568,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "appliedoptoelectronics": {
@@ -183991,7 +183865,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "cognex": {
@@ -184006,7 +183879,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "teledynetechnologies": {
@@ -184021,7 +183893,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "teledyneflir": {
@@ -184050,7 +183921,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "lumus": {
@@ -184290,7 +184160,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "fabrinet": {
@@ -184452,7 +184321,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "hexagon": {
@@ -184705,7 +184573,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "leonardodrs": {
@@ -184741,7 +184608,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "lockheedmartin": {
@@ -184770,7 +184636,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "baesystems": {
@@ -185796,7 +185661,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "amd": {
@@ -185825,7 +185689,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "broadcom": {
@@ -185840,7 +185703,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "microntechnology": {
@@ -185855,7 +185717,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "texasinstruments": {
@@ -185884,7 +185745,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "microchiptechnology": {
@@ -185920,7 +185780,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "marvell": {
@@ -185935,7 +185794,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "skyworks": {
@@ -185950,7 +185808,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "qorvo": {
@@ -185965,7 +185822,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "latticesemiconductor": {
@@ -186072,7 +185928,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "globalfoundries": {
@@ -186087,7 +185942,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "tsmc": {
@@ -186237,7 +186091,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "synopsys": {
@@ -186252,7 +186105,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "cadence": {
@@ -186267,7 +186119,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "ansys": {
@@ -186310,7 +186161,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25",
   "wrong_board": "ashby:applied"
  },
@@ -186326,7 +186176,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "kla": {
@@ -186341,7 +186190,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "asml": {
@@ -186356,7 +186204,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "tokyoelectron": {
@@ -186385,7 +186232,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "teradyne": {
@@ -186400,7 +186246,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "advantest": {
@@ -187896,7 +187741,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "delltechnologies": {
@@ -187911,7 +187755,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "hewlettpackardenterprise": {
@@ -187926,7 +187769,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "lenovo": {
@@ -187955,7 +187797,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "aristanetworks": {
@@ -188005,7 +187846,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "garmin": {
@@ -188020,7 +187860,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "keysighttechnologies": {
@@ -188035,7 +187874,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "rockwellautomation": {
@@ -188050,7 +187888,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "amphenol": {
@@ -188079,7 +187916,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "jabil": {
@@ -188094,7 +187930,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "flex": {
@@ -188369,7 +188204,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "spacex": {
@@ -189324,7 +189158,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "comcast": {
@@ -189339,7 +189172,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "chartercommunications": {
@@ -190411,7 +190243,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "salesforce": {
@@ -190426,7 +190257,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "oracle": {
@@ -190483,7 +190313,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "uber": {
@@ -190617,7 +190446,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "coinbase": {
@@ -190786,7 +190614,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "slack": {
@@ -190879,7 +190706,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "wayfair": {
@@ -190929,7 +190755,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "redfin": {
@@ -190972,7 +190797,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "booking": {
@@ -191366,7 +191190,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "hubspot": {
@@ -191416,7 +191239,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "paloaltonetworks": {
@@ -191431,7 +191253,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "cloudflare": {
@@ -192265,7 +192086,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "circana": {
@@ -192336,7 +192156,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "forrester": {
@@ -192386,7 +192205,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "transunion": {
@@ -192401,7 +192219,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "fico": {
@@ -192430,7 +192247,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "lexisnexisrisksolutions": {
@@ -192501,7 +192317,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25",
   "wrong_board": "lever:capital"
  },
@@ -192517,7 +192332,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "visa": {
@@ -194877,7 +194691,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "disney": {
@@ -195382,7 +195195,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "accenture": {
@@ -195397,7 +195209,6 @@
   "sectors": [
    "tech"
   ],
-  "workday_tried": "2026-11-25",
   "checked": "2026-11-25"
  },
  "slalom": {
