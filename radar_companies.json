@@ -39,7 +39,7 @@
    "sec",
    "fda"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "ABT",
   "added": "2026-09-26",
@@ -86,7 +86,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "mismatch",
   "trials": 0,
   "ticker": "ABCL",
   "added": "2026-09-26",
@@ -136,7 +136,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "ECOC",
   "added": "2026-09-26",
@@ -194,7 +194,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "ACUT",
   "added": "2026-09-26",
@@ -337,7 +337,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "XTXXF",
   "added": "2026-09-26",
@@ -353,11 +353,11 @@
    "sec",
    "curated"
   ],
-  "status": "stale",
+  "status": "none",
   "trials": 0,
   "ticker": "ADCT",
   "added": "2026-09-26",
-  "checked": "2026-11-07",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma",
    "biotech"
@@ -376,7 +376,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "ADXN",
   "added": "2026-09-26",
@@ -391,7 +391,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "ADIL",
   "added": "2026-09-26",
@@ -402,7 +402,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "ACET",
   "added": "2026-09-26",
@@ -417,7 +417,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "ADTX",
   "added": "2026-09-26",
@@ -428,7 +428,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "ANL",
   "added": "2026-09-26",
@@ -485,7 +485,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "AKTX",
   "added": "2026-09-26",
@@ -541,7 +541,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "TCRT",
   "added": "2026-09-26",
@@ -636,7 +636,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "CYTOF",
   "added": "2026-09-26",
@@ -651,7 +651,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "PRNAF",
   "added": "2026-09-26",
@@ -764,7 +764,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "AMRN",
   "added": "2026-09-26",
@@ -775,7 +775,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "AAGH",
   "added": "2026-09-26",
@@ -803,7 +803,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "AMPH",
   "added": "2026-09-26",
@@ -844,7 +844,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "ANTX",
   "added": "2026-09-26",
@@ -910,7 +910,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "ANIX",
   "added": "2026-09-26",
@@ -959,7 +959,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "APUS",
   "added": "2026-09-26",
@@ -1044,7 +1044,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "AQST",
   "added": "2026-09-26",
@@ -1157,7 +1157,7 @@
    "sec",
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 5,
   "ticker": "AVBP",
   "added": "2026-09-26",
@@ -1209,7 +1209,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "ARTL",
   "added": "2026-09-26",
@@ -1267,7 +1267,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "AAPG",
   "added": "2026-09-26",
@@ -1282,7 +1282,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "ASBPW",
   "added": "2026-09-26",
@@ -1474,7 +1474,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "AVCRF",
   "added": "2026-09-26",
@@ -1485,7 +1485,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "AXIM",
   "added": "2026-09-26",
@@ -1524,7 +1524,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "AYTU",
   "added": "2026-09-26",
@@ -1556,7 +1556,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "BHC",
   "added": "2026-09-26",
@@ -1571,7 +1571,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "CLYD",
   "added": "2026-09-26",
@@ -1645,7 +1645,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "BNIGF",
   "added": "2026-09-26",
@@ -1660,7 +1660,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "BSPK",
   "added": "2026-09-26",
@@ -1671,7 +1671,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "BETRF",
   "added": "2026-09-26",
@@ -1686,7 +1686,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "BYSI",
   "added": "2026-09-26",
@@ -1701,7 +1701,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "BGM",
   "added": "2026-09-26",
@@ -1766,7 +1766,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "BIOE",
   "added": "2026-09-26",
@@ -1796,7 +1796,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "BDPT",
   "added": "2026-09-26",
@@ -1862,7 +1862,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "BHST",
   "added": "2026-09-26",
@@ -1912,7 +1912,7 @@
    "sec",
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 20,
   "ticker": "BMRN",
   "added": "2026-09-26",
@@ -1945,7 +1945,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "BIOM",
   "added": "2026-09-26",
@@ -1960,7 +1960,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "BIVIW",
   "added": "2026-09-26",
@@ -1992,7 +1992,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "BIXT",
   "added": "2026-09-26",
@@ -2024,7 +2024,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "BOLT",
   "added": "2026-09-26",
@@ -2099,7 +2099,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "mismatch",
   "trials": 0,
   "ticker": "BBOT",
   "added": "2026-09-26",
@@ -2137,7 +2137,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "DRUG",
   "added": "2026-09-26",
@@ -2177,7 +2177,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "BFRGW",
   "added": "2026-09-26",
@@ -2192,7 +2192,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "CVKD",
   "added": "2026-09-26",
@@ -2207,7 +2207,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "CALC",
   "added": "2026-09-26",
@@ -2222,7 +2222,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "CAMP",
   "added": "2026-09-26",
@@ -2254,7 +2254,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "CPMD",
   "added": "2026-09-26",
@@ -2295,7 +2295,7 @@
    "ctgov",
    "sbir"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 5,
   "ticker": "RNAC",
   "added": "2026-09-26",
@@ -2312,7 +2312,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "CASIF",
   "added": "2026-09-26",
@@ -2327,7 +2327,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "CDTTW",
   "added": "2026-09-26",
@@ -2342,7 +2342,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "CLCS",
   "added": "2026-09-26",
@@ -2374,7 +2374,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "CELU",
   "added": "2026-09-26",
@@ -2406,7 +2406,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "CMMB",
   "added": "2026-09-26",
@@ -2421,7 +2421,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "CPHI",
   "added": "2026-09-26",
@@ -2436,7 +2436,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "SXTC",
   "added": "2026-09-26",
@@ -2451,7 +2451,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "CINGW",
   "added": "2026-09-26",
@@ -2466,7 +2466,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "CTOR",
   "added": "2026-09-26",
@@ -2481,7 +2481,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "CTXR",
   "added": "2026-09-26",
@@ -2514,7 +2514,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "CLNN",
   "added": "2026-09-26",
@@ -2546,7 +2546,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "CNBX",
   "added": "2026-09-26",
@@ -2661,7 +2661,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "CNTB",
   "added": "2026-09-26",
@@ -2760,7 +2760,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "CRMD",
   "added": "2026-09-26",
@@ -2834,7 +2834,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "CYRX",
   "added": "2026-09-26",
@@ -2849,7 +2849,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "CTTH",
   "added": "2026-09-26",
@@ -2864,7 +2864,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "CUE",
   "added": "2026-09-26",
@@ -2896,7 +2896,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "CURX",
   "added": "2026-09-26",
@@ -2911,7 +2911,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "CVSI",
   "added": "2026-09-26",
@@ -2926,7 +2926,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "HELP",
   "added": "2026-09-26",
@@ -2978,7 +2978,7 @@
    "ctgov",
    "curated"
   ],
-  "status": "watching",
+  "status": "stale",
   "trials": 4,
   "ticker": "CYTK",
   "added": "2026-09-26",
@@ -2993,14 +2993,14 @@
   "token": "cytokinetics",
   "resolved": "2026-11-25",
   "verified": "2026-11-25",
-  "fails": 2
+  "fails": 3
  },
  "cytomedtherapeutics": {
   "name": "CytoMed Therapeutics",
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "GDTC",
   "added": "2026-09-26",
@@ -3050,7 +3050,7 @@
    "sec",
    "sbir"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "DARE",
   "added": "2026-09-26",
@@ -3066,7 +3066,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "DCOY",
   "added": "2026-09-26",
@@ -3081,7 +3081,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "DRMA",
   "added": "2026-09-26",
@@ -3199,7 +3199,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "RDY",
   "added": "2026-09-26",
@@ -3240,7 +3240,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "ETST",
   "added": "2026-09-26",
@@ -3298,7 +3298,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "ELAN",
   "added": "2026-09-26",
@@ -3404,7 +3404,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "EMMA",
   "added": "2026-09-26",
@@ -3453,7 +3453,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "ENLV",
   "added": "2026-09-26",
@@ -3505,7 +3505,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "ENVB",
   "added": "2026-09-26",
@@ -3520,7 +3520,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "EQ",
   "added": "2026-09-26",
@@ -3561,7 +3561,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "ERNAW",
   "added": "2026-09-26",
@@ -3576,7 +3576,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "ETON",
   "added": "2026-09-26",
@@ -3591,7 +3591,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "EPRX",
   "added": "2026-09-26",
@@ -3606,7 +3606,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "EVFM",
   "added": "2026-09-26",
@@ -3621,7 +3621,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "EOLS",
   "added": "2026-09-26",
@@ -3653,7 +3653,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "EVOTF",
   "added": "2026-09-26",
@@ -3668,7 +3668,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "XCUR",
   "added": "2026-09-26",
@@ -3708,7 +3708,7 @@
    "sec",
    "sbir"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "FBLG",
   "added": "2026-09-26",
@@ -3724,7 +3724,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "FLNA",
   "added": "2026-09-26",
@@ -3739,7 +3739,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "TRAX",
   "added": "2026-09-26",
@@ -3773,7 +3773,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "FBIOP",
   "added": "2026-09-26",
@@ -3813,7 +3813,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "GANX",
   "added": "2026-09-26",
@@ -3828,7 +3828,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "GALT",
   "added": "2026-09-26",
@@ -3843,7 +3843,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "EOCN",
   "added": "2026-09-26",
@@ -3858,7 +3858,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "GSAC",
   "added": "2026-09-26",
@@ -3873,7 +3873,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "GELS",
   "added": "2026-09-26",
@@ -3931,7 +3931,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "GNMSF",
   "added": "2026-09-26",
@@ -3963,7 +3963,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "GOVX",
   "added": "2026-09-26",
@@ -3997,7 +3997,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "GHRS",
   "added": "2026-09-26",
@@ -4084,7 +4084,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "GRI",
   "added": "2026-09-26",
@@ -4114,9 +4114,10 @@
   "name": "GSK",
   "sources": [
    "sec",
-   "curated"
+   "curated",
+   "feed"
   ],
-  "status": "none",
+  "status": "feed",
   "trials": 0,
   "ticker": "GLAXF",
   "added": "2026-09-26",
@@ -4138,7 +4139,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "GTBP",
   "added": "2026-09-26",
@@ -4153,7 +4154,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "GYRE",
   "added": "2026-09-26",
@@ -6375,7 +6376,7 @@
   "verified": "2026-11-07",
   "fails": 0,
   "swept": "2026-11-25",
-  "open": 7
+  "open": 2
  },
  "novonordiskas": {
   "name": "Novo Nordisk A/S",
@@ -6926,7 +6927,7 @@
    "sec",
    "fda"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "PCRX",
   "added": "2026-09-26",
@@ -7309,7 +7310,7 @@
    "sec",
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 6,
   "ticker": "PGEN",
   "added": "2026-09-26",
@@ -7596,8 +7597,8 @@
   "resolved": "2026-11-25",
   "verified": "2026-11-25",
   "fails": 0,
-  "swept": "2026-11-16",
-  "open": 4
+  "swept": "2026-11-25",
+  "open": 0
  },
  "pulmatrix": {
   "name": "Pulmatrix",
@@ -7735,7 +7736,7 @@
   "verified": "2026-10-17",
   "fails": 0,
   "swept": "2026-11-25",
-  "open": 1,
+  "open": 0,
   "sectors": [
    "pharma"
   ],
@@ -7897,9 +7898,10 @@
   "sources": [
    "sec",
    "ctgov",
-   "curated"
+   "curated",
+   "feed"
   ],
-  "status": "none",
+  "status": "feed",
   "trials": 110,
   "ticker": "REGN",
   "added": "2026-09-26",
@@ -8052,7 +8054,7 @@
    "sec",
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 5,
   "ticker": "RYTM",
   "added": "2026-09-26",
@@ -8800,7 +8802,7 @@
    "sec",
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 7,
   "ticker": "SUPN",
   "added": "2026-09-26",
@@ -9003,7 +9005,7 @@
    "sec",
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 10,
   "ticker": "TGTX",
   "added": "2026-09-26",
@@ -9480,7 +9482,7 @@
    "sec",
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 8,
   "ticker": "VSTM",
   "added": "2026-09-26",
@@ -9512,7 +9514,7 @@
    "sec",
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 4,
   "ticker": "VRCA",
   "added": "2026-09-26",
@@ -9544,9 +9546,9 @@
   "token": "vrtx.wd501.myworkdayjobs.com|vrtx|Vertex_Careers",
   "resolved": "2026-11-07",
   "verified": "2026-11-07",
-  "fails": 1,
-  "swept": "2026-11-23",
-  "open": 10
+  "fails": 0,
+  "swept": "2026-11-25",
+  "open": 7
  },
  "veru": {
   "name": "Veru",
@@ -9948,7 +9950,7 @@
    "sec",
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 10,
   "ticker": "ZLAB",
   "added": "2026-09-26",
@@ -10135,7 +10137,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "ABPWW",
   "added": "2026-09-26",
@@ -10175,7 +10177,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "ADAPY",
   "added": "2026-09-26",
@@ -10190,7 +10192,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "APTN",
   "added": "2026-09-26",
@@ -10247,7 +10249,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "AGTX",
   "added": "2026-09-26",
@@ -10279,7 +10281,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "AGMB",
   "added": "2026-09-26",
@@ -10294,7 +10296,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "AIM",
   "added": "2026-09-26",
@@ -10391,7 +10393,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "ALVOW",
   "added": "2026-09-26",
@@ -10468,7 +10470,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "ARMP",
   "added": "2026-09-26",
@@ -10501,7 +10503,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "ATRA",
   "added": "2026-09-26",
@@ -10556,7 +10558,7 @@
    "sec",
    "ctgov"
   ],
-  "status": "error",
+  "status": "watching",
   "trials": 5,
   "ticker": "AURA",
   "added": "2026-09-26",
@@ -10566,7 +10568,14 @@
    "biotech",
    "device"
   ],
-  "country": "US"
+  "country": "US",
+  "ats": "greenhouse",
+  "token": "aura",
+  "resolved": "2026-11-25",
+  "verified": "2026-11-25",
+  "fails": 0,
+  "swept": "2026-11-25",
+  "open": 0
  },
  "autolustherapeutics": {
   "name": "Autolus Therapeutics",
@@ -10772,7 +10781,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "BKHAR",
   "added": "2026-09-26",
@@ -10840,7 +10849,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "CLDWW",
   "added": "2026-09-26",
@@ -10856,7 +10865,7 @@
    "sec",
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 5,
   "ticker": "CADL",
   "added": "2026-09-26",
@@ -10931,7 +10940,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "CVM",
   "added": "2026-09-26",
@@ -11015,7 +11024,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "CSBR",
   "added": "2026-09-26",
@@ -11055,7 +11064,7 @@
    "sec",
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 6,
   "ticker": "CHRS",
   "added": "2026-09-26",
@@ -11130,7 +11139,7 @@
    "sec",
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 9,
   "ticker": "CRSP",
   "added": "2026-09-26",
@@ -11147,7 +11156,7 @@
    "sec",
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 8,
   "ticker": "CGEM",
   "added": "2026-09-26",
@@ -11163,7 +11172,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "CUBT",
   "added": "2026-09-26",
@@ -11195,7 +11204,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "DBVTF",
   "added": "2026-09-26",
@@ -11228,7 +11237,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "DYAI",
   "added": "2026-09-26",
@@ -11243,9 +11252,10 @@
   "sources": [
    "sec",
    "ctgov",
-   "curated"
+   "curated",
+   "feed"
   ],
-  "status": "none",
+  "status": "feed",
   "trials": 3,
   "ticker": "EDIT",
   "added": "2026-09-26",
@@ -11362,7 +11372,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "mismatch",
   "trials": 0,
   "ticker": "ENTX",
   "added": "2026-09-26",
@@ -11395,7 +11405,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "EVAX",
   "added": "2026-09-26",
@@ -11429,7 +11439,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "EXOZ",
   "added": "2026-09-26",
@@ -11469,7 +11479,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "FENC",
   "added": "2026-09-26",
@@ -11484,7 +11494,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "GNTA",
   "added": "2026-09-26",
@@ -11518,7 +11528,7 @@
   "verified": "2026-11-07",
   "fails": 0,
   "swept": "2026-11-25",
-  "open": 8
+  "open": 4
  },
  "ginkgobioworks": {
   "name": "Ginkgo Bioworks",
@@ -11547,7 +11557,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "GPLB",
   "added": "2026-09-26",
@@ -11562,7 +11572,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "GRMLW",
   "added": "2026-09-26",
@@ -11658,7 +11668,7 @@
    "sec",
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 15,
   "ticker": "IBRX",
   "added": "2026-09-26",
@@ -12311,7 +12321,7 @@
    "sec",
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 6,
   "ticker": "OCGN",
   "added": "2026-09-26",
@@ -12742,7 +12752,7 @@
   "resolved": "2026-09-26",
   "fails": 0,
   "swept": "2026-11-25",
-  "open": 14,
+  "open": 13,
   "verified": "2026-09-26",
   "sectors": [
    "biotech",
@@ -13075,7 +13085,7 @@
    "sec",
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 5,
   "ticker": "TCRX",
   "added": "2026-09-26",
@@ -13358,7 +13368,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "ACHV",
   "added": "2026-09-26",
@@ -13373,7 +13383,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "TKNO",
   "added": "2026-09-26",
@@ -13388,7 +13398,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "NNNN",
   "added": "2026-09-26",
@@ -13403,7 +13413,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "SEPSF",
   "added": "2026-09-26",
@@ -13442,7 +13452,7 @@
    "sec",
    "fda"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "BMRA",
   "added": "2026-09-26",
@@ -13459,7 +13469,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "BZYR",
   "added": "2026-09-26",
@@ -13756,7 +13766,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "CBIH",
   "added": "2026-09-26",
@@ -13771,7 +13781,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "mismatch",
   "trials": 0,
   "ticker": "CRL",
   "added": "2026-09-26",
@@ -13787,7 +13797,7 @@
   "sources": [
    "sec"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "FOXOW",
   "added": "2026-09-26",
@@ -14060,7 +14070,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 117,
   "ticker": "",
   "added": "2026-09-26",
@@ -14114,7 +14124,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 286,
   "ticker": "",
   "added": "2026-09-26",
@@ -14178,7 +14188,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 153,
   "ticker": "",
   "added": "2026-09-26",
@@ -14192,7 +14202,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 6,
   "ticker": "",
   "added": "2026-09-26",
@@ -14234,7 +14244,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 16,
   "ticker": "",
   "added": "2026-09-26",
@@ -14248,7 +14258,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "mismatch",
   "trials": 6,
   "ticker": "",
   "added": "2026-09-26",
@@ -14307,7 +14317,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 151,
   "ticker": "",
   "added": "2026-09-26",
@@ -14321,7 +14331,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 8,
   "ticker": "",
   "added": "2026-09-26",
@@ -14352,7 +14362,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 206,
   "ticker": "",
   "added": "2026-09-26",
@@ -14443,7 +14453,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 49,
   "ticker": "",
   "added": "2026-09-26",
@@ -14457,7 +14467,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 6,
   "ticker": "",
   "added": "2026-09-26",
@@ -14507,7 +14517,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 7,
   "ticker": "",
   "added": "2026-09-26",
@@ -14521,7 +14531,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 9,
   "ticker": "",
   "added": "2026-09-26",
@@ -14821,7 +14831,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 18,
   "ticker": "",
   "added": "2026-09-26",
@@ -14893,7 +14903,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 6,
   "ticker": "",
   "added": "2026-09-26",
@@ -14984,7 +14994,7 @@
    "ctgov",
    "fda"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 1,
   "ticker": "",
   "added": "2026-09-26",
@@ -15001,7 +15011,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 33,
   "ticker": "",
   "added": "2026-09-26",
@@ -15015,7 +15025,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 7,
   "ticker": "",
   "added": "2026-09-26",
@@ -15288,7 +15298,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 12,
   "ticker": "",
   "added": "2026-09-26",
@@ -15322,7 +15332,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 10,
   "ticker": "",
   "added": "2026-09-26",
@@ -15373,7 +15383,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 6,
   "ticker": "",
   "added": "2026-09-26",
@@ -15387,7 +15397,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 7,
   "ticker": "",
   "added": "2026-09-26",
@@ -15507,7 +15517,7 @@
    "ctgov",
    "sbir"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 10,
   "ticker": "",
   "added": "2026-09-26",
@@ -15558,7 +15568,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 21,
   "ticker": "",
   "added": "2026-09-26",
@@ -15811,7 +15821,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 7,
   "ticker": "",
   "added": "2026-09-26",
@@ -15905,7 +15915,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 16,
   "ticker": "",
   "added": "2026-09-26",
@@ -15962,7 +15972,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 8,
   "ticker": "",
   "added": "2026-09-26",
@@ -15977,7 +15987,7 @@
    "ctgov",
    "fda"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 1,
   "ticker": "",
   "added": "2026-09-26",
@@ -16035,7 +16045,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 25,
   "ticker": "",
   "added": "2026-09-26",
@@ -16331,7 +16341,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 21,
   "ticker": "",
   "added": "2026-09-26",
@@ -16438,7 +16448,7 @@
    "ctgov",
    "fda"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 4,
   "ticker": "",
   "added": "2026-09-26",
@@ -16549,16 +16559,16 @@
   "sources": [
    "ctgov"
   ],
-  "status": "watching",
+  "status": "mismatch",
   "trials": 1,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-11-07",
+  "checked": "2026-11-25",
   "resolved": "2026-11-07",
   "fails": 0,
   "swept": "2026-11-25",
   "open": 0,
-  "wrong_board": "greenhouse:aura",
+  "wrong_board": "greenhouse|aura",
   "sectors": [
    "device"
   ],
@@ -16619,7 +16629,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 5,
   "ticker": "",
   "added": "2026-09-26",
@@ -16672,7 +16682,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 12,
   "ticker": "",
   "added": "2026-09-26",
@@ -16761,7 +16771,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 10,
   "ticker": "",
   "added": "2026-09-26",
@@ -16965,7 +16975,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 5,
   "ticker": "",
   "added": "2026-09-26",
@@ -17007,7 +17017,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 15,
   "ticker": "",
   "added": "2026-09-26",
@@ -17126,7 +17136,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 5,
   "ticker": "",
   "added": "2026-09-26",
@@ -17239,7 +17249,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 9,
   "ticker": "",
   "added": "2026-09-26",
@@ -17605,7 +17615,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 5,
   "ticker": "",
   "added": "2026-09-26",
@@ -17676,7 +17686,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 6,
   "ticker": "",
   "added": "2026-09-26",
@@ -17834,7 +17844,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 11,
   "ticker": "",
   "added": "2026-09-26",
@@ -17906,7 +17916,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 14,
   "ticker": "",
   "added": "2026-09-26",
@@ -18029,7 +18039,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 25,
   "ticker": "",
   "added": "2026-09-26",
@@ -18164,7 +18174,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 8,
   "ticker": "",
   "added": "2026-09-26",
@@ -18236,7 +18246,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 5,
   "ticker": "",
   "added": "2026-09-26",
@@ -18247,7 +18257,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 16,
   "ticker": "",
   "added": "2026-09-26",
@@ -18528,7 +18538,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 7,
   "ticker": "",
   "added": "2026-09-26",
@@ -18619,7 +18629,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 8,
   "ticker": "",
   "added": "2026-09-26",
@@ -18745,7 +18755,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 7,
   "ticker": "",
   "added": "2026-09-26",
@@ -18867,7 +18877,7 @@
    "ctgov",
    "fda"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 4,
   "ticker": "",
   "added": "2026-09-26",
@@ -18914,7 +18924,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 6,
   "ticker": "",
   "added": "2026-09-26",
@@ -18942,7 +18952,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 8,
   "ticker": "",
   "added": "2026-09-26",
@@ -19397,7 +19407,7 @@
    "ctgov",
    "fda"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 3,
   "ticker": "",
   "added": "2026-09-26",
@@ -19627,7 +19637,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 14,
   "ticker": "",
   "added": "2026-09-26",
@@ -19641,7 +19651,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 5,
   "ticker": "",
   "added": "2026-09-26",
@@ -19673,7 +19683,7 @@
    "ctgov",
    "fda"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 3,
   "ticker": "",
   "added": "2026-09-26",
@@ -19748,7 +19758,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 30,
   "ticker": "",
   "added": "2026-09-26",
@@ -19762,7 +19772,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 5,
   "ticker": "",
   "added": "2026-09-26",
@@ -20010,7 +20020,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 5,
   "ticker": "",
   "added": "2026-09-26",
@@ -20134,7 +20144,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 16,
   "ticker": "",
   "added": "2026-09-26",
@@ -20393,7 +20403,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 12,
   "ticker": "",
   "added": "2026-09-26",
@@ -20426,7 +20436,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 6,
   "ticker": "",
   "added": "2026-09-26",
@@ -20490,7 +20500,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 9,
   "ticker": "",
   "added": "2026-09-26",
@@ -20521,7 +20531,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 6,
   "ticker": "",
   "added": "2026-09-26",
@@ -20536,7 +20546,7 @@
    "ctgov",
    "fda"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 2,
   "ticker": "",
   "added": "2026-09-26",
@@ -20642,7 +20652,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 6,
   "ticker": "",
   "added": "2026-09-26",
@@ -20837,7 +20847,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 5,
   "ticker": "",
   "added": "2026-09-26",
@@ -20897,7 +20907,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 15,
   "ticker": "",
   "added": "2026-09-26",
@@ -21071,7 +21081,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 8,
   "ticker": "",
   "added": "2026-09-26",
@@ -21100,7 +21110,7 @@
    "ctgov",
    "fda"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 1,
   "ticker": "",
   "added": "2026-09-26",
@@ -21219,7 +21229,7 @@
    "ctgov",
    "fda"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 2,
   "ticker": "",
   "added": "2026-09-26",
@@ -21237,7 +21247,7 @@
    "ctgov",
    "fda"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 1,
   "ticker": "",
   "added": "2026-09-26",
@@ -21497,7 +21507,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 10,
   "ticker": "",
   "added": "2026-09-26",
@@ -21539,7 +21549,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 4,
   "ticker": "",
   "added": "2026-09-26",
@@ -21595,7 +21605,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 4,
   "ticker": "",
   "added": "2026-09-26",
@@ -21755,7 +21765,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 7,
   "ticker": "",
   "added": "2026-09-26",
@@ -21983,7 +21993,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 6,
   "ticker": "",
   "added": "2026-09-26",
@@ -22348,7 +22358,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 6,
   "ticker": "",
   "added": "2026-09-26",
@@ -22362,7 +22372,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 33,
   "ticker": "",
   "added": "2026-09-26",
@@ -22565,7 +22575,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 13,
   "ticker": "",
   "added": "2026-09-26",
@@ -22799,7 +22809,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 11,
   "ticker": "",
   "added": "2026-09-26",
@@ -23290,7 +23300,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 5,
   "ticker": "",
   "added": "2026-09-26",
@@ -23360,7 +23370,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 10,
   "ticker": "",
   "added": "2026-09-26",
@@ -23406,7 +23416,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 9,
   "ticker": "",
   "added": "2026-09-26",
@@ -23829,7 +23839,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 5,
   "ticker": "",
   "added": "2026-09-26",
@@ -24101,7 +24111,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 4,
   "ticker": "",
   "added": "2026-09-26",
@@ -24130,7 +24140,7 @@
    "ctgov",
    "fda"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 3,
   "ticker": "",
   "added": "2026-09-26",
@@ -24249,7 +24259,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 19,
   "ticker": "",
   "added": "2026-09-26",
@@ -24463,7 +24473,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 5,
   "ticker": "",
   "added": "2026-09-26",
@@ -24642,7 +24652,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 7,
   "ticker": "",
   "added": "2026-09-26",
@@ -24687,7 +24697,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 5,
   "ticker": "",
   "added": "2026-09-26",
@@ -24701,7 +24711,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 9,
   "ticker": "",
   "added": "2026-09-26",
@@ -24884,7 +24894,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 10,
   "ticker": "",
   "added": "2026-09-26",
@@ -24926,7 +24936,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 5,
   "ticker": "",
   "added": "2026-09-26",
@@ -24991,7 +25001,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 6,
   "ticker": "",
   "added": "2026-09-26",
@@ -25833,7 +25843,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 5,
   "ticker": "",
   "added": "2026-09-26",
@@ -26323,7 +26333,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 5,
   "ticker": "",
   "added": "2026-09-26",
@@ -26565,7 +26575,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 6,
   "ticker": "",
   "added": "2026-09-26",
@@ -26654,7 +26664,7 @@
    "ctgov",
    "fda"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 2,
   "ticker": "",
   "added": "2026-09-26",
@@ -26697,7 +26707,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 9,
   "ticker": "",
   "added": "2026-09-26",
@@ -26935,7 +26945,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 5,
   "ticker": "",
   "added": "2026-09-26",
@@ -27240,7 +27250,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 7,
   "ticker": "",
   "added": "2026-09-26",
@@ -27269,7 +27279,7 @@
    "ctgov",
    "sbir"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 5,
   "ticker": "",
   "added": "2026-09-26",
@@ -27410,7 +27420,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 6,
   "ticker": "",
   "added": "2026-09-26",
@@ -27492,7 +27502,7 @@
    "ctgov",
    "fda"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 1,
   "ticker": "",
   "added": "2026-09-26",
@@ -27623,7 +27633,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 5,
   "ticker": "",
   "added": "2026-09-26",
@@ -28574,7 +28584,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 7,
   "ticker": "",
   "added": "2026-09-26",
@@ -28872,7 +28882,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "mismatch",
   "trials": 6,
   "ticker": "",
   "added": "2026-09-26",
@@ -29347,7 +29357,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 7,
   "ticker": "",
   "added": "2026-09-26",
@@ -29361,7 +29371,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 8,
   "ticker": "",
   "added": "2026-09-26",
@@ -29477,7 +29487,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 5,
   "ticker": "",
   "added": "2026-09-26",
@@ -29818,7 +29828,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 16,
   "ticker": "",
   "added": "2026-09-26",
@@ -29832,7 +29842,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 5,
   "ticker": "",
   "added": "2026-09-26",
@@ -30495,7 +30505,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 13,
   "ticker": "",
   "added": "2026-09-26",
@@ -30743,7 +30753,7 @@
    "ctgov",
    "fda"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 2,
   "ticker": "",
   "added": "2026-09-26",
@@ -30761,7 +30771,7 @@
    "ctgov",
    "fda"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 1,
   "ticker": "",
   "added": "2026-09-26",
@@ -30778,7 +30788,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 8,
   "ticker": "",
   "added": "2026-09-26",
@@ -30985,7 +30995,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 11,
   "ticker": "",
   "added": "2026-09-26",
@@ -31030,7 +31040,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 4,
   "ticker": "",
   "added": "2026-09-26",
@@ -31282,7 +31292,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 5,
   "ticker": "",
   "added": "2026-09-26",
@@ -31716,7 +31726,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 5,
   "ticker": "",
   "added": "2026-09-26",
@@ -32074,7 +32084,7 @@
    "ctgov",
    "fda"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 2,
   "ticker": "",
   "added": "2026-09-26",
@@ -32250,7 +32260,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 10,
   "ticker": "",
   "added": "2026-09-26",
@@ -32323,7 +32333,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 5,
   "ticker": "",
   "added": "2026-09-26",
@@ -32783,7 +32793,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 7,
   "ticker": "",
   "added": "2026-09-26",
@@ -34723,7 +34733,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 5,
   "ticker": "",
   "added": "2026-09-26",
@@ -35457,7 +35467,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 5,
   "ticker": "",
   "added": "2026-09-26",
@@ -36054,7 +36064,7 @@
    "ctgov",
    "fda"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 5,
   "ticker": "",
   "added": "2026-09-26",
@@ -36525,7 +36535,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 7,
   "ticker": "",
   "added": "2026-09-26",
@@ -36610,7 +36620,7 @@
    "ctgov",
    "fda"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 2,
   "ticker": "",
   "added": "2026-09-26",
@@ -37445,7 +37455,7 @@
    "ctgov",
    "fda"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 1,
   "ticker": "",
   "added": "2026-09-26",
@@ -37714,7 +37724,7 @@
    "ctgov",
    "sbir"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 7,
   "ticker": "",
   "added": "2026-09-26",
@@ -38866,7 +38876,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 6,
   "ticker": "",
   "added": "2026-09-26",
@@ -39130,7 +39140,7 @@
    "ctgov",
    "fda"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 2,
   "ticker": "",
   "added": "2026-09-26",
@@ -40776,7 +40786,7 @@
    "ctgov",
    "fda"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 2,
   "ticker": "",
   "added": "2026-09-26",
@@ -41041,7 +41051,7 @@
    "ctgov",
    "fda"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 1,
   "ticker": "",
   "added": "2026-09-26",
@@ -41416,7 +41426,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 5,
   "ticker": "",
   "added": "2026-09-26",
@@ -42421,7 +42431,7 @@
    "ctgov",
    "fda"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 1,
   "ticker": "",
   "added": "2026-09-26",
@@ -42934,7 +42944,7 @@
    "ctgov",
    "fda"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 1,
   "ticker": "",
   "added": "2026-09-26",
@@ -43139,7 +43149,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 5,
   "ticker": "",
   "added": "2026-09-26",
@@ -43170,7 +43180,7 @@
    "ctgov",
    "fda"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 3,
   "ticker": "",
   "added": "2026-09-26",
@@ -44156,7 +44166,7 @@
    "ctgov",
    "fda"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 1,
   "ticker": "",
   "added": "2026-09-26",
@@ -45555,7 +45565,7 @@
    "ctgov",
    "fda"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 1,
   "ticker": "",
   "added": "2026-09-26",
@@ -45905,7 +45915,7 @@
    "ctgov",
    "fda"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 1,
   "ticker": "",
   "added": "2026-09-26",
@@ -46777,7 +46787,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 4,
   "ticker": "",
   "added": "2026-09-26",
@@ -47271,7 +47281,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 5,
   "ticker": "",
   "added": "2026-09-26",
@@ -48825,7 +48835,7 @@
    "ctgov",
    "fda"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 2,
   "ticker": "",
   "added": "2026-09-26",
@@ -49537,7 +49547,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 4,
   "ticker": "",
   "added": "2026-09-26",
@@ -50583,7 +50593,7 @@
    "ctgov",
    "fda"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 2,
   "ticker": "",
   "added": "2026-09-26",
@@ -51410,7 +51420,7 @@
    "ctgov",
    "fda"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 1,
   "ticker": "",
   "added": "2026-09-26",
@@ -51429,7 +51439,7 @@
    "ctgov",
    "fda"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 1,
   "ticker": "",
   "added": "2026-09-26",
@@ -55095,7 +55105,7 @@
    "ctgov",
    "fda"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 1,
   "ticker": "",
   "added": "2026-09-26",
@@ -55831,7 +55841,7 @@
    "ctgov",
    "fda"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 1,
   "ticker": "",
   "added": "2026-09-26",
@@ -57723,8 +57733,8 @@
   "token": "illumina.wd1.myworkdayjobs.com|illumina|illumina-careers",
   "resolved": "2026-11-07",
   "verified": "2026-11-07",
-  "fails": 2,
-  "swept": "2026-11-19",
+  "fails": 0,
+  "swept": "2026-11-25",
   "open": 0
  },
  "flatironhealth": {
@@ -58428,9 +58438,10 @@
  "cytel": {
   "name": "Cytel",
   "sources": [
-   "curated"
+   "curated",
+   "feed"
   ],
-  "status": "none",
+  "status": "feed",
   "trials": 0,
   "ticker": "",
   "added": "2026-09-26",
@@ -58491,7 +58502,7 @@
   "token": "allucent",
   "resolved": "2026-11-16",
   "verified": "2026-11-16",
-  "fails": 1,
+  "fails": 0,
   "swept": "2026-11-25",
   "open": 8
  },
@@ -58654,9 +58665,10 @@
  "quanticate": {
   "name": "Quanticate",
   "sources": [
-   "curated"
+   "curated",
+   "feed"
   ],
-  "status": "none",
+  "status": "feed",
   "trials": 0,
   "ticker": "",
   "added": "2026-09-26",
@@ -66527,9 +66539,10 @@
   "name": "Qiagen",
   "sources": [
    "fda",
-   "curated"
+   "curated",
+   "feed"
   ],
-  "status": "none",
+  "status": "feed",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-07",
@@ -83173,9 +83186,10 @@
   "name": "Bd",
   "sources": [
    "fda",
-   "sbir"
+   "sbir",
+   "feed"
   ],
-  "status": "none",
+  "status": "feed",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-07",
@@ -152649,7 +152663,7 @@
   "sources": [
    "sbir"
   ],
-  "status": "watching",
+  "status": "stale",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-07",
@@ -152662,7 +152676,7 @@
   "token": "galatea",
   "resolved": "2026-11-07",
   "verified": "2026-11-07",
-  "fails": 2,
+  "fails": 3,
   "swept": "2026-11-23",
   "open": 0
  },
@@ -153131,7 +153145,7 @@
   "verified": "2026-11-07",
   "fails": 0,
   "swept": "2026-11-25",
-  "open": 0
+  "open": 1
  },
  "nationalhealthpromotionassociates": {
   "name": "National Health Promotion Associates",
@@ -169598,9 +169612,10 @@
  "syneoshealth": {
   "name": "Syneos Health",
   "sources": [
-   "curated"
+   "curated",
+   "feed"
   ],
-  "status": "none",
+  "status": "feed",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-07",
@@ -169626,9 +169641,10 @@
  "everestclinicalresearch": {
   "name": "Everest Clinical Research",
   "sources": [
-   "curated"
+   "curated",
+   "feed"
   ],
-  "status": "none",
+  "status": "feed",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-07",
@@ -169668,9 +169684,10 @@
  "penfieldsearchpartners": {
   "name": "Penfield Search Partners",
   "sources": [
-   "curated"
+   "curated",
+   "feed"
   ],
-  "status": "none",
+  "status": "feed",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-07",
@@ -169682,9 +169699,10 @@
  "planetpharma": {
   "name": "Planet Pharma",
   "sources": [
-   "curated"
+   "curated",
+   "feed"
   ],
-  "status": "none",
+  "status": "feed",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-07",
@@ -169775,9 +169793,10 @@
  "beaufort": {
   "name": "Beaufort",
   "sources": [
-   "curated"
+   "curated",
+   "feed"
   ],
-  "status": "none",
+  "status": "feed",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-07",
@@ -169789,9 +169808,10 @@
  "proclinical": {
   "name": "ProClinical",
   "sources": [
-   "curated"
+   "curated",
+   "feed"
   ],
-  "status": "none",
+  "status": "feed",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-07",
@@ -170327,9 +170347,10 @@
  "judge": {
   "name": "The Judge Group",
   "sources": [
-   "curated"
+   "curated",
+   "feed"
   ],
-  "status": "none",
+  "status": "feed",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-07",
@@ -170342,9 +170363,10 @@
  "lancesoft": {
   "name": "LanceSoft",
   "sources": [
-   "curated"
+   "curated",
+   "feed"
   ],
-  "status": "none",
+  "status": "feed",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-07",
@@ -170356,9 +170378,10 @@
  "integratedresources": {
   "name": "Integrated Resources",
   "sources": [
-   "curated"
+   "curated",
+   "feed"
   ],
-  "status": "none",
+  "status": "feed",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-07",
@@ -170751,9 +170774,10 @@
  "ustechsolutions": {
   "name": "US Tech Solutions",
   "sources": [
-   "curated"
+   "curated",
+   "feed"
   ],
-  "status": "none",
+  "status": "feed",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-07",
@@ -170976,7 +171000,7 @@
   "sources": [
    "fda"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-16",
@@ -171028,7 +171052,7 @@
   "sources": [
    "fda"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-16",
@@ -171062,7 +171086,7 @@
   "sources": [
    "fda"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-16",
@@ -171079,7 +171103,7 @@
   "sources": [
    "fda"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-16",
@@ -171147,7 +171171,7 @@
   "sources": [
    "fda"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-16",
@@ -171199,7 +171223,7 @@
   "sources": [
    "fda"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-16",
@@ -171216,7 +171240,7 @@
   "sources": [
    "fda"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-16",
@@ -171285,7 +171309,7 @@
   "sources": [
    "fda"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-16",
@@ -171336,7 +171360,7 @@
   "sources": [
    "fda"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-16",
@@ -171370,7 +171394,7 @@
   "sources": [
    "fda"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-16",
@@ -171404,7 +171428,7 @@
   "sources": [
    "fda"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-16",
@@ -171772,7 +171796,7 @@
   "sources": [
    "sbir"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-16",
@@ -179855,7 +179879,9 @@
   "token": "slb",
   "resolved": "2026-11-25",
   "verified": "2026-11-25",
-  "fails": 1
+  "fails": 0,
+  "swept": "2026-11-25",
+  "open": 0
  },
  "halliburton": {
   "name": "Halliburton",
@@ -182488,7 +182514,7 @@
   "sources": [
    "fda"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-19",
@@ -182522,7 +182548,7 @@
   "sources": [
    "fda"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-19",
@@ -182590,7 +182616,7 @@
   "sources": [
    "fda"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-19",
@@ -182624,7 +182650,7 @@
   "sources": [
    "fda"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-19",
@@ -182675,7 +182701,7 @@
   "sources": [
    "fda"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-19",
@@ -182709,7 +182735,7 @@
   "sources": [
    "fda"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-19",
@@ -183191,7 +183217,7 @@
   "sources": [
    "sbir"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-23",
@@ -190289,9 +190315,10 @@
  "amazon": {
   "name": "Amazon",
   "sources": [
-   "curated"
+   "curated",
+   "feed"
   ],
-  "status": "none",
+  "status": "feed",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-25",
@@ -190359,9 +190386,10 @@
  "oracle": {
   "name": "Oracle",
   "sources": [
-   "curated"
+   "curated",
+   "feed"
   ],
-  "status": "none",
+  "status": "feed",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-25",
@@ -193410,7 +193438,7 @@
   "verified": "2026-11-25",
   "fails": 0,
   "swept": "2026-11-25",
-  "open": 9
+  "open": 10
  },
  "checkoutcom": {
   "name": "Checkout.com",
@@ -194366,9 +194394,10 @@
  "dataannotation": {
   "name": "DataAnnotation",
   "sources": [
-   "curated"
+   "curated",
+   "feed"
   ],
-  "status": "none",
+  "status": "feed",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-25",
@@ -194380,9 +194409,10 @@
  "outlier": {
   "name": "Outlier",
   "sources": [
-   "curated"
+   "curated",
+   "feed"
   ],
-  "status": "none",
+  "status": "feed",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-25",
@@ -194843,9 +194873,10 @@
  "nbcuniversal": {
   "name": "NBCUniversal",
   "sources": [
-   "curated"
+   "curated",
+   "feed"
   ],
-  "status": "none",
+  "status": "feed",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-25",
@@ -196396,7 +196427,7 @@
   "verified": "2026-11-25",
   "fails": 0,
   "swept": "2026-11-25",
-  "open": 7
+  "open": 3
  },
  "sigmoid": {
   "name": "Sigmoid",
@@ -197124,9 +197155,10 @@
  "beaconhill": {
   "name": "Beacon Hill",
   "sources": [
-   "curated"
+   "curated",
+   "feed"
   ],
-  "status": "none",
+  "status": "feed",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-25",
@@ -197138,9 +197170,10 @@
  "eliassen": {
   "name": "Eliassen Group",
   "sources": [
-   "curated"
+   "curated",
+   "feed"
   ],
-  "status": "none",
+  "status": "feed",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-25",
@@ -197495,9 +197528,10 @@
  "vdart": {
   "name": "VDart",
   "sources": [
-   "curated"
+   "curated",
+   "feed"
   ],
-  "status": "none",
+  "status": "feed",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-25",
@@ -198124,6 +198158,771 @@
  },
  "innodata": {
   "name": "Innodata",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "loyalsourcegovernmentservices": {
+  "name": "Loyal Source Government Services",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "generaldynamicsinformationtechnology": {
+  "name": "General Dynamics Information Technology, Inc.",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "remotequestjobs": {
+  "name": "remote quest jobs",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "americanassociationforcancerresearch": {
+  "name": "American Association for Cancer Research",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "itengagements": {
+  "name": "IT Engagements",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "afterquery": {
+  "name": "AfterQuery",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "precisionfederal": {
+  "name": "Precision Federal",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "tsrconsulting": {
+  "name": "TSR Consulting",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "techtalentsolutions": {
+  "name": "TechTalent Solutions LLC",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": [
+   "agency"
+  ]
+ },
+ "1010gileadsciences": {
+  "name": "1010 Gilead Sciences, Inc.",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "pioneerdata": {
+  "name": "Pioneer Data",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "katalysthealthcareslifesciences": {
+  "name": "Katalyst Healthcares & Life Sciences",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "fusionlifesciences": {
+  "name": "Fusion Life Sciences",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "voltousa": {
+  "name": "Volto USA",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "artechinformationsystem": {
+  "name": "Artech Information System LLC",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": [
+   "agency"
+  ]
+ },
+ "elansolutions": {
+  "name": "Elan Solutions",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "quantiveintelligence": {
+  "name": "Quantive Intelligence",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "smartims": {
+  "name": "Smart IMS",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "njsassociates": {
+  "name": "NJS Associates Company",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "interonitsolutions": {
+  "name": "Interon IT Solutions",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "simulstatsclient": {
+  "name": "SimulStat's Client",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "quanticateinternational": {
+  "name": "QUANTICATE INTERNATIONAL LIMITED",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "softwaretechnology": {
+  "name": "Software Technology Inc",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "zacharypiper": {
+  "name": "Zachary Piper",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "washingtonuniversityinstlouis": {
+  "name": "Washington University in St. Louis",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "globalchannelmanagement": {
+  "name": "Globalchannelmanagement",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "uclahealth": {
+  "name": "UCLA Health",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "poffttechnology": {
+  "name": "pofft Technology Inc.",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "iconclinical": {
+  "name": "Icon Clinical PLC",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": [
+   "agency"
+  ]
+ },
+ "mms": {
+  "name": "MMS",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "gandivainsights": {
+  "name": "Gandiva Insights",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "crossinghurdles": {
+  "name": "Crossing Hurdles",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "spectrixanalyticalservices": {
+  "name": "Spectrix Analytical Services, LLC",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "remotebridge": {
+  "name": "Remotebridge",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "dice": {
+  "name": "Dice",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "aiworkcentral": {
+  "name": "Aiworkcentral",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "phamily": {
+  "name": "Phamily",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "xperteeztechnology": {
+  "name": "Xperteez Technology",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "confidential": {
+  "name": "confidential",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "suncaptechnology": {
+  "name": "Suncap Technology",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "everesttechnologies": {
+  "name": "Everest Technologies",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "smecareersbysuperannotate": {
+  "name": "SME Careers by SuperAnnotate",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "prointegrate": {
+  "name": "Pro Integrate",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "weekday": {
+  "name": "Weekday",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "zettatechnologies": {
+  "name": "Zetta Technologies",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "synthires": {
+  "name": "Synthires",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "flowstate": {
+  "name": "Flowstate",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "humana": {
+  "name": "Humana",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "amazonwebservicesaws": {
+  "name": "Amazon Web Services (AWS)",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "amazonscience": {
+  "name": "Amazon Science",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "amazoncom": {
+  "name": "Amazon.com",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "accionlabs": {
+  "name": "Accion Labs",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "isienterprises": {
+  "name": "ISI Enterprises",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "roboticstechnologies": {
+  "name": "Robotics Technologies",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "careerflow": {
+  "name": "Careerflow",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "techdataservice": {
+  "name": "TechData Service Company, LLC",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "auraonehumandata": {
+  "name": "AuraOne Human Data",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "hrsconsulting": {
+  "name": "HRS Consulting, Inc.",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "prosidianconsulting": {
+  "name": "ProSidian Consulting",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "weekdayai": {
+  "name": "Weekday AI",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "alphax": {
+  "name": "AlphaX",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "everpure": {
+  "name": "Everpure",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "medvidi": {
+  "name": "MEDvidi",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "voyagertechnologies": {
+  "name": "Voyager Technologies, Inc.",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "nanthealth": {
+  "name": "NantHealth",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "miratech": {
+  "name": "Miratech",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "mwdn": {
+  "name": "MWDN",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "walmartinternal": {
+  "name": "Walmart - Internal",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "codepath": {
+  "name": "CodePath",
   "sources": [
    "feed"
   ],
