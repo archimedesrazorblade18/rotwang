@@ -125,9 +125,8 @@ def is_company_page(html: str, name: str, domain: str = "") -> bool:
 
 
 def find_website(s, name: str):
-    """(domain, homepage html) or (None, None).
-    The name's own .com is tried first. If it exists but turns visitors away,
-    the company is skipped rather than matched to a namesake elsewhere."""
+    """(domain, homepage html) or (None, None). The name's own .com first, then
+    the domain Clearbit gives for exactly this name, then common patterns."""
     ws = words(name)
     primary = [f"{''.join(ws)}.com"] if ws else []
     clear = []
@@ -149,8 +148,6 @@ def find_website(s, name: str):
             continue
         r = _get(s, f"https://{d}/") or _get(s, f"https://www.{d}/")
         if r is None:
-            if d in primary or d in clear:
-                return None, None                 # the real site exists but won't answer
             continue
         host = (urlparse(r.url).hostname or d).lower()
         if re.search(r"\.(edu|gov|mil)(\.[a-z]{2})?$|\.ac\.[a-z]{2}$|\.k12\.", host):
@@ -668,6 +665,11 @@ _ROLE_NOUN = re.compile(r"scientist|statistician|biostatistician|programmer|anal
                         r"vice president|epidemiologist|modeler|pharmacometrician|fellow", re.I)
 
 
+_NOT_JOB = re.compile(r"board of directors|analyst coverage|leadership|management team|our team|"
+                      r"\bgrants?\b|culture|values|benefits|investor|press|news|events|contact|"
+                      r"privacy|cookie|careers?\b|join us|why work|life at|meet the|learn more", re.I)
+
+
 def read_page(s, name, url):
     """Jobs listed on a careers page with no careers system behind it: link
     and heading texts that read like job titles."""
@@ -680,7 +682,8 @@ def read_page(s, name, url):
               for m in re.finditer(r"<(?:h[2-5]|strong|b)\b[^>]*>(.*?)</(?:h[2-5]|strong|b)>", r.text, re.I | re.S)]
     for u, label in texts:
         t = _html.unescape(" ".join(label.split()))
-        if not (8 <= len(t) <= 90) or ". " in t or t.lower() in seen or not _ROLE_NOUN.search(t):
+        if (not (8 <= len(t) <= 90) or ". " in t or t.endswith(".") or t.lower() in seen
+                or not _ROLE_NOUN.search(t) or _NOT_JOB.search(t) or t[:1].islower()):
             continue
         seen.add(t.lower())
         out.append(_role(name, "careers page", t, u))
