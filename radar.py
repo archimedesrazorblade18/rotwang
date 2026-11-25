@@ -515,6 +515,7 @@ WD_STATS = {"requests": 0, "limited": 0}
 
 def wd_request(s, method: str, url: str, **kw):
     """A Workday request at the shared pace; a 429 is retried after its wait."""
+    global WD_GAP
     kw.setdefault("timeout", 25)
     for attempt in range(3):
         with _wd_lock:
@@ -530,7 +531,6 @@ def wd_request(s, method: str, url: str, **kw):
         if r.status_code != 429:
             return r
         WD_STATS["limited"] += 1
-        global WD_GAP
         WD_GAP = min(4.0, WD_GAP + 0.5)        # ask more slowly from now on
         ra = r.headers.get("Retry-After", "")
         pause = min(60, int(ra)) if ra.isdigit() else 15 * (attempt + 1)
