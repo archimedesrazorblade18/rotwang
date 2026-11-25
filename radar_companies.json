@@ -1327,7 +1327,7 @@
   "verified": "2026-11-07",
   "fails": 0,
   "swept": "2026-11-25",
-  "open": 5
+  "open": 14
  },
  "ateapharmaceuticals": {
   "name": "Atea Pharmaceuticals",
@@ -2978,7 +2978,7 @@
    "ctgov",
    "curated"
   ],
-  "status": "stale",
+  "status": "watching",
   "trials": 4,
   "ticker": "CYTK",
   "added": "2026-09-26",
@@ -2993,7 +2993,7 @@
   "token": "cytokinetics",
   "resolved": "2026-11-25",
   "verified": "2026-11-25",
-  "fails": 3
+  "fails": 1
  },
  "cytomedtherapeutics": {
   "name": "CytoMed Therapeutics",
@@ -8218,7 +8218,7 @@
   "verified": "2026-11-07",
   "fails": 0,
   "swept": "2026-11-25",
-  "open": 0
+  "open": 6
  },
  "sareptatherapeutics": {
   "name": "Sarepta Therapeutics",
@@ -9548,7 +9548,7 @@
   "verified": "2026-11-07",
   "fails": 0,
   "swept": "2026-11-25",
-  "open": 7
+  "open": 8
  },
  "veru": {
   "name": "Veru",
@@ -13839,7 +13839,7 @@
   "resolved": "2026-11-07",
   "fails": 0,
   "swept": "2026-11-25",
-  "open": 3,
+  "open": 19,
   "verified": "2026-11-07",
   "sectors": [
    "biotech",
@@ -14558,9 +14558,10 @@
   "name": "Daiichi Sankyo",
   "sources": [
    "ctgov",
-   "curated"
+   "curated",
+   "feed"
   ],
-  "status": "none",
+  "status": "feed",
   "trials": 106,
   "ticker": "",
   "added": "2026-09-26",
@@ -27132,8 +27133,8 @@
   "token": "insulet.wd5.myworkdayjobs.com|insulet|insuletcareers",
   "resolved": "2026-11-07",
   "verified": "2026-11-07",
-  "fails": 2,
-  "swept": "2026-11-19",
+  "fails": 0,
+  "swept": "2026-11-25",
   "open": 0
  },
  "acousticwavecelltherapy": {
@@ -80842,9 +80843,10 @@
   "name": "Cardinalhealth",
   "sources": [
    "fda",
-   "curated"
+   "curated",
+   "feed"
   ],
-  "status": "none",
+  "status": "feed",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-07",
@@ -172503,9 +172505,10 @@
  "totalenergies": {
   "name": "TotalEnergies",
   "sources": [
-   "curated"
+   "curated",
+   "feed"
   ],
-  "status": "none",
+  "status": "feed",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-16",
@@ -198931,5 +198934,40 @@
   "ticker": "",
   "added": "2026-11-25",
   "sectors": []
+ },
+ "pioneergmpconsulting": {
+  "name": "Pioneer Gmp Consulting",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "orevatechnologies": {
+  "name": "Oreva Technologies, Inc.",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "proclinicalconsulting": {
+  "name": "Proclinical Consulting",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": [
+   "agency"
+  ]
  }
 }
