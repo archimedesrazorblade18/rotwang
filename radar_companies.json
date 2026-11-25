@@ -39,11 +39,11 @@
    "sec",
    "fda"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "ABT",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma",
    "diagnostics"
@@ -86,11 +86,11 @@
   "sources": [
    "sec"
   ],
-  "status": "mismatch",
+  "status": "error",
   "trials": 0,
   "ticker": "ABCL",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "wrong_board": "greenhouse:abcellera",
   "sectors": [
    "pharma"
@@ -107,7 +107,7 @@
   "trials": 4,
   "ticker": "ABEO",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma",
    "biopharma"
@@ -136,11 +136,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "ECOC",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -194,11 +194,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "ACUT",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -325,7 +325,7 @@
   "trials": 4,
   "ticker": "ADRX",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma",
    "biopharma"
@@ -337,11 +337,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "XTXXF",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -353,7 +353,7 @@
    "sec",
    "curated"
   ],
-  "status": "watching",
+  "status": "stale",
   "trials": 0,
   "ticker": "ADCT",
   "added": "2026-09-26",
@@ -367,7 +367,7 @@
   "token": "adc",
   "resolved": "2026-11-07",
   "verified": "2026-11-07",
-  "fails": 2,
+  "fails": 3,
   "swept": "2026-11-19",
   "open": 0
  },
@@ -376,11 +376,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "ADXN",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -391,22 +391,22 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "ADIL",
   "added": "2026-09-26",
-  "checked": "2026-10-17"
+  "checked": "2026-11-25"
  },
  "adicetbio": {
   "name": "Adicet Bio",
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "ACET",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -417,22 +417,22 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "ADTX",
   "added": "2026-09-26",
-  "checked": "2026-10-17"
+  "checked": "2026-11-25"
  },
  "adlainortye": {
   "name": "Adlai Nortye",
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "ANL",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -443,16 +443,23 @@
   "sources": [
    "sec"
   ],
-  "status": "mismatch",
+  "status": "watching",
   "trials": 0,
   "ticker": "AEON",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "wrong_board": "lever:aeon",
   "sectors": [
    "pharma"
   ],
-  "country": "US"
+  "country": "US",
+  "ats": "lever",
+  "token": "aeon",
+  "resolved": "2026-11-25",
+  "verified": "2026-11-25",
+  "fails": 0,
+  "swept": "2026-11-25",
+  "open": 0
  },
  "agiospharmaceuticals": {
   "name": "Agios Pharmaceuticals",
@@ -478,11 +485,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "AKTX",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -534,11 +541,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "TCRT",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -629,11 +636,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "CYTOF",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -644,11 +651,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "PRNAF",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -728,7 +735,7 @@
   "trials": 4,
   "ticker": "ALXO",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma",
    "biopharma"
@@ -757,22 +764,22 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "AMRN",
   "added": "2026-09-26",
-  "checked": "2026-10-17"
+  "checked": "2026-11-25"
  },
  "americagreathealth": {
   "name": "America Great Health",
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "AAGH",
   "added": "2026-09-26",
-  "checked": "2026-10-17"
+  "checked": "2026-11-25"
  },
  "amnealpharmaceuticals": {
   "name": "Amneal Pharmaceuticals",
@@ -796,11 +803,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "AMPH",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -837,11 +844,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "ANTX",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -903,11 +910,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "ANIX",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -952,11 +959,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "APUS",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -1037,11 +1044,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "AQST",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -1150,11 +1157,11 @@
    "sec",
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 5,
   "ticker": "AVBP",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma",
    "biopharma"
@@ -1202,11 +1209,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "ARTL",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -1248,7 +1255,7 @@
   "trials": 4,
   "ticker": "ASND",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma",
    "biopharma"
@@ -1260,11 +1267,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "AAPG",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -1275,11 +1282,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "ASBPW",
   "added": "2026-09-26",
-  "checked": "2026-10-17"
+  "checked": "2026-11-25"
  },
  "assemblybiosciences": {
   "name": "Assembly Biosciences",
@@ -1290,7 +1297,7 @@
   "trials": 0,
   "ticker": "ASMB",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "wrong_board": "ashby:assembly",
   "sectors": [
    "pharma"
@@ -1467,22 +1474,22 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "AVCRF",
   "added": "2026-09-26",
-  "checked": "2026-10-17"
+  "checked": "2026-11-25"
  },
  "aximbiotechnologies": {
   "name": "Axim Biotechnologies",
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "AXIM",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -1517,11 +1524,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "AYTU",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -1549,11 +1556,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "BHC",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -1564,11 +1571,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "CLYD",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -1638,11 +1645,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "BNIGF",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -1653,22 +1660,22 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "BSPK",
   "added": "2026-09-26",
-  "checked": "2026-10-17"
+  "checked": "2026-11-25"
  },
  "betterlifepharma": {
   "name": "BetterLife Pharma",
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "BETRF",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -1679,11 +1686,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "BYSI",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -1694,11 +1701,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "BGM",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -1759,11 +1766,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "BIOE",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -1779,7 +1786,7 @@
   "trials": 4,
   "ticker": "BPTH",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -1789,11 +1796,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "BDPT",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -1855,11 +1862,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "BHST",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -1905,11 +1912,11 @@
    "sec",
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 20,
   "ticker": "BMRN",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma",
    "biopharma"
@@ -1938,11 +1945,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "BIOM",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -1953,11 +1960,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "BIVIW",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -1985,11 +1992,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "BIXT",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -2017,11 +2024,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "BOLT",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -2092,11 +2099,11 @@
   "sources": [
    "sec"
   ],
-  "status": "mismatch",
+  "status": "error",
   "trials": 0,
   "ticker": "BBOT",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "wrong_board": "greenhouse:bridgebio",
   "sectors": [
    "pharma"
@@ -2130,11 +2137,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "DRUG",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -2170,11 +2177,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "BFRGW",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -2185,11 +2192,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "CVKD",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -2200,11 +2207,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "CALC",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -2215,11 +2222,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "CAMP",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -2247,11 +2254,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "CPMD",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -2288,11 +2295,11 @@
    "ctgov",
    "sbir"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 5,
   "ticker": "RNAC",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma",
    "biopharma",
@@ -2305,11 +2312,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "CASIF",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -2320,11 +2327,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "CDTTW",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -2335,11 +2342,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "CLCS",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -2355,7 +2362,7 @@
   "trials": 4,
   "ticker": "CLRB",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma",
    "biopharma"
@@ -2367,11 +2374,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "CELU",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -2399,11 +2406,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "CMMB",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -2414,11 +2421,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "CPHI",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -2429,11 +2436,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "SXTC",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -2444,11 +2451,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "CINGW",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -2459,11 +2466,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "CTOR",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -2474,11 +2481,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "CTXR",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -2507,11 +2514,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "CLNN",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -2539,11 +2546,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "CNBX",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -2654,11 +2661,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "CNTB",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -2753,11 +2760,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "CRMD",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -2773,7 +2780,7 @@
   "trials": 4,
   "ticker": "CRVS",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma",
    "biopharma"
@@ -2827,11 +2834,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "CYRX",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -2842,11 +2849,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "CTTH",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -2857,11 +2864,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "CUE",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -2889,11 +2896,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "CURX",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -2904,11 +2911,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "CVSI",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -2919,26 +2926,33 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "HELP",
   "added": "2026-09-26",
-  "checked": "2026-10-17"
+  "checked": "2026-11-25"
  },
  "cypherpunktechnologies": {
   "name": "Cypherpunk Technologies",
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "watching",
   "trials": 0,
   "ticker": "CYPH",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
-  "country": "US"
+  "country": "US",
+  "ats": "ashby",
+  "token": "cypherpunk",
+  "resolved": "2026-11-25",
+  "verified": "2026-11-25",
+  "fails": 0,
+  "swept": "2026-11-25",
+  "open": 0
  },
  "cytodyn": {
   "name": "CytoDyn",
@@ -2979,18 +2993,18 @@
   "token": "cytokinetics",
   "resolved": "2026-11-25",
   "verified": "2026-11-25",
-  "fails": 1
+  "fails": 2
  },
  "cytomedtherapeutics": {
   "name": "CytoMed Therapeutics",
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "GDTC",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -3036,11 +3050,11 @@
    "sec",
    "sbir"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "DARE",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma",
    "startup"
@@ -3052,11 +3066,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "DCOY",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -3067,11 +3081,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "DRMA",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -3185,11 +3199,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "RDY",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -3226,11 +3240,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "ETST",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -3246,7 +3260,7 @@
   "trials": 4,
   "ticker": "EDSA",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma",
    "biopharma"
@@ -3284,11 +3298,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "ELAN",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -3390,11 +3404,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "EMMA",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -3427,7 +3441,7 @@
   "trials": 4,
   "ticker": "ELVN",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma",
    "biopharma"
@@ -3439,11 +3453,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "ENLV",
   "added": "2026-09-26",
-  "checked": "2026-10-17"
+  "checked": "2026-11-25"
  },
  "ensyscebiosciences": {
   "name": "Ensysce Biosciences",
@@ -3491,11 +3505,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "ENVB",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -3506,11 +3520,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "EQ",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -3547,11 +3561,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "ERNAW",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -3562,11 +3576,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "ETON",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -3577,11 +3591,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "EPRX",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -3592,11 +3606,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "EVFM",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -3607,11 +3621,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "EOLS",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -3639,11 +3653,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "EVOTF",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -3654,11 +3668,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "XCUR",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -3694,11 +3708,11 @@
    "sec",
    "sbir"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "FBLG",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma",
    "startup"
@@ -3710,11 +3724,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "FLNA",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -3725,11 +3739,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "TRAX",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -3759,11 +3773,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "FBIOP",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -3799,11 +3813,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "GANX",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -3814,11 +3828,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "GALT",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -3829,11 +3843,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "EOCN",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -3844,11 +3858,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "GSAC",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -3859,11 +3873,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "GELS",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -3917,11 +3931,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "GNMSF",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -3949,11 +3963,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "GOVX",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -3983,11 +3997,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "GHRS",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -4058,7 +4072,7 @@
   "trials": 0,
   "ticker": "AGNPF",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "wrong_board": "greenhouse:grey",
   "sectors": [
    "pharma"
@@ -4070,11 +4084,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "GRI",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -4124,11 +4138,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "GTBP",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -4139,11 +4153,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "GYRE",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -4216,7 +4230,7 @@
   "trials": 0,
   "ticker": "CTRVP",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -4249,7 +4263,7 @@
   "trials": 0,
   "ticker": "HSTC",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -4281,7 +4295,7 @@
   "trials": 0,
   "ticker": "HYPD",
   "added": "2026-09-26",
-  "checked": "2026-10-17"
+  "checked": "2026-11-25"
  },
  "ibio": {
   "name": "iBio",
@@ -4292,7 +4306,7 @@
   "trials": 0,
   "ticker": "IBIO",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -4413,7 +4427,7 @@
   "trials": 0,
   "ticker": "IMRN",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -4428,7 +4442,7 @@
   "trials": 0,
   "ticker": "PRRUF",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -4443,7 +4457,7 @@
   "trials": 0,
   "ticker": "IBO",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "wrong_board": "greenhouse:impact",
   "sectors": [
    "pharma"
@@ -4510,7 +4524,7 @@
   "trials": 0,
   "ticker": "INDV",
   "added": "2026-09-26",
-  "checked": "2026-10-17"
+  "checked": "2026-11-25"
  },
  "inflarxnv": {
   "name": "InflaRx N.V",
@@ -4521,7 +4535,7 @@
   "trials": 0,
   "ticker": "IFRX",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -4536,7 +4550,7 @@
   "trials": 0,
   "ticker": "INTI",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -4551,7 +4565,7 @@
   "trials": 0,
   "ticker": "INM",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -4566,7 +4580,7 @@
   "trials": 0,
   "ticker": "INNPF",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -4581,7 +4595,7 @@
   "trials": 0,
   "ticker": "INVA",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -4633,7 +4647,7 @@
   "trials": 0,
   "ticker": "INBP",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -4648,7 +4662,7 @@
   "trials": 0,
   "ticker": "INCR",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -4663,7 +4677,7 @@
   "trials": 0,
   "ticker": "ISCO",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -4678,7 +4692,7 @@
   "trials": 0,
   "ticker": "IVEVF",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -4760,7 +4774,7 @@
   "trials": 0,
   "ticker": "JAGX",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -4860,7 +4874,7 @@
   "trials": 0,
   "ticker": "JUNS",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -4875,7 +4889,7 @@
   "trials": 0,
   "ticker": "MENS",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -4915,7 +4929,7 @@
   "trials": 0,
   "ticker": "KAPA",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -4930,7 +4944,7 @@
   "trials": 0,
   "ticker": "KALA",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -4945,7 +4959,7 @@
   "trials": 0,
   "ticker": "KMDA",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -5003,7 +5017,7 @@
   "trials": 0,
   "ticker": "KZIA",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -5067,7 +5081,7 @@
   "trials": 0,
   "ticker": "KPHMW",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -5104,7 +5118,7 @@
   "trials": 0,
   "ticker": "KRSA",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -5179,7 +5193,7 @@
   "trials": 0,
   "ticker": "LABT",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "wrong_board": "greenhouse:lakewood",
   "sectors": [
    "pharma"
@@ -5229,7 +5243,7 @@
   "trials": 0,
   "ticker": "LTGO",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -5285,7 +5299,7 @@
   "trials": 0,
   "ticker": "LEXX",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -5317,7 +5331,7 @@
   "trials": 0,
   "ticker": "LIFD",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -5332,7 +5346,7 @@
   "trials": 0,
   "ticker": "LIANY",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -5347,7 +5361,7 @@
   "trials": 0,
   "ticker": "LFCR",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -5362,7 +5376,7 @@
   "trials": 0,
   "ticker": "LFVN",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -5377,7 +5391,7 @@
   "trials": 0,
   "ticker": "LGNYZ",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -5392,7 +5406,7 @@
   "trials": 0,
   "ticker": "LIPO",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -5424,7 +5438,7 @@
   "trials": 0,
   "ticker": "LQDA",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -5439,7 +5453,7 @@
   "trials": 0,
   "ticker": "LSTA",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -5454,7 +5468,7 @@
   "trials": 0,
   "ticker": "LITS",
   "added": "2026-09-26",
-  "checked": "2026-10-17"
+  "checked": "2026-11-25"
  },
  "longeveron": {
   "name": "Longeveron",
@@ -5484,7 +5498,7 @@
   "trials": 0,
   "ticker": "LNAI",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -5664,7 +5678,7 @@
   "trials": 0,
   "ticker": "MTNB",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -5756,7 +5770,7 @@
   "trials": 0,
   "ticker": "MDCXW",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -5811,7 +5825,7 @@
   "trials": 0,
   "ticker": "MTVA",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -5826,7 +5840,7 @@
   "trials": 0,
   "ticker": "MIST",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -5841,7 +5855,7 @@
   "trials": 0,
   "ticker": "RLFTY",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -5856,7 +5870,7 @@
   "trials": 0,
   "ticker": "HYFT",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -5915,7 +5929,7 @@
   "trials": 0,
   "ticker": "MIRA",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -5973,7 +5987,7 @@
   "trials": 0,
   "ticker": "MNPR",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -5989,7 +6003,7 @@
   "trials": 4,
   "ticker": "MLTX",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "wrong_board": "ashby:moonlake",
   "sectors": [
    "pharma",
@@ -6006,7 +6020,7 @@
   "trials": 0,
   "ticker": "MBIO",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -6021,7 +6035,7 @@
   "trials": 0,
   "ticker": "NNBXF",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -6036,7 +6050,7 @@
   "trials": 0,
   "ticker": "NNVC",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -6051,7 +6065,7 @@
   "trials": 0,
   "ticker": "NSRX",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -6102,7 +6116,7 @@
   "trials": 4,
   "ticker": "NTHI",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma",
    "biopharma",
@@ -6136,7 +6150,7 @@
   "trials": 0,
   "ticker": "NEUP",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -6168,7 +6182,7 @@
   "trials": 0,
   "ticker": "NRSNW",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -6183,7 +6197,7 @@
   "trials": 0,
   "ticker": "NAMSW",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -6198,7 +6212,7 @@
   "trials": 0,
   "ticker": "NCEL",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -6213,7 +6227,7 @@
   "trials": 0,
   "ticker": "NXTS",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -6245,7 +6259,7 @@
   "trials": 0,
   "ticker": "NIKA",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -6286,7 +6300,7 @@
   "trials": 0,
   "ticker": "NKTP",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -6301,7 +6315,7 @@
   "trials": 0,
   "ticker": "NMAD",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "wrong_board": "ashby:nomad",
   "sectors": [
    "pharma"
@@ -6317,7 +6331,7 @@
   "trials": 0,
   "ticker": "NWBO",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -6332,7 +6346,7 @@
   "trials": 0,
   "ticker": "NBP",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -6373,7 +6387,7 @@
   "trials": 81,
   "ticker": "NONOF",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "wrong_board": "ashby:novo",
   "sectors": [
    "pharma",
@@ -6390,7 +6404,7 @@
   "trials": 0,
   "ticker": "NRXP",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -6405,7 +6419,7 @@
   "trials": 0,
   "ticker": "NCNA",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -6482,7 +6496,7 @@
   "trials": 0,
   "ticker": "NUOX",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -6521,7 +6535,7 @@
   "trials": 0,
   "ticker": "OCEA",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -6638,7 +6652,7 @@
   "trials": 0,
   "ticker": "ONCO",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -6653,7 +6667,7 @@
   "trials": 0,
   "ticker": "OTLC",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -6668,7 +6682,7 @@
   "trials": 0,
   "ticker": "OWPC",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -6683,7 +6697,7 @@
   "trials": 0,
   "ticker": "OKUR",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -6719,7 +6733,7 @@
   "trials": 0,
   "ticker": "OPTH",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -6736,7 +6750,7 @@
   "trials": 4,
   "ticker": "IRD",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma",
    "biopharma",
@@ -6753,7 +6767,7 @@
   "trials": 0,
   "ticker": "OGEN",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -6768,7 +6782,7 @@
   "trials": 0,
   "ticker": "ORMP",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -6783,7 +6797,7 @@
   "trials": 0,
   "ticker": "OGI",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -6885,7 +6899,7 @@
   "trials": 0,
   "ticker": "OSTX",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -6900,7 +6914,7 @@
   "trials": 0,
   "ticker": "OVID",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -6912,11 +6926,11 @@
    "sec",
    "fda"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "PCRX",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma",
    "device"
@@ -6952,7 +6966,7 @@
   "trials": 4,
   "ticker": "PVLA",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma",
    "biopharma"
@@ -7002,7 +7016,7 @@
   "trials": 0,
   "ticker": "PDSB",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -7017,7 +7031,7 @@
   "trials": 0,
   "ticker": "PEPG",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -7065,7 +7079,7 @@
   "trials": 0,
   "ticker": "PTPI",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -7105,7 +7119,7 @@
   "trials": 0,
   "ticker": "PHAR",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -7120,7 +7134,7 @@
   "trials": 0,
   "ticker": "PHVS",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -7154,7 +7168,7 @@
   "trials": 0,
   "ticker": "PAHC",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -7210,7 +7224,7 @@
   "trials": 0,
   "ticker": "ELAB",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -7242,7 +7256,7 @@
   "trials": 0,
   "ticker": "PLYX",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -7257,7 +7271,7 @@
   "trials": 0,
   "ticker": "PMHS",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -7295,11 +7309,11 @@
    "sec",
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 6,
   "ticker": "PGEN",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma",
    "biopharma"
@@ -7355,7 +7369,7 @@
   "trials": 0,
   "ticker": "PBH",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -7370,7 +7384,7 @@
   "trials": 0,
   "ticker": "PRFX",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -7401,7 +7415,7 @@
   "trials": 0,
   "ticker": "PCYN",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -7433,7 +7447,7 @@
   "trials": 0,
   "ticker": "PPCB",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -7448,7 +7462,7 @@
   "trials": 0,
   "ticker": "PRPH",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -7463,7 +7477,7 @@
   "trials": 0,
   "ticker": "PRQR",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -7478,7 +7492,7 @@
   "trials": 0,
   "ticker": "PTIX",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -7511,7 +7525,7 @@
   "trials": 0,
   "ticker": "PRTA",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -7526,7 +7540,7 @@
   "trials": 0,
   "ticker": "PKTX",
   "added": "2026-09-26",
-  "checked": "2026-10-17"
+  "checked": "2026-11-25"
  },
  "provectusbiopharmaceuticals": {
   "name": "Provectus Biopharmaceuticals",
@@ -7537,7 +7551,7 @@
   "trials": 0,
   "ticker": "PVCT",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "wrong_board": "lever:provectus",
   "sectors": [
    "pharma"
@@ -7553,7 +7567,7 @@
   "trials": 0,
   "ticker": "PBMWW",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -7566,7 +7580,7 @@
    "ctgov",
    "curated"
   ],
-  "status": "stale",
+  "status": "watching",
   "trials": 5,
   "ticker": "PTCT",
   "added": "2026-09-26",
@@ -7579,9 +7593,9 @@
   "country": "US",
   "ats": "workday",
   "token": "ptcbio.wd5.myworkdayjobs.com|ptcbio|PTC_Careers",
-  "resolved": "2026-11-16",
-  "verified": "2026-11-16",
-  "fails": 3,
+  "resolved": "2026-11-25",
+  "verified": "2026-11-25",
+  "fails": 0,
   "swept": "2026-11-16",
   "open": 4
  },
@@ -7594,7 +7608,7 @@
   "trials": 0,
   "ticker": "PULM",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -7644,15 +7658,16 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "mismatch",
   "trials": 0,
   "ticker": "PPBT",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
-  "country": "US"
+  "country": "US",
+  "wrong_board": "greenhouse:purple"
  },
  "pyrogenesiscanada": {
   "name": "PyroGenesis Canada",
@@ -7663,7 +7678,7 @@
   "trials": 0,
   "ticker": "PYRGF",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -7735,7 +7750,7 @@
   "trials": 0,
   "ticker": "QUCY",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "wrong_board": "ashby:quantum",
   "sectors": [
    "pharma"
@@ -7752,7 +7767,7 @@
   "trials": 4,
   "ticker": "QNRX",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma",
    "biopharma"
@@ -7785,7 +7800,7 @@
   "trials": 0,
   "ticker": "RFL",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -7800,7 +7815,7 @@
   "trials": 0,
   "ticker": "RLYB",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -7815,7 +7830,7 @@
   "trials": 0,
   "ticker": "RANI",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -7856,7 +7871,7 @@
   "trials": 0,
   "ticker": "RDHL",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -7871,7 +7886,7 @@
   "trials": 0,
   "ticker": "RGBPP",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -7928,7 +7943,7 @@
   "trials": 0,
   "ticker": "RLMD",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -7943,7 +7958,7 @@
   "trials": 0,
   "ticker": "RACC",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -7958,7 +7973,7 @@
   "trials": 0,
   "ticker": "RMHI",
   "added": "2026-09-26",
-  "checked": "2026-10-17"
+  "checked": "2026-11-25"
  },
  "revelationbiosciences": {
   "name": "Revelation Biosciences",
@@ -7969,7 +7984,7 @@
   "trials": 0,
   "ticker": "REVBW",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -7984,7 +7999,7 @@
   "trials": 0,
   "ticker": "RVRC",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -8037,11 +8052,11 @@
    "sec",
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 5,
   "ticker": "RYTM",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma",
    "biopharma"
@@ -8076,7 +8091,7 @@
   "trials": 0,
   "ticker": "RKTO",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -8110,7 +8125,7 @@
   "trials": 0,
   "ticker": "RMTI",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -8148,7 +8163,7 @@
   "trials": 0,
   "ticker": "RPRX",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -8284,7 +8299,7 @@
   "trials": 0,
   "ticker": "SCNX",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -8299,7 +8314,7 @@
   "trials": 0,
   "ticker": "SPRC",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -8314,7 +8329,7 @@
   "trials": 0,
   "ticker": "SCYX",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -8372,7 +8387,7 @@
   "trials": 0,
   "ticker": "SMNRW",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -8411,7 +8426,7 @@
   "trials": 0,
   "ticker": "MCRB",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "wrong_board": "greenhouse:seres",
   "sectors": [
    "pharma"
@@ -8461,7 +8476,7 @@
   "trials": 0,
   "ticker": "SHPH",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -8510,7 +8525,7 @@
   "trials": 0,
   "ticker": "SILO",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -8525,7 +8540,7 @@
   "trials": 0,
   "ticker": "SVA",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -8557,7 +8572,7 @@
   "trials": 0,
   "ticker": "SKVI",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -8589,7 +8604,7 @@
   "trials": 0,
   "ticker": "SLGL",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -8604,7 +8619,7 @@
   "trials": 0,
   "ticker": "SNGX",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -8619,7 +8634,7 @@
   "trials": 0,
   "ticker": "SPRO",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -8634,7 +8649,7 @@
   "trials": 0,
   "ticker": "SPRB",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "wrong_board": "ashby:spruce",
   "sectors": [
    "pharma"
@@ -8693,7 +8708,7 @@
   "trials": 0,
   "ticker": "STA",
   "added": "2026-09-26",
-  "checked": "2026-10-17"
+  "checked": "2026-11-25"
  },
  "stoketherapeutics": {
   "name": "Stoke Therapeutics",
@@ -8773,7 +8788,7 @@
   "trials": 0,
   "ticker": "SBFMW",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -8785,11 +8800,11 @@
    "sec",
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 7,
   "ticker": "SUPN",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -8829,7 +8844,7 @@
   "trials": 0,
   "ticker": "SYBX",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -8844,7 +8859,7 @@
   "trials": 0,
   "ticker": "TKPHF",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -8901,7 +8916,7 @@
   "trials": 0,
   "ticker": "TARX",
   "added": "2026-09-26",
-  "checked": "2026-10-17"
+  "checked": "2026-11-25"
  },
  "telixpharmaceuticals": {
   "name": "Telix Pharmaceuticals",
@@ -8912,7 +8927,7 @@
   "trials": 0,
   "ticker": "TLPPF",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -8927,7 +8942,7 @@
   "trials": 0,
   "ticker": "TELO",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -8960,7 +8975,7 @@
   "trials": 3,
   "ticker": "TENX",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma",
    "biopharma"
@@ -8976,7 +8991,7 @@
   "trials": 0,
   "ticker": "TEVA",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -8988,11 +9003,11 @@
    "sec",
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 10,
   "ticker": "TGTX",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma",
    "biopharma"
@@ -9008,7 +9023,7 @@
   "trials": 0,
   "ticker": "TXMD",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -9056,7 +9071,7 @@
   "trials": 3,
   "ticker": "TLSA",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma",
    "biopharma"
@@ -9096,7 +9111,7 @@
   "trials": 0,
   "ticker": "TRFA",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -9149,7 +9164,7 @@
   "trials": 0,
   "ticker": "TRAW",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -9165,7 +9180,7 @@
   "trials": 3,
   "ticker": "TRVI",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma",
    "biopharma"
@@ -9280,7 +9295,7 @@
   "trials": 0,
   "ticker": "UNCY",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -9295,7 +9310,7 @@
   "trials": 0,
   "ticker": "QURE",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -9329,7 +9344,7 @@
   "trials": 0,
   "ticker": "UPC",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "wrong_board": "ashby:universe",
   "sectors": [
    "pharma"
@@ -9365,7 +9380,7 @@
   "trials": 3,
   "ticker": "URGN",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma",
    "biopharma"
@@ -9398,7 +9413,7 @@
   "trials": 0,
   "ticker": "VBIO",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -9452,7 +9467,7 @@
   "trials": 4,
   "ticker": "MANE",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma",
    "biopharma"
@@ -9465,11 +9480,11 @@
    "sec",
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 8,
   "ticker": "VSTM",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma",
    "biopharma"
@@ -9485,7 +9500,7 @@
   "trials": 0,
   "ticker": "VRXAW",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -9497,11 +9512,11 @@
    "sec",
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 4,
   "ticker": "VRCA",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma",
    "device"
@@ -9577,7 +9592,7 @@
   "trials": 0,
   "ticker": "VICP",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -9628,7 +9643,7 @@
   "trials": 0,
   "ticker": "VREOF",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -9663,7 +9678,7 @@
   "trials": 3,
   "ticker": "VTGN",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -9712,7 +9727,7 @@
   "trials": 0,
   "ticker": "HIND",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -9777,7 +9792,7 @@
   "trials": 0,
   "ticker": "XBIT",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -9811,7 +9826,7 @@
   "trials": 0,
   "ticker": "XBIO",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -9852,7 +9867,7 @@
   "trials": 0,
   "ticker": "XERS",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -9889,7 +9904,7 @@
   "trials": 0,
   "ticker": "XRTX",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -9904,7 +9919,7 @@
   "trials": 0,
   "ticker": "XTLB",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -9933,11 +9948,11 @@
    "sec",
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 10,
   "ticker": "ZLAB",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma",
    "biopharma"
@@ -9996,7 +10011,7 @@
   "trials": 0,
   "ticker": "ZVRA",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -10011,7 +10026,7 @@
   "trials": 0,
   "ticker": "ZYBT",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -10026,7 +10041,7 @@
   "trials": 0,
   "ticker": "ZOAR",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -10041,7 +10056,7 @@
   "trials": 0,
   "ticker": "ZTS",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -10056,7 +10071,7 @@
   "trials": 0,
   "ticker": "ZOMDF",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "pharma"
   ],
@@ -10088,7 +10103,7 @@
   "trials": 0,
   "ticker": "ZVSA",
   "added": "2026-09-26",
-  "checked": "2026-10-17"
+  "checked": "2026-11-25"
  },
  "4dmoleculartherapeutics": {
   "name": "4D Molecular Therapeutics",
@@ -10120,11 +10135,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "ABPWW",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech"
   ],
@@ -10160,11 +10175,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "ADAPY",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech"
   ],
@@ -10175,11 +10190,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "APTN",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech"
   ],
@@ -10232,11 +10247,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "AGTX",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech"
   ],
@@ -10264,11 +10279,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "AGMB",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech"
   ],
@@ -10279,11 +10294,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "AIM",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech"
   ],
@@ -10376,11 +10391,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "ALVOW",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech"
   ],
@@ -10453,11 +10468,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "ARMP",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech"
   ],
@@ -10486,11 +10501,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "ATRA",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech"
   ],
@@ -10541,11 +10556,11 @@
    "sec",
    "ctgov"
   ],
-  "status": "mismatch",
+  "status": "error",
   "trials": 5,
   "ticker": "AURA",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "wrong_board": "greenhouse:aura",
   "sectors": [
    "biotech",
@@ -10757,11 +10772,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "BKHAR",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech"
   ],
@@ -10825,11 +10840,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "CLDWW",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech"
   ],
@@ -10841,11 +10856,11 @@
    "sec",
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 5,
   "ticker": "CADL",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech",
    "biopharma"
@@ -10916,11 +10931,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "CVM",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech"
   ],
@@ -11000,11 +11015,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "CSBR",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech"
   ],
@@ -11040,11 +11055,11 @@
    "sec",
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 6,
   "ticker": "CHRS",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech",
    "biopharma"
@@ -11115,11 +11130,11 @@
    "sec",
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 9,
   "ticker": "CRSP",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech",
    "biopharma"
@@ -11132,11 +11147,11 @@
    "sec",
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 8,
   "ticker": "CGEM",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech",
    "biopharma"
@@ -11148,11 +11163,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "CUBT",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech"
   ],
@@ -11180,11 +11195,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "DBVTF",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech"
   ],
@@ -11213,11 +11228,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "DYAI",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech"
   ],
@@ -11347,11 +11362,11 @@
   "sources": [
    "sec"
   ],
-  "status": "mismatch",
+  "status": "error",
   "trials": 0,
   "ticker": "ENTX",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "wrong_board": "greenhouse:entera",
   "sectors": [
    "biotech"
@@ -11380,11 +11395,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "EVAX",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech"
   ],
@@ -11414,11 +11429,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "EXOZ",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech"
   ],
@@ -11454,11 +11469,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "FENC",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech"
   ],
@@ -11469,11 +11484,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "GNTA",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech"
   ],
@@ -11532,11 +11547,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "GPLB",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech"
   ],
@@ -11547,11 +11562,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "GRMLW",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech"
   ],
@@ -11584,7 +11599,7 @@
   "trials": 0,
   "ticker": "COAG",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech"
   ],
@@ -11616,7 +11631,7 @@
   "trials": 0,
   "ticker": "IMA",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech"
   ],
@@ -11631,7 +11646,7 @@
   "trials": 0,
   "ticker": "IMTX",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech"
   ],
@@ -11643,11 +11658,11 @@
    "sec",
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 15,
   "ticker": "IBRX",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech",
    "biopharma"
@@ -11732,7 +11747,7 @@
   "trials": 4,
   "ticker": "INBX",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech",
    "biopharma"
@@ -11748,7 +11763,7 @@
   "trials": 0,
   "ticker": "INMB",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech"
   ],
@@ -11781,7 +11796,7 @@
   "trials": 0,
   "ticker": "TIL",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "wrong_board": "ashby:instil",
   "sectors": [
    "biotech"
@@ -11879,7 +11894,7 @@
   "trials": 0,
   "ticker": "KLRS",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech"
   ],
@@ -11980,7 +11995,7 @@
   "trials": 0,
   "ticker": "LENZ",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech"
   ],
@@ -12030,7 +12045,7 @@
   "trials": 0,
   "ticker": "LIMNW",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech"
   ],
@@ -12088,7 +12103,7 @@
   "trials": 4,
   "ticker": "MGTX",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech",
    "biopharma"
@@ -12125,7 +12140,7 @@
   "trials": 0,
   "ticker": "MGX",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech"
   ],
@@ -12156,11 +12171,11 @@
    "sec",
    "curated"
   ],
-  "status": "stale",
+  "status": "none",
   "trials": 0,
   "ticker": "MRNA",
   "added": "2026-09-26",
-  "checked": "2026-09-26",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech",
    "pharma"
@@ -12218,7 +12233,7 @@
   "trials": 0,
   "ticker": "CPMV",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "wrong_board": "ashby:mosaic",
   "sectors": [
    "biotech"
@@ -12296,11 +12311,11 @@
    "sec",
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 6,
   "ticker": "OCGN",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech",
    "biopharma"
@@ -12356,7 +12371,7 @@
   "trials": 0,
   "ticker": "CYVNY",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech"
   ],
@@ -12422,7 +12437,7 @@
   "trials": 0,
   "ticker": "PTHS",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech"
   ],
@@ -12437,7 +12452,7 @@
   "trials": 0,
   "ticker": "PMCB",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech"
   ],
@@ -12452,7 +12467,7 @@
   "trials": 0,
   "ticker": "PLUR",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech"
   ],
@@ -12533,7 +12548,7 @@
   "trials": 0,
   "ticker": "PLX",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech"
   ],
@@ -12572,7 +12587,7 @@
   "trials": 0,
   "ticker": "QGEN",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech"
   ],
@@ -12679,7 +12694,7 @@
   "trials": 0,
   "ticker": "RGEN",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech"
   ],
@@ -12727,7 +12742,7 @@
   "resolved": "2026-09-26",
   "fails": 0,
   "swept": "2026-11-25",
-  "open": 13,
+  "open": 14,
   "verified": "2026-09-26",
   "sectors": [
    "biotech",
@@ -12828,7 +12843,7 @@
   "trials": 0,
   "ticker": "SCLXW",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech"
   ],
@@ -12843,7 +12858,7 @@
   "trials": 0,
   "ticker": "SCNI",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech"
   ],
@@ -12897,7 +12912,7 @@
   "trials": 0,
   "ticker": "SLXNW",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech"
   ],
@@ -12912,7 +12927,7 @@
   "trials": 0,
   "ticker": "SLBT",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech"
   ],
@@ -12945,7 +12960,7 @@
   "trials": 0,
   "ticker": "SRZN",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech"
   ],
@@ -13048,7 +13063,7 @@
   "trials": 0,
   "ticker": "TVGNW",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech"
   ],
@@ -13060,11 +13075,11 @@
    "sec",
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 5,
   "ticker": "TCRX",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech",
    "biopharma"
@@ -13104,7 +13119,7 @@
   "trials": 0,
   "ticker": "VALN",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech"
   ],
@@ -13180,7 +13195,7 @@
   "trials": 4,
   "ticker": "VIR",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech",
    "biopharma"
@@ -13196,7 +13211,7 @@
   "trials": 0,
   "ticker": "VISK",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech"
   ],
@@ -13211,7 +13226,7 @@
   "trials": 0,
   "ticker": "VIVS",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech"
   ],
@@ -13300,7 +13315,7 @@
   "trials": 0,
   "ticker": "ZEOX",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech"
   ],
@@ -13315,7 +13330,7 @@
   "trials": 0,
   "ticker": "ZIVO",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech"
   ],
@@ -13343,11 +13358,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "ACHV",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "diagnostics"
   ],
@@ -13358,11 +13373,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "TKNO",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "diagnostics"
   ],
@@ -13373,11 +13388,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "NNNN",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "diagnostics"
   ],
@@ -13388,11 +13403,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "SEPSF",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "diagnostics"
   ],
@@ -13427,11 +13442,11 @@
    "sec",
    "fda"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "BMRA",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "diagnostics"
   ],
@@ -13444,11 +13459,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "BZYR",
   "added": "2026-09-26",
-  "checked": "2026-10-17"
+  "checked": "2026-11-25"
  },
  "cardiodiagnostics": {
   "name": "Cardio Diagnostics",
@@ -13500,7 +13515,7 @@
   "trials": 0,
   "ticker": "IDXX",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "diagnostics"
   ],
@@ -13515,7 +13530,7 @@
   "trials": 0,
   "ticker": "ICCC",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "diagnostics"
   ],
@@ -13600,7 +13615,7 @@
   "trials": 0,
   "ticker": "NEOG",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "diagnostics"
   ],
@@ -13615,7 +13630,7 @@
   "trials": 0,
   "ticker": "NYMXF",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "diagnostics"
   ],
@@ -13630,7 +13645,7 @@
   "trials": 0,
   "ticker": "QCLS",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "diagnostics"
   ],
@@ -13661,7 +13676,7 @@
   "trials": 0,
   "ticker": "TRIB",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "diagnostics"
   ],
@@ -13676,7 +13691,7 @@
   "trials": 0,
   "ticker": "VRAX",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "diagnostics"
   ],
@@ -13691,7 +13706,7 @@
   "trials": 0,
   "ticker": "VNRX",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "diagnostics"
   ],
@@ -13741,11 +13756,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "CBIH",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech"
   ],
@@ -13756,11 +13771,11 @@
   "sources": [
    "sec"
   ],
-  "status": "mismatch",
+  "status": "error",
   "trials": 0,
   "ticker": "CRL",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "wrong_board": "greenhouse:charles",
   "sectors": [
    "biotech"
@@ -13772,11 +13787,11 @@
   "sources": [
    "sec"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 0,
   "ticker": "FOXOW",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech"
   ],
@@ -13791,7 +13806,7 @@
   "trials": 0,
   "ticker": "IBACR",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech"
   ],
@@ -13848,11 +13863,11 @@
    "sec",
    "curated"
   ],
-  "status": "stale",
+  "status": "none",
   "trials": 0,
   "ticker": "IQV",
   "added": "2026-09-26",
-  "checked": "2026-09-26",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech",
    "cro"
@@ -13892,7 +13907,7 @@
   "trials": 0,
   "ticker": "MXCT",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech"
   ],
@@ -13926,7 +13941,7 @@
   "trials": 0,
   "ticker": "NRC",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech"
   ],
@@ -13941,7 +13956,7 @@
   "trials": 0,
   "ticker": "OABIW",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech"
   ],
@@ -13956,7 +13971,7 @@
   "trials": 0,
   "ticker": "ONMDW",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech"
   ],
@@ -13971,7 +13986,7 @@
   "trials": 0,
   "ticker": "VSBC",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech"
   ],
@@ -13986,7 +14001,7 @@
   "trials": 0,
   "ticker": "BUDZ",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biotech"
   ],
@@ -14033,7 +14048,7 @@
   "trials": 4,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device",
    "startup"
@@ -14045,11 +14060,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 117,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -14099,11 +14114,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 286,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -14137,7 +14152,7 @@
   "trials": 4,
   "ticker": "CNSY",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device",
    "biopharma"
@@ -14163,11 +14178,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 153,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -14177,11 +14192,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 6,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -14219,11 +14234,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 16,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -14233,11 +14248,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "mismatch",
+  "status": "error",
   "trials": 6,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "wrong_board": "greenhouse:qualia",
   "sectors": [
    "biopharma"
@@ -14292,11 +14307,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 151,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -14306,11 +14321,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 8,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ]
@@ -14337,11 +14352,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 206,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -14428,11 +14443,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 49,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ]
@@ -14442,11 +14457,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 6,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -14492,11 +14507,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 7,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -14506,11 +14521,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 9,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -14524,7 +14539,7 @@
   "trials": 4,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ]
@@ -14554,7 +14569,7 @@
   "trials": 4,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ]
@@ -14806,11 +14821,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 18,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -14878,11 +14893,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 6,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -14969,11 +14984,11 @@
    "ctgov",
    "fda"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 1,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ],
@@ -14986,11 +15001,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 33,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -15000,11 +15015,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 7,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -15273,11 +15288,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 12,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -15307,11 +15322,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 10,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -15337,7 +15352,7 @@
   "trials": 4,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -15358,11 +15373,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 6,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ]
@@ -15372,11 +15387,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 7,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -15390,7 +15405,7 @@
   "trials": 4,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -15421,7 +15436,7 @@
   "trials": 4,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ]
@@ -15492,11 +15507,11 @@
    "ctgov",
    "sbir"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 10,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device",
    "startup"
@@ -15543,11 +15558,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 21,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -15796,11 +15811,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 7,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ]
@@ -15890,11 +15905,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 16,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -15947,11 +15962,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 8,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -15962,11 +15977,11 @@
    "ctgov",
    "fda"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 1,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ],
@@ -16020,11 +16035,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 25,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -16070,7 +16085,7 @@
   "trials": 3,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -16190,7 +16205,7 @@
   "trials": 4,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ]
@@ -16316,11 +16331,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 21,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ]
@@ -16423,11 +16438,11 @@
    "ctgov",
    "fda"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 4,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ],
@@ -16561,7 +16576,7 @@
   "trials": 4,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device",
    "startup"
@@ -16604,11 +16619,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 5,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -16622,7 +16637,7 @@
   "trials": 4,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17"
+  "checked": "2026-11-25"
  },
  "ssuricelandehf": {
   "name": "Össur Iceland ehf",
@@ -16657,11 +16672,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 12,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ]
@@ -16722,7 +16737,7 @@
   "trials": 4,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17"
+  "checked": "2026-11-25"
  },
  "encoremedical": {
   "name": "Encore Medical",
@@ -16746,11 +16761,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 10,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -16950,11 +16965,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 5,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -16992,11 +17007,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 15,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -17111,11 +17126,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 5,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17"
+  "checked": "2026-11-25"
  },
  "oregonresearchbehavioralinterventionstrategies": {
   "name": "Oregon Research Behavioral Intervention Strategies",
@@ -17224,11 +17239,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 9,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -17383,7 +17398,7 @@
   "trials": 3,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ]
@@ -17411,7 +17426,7 @@
   "trials": 4,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -17505,7 +17520,7 @@
   "trials": 3,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -17533,7 +17548,7 @@
   "trials": 4,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -17590,11 +17605,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 5,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -17654,18 +17669,18 @@
   "trials": 4,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17"
+  "checked": "2026-11-25"
  },
  "zydustherapeutics": {
   "name": "Zydus Therapeutics",
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 6,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -17770,8 +17785,8 @@
   "trials": 13,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
-  "wrong_board": "greenhouse:kite",
+  "checked": "2026-11-25",
+  "wrong_board": "ashby:kite",
   "sectors": [
    "biopharma"
   ]
@@ -17819,11 +17834,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 11,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -17891,11 +17906,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 14,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -17924,7 +17939,7 @@
   "trials": 3,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma",
    "startup"
@@ -18014,11 +18029,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 25,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -18149,11 +18164,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 8,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -18221,22 +18236,22 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 5,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17"
+  "checked": "2026-11-25"
  },
  "ppddevelopment": {
   "name": "PPD Development",
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 16,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -18513,11 +18528,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 7,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -18604,11 +18619,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 8,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -18730,11 +18745,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 7,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ]
@@ -18852,11 +18867,11 @@
    "ctgov",
    "fda"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 4,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ],
@@ -18899,11 +18914,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 6,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17"
+  "checked": "2026-11-25"
  },
  "cellsighttechnologies": {
   "name": "CellSight Technologies",
@@ -18927,11 +18942,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 8,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -19298,7 +19313,7 @@
   "trials": 4,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "wrong_board": "greenhouse:grin",
   "sectors": [
    "biopharma"
@@ -19382,11 +19397,11 @@
    "ctgov",
    "fda"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 3,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ],
@@ -19612,11 +19627,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 14,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -19626,11 +19641,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 5,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -19658,11 +19673,11 @@
    "ctgov",
    "fda"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 3,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ],
@@ -19733,11 +19748,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 30,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -19747,11 +19762,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 5,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -19827,7 +19842,7 @@
   "trials": 4,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -19869,7 +19884,7 @@
   "trials": 4,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -19897,7 +19912,7 @@
   "trials": 4,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -19995,11 +20010,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 5,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -20119,11 +20134,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 16,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ]
@@ -20378,11 +20393,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 12,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ]
@@ -20411,11 +20426,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 6,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -20475,11 +20490,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 9,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -20506,11 +20521,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 6,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -20521,11 +20536,11 @@
    "ctgov",
    "fda"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 2,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device",
    "biopharma"
@@ -20557,7 +20572,7 @@
   "trials": 5,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "wrong_board": "ashby:applied",
   "sectors": [
    "biopharma"
@@ -20627,11 +20642,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 6,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -20705,7 +20720,7 @@
   "trials": 3,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ]
@@ -20822,11 +20837,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 5,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -20882,11 +20897,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 15,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -21047,20 +21062,20 @@
   "token": "medtronic.wd1.myworkdayjobs.com|medtronic|MedtronicCareers",
   "resolved": "2026-11-25",
   "verified": "2026-11-25",
-  "fails": 1,
-  "swept": "2026-11-07",
-  "open": 42
+  "fails": 0,
+  "swept": "2026-11-25",
+  "open": 1
  },
  "dentsplysironaimplantsconsumables": {
   "name": "Dentsply Sirona Implants and Consumables",
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 8,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ]
@@ -21085,11 +21100,11 @@
    "ctgov",
    "fda"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 1,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ],
@@ -21204,11 +21219,11 @@
    "ctgov",
    "fda"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 2,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ],
@@ -21222,11 +21237,11 @@
    "ctgov",
    "fda"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 1,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ],
@@ -21366,7 +21381,7 @@
   "trials": 4,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ]
@@ -21482,11 +21497,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 10,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -21524,11 +21539,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 4,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -21580,11 +21595,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 4,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -21740,11 +21755,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 7,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17"
+  "checked": "2026-11-25"
  },
  "cytedhealth": {
   "name": "Cyted Health",
@@ -21810,7 +21825,7 @@
   "trials": 4,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -21968,11 +21983,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 6,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -22218,7 +22233,7 @@
   "trials": 4,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17"
+  "checked": "2026-11-25"
  },
  "spinalsimplicity": {
   "name": "Spinal Simplicity",
@@ -22333,11 +22348,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 6,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -22347,11 +22362,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 33,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -22419,7 +22434,7 @@
   "trials": 4,
   "ticker": "DRTSW",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ],
@@ -22540,7 +22555,7 @@
   "trials": 4,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ]
@@ -22550,11 +22565,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 13,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -22598,7 +22613,7 @@
   "trials": 3,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -22688,7 +22703,7 @@
   "trials": 4,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "diagnostics"
   ]
@@ -22784,11 +22799,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 11,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -22848,7 +22863,7 @@
   "trials": 3,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ]
@@ -23265,7 +23280,7 @@
   "trials": 4,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -23275,11 +23290,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 5,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -23307,7 +23322,7 @@
   "trials": 4,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -23345,11 +23360,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 10,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -23363,7 +23378,7 @@
   "trials": 4,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -23391,11 +23406,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 9,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ]
@@ -23682,7 +23697,7 @@
   "trials": 3,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -23814,11 +23829,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 5,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -24047,7 +24062,7 @@
   "trials": 3,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ]
@@ -24086,11 +24101,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 4,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ]
@@ -24115,11 +24130,11 @@
    "ctgov",
    "fda"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 3,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ],
@@ -24136,7 +24151,7 @@
   "trials": 3,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17"
+  "checked": "2026-11-25"
  },
  "inveropharma": {
   "name": "Invero Pharma",
@@ -24234,11 +24249,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 19,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -24280,7 +24295,7 @@
   "trials": 3,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -24399,7 +24414,7 @@
   "trials": 3,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ]
@@ -24424,7 +24439,7 @@
   "trials": 4,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -24448,11 +24463,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 5,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17"
+  "checked": "2026-11-25"
  },
  "guidedtherapeutics": {
   "name": "Guided Therapeutics",
@@ -24627,11 +24642,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 7,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ]
@@ -24672,11 +24687,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 5,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -24686,11 +24701,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 9,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -24718,7 +24733,7 @@
   "trials": 4,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -24791,7 +24806,7 @@
   "trials": 4,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ]
@@ -24869,11 +24884,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 10,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ]
@@ -24911,11 +24926,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 5,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -24976,11 +24991,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 6,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -25818,11 +25833,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 5,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -26126,7 +26141,7 @@
   "trials": 4,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -26141,7 +26156,7 @@
   "trials": 4,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "wrong_board": "lever:rise",
   "sectors": [
    "biopharma",
@@ -26308,11 +26323,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 5,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -26373,7 +26388,7 @@
   "trials": 4,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -26550,11 +26565,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 6,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -26639,11 +26654,11 @@
    "ctgov",
    "fda"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 2,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ],
@@ -26682,11 +26697,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 9,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -26920,11 +26935,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 5,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -27225,11 +27240,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 7,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -27254,11 +27269,11 @@
    "ctgov",
    "sbir"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 5,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device",
    "startup"
@@ -27395,11 +27410,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 6,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -27477,11 +27492,11 @@
    "ctgov",
    "fda"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 1,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ],
@@ -27608,11 +27623,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 5,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -28091,7 +28106,7 @@
   "trials": 4,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -28559,11 +28574,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 7,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -28772,7 +28787,7 @@
   "trials": 4,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "wrong_board": "greenhouse:definiumtherapeutics",
   "sectors": [
    "biopharma"
@@ -28787,7 +28802,7 @@
   "trials": 4,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -28857,11 +28872,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "mismatch",
+  "status": "error",
   "trials": 6,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "wrong_board": "greenhouse:olly",
   "sectors": [
    "biopharma"
@@ -29332,11 +29347,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 7,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -29346,11 +29361,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 8,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -29462,11 +29477,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 5,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -29592,7 +29607,7 @@
   "trials": 4,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ]
@@ -29729,7 +29744,7 @@
   "trials": 3,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -29803,11 +29818,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 16,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -29817,11 +29832,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 5,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -29965,7 +29980,7 @@
   "trials": 3,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -30480,11 +30495,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 13,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -30728,11 +30743,11 @@
    "ctgov",
    "fda"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 2,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ],
@@ -30746,11 +30761,11 @@
    "ctgov",
    "fda"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 1,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ],
@@ -30763,11 +30778,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 8,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ]
@@ -30887,7 +30902,7 @@
   "trials": 4,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -30970,11 +30985,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 11,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -31015,11 +31030,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 4,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -31267,11 +31282,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 5,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -31314,7 +31329,7 @@
   "trials": 4,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -31701,11 +31716,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 5,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -31736,7 +31751,7 @@
   "trials": 4,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -32059,11 +32074,11 @@
    "ctgov",
    "fda"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 2,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ],
@@ -32235,11 +32250,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 10,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -32308,11 +32323,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 5,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "diagnostics"
   ]
@@ -32436,7 +32451,7 @@
   "trials": 4,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device",
    "startup"
@@ -32544,7 +32559,7 @@
   "trials": 3,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -32768,11 +32783,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 7,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -33473,7 +33488,7 @@
   "trials": 3,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -33488,7 +33503,7 @@
   "trials": 3,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma",
    "startup"
@@ -33630,7 +33645,7 @@
   "trials": 3,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17"
+  "checked": "2026-11-25"
  },
  "syndevrx": {
   "name": "SynDevRx",
@@ -33745,7 +33760,7 @@
   "trials": 3,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -34431,7 +34446,7 @@
   "trials": 3,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -34708,11 +34723,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 5,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "diagnostics",
    "device"
@@ -35098,7 +35113,7 @@
   "trials": 3,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "wrong_board": "smartrecruiters:wren",
   "sectors": [
    "diagnostics"
@@ -35320,7 +35335,7 @@
   "trials": 3,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -35365,7 +35380,7 @@
   "trials": 4,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ]
@@ -35442,11 +35457,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 5,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -35554,7 +35569,7 @@
    "fda",
    "curated"
   ],
-  "status": "stale",
+  "status": "watching",
   "trials": 5,
   "ticker": "DXCM",
   "added": "2026-09-26",
@@ -35568,10 +35583,10 @@
   "specialty": "Clinical Chemistry",
   "ats": "workday",
   "token": "dexcom.wd1.myworkdayjobs.com|dexcom|Dexcom",
-  "resolved": "2026-11-07",
-  "verified": "2026-11-07",
-  "fails": 3,
-  "swept": "2026-11-16",
+  "resolved": "2026-11-25",
+  "verified": "2026-11-25",
+  "fails": 0,
+  "swept": "2026-11-25",
   "open": 0
  },
  "cantexpharmaceuticals": {
@@ -35593,15 +35608,22 @@
   "sources": [
    "ctgov"
   ],
-  "status": "mismatch",
+  "status": "watching",
   "trials": 3,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "wrong_board": "ashby:stealth",
   "sectors": [
    "biopharma"
-  ]
+  ],
+  "ats": "ashby",
+  "token": "stealth",
+  "resolved": "2026-11-25",
+  "verified": "2026-11-25",
+  "fails": 0,
+  "swept": "2026-11-25",
+  "open": 1
  },
  "briohealthsolutions": {
   "name": "BrioHealth Solutions",
@@ -36032,11 +36054,11 @@
    "ctgov",
    "fda"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 5,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ],
@@ -36277,7 +36299,7 @@
   "trials": 4,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -36503,11 +36525,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 7,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -36588,11 +36610,11 @@
    "ctgov",
    "fda"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 2,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ],
@@ -36684,7 +36706,7 @@
   "trials": 3,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -36878,7 +36900,7 @@
   "trials": 4,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -36948,7 +36970,7 @@
   "trials": 4,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -37097,11 +37119,11 @@
    "fda",
    "curated"
   ],
-  "status": "stale",
+  "status": "none",
   "trials": 4,
   "ticker": "BDX",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device",
    "diagnostics"
@@ -37140,7 +37162,7 @@
   "trials": 3,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ]
@@ -37216,7 +37238,7 @@
   "trials": 3,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "wrong_board": "greenhouse:universal",
   "sectors": [
    "diagnostics",
@@ -37423,11 +37445,11 @@
    "ctgov",
    "fda"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 1,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ],
@@ -37508,11 +37530,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "error",
+  "status": "none",
   "trials": 3,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-11-23",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -37667,7 +37689,7 @@
   "trials": 3,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -37692,11 +37714,11 @@
    "ctgov",
    "sbir"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 7,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma",
    "startup"
@@ -37776,7 +37798,7 @@
   "trials": 3,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -37863,7 +37885,7 @@
   "trials": 3,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "wrong_board": "ashby:tiger",
   "sectors": [
    "biopharma"
@@ -37874,11 +37896,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "mismatch",
+  "status": "none",
   "trials": 3,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "wrong_board": "ashby:tilt",
   "sectors": [
    "biopharma"
@@ -37918,7 +37940,7 @@
   "trials": 3,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -38457,7 +38479,7 @@
   "trials": 3,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ]
@@ -38566,15 +38588,22 @@
   "sources": [
    "ctgov"
   ],
-  "status": "mismatch",
+  "status": "watching",
   "trials": 5,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "wrong_board": "lever:rai",
   "sectors": [
    "biopharma"
-  ]
+  ],
+  "ats": "lever",
+  "token": "rai",
+  "resolved": "2026-11-25",
+  "verified": "2026-11-25",
+  "fails": 0,
+  "swept": "2026-11-25",
+  "open": 1
  },
  "medipost": {
   "name": "Medipost",
@@ -38837,11 +38866,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 6,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -39101,11 +39130,11 @@
    "ctgov",
    "fda"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 2,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ],
@@ -40747,11 +40776,11 @@
    "ctgov",
    "fda"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 2,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ],
@@ -40847,7 +40876,7 @@
   "trials": 4,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -41012,11 +41041,11 @@
    "ctgov",
    "fda"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 1,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ],
@@ -41088,7 +41117,7 @@
   "trials": 3,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -41387,11 +41416,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 5,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -42392,11 +42421,11 @@
    "ctgov",
    "fda"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 1,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ],
@@ -42905,11 +42934,11 @@
    "ctgov",
    "fda"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 1,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device",
    "biopharma"
@@ -43110,11 +43139,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 5,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -43141,11 +43170,11 @@
    "ctgov",
    "fda"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 3,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ],
@@ -43797,7 +43826,7 @@
   "trials": 3,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17"
+  "checked": "2026-11-25"
  },
  "aptatekbiosciences": {
   "name": "Aptatek BioSciences",
@@ -44127,11 +44156,11 @@
    "ctgov",
    "fda"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 1,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ],
@@ -44887,7 +44916,7 @@
   "trials": 1,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -45182,7 +45211,7 @@
   "trials": 4,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ]
@@ -45526,11 +45555,11 @@
    "ctgov",
    "fda"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 1,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ],
@@ -45876,11 +45905,11 @@
    "ctgov",
    "fda"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 1,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ],
@@ -46310,7 +46339,7 @@
   "trials": 3,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -46748,11 +46777,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 4,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17"
+  "checked": "2026-11-25"
  },
  "lemaitrevascular": {
   "name": "LeMaitre Vascular",
@@ -47242,11 +47271,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 5,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -48796,11 +48825,11 @@
    "ctgov",
    "fda"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 2,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ],
@@ -49508,11 +49537,11 @@
   "sources": [
    "ctgov"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 4,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "biopharma"
   ]
@@ -50554,11 +50583,11 @@
    "ctgov",
    "fda"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 2,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device",
    "biopharma"
@@ -50852,7 +50881,7 @@
   "trials": 4,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ]
@@ -51381,11 +51410,11 @@
    "ctgov",
    "fda"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 1,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device",
    "diagnostics"
@@ -51400,11 +51429,11 @@
    "ctgov",
    "fda"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 1,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ],
@@ -55066,11 +55095,11 @@
    "ctgov",
    "fda"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 1,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ],
@@ -55802,11 +55831,11 @@
    "ctgov",
    "fda"
   ],
-  "status": "none",
+  "status": "error",
   "trials": 1,
   "ticker": "",
   "added": "2026-09-26",
-  "checked": "2026-10-17",
+  "checked": "2026-11-25",
   "sectors": [
    "device"
   ],
@@ -58462,7 +58491,7 @@
   "token": "allucent",
   "resolved": "2026-11-16",
   "verified": "2026-11-16",
-  "fails": 0,
+  "fails": 1,
   "swept": "2026-11-25",
   "open": 8
  },
@@ -60308,7 +60337,7 @@
    "tech"
   ],
   "country": "US",
-  "checked": "2026-11-07"
+  "checked": "2026-11-25"
  },
  "3m": {
   "name": "3M",
@@ -61628,7 +61657,7 @@
    "fda",
    "curated"
   ],
-  "status": "stale",
+  "status": "none",
   "trials": 0,
   "ticker": "SYK",
   "added": "2026-11-07",
@@ -61644,7 +61673,8 @@
   "verified": "2026-11-07",
   "fails": 3,
   "swept": "2026-11-16",
-  "open": 1
+  "open": 1,
+  "checked": "2026-11-25"
  },
  "tactilesystemstechnology": {
   "name": "Tactile Systems Technology",
@@ -85358,7 +85388,7 @@
   "country": "JP",
   "clearances": 3,
   "specialty": "Radiology",
-  "checked": "2026-11-07"
+  "checked": "2026-11-25"
  },
  "bostonscientificneuromodulation": {
   "name": "Boston Scientific Neuromodulation",
@@ -108444,7 +108474,7 @@
   "country": "JP",
   "clearances": 5,
   "specialty": "Ophthalmic",
-  "checked": "2026-11-07"
+  "checked": "2026-11-25"
  },
  "dermalogica": {
   "name": "Dermalogica",
@@ -123207,7 +123237,7 @@
   "country": "JP",
   "clearances": 1,
   "specialty": "Gastroenterology, Urology",
-  "checked": "2026-11-07"
+  "checked": "2026-11-25"
  },
  "sciencebiomaterialssas": {
   "name": "Science & Bio Materials Sas",
@@ -128015,7 +128045,7 @@
   "country": "JP",
   "clearances": 1,
   "specialty": "Radiology",
-  "checked": "2026-11-07"
+  "checked": "2026-11-25"
  },
  "ningborunyesmedicalinstrument": {
   "name": "Ningbo Runyes Medical Instrument",
@@ -152632,7 +152662,7 @@
   "token": "galatea",
   "resolved": "2026-11-07",
   "verified": "2026-11-07",
-  "fails": 1,
+  "fails": 2,
   "swept": "2026-11-23",
   "open": 0
  },
@@ -162346,7 +162376,7 @@
   "sources": [
    "sbir"
   ],
-  "status": "watching",
+  "status": "mismatch",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-07",
@@ -162354,14 +162384,15 @@
    "startup"
   ],
   "country": "US",
-  "checked": "2026-11-07",
+  "checked": "2026-11-25",
   "ats": "ashby",
   "token": "stealth",
   "resolved": "2026-11-07",
   "verified": "2026-11-07",
   "fails": 0,
   "swept": "2026-11-25",
-  "open": 0
+  "open": 0,
+  "wrong_board": "ashby|stealth"
  },
  "urbandesign4health": {
   "name": "Urban Design 4 Health",
@@ -168068,7 +168099,7 @@
   "sources": [
    "curated"
   ],
-  "status": "stale",
+  "status": "none",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-07",
@@ -168081,7 +168112,8 @@
   "verified": "2026-11-07",
   "fails": 3,
   "swept": "2026-11-16",
-  "open": 0
+  "open": 0,
+  "checked": "2026-11-25"
  },
  "philips": {
   "name": "Philips",
@@ -170944,7 +170976,7 @@
   "sources": [
    "fda"
   ],
-  "status": "unresolved",
+  "status": "error",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-16",
@@ -170953,14 +170985,15 @@
   ],
   "country": "US",
   "clearances": 1,
-  "specialty": "Cardiovascular"
+  "specialty": "Cardiovascular",
+  "checked": "2026-11-25"
  },
  "mddiagnostics": {
   "name": "MD Diagnostics",
   "sources": [
    "fda"
   ],
-  "status": "unresolved",
+  "status": "none",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-16",
@@ -170969,14 +171002,15 @@
   ],
   "country": "GB",
   "clearances": 1,
-  "specialty": "Anesthesiology"
+  "specialty": "Anesthesiology",
+  "checked": "2026-11-25"
  },
  "evidentvascular": {
   "name": "Evident Vascular",
   "sources": [
    "fda"
   ],
-  "status": "unresolved",
+  "status": "mismatch",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-16",
@@ -170985,14 +171019,16 @@
   ],
   "country": "US",
   "clearances": 1,
-  "specialty": "Radiology"
+  "specialty": "Radiology",
+  "checked": "2026-11-25",
+  "wrong_board": "smartrecruiters:evident"
  },
  "borze": {
   "name": "Borze",
   "sources": [
    "fda"
   ],
-  "status": "unresolved",
+  "status": "error",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-16",
@@ -171001,14 +171037,15 @@
   ],
   "country": "US",
   "clearances": 1,
-  "specialty": "General, Plastic Surgery"
+  "specialty": "General, Plastic Surgery",
+  "checked": "2026-11-25"
  },
  "datumdental": {
   "name": "Datum Dental",
   "sources": [
    "fda"
   ],
-  "status": "unresolved",
+  "status": "none",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-16",
@@ -171017,14 +171054,15 @@
   ],
   "country": "IL",
   "clearances": 1,
-  "specialty": "Dental"
+  "specialty": "Dental",
+  "checked": "2026-11-25"
  },
  "contrariomedical": {
   "name": "Contrario Medical",
   "sources": [
    "fda"
   ],
-  "status": "unresolved",
+  "status": "error",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-16",
@@ -171033,14 +171071,15 @@
   ],
   "country": "US",
   "clearances": 1,
-  "specialty": "Obstetrics/Gynecology"
+  "specialty": "Obstetrics/Gynecology",
+  "checked": "2026-11-25"
  },
  "pioneersurgicaltechnologydbaexalta": {
   "name": "Pioneer Surgical Technology Inc. dba EXALTA",
   "sources": [
    "fda"
   ],
-  "status": "unresolved",
+  "status": "error",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-16",
@@ -171049,14 +171088,15 @@
   ],
   "country": "US",
   "clearances": 1,
-  "specialty": "Orthopedic"
+  "specialty": "Orthopedic",
+  "checked": "2026-11-25"
  },
  "diximedical": {
   "name": "Dixi Medical",
   "sources": [
    "fda"
   ],
-  "status": "unresolved",
+  "status": "none",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-16",
@@ -171065,14 +171105,15 @@
   ],
   "country": "FR",
   "clearances": 1,
-  "specialty": "Neurology"
+  "specialty": "Neurology",
+  "checked": "2026-11-25"
  },
  "robotraktechnologies": {
   "name": "Robotrak Technologies",
   "sources": [
    "fda"
   ],
-  "status": "unresolved",
+  "status": "none",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-16",
@@ -171081,14 +171122,15 @@
   ],
   "country": "CN",
   "clearances": 1,
-  "specialty": "Ophthalmic"
+  "specialty": "Ophthalmic",
+  "checked": "2026-11-25"
  },
  "fanennewmaterialstechnology": {
   "name": "Fanen New Materials Technology",
   "sources": [
    "fda"
   ],
-  "status": "unresolved",
+  "status": "none",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-16",
@@ -171097,14 +171139,15 @@
   ],
   "country": "CN",
   "clearances": 1,
-  "specialty": "Dental"
+  "specialty": "Dental",
+  "checked": "2026-11-25"
  },
  "zirconiacollective": {
   "name": "Zirconia Collective",
   "sources": [
    "fda"
   ],
-  "status": "unresolved",
+  "status": "error",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-16",
@@ -171113,14 +171156,15 @@
   ],
   "country": "US",
   "clearances": 1,
-  "specialty": "Dental"
+  "specialty": "Dental",
+  "checked": "2026-11-25"
  },
  "futurefertility": {
   "name": "Future Fertility",
   "sources": [
    "fda"
   ],
-  "status": "unresolved",
+  "status": "mismatch",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-16",
@@ -171129,14 +171173,16 @@
   ],
   "country": "CA",
   "clearances": 1,
-  "specialty": "Obstetrics/Gynecology"
+  "specialty": "Obstetrics/Gynecology",
+  "checked": "2026-11-25",
+  "wrong_board": "greenhouse:future"
  },
  "changshasinocare": {
   "name": "Changsha Sinocare",
   "sources": [
    "fda"
   ],
-  "status": "unresolved",
+  "status": "none",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-16",
@@ -171145,14 +171191,15 @@
   ],
   "country": "CN",
   "clearances": 1,
-  "specialty": "Clinical Chemistry"
+  "specialty": "Clinical Chemistry",
+  "checked": "2026-11-25"
  },
  "bddiagnosticsolutionsbectondickinson": {
   "name": "BD Diagnostic Solutions / Becton Dickinson",
   "sources": [
    "fda"
   ],
-  "status": "unresolved",
+  "status": "error",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-16",
@@ -171161,14 +171208,15 @@
   ],
   "country": "US",
   "clearances": 1,
-  "specialty": "Microbiology"
+  "specialty": "Microbiology",
+  "checked": "2026-11-25"
  },
  "catheterprecision": {
   "name": "Catheter Precision",
   "sources": [
    "fda"
   ],
-  "status": "unresolved",
+  "status": "error",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-16",
@@ -171177,14 +171225,15 @@
   ],
   "country": "US",
   "clearances": 1,
-  "specialty": "Cardiovascular"
+  "specialty": "Cardiovascular",
+  "checked": "2026-11-25"
  },
  "bloomsurgical": {
   "name": "Bloom Surgical",
   "sources": [
    "fda"
   ],
-  "status": "unresolved",
+  "status": "mismatch",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-16",
@@ -171193,14 +171242,16 @@
   ],
   "country": "US",
   "clearances": 1,
-  "specialty": "Gastroenterology, Urology"
+  "specialty": "Gastroenterology, Urology",
+  "checked": "2026-11-25",
+  "wrong_board": "lever:bloom"
  },
  "koehrermedicalengineering": {
   "name": "Koehrer Medical Engineering",
   "sources": [
    "fda"
   ],
-  "status": "unresolved",
+  "status": "none",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-16",
@@ -171209,14 +171260,15 @@
   ],
   "country": "DE",
   "clearances": 1,
-  "specialty": "Dental"
+  "specialty": "Dental",
+  "checked": "2026-11-25"
  },
  "vietglove": {
   "name": "Vietglove",
   "sources": [
    "fda"
   ],
-  "status": "unresolved",
+  "status": "none",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-16",
@@ -171225,14 +171277,15 @@
   ],
   "country": "VN",
   "clearances": 1,
-  "specialty": "General Hospital"
+  "specialty": "General Hospital",
+  "checked": "2026-11-25"
  },
  "giwindowssurgical": {
   "name": "GI Windows Surgical",
   "sources": [
    "fda"
   ],
-  "status": "unresolved",
+  "status": "error",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-16",
@@ -171241,14 +171294,15 @@
   ],
   "country": "US",
   "clearances": 1,
-  "specialty": "General, Plastic Surgery"
+  "specialty": "General, Plastic Surgery",
+  "checked": "2026-11-25"
  },
  "blackforestmedical": {
   "name": "Black Forest Medical",
   "sources": [
    "fda"
   ],
-  "status": "unresolved",
+  "status": "none",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-16",
@@ -171257,14 +171311,15 @@
   ],
   "country": "DE",
   "clearances": 1,
-  "specialty": "Neurology"
+  "specialty": "Neurology",
+  "checked": "2026-11-25"
  },
  "shenzhenbwaytech": {
   "name": "Shenzhen Bway Tech",
   "sources": [
    "fda"
   ],
-  "status": "unresolved",
+  "status": "none",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-16",
@@ -171273,14 +171328,15 @@
   ],
   "country": "CN",
   "clearances": 1,
-  "specialty": "General, Plastic Surgery"
+  "specialty": "General, Plastic Surgery",
+  "checked": "2026-11-25"
  },
  "genmarkdiagnostics": {
   "name": "GenMark Diagnostics",
   "sources": [
    "fda"
   ],
-  "status": "unresolved",
+  "status": "error",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-16",
@@ -171289,14 +171345,15 @@
   ],
   "country": "US",
   "clearances": 1,
-  "specialty": "Microbiology"
+  "specialty": "Microbiology",
+  "checked": "2026-11-25"
  },
  "toprankhealthcare": {
   "name": "Top-Rank Health Care",
   "sources": [
    "fda"
   ],
-  "status": "unresolved",
+  "status": "none",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-16",
@@ -171305,14 +171362,15 @@
   ],
   "country": "CN",
   "clearances": 1,
-  "specialty": "Radiology"
+  "specialty": "Radiology",
+  "checked": "2026-11-25"
  },
  "cbinnovations": {
   "name": "Cb Innovations",
   "sources": [
    "fda"
   ],
-  "status": "unresolved",
+  "status": "error",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-16",
@@ -171321,14 +171379,15 @@
   ],
   "country": "US",
   "clearances": 1,
-  "specialty": "Cardiovascular"
+  "specialty": "Cardiovascular",
+  "checked": "2026-11-25"
  },
  "my123babymedicaldbaboostfertility": {
   "name": "My123Baby Medical Limited Dba Boost Fertility",
   "sources": [
    "fda"
   ],
-  "status": "unresolved",
+  "status": "none",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-16",
@@ -171337,14 +171396,15 @@
   ],
   "country": "DE",
   "clearances": 1,
-  "specialty": "Obstetrics/Gynecology"
+  "specialty": "Obstetrics/Gynecology",
+  "checked": "2026-11-25"
  },
  "sienco": {
   "name": "Sienco",
   "sources": [
    "fda"
   ],
-  "status": "unresolved",
+  "status": "error",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-16",
@@ -171353,14 +171413,15 @@
   ],
   "country": "US",
   "clearances": 1,
-  "specialty": "Hematology"
+  "specialty": "Hematology",
+  "checked": "2026-11-25"
  },
  "nenesupply": {
   "name": "Nenesupply",
   "sources": [
    "fda"
   ],
-  "status": "unresolved",
+  "status": "none",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-16",
@@ -171369,14 +171430,15 @@
   ],
   "country": "TW",
   "clearances": 1,
-  "specialty": "Obstetrics/Gynecology"
+  "specialty": "Obstetrics/Gynecology",
+  "checked": "2026-11-25"
  },
  "lumicaremedtech": {
   "name": "Lumicare Medtech",
   "sources": [
    "fda"
   ],
-  "status": "unresolved",
+  "status": "none",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-16",
@@ -171385,14 +171447,15 @@
   ],
   "country": "CN",
   "clearances": 1,
-  "specialty": "General Hospital"
+  "specialty": "General Hospital",
+  "checked": "2026-11-25"
  },
  "zhejiangfomosmedicaltechnology": {
   "name": "Zhejiang Fomos Medical Technology",
   "sources": [
    "fda"
   ],
-  "status": "unresolved",
+  "status": "none",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-16",
@@ -171401,14 +171464,15 @@
   ],
   "country": "CN",
   "clearances": 1,
-  "specialty": "General Hospital"
+  "specialty": "General Hospital",
+  "checked": "2026-11-25"
  },
  "pulseai": {
   "name": "PulseAI",
   "sources": [
    "fda"
   ],
-  "status": "unresolved",
+  "status": "none",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-16",
@@ -171417,14 +171481,15 @@
   ],
   "country": "GB",
   "clearances": 1,
-  "specialty": "Cardiovascular"
+  "specialty": "Cardiovascular",
+  "checked": "2026-11-25"
  },
  "aesyra": {
   "name": "Aesyra",
   "sources": [
    "fda"
   ],
-  "status": "unresolved",
+  "status": "none",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-16",
@@ -171433,7 +171498,8 @@
   ],
   "country": "CH",
   "clearances": 1,
-  "specialty": "Neurology"
+  "specialty": "Neurology",
+  "checked": "2026-11-25"
  },
  "satopharmaceutical": {
   "name": "SATO Pharmaceutical",
@@ -171706,28 +171772,30 @@
   "sources": [
    "sbir"
   ],
-  "status": "unresolved",
+  "status": "error",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-16",
   "sectors": [
    "startup"
   ],
-  "country": "US"
+  "country": "US",
+  "checked": "2026-11-25"
  },
  "immunova": {
   "name": "Immunova",
   "sources": [
    "sbir"
   ],
-  "status": "unresolved",
+  "status": "none",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-16",
   "sectors": [
    "startup"
   ],
-  "country": "US"
+  "country": "US",
+  "checked": "2026-11-25"
  },
  "rtiinternational": {
   "name": "RTI International",
@@ -171779,7 +171847,7 @@
    "research",
    "tech"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "norcatuniversityofchicago": {
   "name": "NORC at the University of Chicago",
@@ -172195,7 +172263,7 @@
   "sectors": [
    "research"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "medicinesformalariaventure": {
   "name": "Medicines for Malaria Venture",
@@ -172308,7 +172376,7 @@
   "sectors": [
    "research"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "socialscientificsystems": {
   "name": "Social & Scientific Systems",
@@ -172322,7 +172390,7 @@
   "sectors": [
    "research"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "kaiserpermanenteresearch": {
   "name": "Kaiser Permanente Research",
@@ -172420,7 +172488,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "equinor": {
   "name": "Equinor",
@@ -172679,7 +172747,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "marathonpetroleum": {
   "name": "Marathon Petroleum",
@@ -172707,7 +172775,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "phillips66": {
   "name": "Phillips 66",
@@ -172805,7 +172873,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "aethonenergy": {
   "name": "Aethon Energy",
@@ -172980,7 +173048,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "kosmosenergy": {
   "name": "Kosmos Energy",
@@ -173022,7 +173090,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "cenovusenergy": {
   "name": "Cenovus Energy",
@@ -173050,7 +173118,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "canadiannaturalresources": {
   "name": "Canadian Natural Resources",
@@ -173120,7 +173188,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "kindermorgan": {
   "name": "Kinder Morgan",
@@ -173148,7 +173216,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "plainsallamerican": {
   "name": "Plains All American",
@@ -173204,7 +173272,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "cheniereenergy": {
   "name": "Cheniere Energy",
@@ -173232,7 +173300,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "westernmidstream": {
   "name": "Western Midstream",
@@ -173246,7 +173314,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "dtmidstream": {
   "name": "DT Midstream",
@@ -173380,7 +173448,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "northstarmidstream": {
   "name": "NorthStar Midstream",
@@ -173408,7 +173476,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "southbow": {
   "name": "South Bow",
@@ -173422,7 +173490,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "pembinapipeline": {
   "name": "Pembina Pipeline",
@@ -173541,7 +173609,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "nglenergypartners": {
   "name": "NGL Energy Partners",
@@ -173660,7 +173728,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "blackbeartransmission": {
   "name": "Black Bear Transmission",
@@ -173688,7 +173756,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "freeportlng": {
   "name": "Freeport LNG",
@@ -173716,7 +173784,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "vaqueromidstream": {
   "name": "Vaquero Midstream",
@@ -173730,7 +173798,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "thirdcoastmidstream": {
   "name": "Third Coast Midstream",
@@ -173744,7 +173812,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "arcadiamidstream": {
   "name": "Arcadia Midstream",
@@ -173773,7 +173841,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "archrock": {
   "name": "Archrock",
@@ -173901,7 +173969,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "dominionenergy": {
   "name": "Dominion Energy",
@@ -173979,7 +174047,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "nrgenergy": {
   "name": "NRG Energy",
@@ -174007,7 +174075,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "sempra": {
   "name": "Sempra",
@@ -174063,7 +174131,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "entergy": {
   "name": "Entergy",
@@ -174175,7 +174243,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "eversourceenergy": {
   "name": "Eversource Energy",
@@ -174301,7 +174369,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "portlandgeneralelectric": {
   "name": "Portland General Electric",
@@ -174380,7 +174448,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "saltriverproject": {
   "name": "Salt River Project",
@@ -174436,7 +174504,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16",
+  "checked": "2026-11-25",
   "wrong_board": "smartrecruiters:southwest"
  },
  "onegas": {
@@ -174689,7 +174757,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16",
+  "checked": "2026-11-25",
   "wrong_board": "smartrecruiters:southwest"
  },
  "floridapowerlight": {
@@ -174830,7 +174898,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "basinelectricpowercooperative": {
   "name": "Basin Electric Power Cooperative",
@@ -174872,7 +174940,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "greenmountainpower": {
   "name": "Green Mountain Power",
@@ -174986,7 +175054,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "invenergy": {
   "name": "Invenergy",
@@ -175014,7 +175082,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "arevonenergy": {
   "name": "Arevon Energy",
@@ -175042,7 +175110,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "siliconranch": {
   "name": "Silicon Ranch",
@@ -175098,7 +175166,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "catalyze": {
   "name": "Catalyze",
@@ -175182,7 +175250,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "greenskiescleanenergy": {
   "name": "Greenskies Clean Energy",
@@ -175230,7 +175298,9 @@
   "token": "ameresco.wd5.myworkdayjobs.com|ameresco|Ameresco",
   "resolved": "2026-11-25",
   "verified": "2026-11-25",
-  "fails": 1
+  "fails": 0,
+  "swept": "2026-11-25",
+  "open": 0
  },
  "forefrontpower": {
   "name": "ForeFront Power",
@@ -175412,7 +175482,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "sunrun": {
   "name": "Sunrun",
@@ -175426,7 +175496,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "nextracker": {
   "name": "Nextracker",
@@ -175475,7 +175545,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "fluence": {
   "name": "Fluence",
@@ -175503,7 +175573,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "patternenergy": {
   "name": "Pattern Energy",
@@ -175785,7 +175855,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "pluspower": {
   "name": "Plus Power",
@@ -175869,7 +175939,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "nautilussolar": {
   "name": "Nautilus Solar",
@@ -176122,7 +176192,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16",
+  "checked": "2026-11-25",
   "wrong_board": "ashby:terra"
  },
  "silfabsolar": {
@@ -176228,7 +176298,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "bluewave": {
   "name": "BlueWave",
@@ -176277,7 +176347,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "blattnerenergy": {
   "name": "Blattner Energy",
@@ -176305,7 +176375,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "doralrenewables": {
   "name": "Doral Renewables",
@@ -176347,7 +176417,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "ampion": {
   "name": "Ampion",
@@ -176396,7 +176466,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "esvolta": {
   "name": "esVolta",
@@ -176515,7 +176585,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "geronimopower": {
   "name": "Geronimo Power",
@@ -176636,7 +176706,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "communitypower": {
   "name": "Community Power Group",
@@ -176664,7 +176734,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "turningpointenergy": {
   "name": "TurningPoint Energy",
@@ -176678,7 +176748,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "dimensionenergy": {
   "name": "Dimension Energy",
@@ -176720,7 +176790,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "inovateussolar": {
   "name": "Inovateus Solar",
@@ -176875,7 +176945,7 @@
    "energy",
    "tech"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "vestas": {
   "name": "Vestas",
@@ -176889,7 +176959,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "siemensgamesa": {
   "name": "Siemens Gamesa",
@@ -176903,7 +176973,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "gevernova": {
   "name": "GE Vernova",
@@ -176931,7 +177001,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "equinorwindus": {
   "name": "Equinor Wind US",
@@ -177016,7 +177086,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "bayware": {
   "name": "BayWa r.e.",
@@ -177128,7 +177198,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "autogrid": {
   "name": "AutoGrid",
@@ -177198,7 +177268,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "auroraenergyresearch": {
   "name": "Aurora Energy Research",
@@ -177456,8 +177526,8 @@
   "token": "itron.wd5.myworkdayjobs.com|itron|Itron",
   "resolved": "2026-11-19",
   "verified": "2026-11-19",
-  "fails": 1,
-  "swept": "2026-11-23",
+  "fails": 0,
+  "swept": "2026-11-25",
   "open": 0
  },
  "landisgyr": {
@@ -177521,7 +177591,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "evenergy": {
   "name": "ev.energy",
@@ -177563,7 +177633,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "watttime": {
   "name": "WattTime",
@@ -177577,7 +177647,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "cleanpowerresearch": {
   "name": "Clean Power Research",
@@ -177619,7 +177689,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "utilidata": {
   "name": "Utilidata",
@@ -177633,7 +177703,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "gridbeyond": {
   "name": "GridBeyond",
@@ -177675,7 +177745,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "panoai": {
   "name": "Pano AI",
@@ -177963,7 +178033,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "xenergy": {
   "name": "X-energy",
@@ -177977,7 +178047,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "oklo": {
   "name": "Oklo",
@@ -178103,7 +178173,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "helion": {
   "name": "Helion",
@@ -178264,7 +178334,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "texture": {
   "name": "Texture",
@@ -178299,7 +178369,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "heilatechnologies": {
   "name": "Heila Technologies",
@@ -178390,7 +178460,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "mainspringenergy": {
   "name": "Mainspring Energy",
@@ -178523,7 +178593,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "zanskar": {
   "name": "Zanskar",
@@ -178649,7 +178719,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "heimdallpower": {
   "name": "Heimdall Power",
@@ -178698,7 +178768,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "piclo": {
   "name": "Piclo",
@@ -178810,11 +178880,11 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16",
+  "checked": "2026-11-25",
   "ats": "greenhouse",
   "token": "tomorrow",
-  "resolved": "2026-11-16",
-  "verified": "2026-11-16",
+  "resolved": "2026-11-25",
+  "verified": "2026-11-25",
   "fails": 0,
   "wrong_board": "greenhouse|tomorrow"
  },
@@ -179020,7 +179090,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "niraenergy": {
   "name": "Nira Energy",
@@ -179112,7 +179182,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "virtualpeaker": {
   "name": "Virtual Peaker",
@@ -179126,7 +179196,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "camber": {
   "name": "Camber",
@@ -179175,7 +179245,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "ohmconnect": {
   "name": "Ohm Connect",
@@ -179259,7 +179329,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "ampup": {
   "name": "ampUp",
@@ -179287,7 +179357,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16",
+  "checked": "2026-11-25",
   "wrong_board": "ashby:stable"
  },
  "voltera": {
@@ -179302,7 +179372,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "terawattinfrastructure": {
   "name": "Terawatt Infrastructure",
@@ -179337,7 +179407,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "peakpower": {
   "name": "Peak Power",
@@ -179485,7 +179555,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "gunvor": {
   "name": "Gunvor",
@@ -179597,7 +179667,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "macquarieenergy": {
   "name": "Macquarie Energy",
@@ -179667,7 +179737,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16",
+  "checked": "2026-11-25",
   "wrong_board": "ashby:vector"
  },
  "saracenenergy": {
@@ -179724,7 +179794,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "axpous": {
   "name": "Axpo US",
@@ -179752,7 +179822,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "statkraft": {
   "name": "Statkraft",
@@ -179766,21 +179836,26 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "slb": {
   "name": "SLB",
   "sources": [
    "curated"
   ],
-  "status": "none",
+  "status": "watching",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-16",
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25",
+  "ats": "workable",
+  "token": "slb",
+  "resolved": "2026-11-25",
+  "verified": "2026-11-25",
+  "fails": 1
  },
  "halliburton": {
   "name": "Halliburton",
@@ -179836,7 +179911,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "technipfmc": {
   "name": "TechnipFMC",
@@ -179850,7 +179925,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "championx": {
   "name": "ChampionX",
@@ -179934,7 +180009,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "schneiderelectric": {
   "name": "Schneider Electric",
@@ -180075,7 +180150,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "worley": {
   "name": "Worley",
@@ -180089,7 +180164,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "kiewit": {
   "name": "Kiewit",
@@ -180265,7 +180340,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "mitsubishipoweramericas": {
   "name": "Mitsubishi Power Americas",
@@ -180335,7 +180410,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "jacobs": {
   "name": "Jacobs",
@@ -180377,7 +180452,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16",
+  "checked": "2026-11-25",
   "wrong_board": "greenhouse:tetra"
  },
  "trccompanies": {
@@ -180392,7 +180467,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "leidos": {
   "name": "Leidos",
@@ -180479,7 +180554,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "wartsila": {
   "name": "Wartsila",
@@ -180493,7 +180568,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "doosan": {
   "name": "Doosan",
@@ -180654,7 +180729,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "paconsulting": {
   "name": "PA Consulting",
@@ -180830,7 +180905,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "evergreeneconomics": {
   "name": "Evergreen Economics",
@@ -180886,7 +180961,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "energyfutures": {
   "name": "Energy Futures Group",
@@ -181006,7 +181081,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "lumidyneconsulting": {
   "name": "Lumidyne Consulting",
@@ -181056,7 +181131,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "energysolutions": {
   "name": "Energy Solutions",
@@ -181119,7 +181194,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "veic": {
   "name": "VEIC",
@@ -181434,7 +181509,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "argusmedia": {
   "name": "Argus Media",
@@ -181539,7 +181614,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "genscape": {
   "name": "Genscape",
@@ -181671,7 +181746,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16",
+  "checked": "2026-11-25",
   "wrong_board": "greenhouse:spencer"
  },
  "petroplan": {
@@ -181749,7 +181824,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "whitham": {
   "name": "Whitham Group",
@@ -181763,7 +181838,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "hobbstowne": {
   "name": "Hobbs & Towne",
@@ -181833,7 +181908,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "worldwiderecruitmentenergy": {
   "name": "Worldwide Recruitment Energy",
@@ -181847,7 +181922,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "energyresourcing": {
   "name": "Energy Resourcing",
@@ -181875,7 +181950,7 @@
   "sectors": [
    "energy"
   ],
-  "checked": "2026-11-16"
+  "checked": "2026-11-25"
  },
  "energeiaworks": {
   "name": "EnergeiaWorks",
@@ -182396,7 +182471,7 @@
   "sources": [
    "fda"
   ],
-  "status": "unresolved",
+  "status": "none",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-19",
@@ -182405,14 +182480,15 @@
   ],
   "country": "CA",
   "clearances": 1,
-  "specialty": "Cardiovascular"
+  "specialty": "Cardiovascular",
+  "checked": "2026-11-25"
  },
  "synovislifetechnologies": {
   "name": "Synovis Life Technologies",
   "sources": [
    "fda"
   ],
-  "status": "unresolved",
+  "status": "error",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-19",
@@ -182421,14 +182497,15 @@
   ],
   "country": "US",
   "clearances": 1,
-  "specialty": "Neurology"
+  "specialty": "Neurology",
+  "checked": "2026-11-25"
  },
  "globalmedikit": {
   "name": "Global Medikit",
   "sources": [
    "fda"
   ],
-  "status": "unresolved",
+  "status": "none",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-19",
@@ -182437,14 +182514,15 @@
   ],
   "country": "IN",
   "clearances": 1,
-  "specialty": "General Hospital"
+  "specialty": "General Hospital",
+  "checked": "2026-11-25"
  },
  "heroorthopedics": {
   "name": "Hero Orthopedics",
   "sources": [
    "fda"
   ],
-  "status": "unresolved",
+  "status": "error",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-19",
@@ -182453,14 +182531,15 @@
   ],
   "country": "US",
   "clearances": 1,
-  "specialty": "Orthopedic"
+  "specialty": "Orthopedic",
+  "checked": "2026-11-25"
  },
  "marinebiomedical": {
   "name": "Marine Biomedical",
   "sources": [
    "fda"
   ],
-  "status": "unresolved",
+  "status": "none",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-19",
@@ -182469,14 +182548,15 @@
   ],
   "country": "AU",
   "clearances": 1,
-  "specialty": "Orthopedic"
+  "specialty": "Orthopedic",
+  "checked": "2026-11-25"
  },
  "theraclion": {
   "name": "Theraclion",
   "sources": [
    "fda"
   ],
-  "status": "unresolved",
+  "status": "none",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-19",
@@ -182485,14 +182565,15 @@
   ],
   "country": "FR",
   "clearances": 1,
-  "specialty": "Unknown"
+  "specialty": "Unknown",
+  "checked": "2026-11-25"
  },
  "cusmedi": {
   "name": "Cusmedi",
   "sources": [
    "fda"
   ],
-  "status": "unresolved",
+  "status": "none",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-19",
@@ -182501,14 +182582,15 @@
   ],
   "country": "KR",
   "clearances": 1,
-  "specialty": "Neurology"
+  "specialty": "Neurology",
+  "checked": "2026-11-25"
  },
  "jacobsinstitute": {
   "name": "The Jacobs Institute",
   "sources": [
    "fda"
   ],
-  "status": "unresolved",
+  "status": "error",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-19",
@@ -182517,14 +182599,15 @@
   ],
   "country": "US",
   "clearances": 1,
-  "specialty": "Radiology"
+  "specialty": "Radiology",
+  "checked": "2026-11-25"
  },
  "maikangmedicalequipment": {
   "name": "Maikang Medical Equipment",
   "sources": [
    "fda"
   ],
-  "status": "unresolved",
+  "status": "none",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-19",
@@ -182533,14 +182616,15 @@
   ],
   "country": "CN",
   "clearances": 1,
-  "specialty": "Physical Medicine"
+  "specialty": "Physical Medicine",
+  "checked": "2026-11-25"
  },
  "icormedical": {
   "name": "iCOR Medical",
   "sources": [
    "fda"
   ],
-  "status": "unresolved",
+  "status": "error",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-19",
@@ -182549,14 +182633,15 @@
   ],
   "country": "US",
   "clearances": 1,
-  "specialty": "Cardiovascular"
+  "specialty": "Cardiovascular",
+  "checked": "2026-11-25"
  },
  "dtldentalequipmentmanufacture": {
   "name": "DTL Dental Equipment Manufacture",
   "sources": [
    "fda"
   ],
-  "status": "unresolved",
+  "status": "none",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-19",
@@ -182565,14 +182650,15 @@
   ],
   "country": "CN",
   "clearances": 1,
-  "specialty": "Dental"
+  "specialty": "Dental",
+  "checked": "2026-11-25"
  },
  "shenzhenqiyuetrading": {
   "name": "ShenZhen Qiyue Trading",
   "sources": [
    "fda"
   ],
-  "status": "unresolved",
+  "status": "none",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-19",
@@ -182581,14 +182667,15 @@
   ],
   "country": "CN",
   "clearances": 1,
-  "specialty": "General, Plastic Surgery"
+  "specialty": "General, Plastic Surgery",
+  "checked": "2026-11-25"
  },
  "elevateimaging": {
   "name": "Elevate Imaging",
   "sources": [
    "fda"
   ],
-  "status": "unresolved",
+  "status": "error",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-19",
@@ -182597,14 +182684,15 @@
   ],
   "country": "US",
   "clearances": 1,
-  "specialty": "Radiology"
+  "specialty": "Radiology",
+  "checked": "2026-11-25"
  },
  "arpi": {
   "name": "Arpi",
   "sources": [
    "fda"
   ],
-  "status": "unresolved",
+  "status": "none",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-19",
@@ -182613,14 +182701,15 @@
   ],
   "country": "KR",
   "clearances": 1,
-  "specialty": "Cardiovascular"
+  "specialty": "Cardiovascular",
+  "checked": "2026-11-25"
  },
  "moleculardesigns": {
   "name": "Molecular Designs",
   "sources": [
    "fda"
   ],
-  "status": "unresolved",
+  "status": "error",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-19",
@@ -182629,14 +182718,15 @@
   ],
   "country": "US",
   "clearances": 1,
-  "specialty": "Microbiology"
+  "specialty": "Microbiology",
+  "checked": "2026-11-25"
  },
  "solcobiomedicalindiaprivate": {
   "name": "Solco Biomedical Company India Private",
   "sources": [
    "fda"
   ],
-  "status": "unresolved",
+  "status": "none",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-19",
@@ -182645,14 +182735,15 @@
   ],
   "country": "IN",
   "clearances": 1,
-  "specialty": "Orthopedic"
+  "specialty": "Orthopedic",
+  "checked": "2026-11-25"
  },
  "terumoclinicalsupply": {
   "name": "Terumo Clinical Supply",
   "sources": [
    "fda"
   ],
-  "status": "unresolved",
+  "status": "none",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-19",
@@ -182661,7 +182752,8 @@
   ],
   "country": "JP",
   "clearances": 1,
-  "specialty": "Cardiovascular"
+  "specialty": "Cardiovascular",
+  "checked": "2026-11-25"
  },
  "goodkitty": {
   "name": "Good Kitty",
@@ -183099,14 +183191,15 @@
   "sources": [
    "sbir"
   ],
-  "status": "unresolved",
+  "status": "error",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-23",
   "sectors": [
    "startup"
   ],
-  "country": "US"
+  "country": "US",
+  "checked": "2026-11-25"
  },
  "beyondtrust": {
   "name": "BeyondTrust",
@@ -183276,52 +183369,56 @@
   "sources": [
    "ctgov"
   ],
-  "status": "unresolved",
+  "status": "none",
   "trials": 1,
   "ticker": "",
   "added": "2026-11-25",
   "sectors": [
    "biopharma"
-  ]
+  ],
+  "checked": "2026-11-25"
  },
  "aspeyaswitzerland": {
   "name": "Aspeya Switzerland",
   "sources": [
    "ctgov"
   ],
-  "status": "unresolved",
+  "status": "none",
   "trials": 2,
   "ticker": "",
   "added": "2026-11-25",
   "sectors": [
    "device"
-  ]
+  ],
+  "checked": "2026-11-25"
  },
  "mitrabio": {
   "name": "Mitra Bio",
   "sources": [
    "ctgov"
   ],
-  "status": "unresolved",
+  "status": "none",
   "trials": 1,
   "ticker": "",
   "added": "2026-11-25",
   "sectors": [
    "biopharma"
-  ]
+  ],
+  "checked": "2026-11-25"
  },
  "musclepaindiagnostics": {
   "name": "Muscle Pain Diagnostics",
   "sources": [
    "ctgov"
   ],
-  "status": "unresolved",
+  "status": "none",
   "trials": 1,
   "ticker": "",
   "added": "2026-11-25",
   "sectors": [
    "device"
-  ]
+  ],
+  "checked": "2026-11-25"
  },
  "coherent": {
   "name": "Coherent",
@@ -184412,7 +184509,7 @@
   "verified": "2026-11-25",
   "fails": 0,
   "swept": "2026-11-25",
-  "open": 9
+  "open": 8
  },
  "nuro": {
   "name": "Nuro",
@@ -194131,7 +194228,7 @@
   "verified": "2026-11-25",
   "fails": 0,
   "swept": "2026-11-25",
-  "open": 6
+  "open": 4
  },
  "appen": {
   "name": "Appen",
@@ -196299,7 +196396,7 @@
   "verified": "2026-11-25",
   "fails": 0,
   "swept": "2026-11-25",
-  "open": 8
+  "open": 7
  },
  "sigmoid": {
   "name": "Sigmoid",
@@ -196746,7 +196843,8 @@
   "ticker": "",
   "added": "2026-11-25",
   "sectors": [
-   "tech"
+   "tech",
+   "agency"
   ],
   "checked": "2026-11-25"
  },
@@ -197912,6 +198010,120 @@
  },
  "usacutecaresolutions": {
   "name": "US Acute Care Solutions",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "lotus": {
+  "name": "The Lotus Group",
+  "sources": [
+   "curated"
+  ],
+  "status": "none",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": [
+   "agency"
+  ],
+  "checked": "2026-11-25"
+ },
+ "reallifesciences": {
+  "name": "Real Life Sciences",
+  "sources": [
+   "curated"
+  ],
+  "status": "none",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": [
+   "agency"
+  ],
+  "checked": "2026-11-25"
+ },
+ "catalystclinicalresearch": {
+  "name": "Catalyst Clinical Research",
+  "sources": [
+   "curated"
+  ],
+  "status": "none",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": [
+   "agency"
+  ],
+  "checked": "2026-11-25"
+ },
+ "peoplelink": {
+  "name": "Peoplelink",
+  "sources": [
+   "curated"
+  ],
+  "status": "none",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": [
+   "agency"
+  ],
+  "checked": "2026-11-25"
+ },
+ "synectics": {
+  "name": "Synectics",
+  "sources": [
+   "curated"
+  ],
+  "status": "none",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": [
+   "agency"
+  ],
+  "checked": "2026-11-25"
+ },
+ "allstarhealthcaresolutions": {
+  "name": "All Star Healthcare Solutions",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "employeeconnect": {
+  "name": "The Employee Connect",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "softgic": {
+  "name": "Softgic",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-25",
+  "sectors": []
+ },
+ "innodata": {
+  "name": "Innodata",
   "sources": [
    "feed"
   ],
