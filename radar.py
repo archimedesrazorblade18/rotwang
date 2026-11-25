@@ -56,6 +56,7 @@ if not (HERE / "rotwang.py").exists():
 sys.path.insert(0, str(HERE))
 with contextlib.redirect_stdout(io.StringIO()):
     import rotwang as rw          # board readers, the rwd gate, scoring
+import careers                    # careers pages: website -> careers system -> roles
 
 # ── files ────────────────────────────────────────────────────────────────────
 COMPANIES = HERE / "radar_companies.json"   # the universe + each company's board
@@ -1497,6 +1498,120 @@ def discover_workday(reg: dict) -> int:
     return found
 
 
+# ── Careers pages ────────────────────────────────────────────────────────────
+# Most drug, biotech and diagnostics companies aren't on the boards that can be
+# guessed by name. Their own website links to the system they use (iCIMS,
+# Workday, BambooHR, UKG, Oracle…), so the finder goes website -> careers page
+# -> system, a slice of companies each week, and saves what it learns.
+CAREERS_MIN = int(os.getenv("RADAR_CAREERS_MIN", "15"))        # minutes per weekly run
+CAREERS_RETRY_DAYS = 60
+CAREERS_FIRST = {"pharma", "biopharma", "biotech", "diagnostics", "cro", "healthai", "research"}
+
+
+def _careers_todo(reg: dict) -> list[str]:
+    retry = (datetime.now(timezone.utc) - timedelta(days=CAREERS_RETRY_DAYS)).strftime("%Y-%m-%d")
+    todo = []
+    for k, c in reg.items():
+        if c.get("status") == "watching" or (c.get("careers_checked") or "") >= retry:
+            continue
+        secs = set(c.get("sectors") or [])
+        if not (secs & (CAREERS_FIRST | {"device"})):
+            continue
+        todo.append(k)
+
+    def prio(k):
+        c = reg[k]
+        secs = set(c.get("sectors") or [])
+        return (0 if secs & CAREERS_FIRST else 1,          # drugs, biotech, diagnostics first
+                0 if c.get("ticker") else 1,                # public companies
+                0 if c.get("country", "US") == "US" else 1,
+                -(c.get("trials") or 0), k)
+    todo.sort(key=prio)
+    return todo
+
+
+def find_careers_pages(reg: dict, limit: int = 0, verbose: bool = False) -> int:
+    todo = _careers_todo(reg)
+    if limit:
+        todo = todo[:limit]
+    if not todo:
+        return 0
+    stop = time.time() + CAREERS_MIN * 60
+    print(f"  Looking for careers pages: {len(todo)} companies waiting, "
+          f"at most {CAREERS_MIN} minutes this run…")
+    s = requests.Session()
+    s.mount("https://", HTTPAdapter(pool_maxsize=40, max_retries=0))
+    stats = {"tried": 0, "site": 0, "page": 0, "read": 0}
+    systems, unread = {}, {}
+
+    def one(k):
+        if time.time() > stop:
+            return k, None, "time"
+        c = reg[k]
+        try:
+            dom, home = (c.get("website"), None) if c.get("website") else careers.find_website(s, c["name"])
+            if not dom:
+                return k, None, "nosite"
+            hit = careers.find_careers(s, c["name"], dom, home or "")
+            if not hit:
+                return k, {"website": dom}, "nopage"
+            if hit.get("ats") == "workday":
+                hit["ok"], hit["n"] = True, 0      # read in the sweep's Workday window
+            elif hit.get("ats") and not str(hit["ats"]).startswith("unread"):
+                trial = dict(c, ats=hit["ats"], token=hit["token"])
+                roles, ok = read_board(s, trial)
+                hit["ok"], hit["n"] = ok, len(roles)
+            return k, dict(hit, website=dom), "page"
+        except Exception as e:
+            return k, None, f"error {e.__class__.__name__}"
+
+    with ThreadPoolExecutor(max_workers=16) as ex:
+        for k, hit, why in ex.map(one, todo):
+            if why == "time":
+                continue                           # next week
+            c = reg[k]
+            stats["tried"] += 1
+            c["careers_checked"] = TODAY
+            if hit and hit.get("website"):
+                c["website"] = hit["website"]
+                stats["site"] += 1
+            if why != "page":
+                if verbose:
+                    print(f"    - {c['name'][:34]:34} {why}" + (f"  {hit.get('website')}" if hit else ""))
+                continue
+            stats["page"] += 1
+            c["careers"] = hit["careers"]
+            ats = hit.get("ats") or "unknown"
+            if ats.startswith("unread:") or ats == "unknown":
+                name = ats.split(":")[-1]
+                c["careers_system"] = name
+                unread[name] = unread.get(name, 0) + 1
+                if verbose:
+                    print(f"    ? {c['name'][:34]:34} {name:14} {hit['careers'][:70]}")
+                continue
+            systems[ats] = systems.get(ats, 0) + 1
+            c["careers_system"] = ats
+            if hit.get("ok"):
+                stats["read"] += 1
+                c.update({"status": "watching", "ats": ats, "token": hit["token"], "resolved": TODAY,
+                          "verified": TODAY, "fails": 0, "found_by": "careers page"})
+            if verbose:
+                print(f"    {'+' if hit.get('ok') else 'x'} {c['name'][:34]:34} {ats:14} {str(hit['token'])[:40]:40} "
+                      f"{hit.get('n', 0)} jobs")
+    save_json(COMPANIES, reg)
+    left = len(_careers_todo(reg))
+    top = ", ".join(f"{k} {v}" for k, v in sorted(systems.items(), key=lambda x: -x[1]))
+    miss = ", ".join(f"{k} {v}" for k, v in sorted(unread.items(), key=lambda x: -x[1])[:8])
+    print(f"  Careers pages: {stats['tried']} companies, {stats['site']} websites, {stats['page']} careers pages, "
+          f"{stats['read']} new boards read. {left} still to visit.")
+    if top:
+        print(f"    Systems found: {top}")
+    if miss:
+        print(f"    Not readable yet: {miss}")
+    log(f"careers: {stats} systems={systems} unread={unread} left={left}")
+    return stats["read"]
+
+
 def device_aware(prof: dict) -> dict:
     """Your lane, extended to medical devices: a 'Statistician, Clinical Evidence'
     at a device maker counts, and device-trial language raises the fit score."""
@@ -1778,6 +1893,8 @@ def learn_paylocity(reg: dict, urls) -> int:
 
 
 def read_board(s, c: dict):
+    if c["ats"] in careers.READERS:
+        return careers.READERS[c["ats"]](s, c["name"], c["token"])
     if c["ats"] == "workday":
         return read_workday(s, c["name"], c["token"], company_sector(c))
     if c["ats"] == "paylocity":
@@ -2869,6 +2986,8 @@ def main() -> int:
     p.add_argument("--add", nargs=2, metavar=("NAME", "URL"), help="map a company to a careers URL")
     p.add_argument("--no-resolve", action="store_true", help="sweep without resolving new companies")
     p.add_argument("--open", action="store_true", help="open radar.html when done")
+    p.add_argument("--careers", type=int, metavar="N",
+                   help="look for the careers pages of N companies and show what was found")
     p.add_argument("--workday", action="store_true",
                    help="test Workday careers sites for large device & pharma companies")
     p.add_argument("--perm", action="store_true", help="also list permanent roles in your field")
@@ -2915,6 +3034,9 @@ def main() -> int:
     if a.workday:
         discover_workday(reg)
         return status(reg)
+    if a.careers:
+        find_careers_pages(reg, a.careers, verbose=True)
+        return 0
     if a.resolve is not None:
         reverify(reg)
         resolve(reg, a.resolve)
@@ -2931,6 +3053,10 @@ def main() -> int:
     reverify(reg)
     if not a.no_resolve:
         resolve(reg, RESOLVE_BUDGET)
+        try:
+            find_careers_pages(reg)
+        except Exception as e:                    # the finder must never sink the sweep
+            log(f"careers error: {e.__class__.__name__}: {e}")
     current, new, _ = sweep(reg, prof)
     body = alert_text(new, current, reg)
     ALERT_OUT.write_text(body, encoding="utf-8")

@@ -1,0 +1,31 @@
+name: Probe
+
+# A manual test run: runs radar.py with the given arguments and shows the
+# output. Saves nothing.
+on:
+  workflow_dispatch:
+    inputs:
+      args:
+        description: "Arguments for radar.py"
+        required: true
+        default: "--careers 60"
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests
+      - name: Run
+        env:
+          ARGS: ${{ inputs.args }}
+          PYTHONUTF8: "1"
+          RADAR_CAREERS_MIN: "40"
+        run: python radar.py $ARGS

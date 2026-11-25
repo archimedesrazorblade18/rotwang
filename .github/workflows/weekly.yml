@@ -4,6 +4,11 @@ on:
   schedule:
     - cron: "17 11 * * 1"      # every Monday, 11:17 UTC (early morning in the US)
   workflow_dispatch:            # the "Run workflow" button
+    inputs:
+      careers_minutes:
+        description: "Minutes for finding company careers pages"
+        required: false
+        default: "15"
 
 permissions:
   contents: write
@@ -26,6 +31,7 @@ jobs:
         env:
           PYTHONUTF8: "1"
           RADAR_RESOLVE: "1600"
+          RADAR_CAREERS_MIN: ${{ inputs.careers_minutes || '15' }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           ADZUNA_APP_ID: ${{ secrets.ADZUNA_APP_ID }}
           ADZUNA_APP_KEY: ${{ secrets.ADZUNA_APP_KEY }}
