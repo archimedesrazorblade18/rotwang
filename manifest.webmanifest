@@ -1,7 +1,7 @@
 {
   "name": "Rotwang",
   "short_name": "Rotwang",
-  "description": "Contract work in life sciences and energy, read from company career sites every Monday.",
+  "description": "Contract work in life sciences, energy and technology, read from company career sites every Monday.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

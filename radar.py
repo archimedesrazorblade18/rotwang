@@ -108,6 +108,14 @@ ENERGY_CONTRACT_QUERIES = ["data scientist energy", "data scientist utility", "d
 ENERGY_LEADERSHIP_QUERIES = ["director data science energy", "head of data science energy",
                              "director analytics utility", "director forecasting energy",
                              "director quantitative analytics energy", "head of analytics renewable"]
+TECH_CONTRACT_QUERIES = ["statistician contract", "data scientist contract", "applied scientist contract",
+                         "data scientist experimentation", "causal inference data scientist",
+                         "statistician semiconductor", "data scientist semiconductor", "yield data scientist",
+                         "reliability statistician", "data scientist photonics", "data scientist optics",
+                         "machine learning scientist contract", "quantitative researcher contract",
+                         "statistical consultant", "survey statistician", "economist data scientist"]
+TECH_LEADERSHIP_QUERIES = ["director data science technology", "head of data science",
+                           "director statistics", "principal statistician"]
 HIGH_RATE_HOURLY    = 100      # $/hr — the "High rate" section starts here
 HIGH_RATE_ANNUAL    = 200_000
 RESOLVE_BUDGET = int(os.getenv("RADAR_RESOLVE", "400"))   # companies probed per sweep
@@ -148,6 +156,30 @@ SEC_SICS = {
     "3621": ("Motors & generators", "energy"),
     "3533": ("Oil & gas field machinery", "energy"),
     "5172": ("Petroleum products wholesale", "energy"),
+    # optics, electronics, semiconductors, instruments, software
+    "3827": ("Optical instruments & lenses", "tech"),
+    "3674": ("Semiconductors & related devices", "tech"),
+    "3559": ("Special industry machinery (chip equipment)", "tech"),
+    "3571": ("Electronic computers", "tech"),
+    "3572": ("Computer storage devices", "tech"),
+    "3576": ("Computer communications equipment", "tech"),
+    "3577": ("Computer peripheral equipment", "tech"),
+    "3661": ("Telephone & telegraph apparatus", "tech"),
+    "3663": ("Radio & TV broadcasting & communications equipment", "tech"),
+    "3669": ("Communications equipment", "tech"),
+    "3672": ("Printed circuit boards", "tech"),
+    "3678": ("Electronic connectors", "tech"),
+    "3679": ("Electronic components", "tech"),
+    "3812": ("Search, detection, navigation & guidance instruments", "tech"),
+    "3823": ("Industrial instruments for measurement", "tech"),
+    "3825": ("Instruments for measuring electricity", "tech"),
+    "3829": ("Measuring & controlling devices", "tech"),
+    "3861": ("Photographic equipment & supplies", "tech"),
+    "7370": ("Computer programming & data processing", "tech"),
+    "7371": ("Computer programming services", "tech"),
+    "7372": ("Prepackaged software", "tech"),
+    "7373": ("Computer integrated systems design", "tech"),
+    "7374": ("Computer processing & data preparation", "tech"),
 }
 # rotwang_targets.json groups read into the universe -> sector
 CURATED_GROUPS = {
@@ -158,18 +190,23 @@ CURATED_GROUPS = {
     "energy_oilgas": "energy", "energy_midstream": "energy", "energy_utility": "energy",
     "energy_renewables": "energy", "energy_tech": "energy", "energy_services": "energy",
     "energy_consulting": "energy", "energy_staffing": "energy",
+    "tech_optics": "tech", "tech_semis": "tech", "tech_hardware": "tech", "tech_software": "tech",
+    "tech_consulting": "tech", "tech_staffing": "tech",
 }
 HEALTH_SECTORS = {"biotech", "pharma", "healthai", "cro", "device", "diagnostics", "research",
                   "biopharma"}
 
 
 def company_sector(c: dict) -> str:
-    """'energy', 'health', or '' when the registry can't say (recruiters, feed-only names)."""
+    """'health', 'energy', 'tech', or '' when the registry can't say (recruiters, feed-only names).
+    A company on two lists goes to the first that applies, in that order."""
     secs = set((c or {}).get("sectors") or [])
-    if "energy" in secs and not (secs & HEALTH_SECTORS):
-        return "energy"
     if secs & HEALTH_SECTORS:
         return "health"
+    if "energy" in secs:
+        return "energy"
+    if "tech" in secs:
+        return "tech"
     return ""
 FDA_YEARS  = 3            # device clearances/approvals this recent mark a live company
 SBIR_YEARS = 3            # NIH small-business grant years read
@@ -185,6 +222,9 @@ WORKDAY_TERMS = ["biostatistician", "biostatistics", "statistician", "statistics
 WORKDAY_ENERGY_TERMS = ["data scientist", "data science", "machine learning", "statistician",
                         "statistics", "quantitative", "forecasting", "analytics", "optimization",
                         "artificial intelligence", "contractor"]
+WORKDAY_TECH_TERMS = ["statistician", "statistics", "data scientist", "data science", "quantitative",
+                      "applied scientist", "research scientist", "machine learning", "analytics",
+                      "contractor", "contingent", "temporary"]
 # Wide scope also asks Workday boards for contract work by name
 WORKDAY_WIDE_TERMS = ["contract", "contractor", "consultant", "temporary", "freelance"]
 TODAY = datetime.now(timezone.utc).strftime("%Y-%m-%d")
@@ -255,6 +295,44 @@ _LEAD_FIELD = re.compile(
     r"quantitative|pharmacometric|epidemiolog|real[- ]world|clinical data science|"
     r"machine learning|\bai\b|bioinformat", re.I)
 LEAD_PAY_ANNUAL = 200_000       # a stated salary this high marks a role worth pitching
+
+
+# Without Claude reading each posting, a role must say your discipline in its
+# title and nothing that marks it as another job. Strict on purpose: a missed
+# role costs less than a list full of noise.
+_STRICT_FIELD = re.compile(
+    r"statistic|biostat|biometric|data scien|machine learning|\bml\b|deep learning|bioinformat|"
+    r"computational (bio|chem|scien)|epidemiolog|real[- ]world|\brwe\b|\bheor\b|pharmacometric|"
+    r"quantitative|forecast|\bsas\b|clinical (data scien|programm(er|ing))|statistical program|\br programm|"
+    r"data analy|analytics|\bai (research|scien)|(applied|research) scientist|econometric|"
+    r"operations research|optimi[sz]ation|\bquant\b|decision scien|experimentation|causal|"
+    r"economist|yield (analy|data|scien)|reliability (analy|statistic|data|scien)|"
+    r"measurement scien|six sigma|design of experiments|\bdoe\b|process (analytics|data scien)|"
+    r"(image|signal) (analysis|processing) (scien|algorithm)|computer vision (scien|research)|"
+    r"algorithm (scien|develop|research)|metrology (data|algorithm)|survey (statistic|methodolog)|"
+    r"psychometric|sampling", re.I)
+_JUNK = re.compile(
+    r"annotat|\btrainer\b|tutor|artist|designer|\bhris\b|people (data|analytics)|\bhr\b|"
+    r"human resources|payroll|\bcnc\b|machinist|attorney|legal|lawyer|paralegal|counsel|"
+    r"\bproduct\b|business development|\bsales\b|marketing|growth|recruit|account (manager|executive)|"
+    r"nurse|\brn\b|physician|software engineer|front[- ]?end|back[- ]?end|full[- ]stack|devops|"
+    r"architect|founder|customer|technical support|it support|writer|translator|interpreter|real estate|crypto|"
+    r"blockchain|web3|pricing|payer|contracting|procurement|supply chain|facilities|strategy|"
+    r"transformation|platform|infrastructure|security|help ?desk|video|finance|"
+    r"evangelist|advocate|solutions? (engineer|consultant)|partner|program manag|project manag|"
+    r"technical program|site reliability|\bqa\b|test engineer", re.I)
+_HEALTH_TITLE = re.compile(r"biostat|clinical|pharma|oncolog|real[- ]world|\brwe\b|\bheor\b|"
+                           r"epidemiolog|bioinformat|biometric|pharmacometric|health|medical|patient", re.I)
+
+
+_TECH_PITCH = re.compile(
+    r"statistic|biostat|((director|head|vp|vice president|chief)\b.*(data scien|decision scien|"
+    r"quantitative|analytics|experimentation|economi))", re.I)
+
+
+def strict_title(title: str) -> bool:
+    t = title or ""
+    return bool(_STRICT_FIELD.search(t)) and not _JUNK.search(t)
 
 
 def leadership_title(title: str) -> bool:
@@ -895,12 +973,26 @@ def _energy_work(text: str) -> bool:
     return sum(1 for w in _ENERGY_WORDS if w in t) >= 3
 
 
+_TECH_WORDS = ["software", "engineer", "semiconductor", "optical", "optics", "photonic", "laser",
+               "hardware", "machine learning", "cloud", "silicon", "chip", "firmware", "sensor",
+               "lidar", "imaging", "algorithm", "developer", "saas", "wafer", "lithograph",
+               "electronics", "data scien", "analytics", "technology", "platform", "robot",
+               "aerospace", "network", "product manager", "consult", "recruit", "staffing"]
+
+
+def _tech_work(text: str) -> bool:
+    t = (text or "").lower()
+    return sum(1 for w in _TECH_WORDS if w in t) >= 3
+
+
 def _industry_ok(text: str, sector: str = "") -> bool:
     if sector == "energy":
         return _energy_work(text)
+    if sector == "tech":
+        return _tech_work(text)
     if sector == "health":
         return _life_science(text)
-    return _life_science(text) or _energy_work(text)
+    return _life_science(text) or _energy_work(text) or _tech_work(text)
 
 
 def _board_evidence(s, ats: str, token: str):
@@ -1315,12 +1407,14 @@ def discover_workday(reg: dict) -> int:
     """Test every Workday candidate; keep only addresses that answer."""
     s = radar_session()
     todo = []
-    for name, entries in {**WORKDAY_CANDIDATES, **WORKDAY_ENERGY}.items():
+    for name, entries in {**WORKDAY_CANDIDATES, **WORKDAY_ENERGY, **WORKDAY_TECH}.items():
         k = company_key(name)
         c = reg.setdefault(k, {"name": name, "sources": ["curated"], "status": "unresolved",
                                "trials": 0, "ticker": "", "added": TODAY})
         if name in WORKDAY_ENERGY and "energy" not in c.setdefault("sectors", []):
             c["sectors"].append("energy")
+        if name in WORKDAY_TECH and "tech" not in c.setdefault("sectors", []):
+            c["sectors"].append("tech")
         if c.get("ats") == "workday" and c["status"] == "watching":
             continue                               # already confirmed on an earlier run
         todo.append((k, name, entries))
@@ -1367,10 +1461,98 @@ def device_aware(prof: dict) -> dict:
     return p
 
 
-def read_workday(s, name: str, token: str, energy: bool = False):
+# Technology. Each address is tested on the machine that runs the sweep; wrong ones are dropped.
+WORKDAY_TECH = {
+    "Nvidia": [("nvidia", 5, "NVIDIAExternalCareerSite")],
+    "Intel": [("intel", 1, "External")],
+    "Applied Materials": [("amat", 1, "External")],
+    "Micron Technology": [("micron", 1, "External")],
+    "KLA": [("kla", 1, "Search")],
+    "Lam Research": [("lamresearch", 1, "LAM")],
+    "Qualcomm": [("qualcomm", 5, "External")],
+    "Broadcom": [("broadcom", 1, "External_Career")],
+    "Analog Devices": [("analogdevices", 1, "External")],
+    "Marvell": [("marvell", 1, "MarvellCareers")],
+    "Keysight Technologies": [("keysight", 5, "Careers")],
+    "Coherent": [("coherent", 1, "Coherent")],
+    "Lumentum": [("lumentum", 5, "LITE")],
+    "Corning": [("corning", 5, "Corning")],
+    "Ciena": [("ciena", 5, "Careers")],
+    "Viavi Solutions": [("viavisolutions", 1, "careers")],
+    "IPG Photonics": [("ipgphotonics", 1, "IPG")],
+    "MKS Instruments": [("mksinst", 1, "MKSCareersUniversity")],
+    "Teledyne Technologies": [("teledyne", 1, "External")],
+    "Cognex": [("cognex", 1, "External_Career_Site")],
+    "Zebra Technologies": [("zebra", 1, "Zebra_External")],
+    "Trimble": [("trimble", 1, "TrimbleCareers")],
+    "onsemi": [("onsemi", 5, "ON_Semiconductor_Careers")],
+    "NXP Semiconductors": [("nxp", 3, "careers")],
+    "GlobalFoundries": [("globalfoundries", 1, "External")],
+    "Western Digital": [("wdc", 1, "External")],
+    "Synopsys": [("synopsys", 5, "External")],
+    "Cadence": [("cadence", 1, "External_Careers")],
+    "Entegris": [("entegris", 1, "EntegrisCareers")],
+    "Teradyne": [("teradyne", 1, "Teradyne")],
+    "Wolfspeed": [("wolfspeed", 5, "Wolfspeed")],
+    "Skyworks": [("skyworksinc", 1, "External")],
+    "Qorvo": [("qorvo", 5, "Qorvo")],
+    "HP": [("hp", 5, "ExternalCareerSite")],
+    "Dell Technologies": [("dell", 1, "External")],
+    "Hewlett Packard Enterprise": [("hpe", 5, "Jobsathpesite")],
+    "Adobe": [("adobe", 5, "external_experienced")],
+    "Salesforce": [("salesforce", 12, "External_Career_Site")],
+    "Workday": [("workday", 5, "Workday")],
+    "Intuit": [("intuit", 1, "External")],
+    "PayPal": [("paypal", 1, "jobs")],
+    "eBay": [("ebay", 5, "apply")],
+    "Zillow": [("zillow", 5, "Zillow_Group_External")],
+    "Expedia": [("expedia", 108, "search")],
+    "Capital One": [("capitalone", 12, "Capital_One")],
+    "Mastercard": [("mastercard", 1, "CorporateCareers")],
+    "Equifax": [("equifax", 5, "External")],
+    "TransUnion": [("transunion", 5, "TransUnion")],
+    "Verisk": [("verisk", 5, "Verisk")],
+    "Nielsen": [("nielsen", 5, "Nielsen")],
+    "Gartner": [("gartner", 5, "EXT")],
+    "Motorola Solutions": [("motorolasolutions", 5, "Careers")],
+    "Garmin": [("garmin", 5, "External")],
+    "Honeywell": [("honeywell", 5, "Honeywell")],
+    "Rockwell Automation": [("rockwellautomation", 1, "External_Rockwell_Automation")],
+    "TE Connectivity": [("te", 1, "TEcareers")],
+    "Jabil": [("jabil", 5, "Jabil_Careers")],
+    "Flex": [("flextronics", 1, "Careers")],
+    "L3Harris": [("l3harris", 1, "L3Harris")],
+    "Northrop Grumman": [("ngc", 1, "Northrop_Grumman_External_Site")],
+    "Boeing": [("boeing", 1, "EXTERNAL_CAREERS")],
+    "RTX": [("globalhr", 5, "REC_RTX_Ext_Gateway")],
+    "Booz Allen Hamilton": [("bah", 1, "BAH_Jobs")],
+    "MITRE": [("mitre", 5, "MITRE")],
+    "Accenture": [("accenture", 103, "AccentureCareers")],
+    "Westat": [("westat", 1, "Westat")],
+    "Bruker": [("bruker", 1, "Bruker")],
+    "Novanta": [("novanta", 1, "Novanta")],
+    "Ametek": [("ametek", 1, "AMETEK")],
+    "Walmart Global Tech": [("walmart", 5, "WalmartExternal")],
+    "Disney": [("disney", 5, "disneycareer")],
+    "Comcast": [("comcast", 5, "Comcast_Careers")],
+    "T-Mobile": [("tmobile", 1, "External")],
+    "Samsung Semiconductor": [("sec", 3, "Samsung_Careers")],
+    "Sony": [("sonyglobal", 1, "SonyGlobalCareers")],
+    "Zoom": [("zoom", 5, "Zoom")],
+    "Snowflake": [("snowflake", 1, "Snowflake")],
+    "CrowdStrike": [("crowdstrike", 5, "crowdstrikecareers")],
+    "Palo Alto Networks": [("paloaltonetworks", 1, "External")],
+    "Cisco": [("cisco", 5, "Cisco_Careers")],
+    "Arm": [("arm", 1, "External")],
+    "ASML": [("asml", 3, "ASMLEXT1")],
+    "Zeiss": [("zeissgroup", 3, "External")],
+}
+
+
+def read_workday(s, name: str, token: str, sector: str = ""):
     host, tenant, site = token.split("|")
     seen, out, ok = set(), [], False
-    terms = (WORKDAY_ENERGY_TERMS if energy else WORKDAY_TERMS) + (WORKDAY_WIDE_TERMS if SCOPE == "wide" else [])
+    terms = ({"energy": WORKDAY_ENERGY_TERMS, "tech": WORKDAY_TECH_TERMS}.get(sector, WORKDAY_TERMS)) + (WORKDAY_WIDE_TERMS if SCOPE == "wide" else [])
     pages = [(t, off) for t in terms for off in (0, 20, 40)]
     done_terms = set()
     for term, offset in pages:
@@ -1538,7 +1720,7 @@ def learn_paylocity(reg: dict, urls) -> int:
 
 def read_board(s, c: dict):
     if c["ats"] == "workday":
-        return read_workday(s, c["name"], c["token"], company_sector(c) == "energy")
+        return read_workday(s, c["name"], c["token"], company_sector(c))
     if c["ats"] == "paylocity":
         return read_paylocity(s, c["name"], c["token"])
     _, roles, ok = rw.task_board(s, (c["ats"], c["name"], c["token"]), True)
@@ -1607,8 +1789,17 @@ def keep_role(r, prof: dict, company: str, ck: str, agency: bool = False,
         r.fit = max(5, r.fit - (8 if SCOPE == "quant" else 15))
     if agency:
         r.fit = max(5, r.fit - 4)                 # a middleman takes a cut
+    sector_known = bool(sector)
     if not sector:                                # recruiters and index-only names: go by the text
-        sector = "energy" if (r.industry or "").startswith("Energy") else "health"
+        text = f"{r.title} {r.body or ''}"
+        if _HEALTH_TITLE.search(r.title or "") or _life_science(text):
+            sector = "health"
+        elif _energy_work(text):
+            sector = "energy"
+        else:
+            sector = "tech"
+    if sector == "tech" and not strict_title(r.title):
+        return None                               # technology boards are mostly engineering: title must be your discipline
     if sector == "energy" and _ENERGY_NOT.search(r.title or "") and not leadership_title(r.title):
         return None                               # engineering and field work, not analytics
     return {"sector": sector, "direct": direct, "source": (r.source or "").split("·")[-1].strip(),
@@ -1616,13 +1807,13 @@ def keep_role(r, prof: dict, company: str, ck: str, agency: bool = False,
             "pay": r.pay, "hourly": hourly_rate(r.pay), "location": r.location,
             "remote": r.remote, "fit": r.fit, "posted": r.posted, "lane": bool(lane),
             "us": bool(r.remote) or us_or_remote(r.location),
-            "agency": agency, "company": company, "ck": ck,
+            "agency": agency, "company": company, "ck": ck, "sk": sector_known,
             "body": (r.body or "")[:1800]}
 
 
 # ── the classifier: Claude reads each job ────────────────────────────────────
 _CLASS_SYSTEM = """You screen job postings for a PhD statistician / biostatistician who wants CONTRACT or
-HOURLY work in two industries: health & life sciences, and energy.
+HOURLY work in three industries: health & life sciences, energy, and technology.
 For each posting, read the title AND the description and return one JSON object per posting:
 {"id": <id>,
  "lane": true|false,      // true ONLY if the work itself is biostatistics, statistics, statistical or
@@ -1638,7 +1829,17 @@ For each posting, read the title AND the description and return one JSON object 
                           // and in energy: petroleum / reservoir / electrical / mechanical / civil
                           // engineering, field or plant operations, construction, land, permitting,
                           // project management, SCADA / controls, accounting, generic BI reporting.
- "sector": "health"|"energy"|"other",
+ "sector": "health"|"energy"|"tech"|"other",
+                          // tech: optics / photonics / lasers / imaging, semiconductors and chip equipment,
+                          // electronics and hardware, instruments, software / internet / AI companies,
+                          // telecom, aerospace and defense technology, robotics, and the analytics
+                          // consultancies and staffing firms that place contractors with them.
+                          // At tech employers "lane" means: statistics, data science, experimentation /
+                          // A-B testing / causal inference, applied or research science that is modeling,
+                          // forecasting, yield / reliability / quality statistics (DOE, SPC), statistical
+                          // image or signal algorithms, econometrics, survey statistics.
+                          // NOT lane at tech employers: software / data / ML-ops / platform engineering,
+                          // IT, product or program management, sales, annotation or "AI trainer" gigs.
                           // health: employer or client is biotech, pharma, diagnostics, medical devices,
                           // a CRO, a hospital/health system, a payer, or health / life-science AI.
                           // energy: oil & gas, pipelines / midstream, electric or gas utilities, grid
@@ -1669,7 +1870,7 @@ def _api_key() -> str:
 
 
 def _class_key(row: dict) -> str:
-    return hashlib.sha1(f"v2|{row['key']}|{row['title']}".encode("utf-8")).hexdigest()[:16]
+    return hashlib.sha1(f"v3|{row['key']}|{row['title']}".encode("utf-8")).hexdigest()[:16]
 
 
 def _ask_claude(batch: list[dict]) -> list[dict]:
@@ -1741,8 +1942,8 @@ def apply_verdicts(rows: list[dict]) -> list[dict]:
         if v:
             r["lane"] = bool(v.get("lane"))
             sec = v.get("sector") or ("health" if v.get("health") else "other")
-            r["health"] = sec in ("health", "energy")      # "in one of your two industries"
-            if sec in ("health", "energy"):
+            r["health"] = sec in ("health", "energy", "tech")   # "in one of your industries"
+            if sec in ("health", "energy", "tech"):
                 r["sector"] = sec
             r["contract"] = (v.get("engagement") or "") in CONTRACT_KINDS
             r["engagement"] = v.get("engagement") or ""
@@ -1762,6 +1963,10 @@ def apply_verdicts(rows: list[dict]) -> list[dict]:
             continue                               # unjudged and not plainly in your lane
         else:
             conv = None
+            # Nobody read this posting: the title has to say your discipline,
+            # and a company of unknown industry has to show it in the text.
+            if not strict_title(r["title"]):
+                continue
         if conv is None:                           # old cached verdicts, or no key: keyword rule
             pay = r.get("pay") or ""
             # High pay alone never qualifies: the title must be the discipline.
@@ -1769,6 +1974,9 @@ def apply_verdicts(rows: list[dict]) -> list[dict]:
                 bool(_LEAD_FIELD.search(r["title"] or "")) and bool(pay) and "est." not in pay
                 and rw.pay_value(pay) >= LEAD_PAY_ANNUAL)
         r["convertible"] = bool(conv) and not r.get("contract")
+        if r.get("sector") == "tech" and r["convertible"] and not _TECH_PITCH.search(r["title"] or ""):
+            r["convertible"] = False               # technology has thousands of senior ML titles: keep
+                                                   # only heads of statistics / data science as pitches
         if r.get("contract") or r["convertible"] or SHOW_PERM:
             out.append(r)
         else:
@@ -1790,7 +1998,9 @@ def contract_sweep(reg: dict, prof: dict) -> list[dict]:
     out = []
     plan = ([(q, True, "") for q in CONTRACT_QUERIES] + [(q, False, "") for q in LEADERSHIP_QUERIES]
             + [(q, True, "energy") for q in ENERGY_CONTRACT_QUERIES]
-            + [(q, False, "energy") for q in ENERGY_LEADERSHIP_QUERIES])
+            + [(q, False, "energy") for q in ENERGY_LEADERSHIP_QUERIES]
+            + [(q, True, "tech") for q in TECH_CONTRACT_QUERIES]
+            + [(q, False, "tech") for q in TECH_LEADERSHIP_QUERIES])
     for q, contract_only, hint in plan:
         params = {"app_id": app_id, "app_key": app_key, "results_per_page": 50,
                   "what": q, "max_days_old": 30, "content-type": "application/json"}
@@ -1843,7 +2053,7 @@ def _feed_firms() -> list[str]:
     g = d.get("targets", {}) if isinstance(d, dict) else {}
     seen, out = set(), []
     for n in (g.get("recruiter", []) + g.get("staffing_medtech", []) + g.get("device_cro", [])
-              + g.get("energy_staffing", [])):
+              + g.get("energy_staffing", []) + g.get("tech_staffing", [])):
         k = company_key(n)
         if k and k not in seen:
             seen.add(k); out.append(n)
@@ -2289,10 +2499,10 @@ def write_app_data(reg: dict, current: list[dict]) -> None:
             "url": r.get("url") or "", "agency": bool(r.get("agency")),
             "direct": bool(r.get("direct")), "source": r.get("source") or c.get("ats", ""),
             "why": r.get("why") or "", "seniority": r.get("seniority") or ""})
-    watched = {"health": 0, "energy": 0}
+    watched = {"health": 0, "energy": 0, "tech": 0}
     for c in reg.values():
         if c.get("status") == "watching":
-            watched["energy" if company_sector(c) == "energy" else "health"] += 1
+            watched[company_sector(c) or "health"] += 1
     payload = {
         "generated": datetime.now(timezone.utc).isoformat(timespec="minutes"),
         "universe": len(reg), "watched": watched,

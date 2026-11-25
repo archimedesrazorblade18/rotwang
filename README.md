@@ -1,6 +1,6 @@
 # Rotwang
 
-Contract work for a statistician in two industries, life sciences and energy,
+Contract work for a statistician in three industries (life sciences, energy, technology),
 read from company career sites every Monday and shown in an app.
 
 The app: https://archimedesrazorblade18.github.io/rotwang/

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Rotwang</title>
-<meta name="description" content="Contract work in life sciences and energy, read from company career sites every Monday.">
+<meta name="description" content="Contract work in life sciences, energy and technology, read from company career sites every Monday.">
 <meta name="theme-color" content="#0A0F1C">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
@@ -17,7 +17,7 @@
 :root{
   --ink:#0A0F1C; --panel:#0F1727; --raise:#162038; --line:#22304A; --line-soft:#18233A;
   --text:#E8EDF6; --muted:#8C9BB3; --dim:#5F6E88;
-  --gold:#E9B44C; --arc:#6FD3FF; --ok:#7BD8A6; --warn:#F29E7A;
+  --gold:#E9B44C; --arc:#6FD3FF; --violet:#B9A2FF; --ok:#7BD8A6; --warn:#F29E7A;
   --display:"Unbounded","Instrument Sans",system-ui,sans-serif;
   --body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
 }
@@ -98,7 +98,7 @@ a{color:inherit}
   background:none;border:0;border-bottom:1px solid var(--line-soft);padding:15px 26px 15px 23px;border-left:3px solid transparent}
 .row:hover{background:var(--panel)}
 .row[aria-current=true]{background:var(--raise);border-left-color:var(--tick)}
-.row.health{--tick:var(--gold)} .row.energy{--tick:var(--arc)}
+.row.health{--tick:var(--gold)} .row.energy{--tick:var(--arc)} .row.tech{--tick:var(--violet)}
 .rate{display:block}
 .rate b{font:600 23px/1 var(--display);color:var(--tick);letter-spacing:-.01em}
 .rate small{font-size:12.5px;color:var(--muted);margin-left:3px}
@@ -163,7 +163,7 @@ dialog::backdrop{background:rgba(4,7,14,.72)}
   .app{display:block;height:auto}
   .rail{border-right:0;border-bottom:1px solid var(--line);padding:16px 16px 14px;gap:14px;overflow:visible}
   .scope,.swept,.rail-foot .note{display:none}
-  .seg{grid-template-columns:repeat(3,1fr)} .seg .n{display:none} .seg button{justify-content:center;padding:8px 4px;font-size:14px}
+  .seg{grid-template-columns:repeat(2,1fr)} .seg .n{display:none} .seg button{justify-content:center;padding:8px 4px;font-size:14px}
   .checks{grid-template-columns:1fr 1fr}
   .rail-foot{grid-template-columns:1fr 1fr;margin-top:0}
   .top{padding:10px 8px 0 4px;gap:6px}
@@ -207,9 +207,10 @@ dialog::backdrop{background:rgba(4,7,14,.72)}
     <div class="group">
       <h2>Industry</h2>
       <div class="seg" id="sectors">
-        <button data-s="all" aria-pressed="true"><span class="l">Both</span><span class="n"></span></button>
+        <button data-s="all" aria-pressed="true"><span class="l">All</span><span class="n"></span></button>
         <button data-s="health" aria-pressed="false"><span class="l"><i style="background:var(--gold)"></i>Life sciences</span><span class="n"></span></button>
         <button data-s="energy" aria-pressed="false"><span class="l"><i style="background:var(--arc)"></i>Energy</span><span class="n"></span></button>
+        <button data-s="tech" aria-pressed="false"><span class="l"><i style="background:var(--violet)"></i>Technology</span><span class="n"></span></button>
       </div>
     </div>
 
@@ -276,7 +277,8 @@ const store = {
 };
 const S = { data:null, tab:"contract", sector:"all", q:"", sort:"rate", cur:null,
             marks: store.get("marks", {}) };          // id -> {saved, applied, hidden, snap}
-const SECTOR = { health:"Life sciences", energy:"Energy" };
+const SECTOR = { health:"Life sciences", energy:"Energy", tech:"Technology" };
+const TINT = { health:"var(--gold)", energy:"var(--arc)", tech:"var(--violet)" }, HEX = { health:"#E9B44C", energy:"#6FD3FF", tech:"#B9A2FF" };
 const day = 864e5;
 
 function mark(id){ return S.marks[id] || {} }
@@ -386,7 +388,7 @@ function renderDetail(){
   const m = mark(r.id), q = encodeURIComponent(`${r.title} ${r.company}`), cq = encodeURIComponent(r.company.replace(/\s*\(.*\)/, ""));
   const how = r.source === "Web search" ? "Found by web search, not yet re-checked by a sweep" : r.direct ? `Company careers site${r.source ? " (" + esc(r.source) + ")" : ""}` : r.agency ? `Recruiter listing${r.source ? ", found on " + esc(r.source) : ""}` : `Found on ${esc(r.source || "a job index")}`;
   const eng = { contract:"Contract", contract_to_hire:"Contract to hire", freelance:"Freelance", hourly:"Hourly", part_time_contract:"Part-time contract", permanent:"Posted as permanent", unclear:"Not stated" }[r.engagement] || "Contract";
-  d.style.setProperty("--tick", r.sector === "energy" ? "var(--arc)" : "var(--gold)");
+  d.style.setProperty("--tick", TINT[r.sector] || "var(--gold)");
   d.innerHTML = `
     <button class="btn quiet close" id="closeDetail">Back to the list</button>
     <div><span class="sect">${SECTOR[r.sector] || ""}</span><h1>${esc(r.title)}</h1><p class="co">${esc(r.company)}</p></div>
@@ -407,7 +409,7 @@ function renderDetail(){
     </div>
     <div class="more"><h3>Look further</h3><div>
       <a class="btn" target="_blank" rel="noopener" href="https://www.linkedin.com/jobs/search/?keywords=${q}">This role on LinkedIn</a>
-      <a class="btn" target="_blank" rel="noopener" href="https://www.linkedin.com/search/results/people/?keywords=${cq}%20${encodeURIComponent(r.sector === "energy" ? "analytics OR data science" : "biostatistics OR biometrics")}">Who to contact</a>
+      <a class="btn" target="_blank" rel="noopener" href="https://www.linkedin.com/search/results/people/?keywords=${cq}%20${encodeURIComponent(r.sector === "health" ? "biostatistics OR biometrics" : "analytics OR data science")}">Who to contact</a>
       <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/search?q=${cq}%20careers">Company careers</a>
     </div></div>
     <p class="keys"><kbd>↑</kbd> <kbd>↓</kbd> move, <kbd>Enter</kbd> open, <kbd>S</kbd> save, <kbd>A</kbd> applied, <kbd>H</kbd> hide</p>`;
@@ -431,14 +433,14 @@ function renderStatus(){
   $("#newCount").textContent = fresh.length;
   $("#swept").innerHTML = `Last sweep <strong>${fmtDate(d.generated, true)}</strong>`;
   const w = d.watched || {}, parts = [];
-  parts.push(`${(w.health || 0) + (w.energy || 0)} company career sites read, from ${(d.universe || 0).toLocaleString()} companies tracked.`);
+  parts.push(`${(w.health || 0) + (w.energy || 0) + (w.tech || 0)} company career sites read, from ${(d.universe || 0).toLocaleString()} companies tracked.`);
   if (!d.reader) parts.push(`Listings are filtered by keyword rules. <a target="_blank" rel="noopener" href="https://github.com/${REPO}#better-results">Turn on full reading</a>`);
   $("#coverage").innerHTML = parts.join(" ");
   // blips: one per new role, angle from the id so it stays put between loads
   $("#blips").innerHTML = fresh.slice(0, 60).map(r => {
     let h = 0; for (const c of r.id) h = (h * 31 + c.charCodeAt(0)) >>> 0;
     const a = (h % 360) * Math.PI / 180, rad = r.hourly ? 88 - Math.min(160, r.hourly) / 160 * 36 : 60 + (h >>> 9) % 32;
-    return `<circle class="blip" cx="${(100 + rad * Math.cos(a)).toFixed(1)}" cy="${(100 + rad * Math.sin(a)).toFixed(1)}" r="${r.hourly ? 3 : 2}" fill="${r.sector === "energy" ? "#6FD3FF" : "#E9B44C"}"/>`;
+    return `<circle class="blip" cx="${(100 + rad * Math.cos(a)).toFixed(1)}" cy="${(100 + rad * Math.sin(a)).toFixed(1)}" r="${r.hourly ? 3 : 2}" fill="${HEX[r.sector] || "#E9B44C"}"/>`;
   }).join("");
   const b = $("#banner"), age = (Date.now() - g) / day, msgs = [];
   if (d.last_attempt_failed) msgs.push(`The sweep on ${fmtDate(d.last_attempt_failed + "T12:00:00Z")} couldn't reach the job boards, so this is the previous list.`);
@@ -450,7 +452,8 @@ function renderStatus(){
 /* ── search elsewhere ── */
 const ELSE = {
   "Life sciences": ["biostatistician", "statistical programmer", "SAS programmer clinical", "real world evidence", "data scientist pharma", "biometrics", "machine learning biotech", "bioinformatics"],
-  "Energy": ["data scientist energy", "load forecasting", "quantitative analyst power", "energy analytics", "machine learning energy", "statistician utility", "energy trading analyst", "solar data analyst"]
+  "Energy": ["data scientist energy", "load forecasting", "quantitative analyst power", "energy analytics", "machine learning energy", "statistician utility", "energy trading analyst", "solar data analyst"],
+  "Technology": ["statistician", "data scientist", "applied scientist", "data scientist experimentation", "causal inference", "data scientist semiconductor", "data scientist optics photonics", "statistical consultant"]
 };
 function elsewhere(){
   const e = encodeURIComponent, out = [];
