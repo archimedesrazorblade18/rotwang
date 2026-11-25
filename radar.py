@@ -511,6 +511,9 @@ WD_GAP = 1.5                 # seconds between Workday requests, across all thre
 _wd_lock = threading.Lock()
 _wd_last = [0.0]
 WD_STATS = {"requests": 0, "limited": 0}
+WD_STOP = [float("inf")]     # when this run's Workday time is up (set by each phase)
+WD_DISCOVER_MIN = int(os.getenv("RADAR_WD_DISCOVER", "15"))   # minutes for finding new sites
+WD_READ_MIN = int(os.getenv("RADAR_WD_READ", "25"))           # minutes for reading known sites
 
 
 def wd_request(s, method: str, url: str, **kw):
@@ -518,6 +521,8 @@ def wd_request(s, method: str, url: str, **kw):
     global WD_GAP
     kw.setdefault("timeout", 25)
     for attempt in range(3):
+        if time.time() > WD_STOP[0]:
+            return None                        # Workday's time this run is up
         with _wd_lock:
             wait = WD_GAP - (time.time() - _wd_last[0])
             if wait > 0:
@@ -534,6 +539,7 @@ def wd_request(s, method: str, url: str, **kw):
         WD_GAP = min(4.0, WD_GAP + 0.5)        # ask more slowly from now on
         ra = r.headers.get("Retry-After", "")
         pause = min(60, int(ra)) if ra.isdigit() else 15 * (attempt + 1)
+        pause = max(0.0, min(pause, WD_STOP[0] - time.time()))
         with _wd_lock:                         # everyone waits, not only this thread
             time.sleep(pause)
             _wd_last[0] = time.time()
@@ -1459,8 +1465,10 @@ def discover_workday(reg: dict) -> int:
         if (c.get("workday_tried") or "") >= retry_after:
             continue                               # tried recently; Workday is retried monthly
         todo.append((k, name, entries))
-    print(f"  Testing Workday careers sites for {len(todo)} large companies…")
+    print(f"  Testing Workday careers sites for {len(todo)} large companies "
+          f"(at most {WD_DISCOVER_MIN} minutes)…")
     found = 0
+    WD_STOP[0] = time.time() + WD_DISCOVER_MIN * 60
     with ThreadPoolExecutor(max_workers=8) as ex:
         futs = {ex.submit(probe_workday, s, e): (k, n) for k, n, e in todo}
         for fut in as_completed(futs):
@@ -1480,6 +1488,7 @@ def discover_workday(reg: dict) -> int:
                 print(f"    + {name[:32]:32} workday  {total} open")
             elif c["status"] != "watching":
                 c["workday_tried"] = TODAY
+    WD_STOP[0] = float("inf")
     save_json(COMPANIES, reg)
     log(f"workday: {found} of {len(todo)} confirmed ({WD_STATS['requests']} requests, "
         f"{WD_STATS['limited']} rate-limited)")
@@ -1594,7 +1603,11 @@ WORKDAY_TECH = {
 
 
 def read_workday(s, name: str, token: str, sector: str = ""):
+    """Roles from one Workday site. ok is None when this run's Workday time ran out
+    first: the site is read next week and gets no strike."""
     host, tenant, site = token.split("|")
+    if time.time() > WD_STOP[0]:
+        return [], None
     seen, out, ok = set(), [], False
     terms = ({"energy": WORKDAY_ENERGY_TERMS, "tech": WORKDAY_TECH_TERMS}.get(sector, WORKDAY_TERMS)) + (WORKDAY_WIDE_TERMS if SCOPE == "wide" else [])
     pages = [(t, off) for t in terms for off in (0, 20, 40)]
@@ -1602,6 +1615,8 @@ def read_workday(s, name: str, token: str, sector: str = ""):
     for term, offset in pages:
         if term in done_terms:
             continue
+        if time.time() > WD_STOP[0]:
+            break
         r = wd_request(s, "POST", f"https://{host}/wday/cxs/{tenant}/{site}/jobs",
                        json={"appliedFacets": {}, "limit": 20, "offset": offset, "searchText": term})
         if r is None or not r.ok:
@@ -1623,6 +1638,8 @@ def read_workday(s, name: str, token: str, sector: str = ""):
                                contract=rw.is_contract(t), source=f"{name} · Workday",
                                url=f"https://{host}/{site}{path}",
                                remote="remote" in (j.get("locationsText", "") or "").lower()))
+    if not ok and time.time() > WD_STOP[0]:
+        return out, None
     return out, ok
 
 
@@ -2505,9 +2522,18 @@ def sweep(reg: dict, prof: dict) -> tuple[list[dict], list[dict], int]:
     if dup:
         print(f"  {dup} duplicate claims on shared boards removed")
     watching = [k for k, c in reg.items() if c["status"] == "watching"]
-    print(f"  Sweeping {len(watching)} boards…")
+    # Workday sites are slow to ask, so they go last, least recently read first,
+    # inside a fixed time window; the rest wait for next week without a strike.
+    watching.sort(key=lambda k: (reg[k].get("ats") == "workday",
+                                 reg[k].get("swept", "") if reg[k].get("ats") == "workday" else ""))
+    print(f"  Sweeping {len(watching)} boards (Workday sites: at most {WD_READ_MIN} minutes)…")
+    WD_STOP[0] = time.time() + WD_READ_MIN * 60
     results = _read_many(watching, reg)
-    bad = [k for k, (_, ok) in results.items() if not ok]
+    skipped = [k for k, (_, ok) in results.items() if ok is None]
+    if skipped:
+        print(f"  {len(skipped)} Workday sites left for next week (time window used up)")
+        log(f"sweep: {len(skipped)} Workday sites skipped for time")
+    bad = [k for k, (_, ok) in results.items() if ok is False]
     mass = len(watching) >= 20 and len(bad) > MASS_FAIL_SHARE * len(watching)
     if mass:
         print(f"  {len(bad)} of {len(watching)} boards didn't answer — that's this computer's "
@@ -2515,15 +2541,18 @@ def sweep(reg: dict, prof: dict) -> tuple[list[dict], list[dict], int]:
         log(f"sweep: {len(bad)}/{len(watching)} failed — pausing {MASS_FAIL_WAIT}s and retrying")
         time.sleep(MASS_FAIL_WAIT)
         results.update(_read_many(bad, reg))
-        bad = [k for k, (_, ok) in results.items() if not ok]
+        bad = [k for k, (_, ok) in results.items() if ok is False]
         mass = len(bad) > MASS_FAIL_SHARE * len(watching)
         log(f"sweep retry: {len(bad)}/{len(watching)} still failing" + (" — NOT penalising boards" if mass else ""))
+    WD_STOP[0] = float("inf")
     SWEEP_HEALTH.update({"total": len(watching), "failed": len(bad), "mass": mass})
     current, failed = [], 0
 
     for k in watching:
             roles, ok = results.get(k, ([], False))
             c = reg[k]
+            if ok is None:
+                continue                             # not read this week; no strike
             if not ok:
                 failed += 1
                 if not mass:                         # a strike only when the network was fine
