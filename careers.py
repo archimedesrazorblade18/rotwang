@@ -165,19 +165,25 @@ PATTERNS = [
     ("greenhouse", r"greenhouse\.io/(?:embed/job_board(?:/js)?\?for=|v1/boards/)([A-Za-z0-9_-]+)"),
     ("greenhouse", r"(?:job-boards|boards)(?:\.eu)?\.greenhouse\.io/([A-Za-z0-9_-]+)"),
     ("lever", r"jobs\.(?:eu\.)?lever\.co/([A-Za-z0-9_.-]+)"),
+    ("lever", r"api\.(?:eu\.)?lever\.co/v0/postings/([A-Za-z0-9_.-]+)"),
     ("ashby", r"jobs\.ashbyhq\.com/([A-Za-z0-9_.%-]+)"),
     ("smartrecruiters", r"(?:jobs|careers)\.smartrecruiters\.com/([A-Za-z0-9_-]+)"),
     ("workable", r"apply\.workable\.com/([A-Za-z0-9_-]+)"),
     ("recruitee", r"//([a-z0-9-]+)\.recruitee\.com"),
     ("workday", r"([a-z0-9-]+)\.(wd\d+)\.myworkdayjobs\.com/(?:[a-z]{2}-[A-Z]{2}/)?([A-Za-z0-9_-]+)"),
     ("paylocity", r"recruiting\.paylocity\.com/Recruiting/Jobs/All/([0-9a-fA-F-]{36})"),
-    ("ukg", r"recruiting\d*\.ultipro\.com/([A-Za-z0-9]+)/JobBoard/([0-9a-fA-F-]{36})"),
+    ("ukg", r"(recruiting\d*\.ultipro\.com|[a-z0-9]+\.rec\.pro\.ukg\.net)/([A-Za-z0-9]+)/JobBoard/([0-9a-fA-F-]{36})"),
     ("oracle", r"([a-z0-9-]+\.fa(?:\.[a-z0-9-]+)?\.oraclecloud\.com)/hcmUI/CandidateExperience/[a-z]{2}(?:-[A-Z]{2})?/sites/([A-Za-z0-9_]+)"),
     ("icims", r"//((?:careers|jobs|uscareers|external)-[a-z0-9-]+\.icims\.com)"),
     ("icims", r"//([a-z0-9-]+\.icims\.com)"),
     ("bamboohr", r"//([a-z0-9-]+)\.bamboohr\.com"),
     ("breezy", r"//([a-z0-9-]+)\.breezy\.hr"),
     ("jazzhr", r"//([a-z0-9-]+)\.applytojob\.com"),
+    ("jazzhr", r"app\.jazz\.co/widgets/[a-z]+/create/([a-z0-9-]+)"),
+    ("personio", r"//([a-z0-9-]+)\.jobs\.personio\.(?:de|com)"),
+    ("isolved", r"//([a-z0-9-]+)\.isolvedhire\.com"),
+    ("trinet", r"app\.trinethire\.com/companies/([A-Za-z0-9_-]+)"),
+    ("jobscore", r"careers\.jobscore\.com/(?:careers|jobs)/([A-Za-z0-9_-]+)"),
     ("jobvite", r"jobs\.jobvite\.com/([A-Za-z0-9_-]+)"),
     ("rippling", r"ats\.rippling\.com/([A-Za-z0-9_-]+)"),
     ("pinpoint", r"//([a-z0-9-]+)\.pinpointhq\.com"),
@@ -199,6 +205,8 @@ KNOWN_UNREAD = [
     ("hirebridge", r"hirebridge\.com"),
     ("clearcompany", r"clearcompany\.com"),
     ("comeet", r"comeet\.(?:co|com)"),
+    ("findem", r"findemtalent\.com"),
+    ("rippling-embed", r"ripplingcdn\.com"),
 ]
 
 
@@ -213,7 +221,9 @@ def detect(page: str, page_url: str = ""):
                 if g[2].lower() in ("wday", "cxs"):
                     continue
                 return ats, f"{g[0].lower()}.{g[1].lower()}.myworkdayjobs.com|{g[0].lower()}|{g[2]}"
-            if ats in ("ukg", "oracle"):
+            if ats == "ukg":
+                return ats, f"{g[0].lower()}|{g[1]}|{g[2]}"
+            if ats == "oracle":
                 return ats, f"{g[0]}|{g[1]}"
             tok = g[0]
             sub = tok.split(".")[0].lower()
@@ -230,6 +240,8 @@ def detect(page: str, page_url: str = ""):
         if re.search(pat, t, re.I):
             return f"unread:{name}", ""
     # A careers site served by the system on the company's own domain
+    if re.search(r"talentbrew|radancy", t, re.I) and page_url:
+        return "radancy", urlparse(page_url).hostname
     if re.search(r"teamtailor", t, re.I) and page_url:
         return "teamtailor", urlparse(page_url).hostname
     if re.search(r"eightfold", t, re.I) and page_url:
@@ -322,9 +334,20 @@ def find_careers(s, name: str, domain: str, home: str = ""):
 
 def page_hosts(s, url: str) -> str:
     """For testing: the outside hosts a page loads or links to."""
-    r = _get(s, url)
+    r = None
+    for h in (UA, {**UA, "User-Agent": UA["User-Agent"].replace(" rotwang-radar", "")}):
+        try:
+            r = s.get(url, headers=h, timeout=T, allow_redirects=True)
+        except Exception as e:
+            r = None
+            err = e.__class__.__name__
+            continue
+        if r.ok:
+            break
     if r is None:
-        return f"{url}: no answer"
+        return f"{url}: {err}"
+    if not r.ok:
+        return f"{url}: HTTP {r.status_code} (server {r.headers.get('server', '?')}) {r.text[:120]!r}"
     own = (urlparse(r.url).hostname or "").removeprefix("www.")
     hosts = {}
     for m in re.finditer(r"""(?:src|href|data-src|action)=["']([^"']+)["']|https?://[a-z0-9.-]+\.[a-z]{2,}[^"'\s<>)]*""",
@@ -486,8 +509,9 @@ def read_icims(s, name, host):
 
 
 def read_ukg(s, name, tok):
-    tenant, guid = tok.split("|")
-    url = f"https://recruiting.ultipro.com/{tenant}/JobBoard/{guid}/JobBoardView/LoadSearchResults"
+    parts = tok.split("|")
+    host, tenant, guid = (["recruiting.ultipro.com"] + parts)[-3:]
+    url = f"https://{host}/{tenant}/JobBoard/{guid}/JobBoardView/LoadSearchResults"
     body = {"opportunitySearch": {"Top": 200, "Skip": 0, "QueryString": "", "OrderBy": [
         {"Value": "postedDateDesc", "PropertyName": "PostedDate", "Ascending": False}], "Filters": []},
         "matchCriteria": {"PreferredJobs": [], "Educations": [], "LicenseAndCertifications": [],
@@ -510,7 +534,7 @@ def read_ukg(s, name, tok):
             a = (locs[0] or {}).get("Address") or {}
             loc = ", ".join(v for v in [a.get("City"), ((a.get("State") or {}).get("Code") if isinstance(a.get("State"), dict) else a.get("State"))] if v)
         out.append(_role(name, "UKG", j.get("Title"),
-                         f"https://recruiting.ultipro.com/{tenant}/JobBoard/{guid}/OpportunityDetail?opportunityId={j.get('Id')}",
+                         f"https://{host}/{tenant}/JobBoard/{guid}/OpportunityDetail?opportunityId={j.get('Id')}",
                          loc, "full time" if j.get("FullTime") else "", posted=j.get("PostedDate")))
     return out, True
 
@@ -590,6 +614,48 @@ def read_adp(s, name, cid):
     return out, True
 
 
+def read_radancy(s, name, host):
+    """Radancy (TalentBrew) careers sites: /search-jobs/<term> lists /job/ links."""
+    out, seen, ok = [], set(), False
+    for term in SEARCH_TERMS[:7]:
+        r = _get(s, f"https://{host}/search-jobs/{quote(term)}")
+        if r is None:
+            continue
+        ok = True
+        for u, label in _links(r.text, r.url):
+            if "/job/" in u and u not in seen and label and len(label) < 140:
+                seen.add(u)
+                out.append(_role(name, "careers site", label, u))
+    return out, ok
+
+
+def read_personio(s, name, tok):
+    r = _get(s, f"https://{tok}.jobs.personio.de/xml")
+    if r is None:
+        return [], False
+    out = []
+    for pos in re.findall(r"<position>(.*?)</position>", r.text, re.S):
+        g = lambda k: (re.search(rf"<{k}>(?:<!\[CDATA\[)?(.*?)(?:\]\]>)?</{k}>", pos, re.S) or [None, ""])[1]
+        jid = g("id")
+        out.append(_role(name, "Personio", _html.unescape(g("name")), f"https://{tok}.jobs.personio.de/job/{jid}",
+                         g("office"), f"{g('employmentType')} {g('schedule')}"))
+    return out, True
+
+
+def read_isolved(s, name, tok):
+    return _anchors(s, name, "iSolved", f"https://{tok}.isolvedhire.com/jobs/", r"isolvedhire\.com/jobs/\d+")
+
+
+def read_trinet(s, name, tok):
+    return _anchors(s, name, "TriNet Hire", f"https://app.trinethire.com/companies/{tok}/jobs",
+                    r"trinethire\.com/companies/[^/]+/jobs/\d+")
+
+
+def read_jobscore(s, name, tok):
+    return _anchors(s, name, "JobScore", f"https://careers.jobscore.com/careers/{tok}",
+                    rf"jobscore\.com/careers/{re.escape(tok)}/jobs/")
+
+
 def _jsonld_jobs(page: str):
     for m in re.finditer(r'<script[^>]+application/ld\+json[^>]*>(.*?)</script>', page or "", re.S | re.I):
         try:
@@ -630,4 +696,6 @@ def read_jsonld(s, name, url):
 READERS = {"bamboohr": read_bamboohr, "breezy": read_breezy, "pinpoint": read_pinpoint,
            "teamtailor": read_teamtailor, "jazzhr": read_jazzhr, "jobvite": read_jobvite,
            "rippling": read_rippling, "icims": read_icims, "ukg": read_ukg, "oracle": read_oracle,
-           "eightfold": read_eightfold, "adp": read_adp, "jsonld": read_jsonld}
+           "eightfold": read_eightfold, "adp": read_adp, "jsonld": read_jsonld,
+           "radancy": read_radancy, "personio": read_personio, "isolved": read_isolved,
+           "trinet": read_trinet, "jobscore": read_jobscore}
