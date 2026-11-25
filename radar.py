@@ -3002,6 +3002,7 @@ def main() -> int:
     p.add_argument("--no-resolve", action="store_true", help="sweep without resolving new companies")
     p.add_argument("--open", action="store_true", help="open radar.html when done")
     p.add_argument("--hosts", nargs="+", metavar="URL", help="testing: show what careers pages load")
+    p.add_argument("--check-keys", action="store_true", help="test the search keys (never prints them)")
     p.add_argument("--careers", type=int, metavar="N",
                    help="look for the careers pages of N companies and show what was found")
     p.add_argument("--workday", action="store_true",
@@ -3052,6 +3053,23 @@ def main() -> int:
         return status(reg)
     if a.careers:
         find_careers_pages(reg, a.careers, verbose=True)
+        return 0
+    if a.check_keys:
+        s = requests.Session()
+        aid, akey = os.getenv("ADZUNA_APP_ID", "").strip(), os.getenv("ADZUNA_APP_KEY", "").strip()
+        print(f"  Adzuna: app id {len(aid)} characters, app key {len(akey)} characters")
+        if aid and akey:
+            r = s.get("https://api.adzuna.com/v1/api/jobs/us/search/1",
+                      params={"app_id": aid, "app_key": akey, "results_per_page": 5, "what": "biostatistician"},
+                      timeout=(5, 30))
+            body = r.text.replace(aid, "<id>").replace(akey, "<key>")[:300]
+            print(f"  Adzuna answer: HTTP {r.status_code} {body!r}")
+        sk = os.getenv("SERPAPI_KEY", "").strip()
+        if sk:
+            r = s.get("https://serpapi.com/account.json", params={"api_key": sk}, timeout=(5, 30))
+            d = r.json() if r.ok else {}
+            print(f"  SerpApi: HTTP {r.status_code}, plan {d.get('plan_name')}, "
+                  f"{d.get('total_searches_left', d.get('plan_searches_left'))} searches left")
         return 0
     if a.hosts:
         s = requests.Session()
