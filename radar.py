@@ -1512,8 +1512,10 @@ def _careers_todo(reg: dict) -> list[str]:
     retry = (datetime.now(timezone.utc) - timedelta(days=CAREERS_RETRY_DAYS)).strftime("%Y-%m-%d")
     todo = []
     for k, c in reg.items():
-        if c.get("status") == "watching" or (c.get("careers_checked") or "") >= retry:
+        if (c.get("careers_checked") or "") >= retry:
             continue
+        if c.get("status") == "watching" and c.get("ats") != "page":
+            continue                               # a plain careers page is looked at again
         secs = set(c.get("sectors") or [])
         if not (secs & (CAREERS_FIRST | {"device"})):
             continue
@@ -1582,7 +1584,20 @@ def find_careers_pages(reg: dict, limit: int = 0, verbose: bool = False) -> int:
             stats["page"] += 1
             c["careers"] = hit["careers"]
             ats = hit.get("ats") or "unknown"
-            if ats.startswith("unread:") or ats == "unknown":
+            if ats == "unknown":                   # no system: read the page itself
+                roles, ok = careers.read_page(s, c["name"], hit["careers"])
+                if ok:
+                    c.update({"status": "watching", "ats": "page", "token": hit["careers"],
+                              "resolved": TODAY, "verified": TODAY, "fails": 0,
+                              "found_by": "careers page"})
+                    stats["read"] += 1
+                c["careers_system"] = "page"
+                unread["own page"] = unread.get("own page", 0) + 1
+                if verbose:
+                    print(f"    ~ {c['name'][:34]:34} {'own page':14} {hit['careers'][:52]:52} "
+                          f"{len(roles)} titles: {'; '.join(r.title for r in roles[:3])[:80]}")
+                continue
+            if ats.startswith("unread:"):
                 name = ats.split(":")[-1]
                 c["careers_system"] = name
                 unread[name] = unread.get(name, 0) + 1

@@ -125,25 +125,32 @@ def is_company_page(html: str, name: str, domain: str = "") -> bool:
 
 
 def find_website(s, name: str):
-    """(domain, homepage html) or (None, None)."""
-    # Clearbit's autocomplete names a company's domain directly when it knows it.
+    """(domain, homepage html) or (None, None).
+    The name's own .com is tried first. If it exists but turns visitors away,
+    the company is skipped rather than matched to a namesake elsewhere."""
+    ws = words(name)
+    primary = [f"{''.join(ws)}.com"] if ws else []
+    clear = []
     r = _get(s, f"https://autocomplete.clearbit.com/v1/companies/suggest?query={quote(name)}", True)
-    cands = []
     if r is not None:
         try:
             for c in (r.json() or [])[:3]:
-                if c.get("domain") and set(distinct(c.get("name", ""))) & set(distinct(name) or words(name)):
-                    cands.append(c["domain"].lower())
+                d = (c.get("domain") or "").lower()
+                if d and words(c.get("name", "")) == ws:      # the same name, word for word
+                    clear.append(d)
         except ValueError:
             pass
-    cands += [d for d in domain_guesses(name) if d not in cands]
-    for d in cands[:10]:
+    cands = []
+    for d in primary + clear + domain_guesses(name):
+        if d not in cands:
+            cands.append(d)
+    for i, d in enumerate(cands[:10]):
         if not _resolves(d):
             continue
-        r = _get(s, f"https://{d}/")
+        r = _get(s, f"https://{d}/") or _get(s, f"https://www.{d}/")
         if r is None:
-            r = _get(s, f"https://www.{d}/")
-        if r is None:
+            if d in primary or d in clear:
+                return None, None                 # the real site exists but won't answer
             continue
         host = (urlparse(r.url).hostname or d).lower()
         if re.search(r"\.(edu|gov|mil)(\.[a-z]{2})?$|\.ac\.[a-z]{2}$|\.k12\.", host):
@@ -656,6 +663,30 @@ def read_jobscore(s, name, tok):
                     rf"jobscore\.com/careers/{re.escape(tok)}/jobs/")
 
 
+_ROLE_NOUN = re.compile(r"scientist|statistician|biostatistician|programmer|analyst|director|manager|"
+                        r"\blead\b|\bhead\b|engineer|associate|specialist|consultant|officer|\bvp\b|"
+                        r"vice president|epidemiologist|modeler|pharmacometrician|fellow", re.I)
+
+
+def read_page(s, name, url):
+    """Jobs listed on a careers page with no careers system behind it: link
+    and heading texts that read like job titles."""
+    r = _get(s, url)
+    if r is None:
+        return [], False
+    out, seen = [], set()
+    texts = [(u, label) for u, label in _links(r.text, r.url)]
+    texts += [(r.url, re.sub(r"<[^>]+>", " ", m.group(1)))
+              for m in re.finditer(r"<(?:h[2-5]|strong|b)\b[^>]*>(.*?)</(?:h[2-5]|strong|b)>", r.text, re.I | re.S)]
+    for u, label in texts:
+        t = _html.unescape(" ".join(label.split()))
+        if not (8 <= len(t) <= 90) or ". " in t or t.lower() in seen or not _ROLE_NOUN.search(t):
+            continue
+        seen.add(t.lower())
+        out.append(_role(name, "careers page", t, u))
+    return out, True
+
+
 def _jsonld_jobs(page: str):
     for m in re.finditer(r'<script[^>]+application/ld\+json[^>]*>(.*?)</script>', page or "", re.S | re.I):
         try:
@@ -698,4 +729,4 @@ READERS = {"bamboohr": read_bamboohr, "breezy": read_breezy, "pinpoint": read_pi
            "rippling": read_rippling, "icims": read_icims, "ukg": read_ukg, "oracle": read_oracle,
            "eightfold": read_eightfold, "adp": read_adp, "jsonld": read_jsonld,
            "radancy": read_radancy, "personio": read_personio, "isolved": read_isolved,
-           "trinet": read_trinet, "jobscore": read_jobscore}
+           "trinet": read_trinet, "jobscore": read_jobscore, "page": read_page}
