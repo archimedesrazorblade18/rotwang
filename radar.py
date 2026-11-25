@@ -2986,6 +2986,7 @@ def main() -> int:
     p.add_argument("--add", nargs=2, metavar=("NAME", "URL"), help="map a company to a careers URL")
     p.add_argument("--no-resolve", action="store_true", help="sweep without resolving new companies")
     p.add_argument("--open", action="store_true", help="open radar.html when done")
+    p.add_argument("--hosts", nargs="+", metavar="URL", help="testing: show what careers pages load")
     p.add_argument("--careers", type=int, metavar="N",
                    help="look for the careers pages of N companies and show what was found")
     p.add_argument("--workday", action="store_true",
@@ -3036,6 +3037,11 @@ def main() -> int:
         return status(reg)
     if a.careers:
         find_careers_pages(reg, a.careers, verbose=True)
+        return 0
+    if a.hosts:
+        s = requests.Session()
+        for u in a.hosts:
+            print(careers.page_hosts(s, u))
         return 0
     if a.resolve is not None:
         reverify(reg)

@@ -119,7 +119,7 @@ def is_company_page(html: str, name: str, domain: str = "") -> bool:
     full = " ".join(ws)
     in_title = all(w in squashed for w in key)
     full_in_body = f" {full} " in f" {body} "
-    if in_title and (full_in_body or _LIFE.search(body)):
+    if in_title and (full_in_body or len(set(m.group(0) for m in _LIFE.finditer(body))) >= 2):
         return True
     return bool(domain) and key[0] in domain.lower() and full_in_body
 
@@ -145,8 +145,10 @@ def find_website(s, name: str):
             r = _get(s, f"https://www.{d}/")
         if r is None:
             continue
+        host = (urlparse(r.url).hostname or d).lower()
+        if re.search(r"\.(edu|gov|mil)(\.[a-z]{2})?$|\.ac\.[a-z]{2}$|\.k12\.", host):
+            continue                              # a school or government namesake
         if is_company_page(r.text, name, d):
-            host = urlparse(r.url).hostname or d
             return host.removeprefix("www."), r.text
     return None, None
 
@@ -215,7 +217,7 @@ def detect(page: str, page_url: str = ""):
                 return ats, f"{g[0]}|{g[1]}"
             tok = g[0]
             sub = tok.split(".")[0].lower()
-            if sub in _NOT_TENANT or tok.lower() in ("embed", "v1", "js", "assets"):
+            if sub in _NOT_TENANT or tok.lower() in ("embed", "v1", "js", "assets") or tok.startswith("_"):
                 continue
             if ats == "eightfold":
                 dom = re.search(r'["\']domain["\']\s*[:=]\s*["\']([a-z0-9.-]+\.[a-z]{2,})', t, re.I)
@@ -289,6 +291,8 @@ def find_careers(s, name: str, domain: str, home: str = ""):
         if r is None:
             continue
         page, final = r.text, r.url
+        if re.search(r"404|not[-_ ]found", final, re.I) or re.search(r"page not found|404", _title(page)):
+            continue
         hit = detect(final, final) or detect(page, final)
         if hit and not hit[0].startswith("unread"):
             return {"careers": final, "ats": hit[0], "token": hit[1]}
@@ -314,6 +318,27 @@ def find_careers(s, name: str, domain: str, home: str = ""):
     if found_page:
         return {"careers": found_page, "ats": unread, "token": ""}
     return None
+
+
+def page_hosts(s, url: str) -> str:
+    """For testing: the outside hosts a page loads or links to."""
+    r = _get(s, url)
+    if r is None:
+        return f"{url}: no answer"
+    own = (urlparse(r.url).hostname or "").removeprefix("www.")
+    hosts = {}
+    for m in re.finditer(r"""(?:src|href|data-src|action)=["']([^"']+)["']|https?://[a-z0-9.-]+\.[a-z]{2,}[^"'\s<>)]*""",
+                         _text(r.text), re.I):
+        u = m.group(1) or m.group(0)
+        h = (urlparse(urljoin(r.url, u)).hostname or "").lower()
+        if not h or h.endswith(own) or re.search(r"google|gstatic|facebook|twitter|linkedin|youtube|"
+                                                 r"doubleclick|cloudflare|jsdelivr|jquery|fonts|typekit|"
+                                                 r"hotjar|hubspot|cookie|onetrust|w3\.org|schema\.org|"
+                                                 r"wp\.com|gravatar|vimeo|instagram|addtoany|recaptcha", h):
+            continue
+        hosts[h] = hosts.get(h, 0) + 1
+    return (f"{url} -> {r.url} [{r.status_code}] {_title(r.text)[:60]!r}\n      " +
+            ", ".join(f"{h}({n})" for h, n in sorted(hosts.items(), key=lambda x: -x[1])[:14]))
 
 
 # ── Readers ──────────────────────────────────────────────────────────────────
