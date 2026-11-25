@@ -2201,6 +2201,186 @@ def agency_feed(reg: dict, prof: dict) -> list[dict]:
     return out
 
 
+# ── Job search engines: where headhunters and staffing firms post ─────────────
+# Contract work is mostly posted by recruiters, on LinkedIn, Indeed, Dice,
+# ZipRecruiter and their own sites. Google Jobs gathers all of those, and Jooble
+# gathers staffing-agency boards. These searches name the contract roles directly.
+SEARCH_QUERIES = [
+    # (query, industry hint, pages)
+    ("contract biostatistician", "health", 2),
+    ("biostatistician contractor remote", "health", 2),
+    ("contract statistical programmer clinical", "health", 2),
+    ("SAS programmer clinical trials contract", "health", 2),
+    ("contract statistician", "", 2),
+    ("principal biostatistician consultant", "health", 1),
+    ("real world evidence data scientist contract", "health", 1),
+    ("epidemiologist contract", "health", 1),
+    ("contract data scientist pharmaceutical", "health", 1),
+    ("biometrics consultant contract", "health", 1),
+    ("R programmer clinical contract", "health", 1),
+    ("statistical consultant clinical trials", "health", 1),
+    ("bioinformatics scientist contract", "health", 1),
+    ("computational biologist contract", "health", 1),
+    ("machine learning scientist biotech contract", "health", 1),
+    ("freelance biostatistician", "health", 1),
+    ("medical device statistician contract", "health", 1),
+    ("health economics outcomes research contract", "health", 1),
+    ("contract data scientist energy", "energy", 1),
+    ("load forecasting analyst contract", "energy", 1),
+    ("quantitative analyst power markets contract", "energy", 1),
+    ("contract data scientist", "tech", 2),
+    ("applied scientist contract", "tech", 1),
+    ("data scientist experimentation contract", "tech", 1),
+    ("contract machine learning scientist", "tech", 1),
+    ("data scientist semiconductor contract", "tech", 1),
+    ("statistician contractor", "tech", 1),
+]
+# Headhunters and specialist firms searched by name: the firms that place
+# biostatisticians and statistical programmers. Google Jobs gets the first
+# FIRMS_ON_GOOGLE of them (one search each); Jooble gets all of them.
+FIRM_SEARCHES = ["Penfield Search Partners", "The Lotus Group", "Orbis Clinical", "ClinChoice",
+                 "Smith Hanley Associates", "Planet Pharma", "Proclinical", "Barrington James",
+                 "Hobson Prior", "Advanced Clinical", "Katalyst Healthcares", "Real Life Sciences",
+                 "EPM Scientific", "Sterling Life Sciences", "Klein Hersh", "Joule", "Kelly Science",
+                 "Randstad Life Sciences", "Spectraforce", "Russell Tobin", "Harnham", "Burtch Works",
+                 "Cytel", "Veristat", "Statistics & Data Corporation", "Medpace", "Precision for Medicine",
+                 "Catalyst Clinical Research", "Peoplelink", "Synectics", "Integrated Resources",
+                 "Insight Global", "TEKsystems", "Actalent", "Kforce", "Apex Systems", "Yoh"]
+FIRMS_ON_GOOGLE = 8
+SERPAPI_PER_RUN = int(os.getenv("SERPAPI_PER_RUN", "55"))   # free plan: 250 a month
+JOOBLE_PER_RUN  = int(os.getenv("JOOBLE_PER_RUN", "90"))    # free plan: 100 a day
+_JOBBOARD_SITES = re.compile(r"linkedin|indeed|ziprecruiter|glassdoor|dice|monster|careerbuilder|"
+                             r"simplyhired|talent\.com|jooble|adzuna|builtin|ladders|lensa|jobright|"
+                             r"bebee|learn4good|teal|whatjobs|getwork|jobgether|snagajob|upwork", re.I)
+
+
+def _engine_role(reg, prof, title, comp, loc, pay, jtype, url, posted, body, remote, label, hint, firm_keys):
+    title, comp = rw.clean(str(title or "")), str(comp or "").strip()
+    if not title or not comp or not url:
+        return None
+    if not (quant_title(title, hint == "energy") or strict_title(title) or leadership_title(title)):
+        return None
+    body = rw.clean(str(body or ""))[:1800]
+    role = rw.Role(title=title, company=comp, location=str(loc or ""), pay=str(pay or ""),
+                   contract=rw.is_contract(title, str(jtype or ""), body), remote=bool(remote),
+                   source=f"{comp} · {label}", url=str(url), posted=str(posted or ""), body=body)
+    agency = rw.is_agency(comp) or company_key(comp) in firm_keys
+    ck = _feed_company(reg, comp, agency)
+    sector = company_sector(reg.get(ck)) or ""
+    if not sector and hint:
+        sector = hint                             # the search said which industry it was for
+    return keep_role(role, prof, comp, ck, agency, sector=sector)
+
+
+def google_jobs(reg: dict, prof: dict) -> list[dict]:
+    """Google Jobs through SerpApi (key in SERPAPI_KEY): LinkedIn, Indeed, Dice,
+    ZipRecruiter and staffing-firm listings in one search."""
+    key = os.getenv("SERPAPI_KEY", "").strip()
+    if not key:
+        print("  Google Jobs: no SERPAPI_KEY set — skipped")
+        return []
+    s = radar_session()
+    firm_keys = {company_key(n) for n in _feed_firms()}
+    out, used, seen, read = [], 0, set(), 0
+    plan = [(f'"{f}" biostatistics OR statistical OR "data scientist"', "", 1) for f in FIRM_SEARCHES[:FIRMS_ON_GOOGLE]] \
+        + SEARCH_QUERIES
+    for q, hint, pages in plan:
+        token = None
+        for page in range(pages):
+            if used >= SERPAPI_PER_RUN:
+                break
+            params = {"engine": "google_jobs", "q": q, "location": "United States", "hl": "en",
+                      "gl": "us", "api_key": key}
+            if token:
+                params["next_page_token"] = token
+            try:
+                r = s.get("https://serpapi.com/search.json", params=params, timeout=(5, 40))
+                used += 1
+                d = r.json() if r.ok else {}
+            except Exception as e:
+                log(f"google jobs '{q}': {e.__class__.__name__}: {e}")
+                break
+            if not r.ok:
+                log(f"google jobs '{q}': HTTP {r.status_code} {str(d.get('error') if isinstance(d, dict) else '')[:120]}")
+                if r.status_code in (401, 403, 429):
+                    used = SERPAPI_PER_RUN         # bad key or month used up: stop asking
+                break
+            for j in d.get("jobs_results", []) or []:
+                read += 1
+                de = j.get("detected_extensions") or {}
+                opts = j.get("apply_options") or []
+                # the employer's or recruiter's own page first, a job board second
+                link = next((o.get("link") for o in opts if o.get("link") and not _JOBBOARD_SITES.search(o.get("link"))), None) \
+                    or (opts[0].get("link") if opts else None) or j.get("share_link")
+                via = re.sub(r"^via\s+", "", str(j.get("via") or "Google Jobs"))
+                ident = (j.get("title"), j.get("company_name"))
+                if ident in seen:
+                    continue
+                seen.add(ident)
+                row = _engine_role(reg, prof, j.get("title"), j.get("company_name"), j.get("location"),
+                                   de.get("salary") or "", de.get("schedule_type") or " ".join(j.get("extensions") or []),
+                                   link, de.get("posted_at") or "", j.get("description"),
+                                   bool(de.get("work_from_home")), f"Google Jobs ({via})", hint, firm_keys)
+                if row:
+                    out.append(row)
+            token = ((d.get("serpapi_pagination") or {}).get("next_page_token"))
+            if not token:
+                break
+            time.sleep(0.5)
+    print(f"  Google Jobs: {used} searches, {read} listings read, {len(out)} candidates")
+    return out
+
+
+def jooble(reg: dict, prof: dict) -> list[dict]:
+    """Jooble (key in JOOBLE_KEY): staffing-agency and job-board listings."""
+    key = os.getenv("JOOBLE_KEY", "").strip()
+    if not key:
+        print("  Jooble: no JOOBLE_KEY set — skipped")
+        return []
+    s = radar_session()
+    firm_keys = {company_key(n) for n in _feed_firms()}
+    out, used, read, seen = [], 0, 0, set()
+    plan = [(f, "", 1, True) for f in FIRM_SEARCHES] + [(q, h, p, False) for q, h, p in SEARCH_QUERIES]
+    for q, hint, pages, by_company in plan:
+        for page in range(1, pages + 1):
+            if used >= JOOBLE_PER_RUN:
+                break
+            body = {"keywords": q, "location": "United States", "page": page, "ResultOnPage": 50}
+            if by_company:
+                body["companysearch"] = True
+            try:
+                r = s.post(f"https://jooble.org/api/{key}", timeout=(5, 40), json=body)
+                used += 1
+                d = r.json() if r.ok else {}
+            except Exception as e:
+                log(f"jooble '{q}': {e.__class__.__name__}: {e}")
+                break
+            if not r.ok:
+                log(f"jooble '{q}': HTTP {r.status_code}")
+                if r.status_code in (401, 403, 429):
+                    used = JOOBLE_PER_RUN
+                break
+            jobs = d.get("jobs", []) or []
+            for j in jobs:
+                read += 1
+                ident = (j.get("title"), j.get("company"))
+                if ident in seen:
+                    continue
+                seen.add(ident)
+                row = _engine_role(reg, prof, j.get("title"), j.get("company"), j.get("location"),
+                                   j.get("salary") or "", j.get("type") or "", j.get("link"),
+                                   (j.get("updated") or "")[:10], j.get("snippet"),
+                                   "remote" in str(j.get("location") or "").lower(),
+                                   f"Jooble ({j.get('source') or 'web'})", hint, firm_keys)
+                if row:
+                    out.append(row)
+            if len(jobs) < 50:
+                break
+            time.sleep(0.4)
+    print(f"  Jooble: {used} searches, {read} listings read, {len(out)} candidates")
+    return out
+
+
 def open_feeds(reg: dict, prof: dict) -> list[dict]:
     """Free job indexes that need no key: Remote OK, Jobicy, Himalayas, The Muse.
     Each is one or a few requests; any that fails or changes shape is skipped."""
@@ -2367,7 +2547,8 @@ def sweep(reg: dict, prof: dict) -> tuple[list[dict], list[dict], int]:
     # Recruiters and consultancies post on their own sites but syndicate to the
     # indexes; the feed reads them from there. Companies seen only through the
     # feed are recorded so they reach the globe.
-    for name, fn in [("agency feed", agency_feed), ("contract sweep", contract_sweep),
+    for name, fn in [("google jobs", google_jobs), ("jooble", jooble),
+                     ("agency feed", agency_feed), ("contract sweep", contract_sweep),
                      ("open feeds", open_feeds)]:
         try:
             current.extend(fn(reg, prof))
@@ -2551,6 +2732,8 @@ def write_app_data(reg: dict, current: list[dict]) -> None:
         "boards": {"total": SWEEP_HEALTH.get("total", 0), "failed": SWEEP_HEALTH.get("failed", 0),
                    "mass_failure": bool(SWEEP_HEALTH.get("mass"))},
         "reader": bool(_api_key()), "index": bool(_has_adzuna()),
+        "engines": {"google_jobs": bool(os.getenv("SERPAPI_KEY")), "jooble": bool(os.getenv("JOOBLE_KEY")),
+                    "adzuna": bool(_has_adzuna())},
         "roles": roles}
     APP_DATA.parent.mkdir(parents=True, exist_ok=True)
     if SWEEP_HEALTH.get("mass") and APP_DATA.exists():
