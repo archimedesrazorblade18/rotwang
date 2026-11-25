@@ -512,7 +512,7 @@ _wd_lock = threading.Lock()
 _wd_last = [0.0]
 WD_STATS = {"requests": 0, "limited": 0}
 WD_STOP = [float("inf")]     # when this run's Workday time is up (set by each phase)
-WD_DISCOVER_MIN = int(os.getenv("RADAR_WD_DISCOVER", "15"))   # minutes for finding new sites
+WD_DISCOVER_MIN = int(os.getenv("RADAR_WD_DISCOVER", "5"))   # minutes for finding new sites
 WD_READ_MIN = int(os.getenv("RADAR_WD_READ", "25"))           # minutes for reading known sites
 
 
@@ -2264,6 +2264,20 @@ FIRM_SEARCHES = ["Penfield Search Partners", "The Lotus Group", "Orbis Clinical"
                  "Catalyst Clinical Research", "Peoplelink", "Synectics", "Integrated Resources",
                  "Insight Global", "TEKsystems", "Actalent", "Kforce", "Apex Systems", "Yoh"]
 FIRMS_ON_GOOGLE = 8
+FIRMS_TWO_PAGES = 3          # Penfield, Lotus and Orbis get a second page
+# AI-training marketplaces post "expert" gigs (model evaluation, labelling) under
+# statistics titles. They are not consulting engagements, so they never show.
+_AI_GIG = re.compile(r"mercor|outlier|superannotate|auraone|remotebridge|xperteez|weekday ai|alignerr|"
+                     r"data ?annotation|remotasks|scale ai|micro1|invisible tech|handshake ai|toloka|"
+                     r"\bappen\b|telus (international|digital)|crowdgen|prolific|snorkel|"
+                     r"remote quest jobs|^confidential$|^dice$|upwork", re.I)
+# Engine listings carry more noise than company boards: teaching, junior
+# research support and AI-benchmark gigs share words with the real roles.
+_ENGINE_JUNK = re.compile(r"instructor|teacher|teaching|tutor|coordinator|research associate|"
+                          r"\bassistant\b|benchmark|kaggle|\bai expert\b|evaluator|\brater\b|"
+                          r"label(l)?ing|annotat", re.I)
+_ENERGY_TITLE = re.compile(r"energy|power (market|system|trad)|\bgrid\b|utilit|renewable|solar|wind|"
+                           r"battery|oil|\bgas\b|load forecast", re.I)
 SERPAPI_PER_RUN = int(os.getenv("SERPAPI_PER_RUN", "55"))   # free plan: 250 a month
 _NO_LINK = re.compile(r"jooble", re.I)      # never sent there
 _JOBBOARD_SITES = re.compile(r"linkedin|indeed|ziprecruiter|glassdoor|dice|monster|careerbuilder|"
@@ -2277,6 +2291,8 @@ def _engine_role(reg, prof, title, comp, loc, pay, jtype, url, posted, body, rem
         return None
     if not (quant_title(title, hint == "energy") or strict_title(title) or leadership_title(title)):
         return None
+    if _JUNK.search(title) or _ENGINE_JUNK.search(title) or _AI_GIG.search(comp):
+        return None
     body = rw.clean(str(body or ""))[:1800]
     role = rw.Role(title=title, company=comp, location=str(loc or ""), pay=str(pay or ""),
                    contract=rw.is_contract(title, str(jtype or ""), body), remote=bool(remote),
@@ -2284,8 +2300,9 @@ def _engine_role(reg, prof, title, comp, loc, pay, jtype, url, posted, body, rem
     agency = rw.is_agency(comp) or company_key(comp) in firm_keys
     ck = _feed_company(reg, comp, agency)
     sector = company_sector(reg.get(ck)) or ""
-    if not sector and hint:
-        sector = hint                             # the search said which industry it was for
+    if not sector:                                # the title says the industry, else the search does
+        sector = "health" if _HEALTH_TITLE.search(title) else \
+                 "energy" if _ENERGY_TITLE.search(title) else hint
     return keep_role(role, prof, comp, ck, agency, sector=sector)
 
 
@@ -2296,41 +2313,64 @@ def google_jobs(reg: dict, prof: dict) -> list[dict]:
     if not key:
         print("  Google Jobs: no SERPAPI_KEY set — skipped")
         return []
-    s = radar_session()
+    s = requests.Session()                        # no automatic retries: each retry is a paid search
+    s.headers.update({"User-Agent": "rotwang-radar/1.0"})
     firm_keys = {company_key(n) for n in _feed_firms()}
-    out, used, seen, read = [], 0, set(), 0
-    plan = [(f'"{f}" biostatistics OR statistical OR "data scientist"', "", 1) for f in FIRM_SEARCHES[:FIRMS_ON_GOOGLE]] \
-        + SEARCH_QUERIES
+    out, used, seen, read, slow = [], 0, set(), 0, 0
+    budget = SERPAPI_PER_RUN
+    try:                                          # the account check is free
+        a = s.get("https://serpapi.com/account.json", params={"api_key": key}, timeout=(10, 30)).json()
+        left = a.get("total_searches_left", a.get("plan_searches_left"))
+        if isinstance(left, int):
+            budget = max(0, min(budget, left))
+            print(f"  Google Jobs: {left} searches left this month")
+    except Exception as e:
+        log(f"google jobs account check: {e.__class__.__name__}: {e}")
+    plan = [(f"{f} biostatistician", "health", 2 if i < FIRMS_TWO_PAGES else 1)
+            for i, f in enumerate(FIRM_SEARCHES[:FIRMS_ON_GOOGLE])] + SEARCH_QUERIES
     for q, hint, pages in plan:
         token = None
         for page in range(pages):
-            if used >= SERPAPI_PER_RUN:
+            if used >= budget:
                 break
             params = {"engine": "google_jobs", "q": q, "location": "United States", "hl": "en",
                       "gl": "us", "api_key": key}
             if token:
                 params["next_page_token"] = token
-            try:
-                r = s.get("https://serpapi.com/search.json", params=params, timeout=(5, 40))
-                used += 1
-                d = r.json() if r.ok else {}
-            except Exception as e:
-                log(f"google jobs '{q}': {e.__class__.__name__}: {e}")
+            r = None
+            for attempt in range(2):              # a slow search finishes on SerpApi's side and
+                try:                              # is then served from its cache, free
+                    r = s.get("https://serpapi.com/search.json", params=params, timeout=(10, 90))
+                    break
+                except Exception as e:
+                    slow += 1
+                    log(f"google jobs '{q}' attempt {attempt + 1}: {e.__class__.__name__}")
+                    time.sleep(5)
+            if r is None:
                 break
+            used += 1
+            try:
+                d = r.json() if r.ok else (r.json() if r.content else {})
+            except ValueError:
+                d = {}
             if not r.ok:
                 log(f"google jobs '{q}': HTTP {r.status_code} {str(d.get('error') if isinstance(d, dict) else '')[:120]}")
                 if r.status_code in (401, 403, 429):
-                    used = SERPAPI_PER_RUN         # bad key or month used up: stop asking
+                    used = budget                  # bad key or month used up: stop asking
                 break
             for j in d.get("jobs_results", []) or []:
                 read += 1
                 de = j.get("detected_extensions") or {}
                 opts = [o for o in (j.get("apply_options") or [])
                         if o.get("link") and not _NO_LINK.search(o.get("link"))]
+                if not opts and _NO_LINK.search(str(j.get("via") or "")):
+                    continue                       # posted only on Jooble: never shown
                 # the employer's or recruiter's own page first, a job board second
                 link = next((o.get("link") for o in opts if o.get("link") and not _JOBBOARD_SITES.search(o.get("link"))), None) \
                     or (opts[0].get("link") if opts else None) or j.get("share_link")
                 via = re.sub(r"^via\s+", "", str(j.get("via") or "Google Jobs"))
+                if _NO_LINK.search(via):
+                    via = (opts[0].get("title") if opts else "") or "web"
                 ident = (j.get("title"), j.get("company_name"))
                 if ident in seen:
                     continue
@@ -2345,7 +2385,8 @@ def google_jobs(reg: dict, prof: dict) -> list[dict]:
             if not token:
                 break
             time.sleep(0.5)
-    print(f"  Google Jobs: {used} searches, {read} listings read, {len(out)} candidates")
+    print(f"  Google Jobs: {used} searches, {read} listings read, {len(out)} candidates"
+          + (f", {slow} slow answers retried" if slow else ""))
     return out
 
 
