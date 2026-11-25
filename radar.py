@@ -1592,7 +1592,10 @@ def find_careers_pages(reg: dict, limit: int = 0, verbose: bool = False) -> int:
                               "found_by": "careers page"})
                     stats["read"] += 1
                 c["careers_system"] = "page"
-                unread["own page"] = unread.get("own page", 0) + 1
+                if ok:
+                    systems["own page"] = systems.get("own page", 0) + 1
+                else:
+                    unread["own page"] = unread.get("own page", 0) + 1
                 if verbose:
                     print(f"    ~ {c['name'][:34]:34} {'own page':14} {hit['careers'][:52]:52} "
                           f"{len(roles)} titles: {'; '.join(r.title for r in roles[:3])[:80]}")
@@ -1953,8 +1956,11 @@ def keep_role(r, prof: dict, company: str, ck: str, agency: bool = False,
     quantitative title; in wide scope any professional contract role passes."""
     if _NEVER.search(r.title or ""):
         return None                               # internships, co-ops: never
+    if _ENGINE_SRC.search(r.source or "") and (_AI_GIG.search(company or "") or _ENGINE_JUNK.search(r.title or "")):
+        return None                               # job-engine noise: AI-training gigs, junior and teaching posts
     lane = rw.gate(r, prof)
-    if not r.contract and rw.is_contract(r.title):
+    soft_index = "Adzuna" in (r.source or "") and not agency      # an employer's own listing on Adzuna
+    if not r.contract and (_employer_contract(r.title, "") if soft_index else rw.is_contract(r.title)):
         r.contract = True
     if r.contract and _CONTRACT_NOUN.search(r.title or "") and not _ENGAGEMENT.search(r.title or ""):
         r.contract = False                        # a pricing/contracting job, not a contract
@@ -2218,15 +2224,19 @@ def contract_sweep(reg: dict, prof: dict) -> list[dict]:
             body = rw.clean(j.get("description", ""))[:1500]
             if not contract_only and not leadership_title(title):
                 continue                              # leadership queries keep leadership titles only
+            agency = rw.is_agency(comp) or company_key(comp) in {company_key(n) for n in _feed_firms()}
+            # Adzuna labels nearly everything "contract" (even pharma directors).
+            # Trust the label for staffing firms; employers need the word in the text.
             role = rw.Role(title=title, company=comp, location=(j.get("location") or {}).get("display_name", ""),
-                           pay=pay, contract=contract_only or rw.is_contract(title, j.get("contract_type", ""), body),
+                           pay=pay, contract=(rw.is_contract(title, "contract" if contract_only else "", body)
+                                              if agency else _employer_contract(title, body)),
                            remote=bool(re.search(r"remote|anywhere", f"{title} {body[:400]}", re.I)),
                            source=f"{comp} · Adzuna", url=j.get("redirect_url", ""),
                            posted=(j.get("created") or "")[:10], body=body)
-            agency = rw.is_agency(comp) or company_key(comp) in {company_key(n) for n in _feed_firms()}
             ck = _feed_company(reg, comp, agency)
-            row = keep_role(role, prof, comp, ck, agency,
-                            sector=company_sector(reg.get(ck)) or hint)
+            sector = company_sector(reg.get(ck)) or \
+                ("health" if _HEALTH_TITLE.search(title) else "energy" if _ENERGY_TITLE.search(title) else hint)
+            row = keep_role(role, prof, comp, ck, agency, sector=sector)
             if row:
                 out.append(row)
         time.sleep(0.3)
@@ -2400,6 +2410,7 @@ FIRMS_TWO_PAGES = 3          # Penfield, Lotus and Orbis get a second page
 # AI-training marketplaces post "expert" gigs (model evaluation, labelling) under
 # statistics titles. They are not consulting engagements, so they never show.
 _AI_GIG = re.compile(r"mercor|outlier|superannotate|auraone|remotebridge|xperteez|weekday ai|alignerr|"
+                     r"opentrain|yo ai labs|virtual vocations|"
                      r"data ?annotation|remotasks|scale ai|micro1|invisible tech|handshake ai|toloka|"
                      r"\bappen\b|telus (international|digital)|crowdgen|prolific|snorkel|"
                      r"remote quest jobs|^confidential$|^dice$|upwork", re.I)
@@ -2407,7 +2418,22 @@ _AI_GIG = re.compile(r"mercor|outlier|superannotate|auraone|remotebridge|xpertee
 # research support and AI-benchmark gigs share words with the real roles.
 _ENGINE_JUNK = re.compile(r"instructor|teacher|teaching|tutor|coordinator|research associate|"
                           r"\bassistant\b|benchmark|kaggle|\bai expert\b|evaluator|\brater\b|"
-                          r"label(l)?ing|annotat", re.I)
+                          r"label(l)?ing|annotat|ai training|training tasks?|\bai models?\b|\btasks\b|task author|"
+                          r"expert \(|\bjunior\b|\bjr\.?\b|entry[- ]level|volunteer|unpaid|new grad|"
+                          r"recent grad|^university\b|\bassociate (data scientist|machine learning|ml engineer|"
+                          r"statistician|bioinformatician)", re.I)
+_ENGINE_SRC = re.compile(r"adzuna|google jobs|remotive", re.I)
+# For an employer's own listing on an index, "Consultant" is often a permanent
+# title (universities and hospitals: "Biostatistical Consultant II"). Only a hard
+# word in the title, or the description saying so, makes it a contract.
+_HARD_CONTRACT = re.compile(r"\bcontract(or|ors)?\b|freelance|fractional|temporary|\binterim\b|\b1099\b|"
+                            r"\btemp\b|zero[- ]hours?|short[- ]term consultant|\be ?t consultant\b", re.I)
+
+
+def _employer_contract(title: str, body: str) -> bool:
+    t = rw.CONTRACT_FALSE_FRIENDS.sub(" ", title or "")
+    b = rw.CONTRACT_FALSE_FRIENDS.sub(" ", body or "")
+    return bool(_HARD_CONTRACT.search(t) or rw.CONTRACT_BODY_RE.search(b))
 _ENERGY_TITLE = re.compile(r"energy|power (market|system|trad)|\bgrid\b|utilit|renewable|solar|wind|"
                            r"battery|oil|\bgas\b|load forecast", re.I)
 SERPAPI_PER_RUN = int(os.getenv("SERPAPI_PER_RUN", "33"))   # free plan: 250 a month, room for tests
