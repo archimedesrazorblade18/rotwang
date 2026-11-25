@@ -29,7 +29,6 @@ These are optional. Each is added under Settings, Secrets and variables, Actions
 | `ANTHROPIC_API_KEY` | Claude reads each posting and decides whether it is your field, a real contract, and what it pays. Without it, keyword rules decide and more off-target roles get through. |
 | `ADZUNA_APP_ID` and `ADZUNA_APP_KEY` | Recruiter and staffing-firm listings, and contract searches by job title across the Adzuna index. Free at developer.adzuna.com. |
 | `SERPAPI_KEY` | Google Jobs: LinkedIn, Indeed, Dice, ZipRecruiter and staffing-firm listings. Free plan (250 searches a month) at serpapi.com; the sweep uses about 45 a week. |
-| `JOOBLE_KEY` | Jooble: staffing-agency and job-board listings. Free key at jooble.org/api/about. |
 | `RADAR_SEC_EMAIL` | Lets the monthly company refresh include every listed US company in the energy and life-science industry codes. The SEC requires a contact email on each request. |
 
 ## Adding a company by hand
