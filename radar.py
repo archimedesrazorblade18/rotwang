@@ -2410,7 +2410,7 @@ _ENGINE_JUNK = re.compile(r"instructor|teacher|teaching|tutor|coordinator|resear
                           r"label(l)?ing|annotat", re.I)
 _ENERGY_TITLE = re.compile(r"energy|power (market|system|trad)|\bgrid\b|utilit|renewable|solar|wind|"
                            r"battery|oil|\bgas\b|load forecast", re.I)
-SERPAPI_PER_RUN = int(os.getenv("SERPAPI_PER_RUN", "55"))   # free plan: 250 a month
+SERPAPI_PER_RUN = int(os.getenv("SERPAPI_PER_RUN", "33"))   # free plan: 250 a month, room for tests
 _NO_LINK = re.compile(r"jooble", re.I)      # never sent there
 _JOBBOARD_SITES = re.compile(r"linkedin|indeed|ziprecruiter|glassdoor|dice|monster|careerbuilder|"
                              r"simplyhired|talent\.com|jooble|adzuna|builtin|ladders|lensa|jobright|"

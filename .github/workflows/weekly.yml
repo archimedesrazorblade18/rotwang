@@ -23,6 +23,8 @@ jobs:
     timeout-minutes: 240
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main                 # the latest list, not the copy from when the run was queued
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -49,5 +51,10 @@ jobs:
           for f in radar_meta.json radar_class.json radar_feed_state.json; do [ -f "$f" ] && git add "$f"; done; true
           git diff --cached --quiet && { echo "Nothing changed"; exit 0; }
           git commit -m "Weekly sweep $(date -u +%F)"
-          git pull --rebase
-          git push
+          # This run's lists are the newest: if anything else changed them meanwhile, keep this run's.
+          for i in 1 2 3; do
+            git pull --rebase -X theirs && git push && exit 0
+            git rebase --abort 2>/dev/null || true
+            sleep 10
+          done
+          exit 1
