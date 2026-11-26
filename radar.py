@@ -303,6 +303,8 @@ _LEAD_FIELD = re.compile(
     r"quantitative|pharmacometric|epidemiolog|real[- ]world|clinical data science|"
     r"machine learning|\bai\b|bioinformat", re.I)
 LEAD_PAY_ANNUAL = 200_000       # a stated salary this high marks a role worth pitching
+_CORE_LEAD = re.compile(r"biostat|biometric|statistic|statistical program|clinical program|data scien|"
+                        r"pharmacometric|epidemiolog|bioinformat|machine learning", re.I)
 
 
 # Without Claude reading each posting, a role must say your discipline in its
@@ -366,8 +368,16 @@ def strict_title(title: str) -> bool:
     return (bool(_STRICT_FIELD.search(t)) and not _JUNK.search(t)) or ai_title(t)
 
 
+_LEAD_NOT = re.compile(
+    r"account|sales|brand|marketing|governance|privacy|policy|legal|compliance|deployment|partner|"
+    r"business development|customer|recruit|talent|communications|commercial|go[- ]to[- ]market|\bgtm\b|"
+    r"alliance|solutions|\bfield\b|regional|enablement|platform engineering|data platform|infrastructure|"
+    r"product (manag|lead|director)|program manag|procurement|finance|security", re.I)
+
+
 def leadership_title(title: str) -> bool:
-    return bool(_LEAD_LEVEL.search(title or "") and _LEAD_FIELD.search(title or ""))
+    t = title or ""
+    return bool(_LEAD_LEVEL.search(t) and _LEAD_FIELD.search(t)) and not _LEAD_NOT.search(t)
 
 
 _ENERGY_QUANT = re.compile(
@@ -397,7 +407,8 @@ def hourly_rate(pay: str):
     if not pay or "est." in pay:
         return None
     v = rw.pay_value(pay)
-    return round(v / 2080) if v and v > 0 else None
+    h = round(v / 2080) if v and v > 0 else None
+    return h if h and h <= 400 else None
 
 
 _HARD_ENGAGEMENT = re.compile(r"contract|temporary|\btemp\b|freelance|fractional|interim|1099|"
@@ -2166,6 +2177,13 @@ def _class_key(row: dict) -> str:
     return hashlib.sha1(f"v4|{row['key']}|{row['title']}".encode("utf-8")).hexdigest()[:16]
 
 
+class _Busy(Exception):
+    """Claude asked us to slow down (per-minute limit) or was briefly overloaded."""
+
+
+CLASS_MINUTES = int(os.getenv("RADAR_CLASS_MIN", "60"))   # reading time per run; the rest waits a week
+
+
 def _ask_claude(batch: list[dict]) -> list[dict]:
     items = [{"id": i, "title": r["title"], "company": r["company"], "location": r["location"],
               "pay_field": r.get("pay") or "", "description": (r.get("body") or "")[:1500]}
@@ -2175,6 +2193,8 @@ def _ask_claude(batch: list[dict]) -> list[dict]:
         "messages": [{"role": "user", "content": json.dumps(items, ensure_ascii=False)}]},
         headers={"x-api-key": _api_key(), "anthropic-version": "2023-06-01",
                  "content-type": "application/json"})
+    if resp.status_code in (429, 529) or resp.status_code >= 500:
+        raise _Busy(resp.headers.get("retry-after") or "")
     if not resp.ok:
         raise RuntimeError(f"HTTP {resp.status_code}: {resp.text[:200]}")
     text = "".join(b.get("text", "") for b in resp.json().get("content", []))
@@ -2200,12 +2220,35 @@ def classify_rows(rows: list[dict]) -> int:
             seen.add(ck); todo.append(r)
     if todo:
         print(f"  Reading {len(todo)} new job descriptions with Claude…")
-    done = 0
+    done, waits = 0, 0
+    stop = time.time() + CLASS_MINUTES * 60
     for i in range(0, len(todo), CLASS_BATCH):
         batch = todo[i:i + CLASS_BATCH]
-        try:
-            out = _ask_claude(batch)
-        except Exception as e:
+        out = None
+        for attempt in range(6):
+            if time.time() > stop:
+                break
+            try:
+                out = _ask_claude(batch)
+                break
+            except _Busy as e:
+                waits += 1
+                try:
+                    pause = min(90, max(5, float(str(e) or 0)))
+                except ValueError:
+                    pause = 20
+                time.sleep(pause if str(e) else 15 * (attempt + 1))
+            except Exception as e:
+                out = e
+                break
+        if time.time() > stop and out is None:
+            print(f"  Claude reading stopped for time: {len(todo) - i} descriptions wait for the next run")
+            break
+        if out is None:
+            log(f"classify: batch still busy after retries — keyword rules used for {len(batch)} roles")
+            continue
+        if isinstance(out, Exception):
+            e = out
             log(f"classify: batch failed ({e.__class__.__name__}: {e}) — keyword rules used for {len(batch)} roles")
             if "401" in str(e) or "403" in str(e):
                 print("  Claude rejected the API key — keyword rules used this run.")
@@ -2224,6 +2267,8 @@ def classify_rows(rows: list[dict]) -> int:
     save_json(CLASS_CACHE, cache)
     for r in rows:
         r.setdefault("cls", cache.get(_class_key(r)))
+    print(f"  Claude read {done} of {len(todo)} new descriptions"
+          + (f" (waited {waits} times for its per-minute limit)" if waits else ""))
     log(f"classify: {done} newly judged, {len(rows) - len(todo)} from cache")
     return done
 
@@ -2244,13 +2289,14 @@ def apply_verdicts(rows: list[dict]) -> list[dict]:
             r["engagement"] = v.get("engagement") or ""
             lo, hi = v.get("hourly_low"), v.get("hourly_high")
             if isinstance(lo, (int, float)) or isinstance(hi, (int, float)):
-                r["hourly"] = round(((lo or hi) + (hi or lo)) / 2)
+                h = round(((lo or hi) + (hi or lo)) / 2)
+                r["hourly"] = h if 0 < h <= 400 else r.get("hourly")
             if "us_or_remote" in v:
                 r["us"] = bool(v["us_or_remote"])
             r["why"] = v.get("why", "")
             r["seniority"] = v.get("seniority", "")
-            if leadership_title(r["title"]):
-                r["lane"] = True                   # never let a reading drop a leadership title
+            if leadership_title(r["title"]) and _CORE_LEAD.search(r["title"] or ""):
+                r["lane"] = True                   # never let a reading drop a statistics leadership title
             if not (r["lane"] and r["health"]):
                 continue
             conv = v.get("convertible")
@@ -3254,7 +3300,10 @@ def main() -> int:
             r = s.post("https://api.anthropic.com/v1/messages", timeout=(10, 60), json={
                 "model": CLASSIFY_MODEL, "max_tokens": 5, "messages": [{"role": "user", "content": "Say ok"}]},
                 headers={"x-api-key": ak, "anthropic-version": "2023-06-01", "content-type": "application/json"})
-            print(f"  Anthropic answer: HTTP {r.status_code} {r.text.replace(ak, '<key>')[:200]!r}")
+            print(f"  Anthropic answer: HTTP {r.status_code} {r.text.replace(ak, '<key>')[:120]!r}")
+            lim = {k.replace("anthropic-ratelimit-", ""): v for k, v in r.headers.items()
+                   if k.lower().startswith("anthropic-ratelimit-") and k.lower().endswith("-limit")}
+            print(f"  Anthropic per-minute limits: {lim}")
         return 0
     if a.peek:
         s = requests.Session()
