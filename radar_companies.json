@@ -2020,10 +2020,10 @@
   "token": "https://aytubio.com/careers/",
   "resolved": "2026-11-25",
   "verified": "2026-11-25",
-  "fails": 1,
+  "fails": 0,
   "found_by": "careers page",
   "careers_system": "page",
-  "swept": "2026-11-25",
+  "swept": "2026-11-26",
   "open": 0
  },
  "azitra": {
@@ -3964,7 +3964,7 @@
    "ctgov",
    "curated"
   ],
-  "status": "stale",
+  "status": "watching",
   "trials": 4,
   "ticker": "CYTK",
   "added": "2026-09-26",
@@ -3977,9 +3977,9 @@
   "country": "US",
   "ats": "greenhouse",
   "token": "cytokinetics",
-  "resolved": "2026-11-25",
-  "verified": "2026-11-25",
-  "fails": 3
+  "resolved": "2026-11-26",
+  "verified": "2026-11-26",
+  "fails": 1
  },
  "cytomedtherapeutics": {
   "name": "CytoMed Therapeutics",
@@ -4885,7 +4885,9 @@
   "resolved": "2026-11-25",
   "verified": "2026-11-25",
   "fails": 0,
-  "found_by": "careers page"
+  "found_by": "careers page",
+  "swept": "2026-11-26",
+  "open": 0
  },
  "exicure": {
   "name": "Exicure",
@@ -8217,7 +8219,7 @@
   "token": "https://www.neurosense.com/",
   "resolved": "2026-11-25",
   "verified": "2026-11-25",
-  "fails": 1,
+  "fails": 2,
   "found_by": "careers page",
   "careers_system": "page",
   "swept": "2026-11-25",
@@ -10872,7 +10874,9 @@
   "resolved": "2026-11-25",
   "verified": "2026-11-25",
   "fails": 0,
-  "found_by": "careers page"
+  "found_by": "careers page",
+  "swept": "2026-11-26",
+  "open": 0
  },
  "satellosbioscience": {
   "name": "Satellos Bioscience",
@@ -12093,7 +12097,9 @@
   "resolved": "2026-11-25",
   "verified": "2026-11-25",
   "fails": 0,
-  "found_by": "careers page"
+  "found_by": "careers page",
+  "swept": "2026-11-26",
+  "open": 2
  },
  "trawspharma": {
   "name": "Traws Pharma",
@@ -13346,7 +13352,9 @@
   "resolved": "2026-11-25",
   "verified": "2026-11-25",
   "fails": 0,
-  "found_by": "careers page"
+  "found_by": "careers page",
+  "swept": "2026-11-26",
+  "open": 0
  },
  "zomedica": {
   "name": "Zomedica",
@@ -14803,7 +14811,9 @@
   "resolved": "2026-11-25",
   "verified": "2026-11-25",
   "fails": 0,
-  "found_by": "careers page"
+  "found_by": "careers page",
+  "swept": "2026-11-26",
+  "open": 1
  },
  "cullinantherapeutics": {
   "name": "Cullinan Therapeutics",
@@ -15516,7 +15526,9 @@
   "resolved": "2026-11-25",
   "verified": "2026-11-25",
   "fails": 0,
-  "found_by": "careers page"
+  "found_by": "careers page",
+  "swept": "2026-11-26",
+  "open": 2
  },
  "immunocore": {
   "name": "Immunocore",
@@ -16366,7 +16378,9 @@
   "resolved": "2026-11-25",
   "verified": "2026-11-25",
   "fails": 0,
-  "found_by": "careers page"
+  "found_by": "careers page",
+  "swept": "2026-11-26",
+  "open": 9
  },
  "novavax": {
   "name": "Novavax",
@@ -18251,7 +18265,9 @@
   "resolved": "2026-11-25",
   "verified": "2026-11-25",
   "fails": 0,
-  "found_by": "careers page"
+  "found_by": "careers page",
+  "swept": "2026-11-26",
+  "open": 0
  },
  "trinitybiotech": {
   "name": "Trinity Biotech",
@@ -18573,9 +18589,10 @@
   "sources": [
    "sec",
    "curated",
-   "ctgov"
+   "ctgov",
+   "feed"
   ],
-  "status": "none",
+  "status": "feed",
   "trials": 12,
   "ticker": "MEDP",
   "added": "2026-09-26",
@@ -19512,7 +19529,9 @@
   "resolved": "2026-11-25",
   "verified": "2026-11-25",
   "fails": 0,
-  "found_by": "careers page"
+  "found_by": "careers page",
+  "swept": "2026-11-26",
+  "open": 3
  },
  "conceptmedical": {
   "name": "Concept Medical",
@@ -30755,10 +30774,10 @@
   "token": "https://huyabio.com/careers/",
   "resolved": "2026-11-25",
   "verified": "2026-11-25",
-  "fails": 1,
+  "fails": 0,
   "found_by": "careers page",
   "careers_system": "page",
-  "swept": "2026-11-25",
+  "swept": "2026-11-26",
   "open": 0
  },
  "keloniatherapeutics": {
@@ -31921,7 +31940,7 @@
   "sources": [
    "ctgov"
   ],
-  "status": "watching",
+  "status": "stale",
   "trials": 2,
   "ticker": "",
   "added": "2026-09-26",
@@ -31936,7 +31955,7 @@
   "token": "https://goodmolecules.com/company/careers",
   "resolved": "2026-11-25",
   "verified": "2026-11-25",
-  "fails": 2,
+  "fails": 3,
   "found_by": "careers page",
   "careers_system": "page"
  },
@@ -39501,7 +39520,7 @@
   "resolved": "2026-09-26",
   "fails": 0,
   "swept": "2026-11-26",
-  "open": 5,
+  "open": 6,
   "verified": "2026-09-26",
   "sectors": [
    "biopharma",
@@ -42270,7 +42289,7 @@
   "token": "https://www.sonomotion.com/careers/",
   "resolved": "2026-11-25",
   "verified": "2026-11-25",
-  "fails": 0,
+  "fails": 1,
   "found_by": "careers page",
   "careers_system": "page",
   "swept": "2026-11-26",
@@ -49914,7 +49933,8 @@
    "startup"
   ],
   "country": "US",
-  "wrong_board": "smartrecruiters|evidation"
+  "wrong_board": "smartrecruiters|evidation",
+  "careers_checked": "2026-11-26"
  },
  "oncotherapyscience": {
   "name": "OncoTherapy Science",
@@ -59380,7 +59400,7 @@
   "resolved": "2026-09-26",
   "fails": 0,
   "swept": "2026-11-26",
-  "open": 1,
+  "open": 0,
   "verified": "2026-09-26",
   "sectors": [
    "biopharma",
@@ -72442,7 +72462,7 @@
   "token": "https://breathebiomedical.com/careers/",
   "resolved": "2026-11-25",
   "verified": "2026-11-25",
-  "fails": 0,
+  "fails": 1,
   "found_by": "careers page",
   "careers_system": "page",
   "swept": "2026-11-26",
@@ -74755,7 +74775,7 @@
   "fails": 0,
   "found_by": "careers page",
   "swept": "2026-11-26",
-  "open": 12
+  "open": 13
  },
  "alcon": {
   "name": "Alcon",
@@ -76649,7 +76669,7 @@
   "verified": "2026-11-26",
   "fails": 0,
   "swept": "2026-11-26",
-  "open": 65,
+  "open": 62,
   "careers_checked": "2026-11-25",
   "website": "thermofisher.com",
   "careers": "https://jobs.thermofisher.com/global/en",
@@ -90624,7 +90644,7 @@
   "token": "https://lnkbiomed.com/m61.php",
   "resolved": "2026-11-26",
   "verified": "2026-11-26",
-  "fails": 0,
+  "fails": 1,
   "found_by": "careers page",
   "careers_system": "page",
   "swept": "2026-11-26",
@@ -98703,7 +98723,7 @@
   "sources": [
    "fda"
   ],
-  "status": "none",
+  "status": "watching",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-07",
@@ -98717,7 +98737,16 @@
   "careers_checked": "2026-11-26",
   "website": "heraeus-medical.com",
   "careers": "https://jobs.heraeus.com/en/careers-heraeus-medical",
-  "careers_system": "successfactors"
+  "careers_system": "radancy",
+  "rechecked": "2026-11-26",
+  "ats": "radancy",
+  "token": "jobs.heraeus.cn",
+  "resolved": "2026-11-26",
+  "verified": "2026-11-26",
+  "fails": 0,
+  "found_by": "careers page",
+  "swept": "2026-11-26",
+  "open": 0
  },
  "shenb": {
   "name": "ShenB",
@@ -100754,7 +100783,9 @@
   "verified": "2026-11-26",
   "fails": 0,
   "found_by": "careers page",
-  "wrong_board": "successfactors|careers.westpharma.com"
+  "wrong_board": "successfactors|careers.westpharma.com",
+  "rechecked": "2026-11-26",
+  "same_site_as": "West Pharmaceutical Services"
  },
  "biozen": {
   "name": "Biozen",
@@ -102022,10 +102053,10 @@
   "token": "https://medivance.com.au/careers",
   "resolved": "2026-11-25",
   "verified": "2026-11-25",
-  "fails": 1,
+  "fails": 0,
   "found_by": "careers page",
   "careers_system": "page",
-  "swept": "2026-11-25",
+  "swept": "2026-11-26",
   "open": 0
  },
  "osteomni": {
@@ -111235,7 +111266,7 @@
   "token": "https://www.lincotek.com/group/work-with-us/",
   "resolved": "2026-11-25",
   "verified": "2026-11-25",
-  "fails": 0,
+  "fails": 1,
   "found_by": "careers page",
   "careers_system": "page",
   "swept": "2026-11-26",
@@ -133124,10 +133155,10 @@
   "token": "https://xencolabs.com/compareitad",
   "resolved": "2026-11-25",
   "verified": "2026-11-25",
-  "fails": 1,
+  "fails": 0,
   "found_by": "careers page",
   "careers_system": "page",
-  "swept": "2026-11-25",
+  "swept": "2026-11-26",
   "open": 0
  },
  "guangdongnewdermobiotech": {
@@ -142012,9 +142043,11 @@
   "token": "https://www.medphoton.at/careers/",
   "resolved": "2026-11-26",
   "verified": "2026-11-26",
-  "fails": 1,
+  "fails": 0,
   "found_by": "careers page",
-  "careers_system": "page"
+  "careers_system": "page",
+  "swept": "2026-11-26",
+  "open": 0
  },
  "surgeongeneraldepartmentofarmy": {
   "name": "The Surgeon General Department of the Army",
@@ -149317,7 +149350,7 @@
   "token": "https://etex.com/careers",
   "resolved": "2026-11-25",
   "verified": "2026-11-25",
-  "fails": 0,
+  "fails": 1,
   "found_by": "careers page",
   "careers_system": "page",
   "swept": "2026-11-26",
@@ -159339,10 +159372,10 @@
   "token": "https://facettech.com/career-opportunities/",
   "resolved": "2026-11-25",
   "verified": "2026-11-25",
-  "fails": 1,
+  "fails": 0,
   "found_by": "careers page",
   "careers_system": "page",
-  "swept": "2026-11-25",
+  "swept": "2026-11-26",
   "open": 0
  },
  "protaryxmedical": {
@@ -165344,7 +165377,7 @@
   "fails": 0,
   "found_by": "careers page",
   "swept": "2026-11-26",
-  "open": 42
+  "open": 43
  },
  "alethios": {
   "name": "Alethios",
@@ -203454,7 +203487,7 @@
   "verified": "2026-11-07",
   "fails": 0,
   "swept": "2026-11-26",
-  "open": 0
+  "open": 1
  },
  "ulsolutions": {
   "name": "UL Solutions",
@@ -219456,9 +219489,10 @@
  "lockheedmartin": {
   "name": "Lockheed Martin",
   "sources": [
-   "curated"
+   "curated",
+   "feed"
   ],
-  "status": "none",
+  "status": "feed",
   "trials": 0,
   "ticker": "",
   "added": "2026-11-25",
@@ -228218,7 +228252,7 @@
   "verified": "2026-11-25",
   "fails": 0,
   "swept": "2026-11-26",
-  "open": 6
+  "open": 7
  },
  "revolut": {
   "name": "Revolut",
@@ -231170,7 +231204,7 @@
   "verified": "2026-11-25",
   "fails": 0,
   "swept": "2026-11-26",
-  "open": 28
+  "open": 27
  },
  "sigmoid": {
   "name": "Sigmoid",
@@ -238131,5 +238165,137 @@
   "sectors": [
    "agency"
   ]
+ },
+ "harvard": {
+  "name": "Harvard",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-26",
+  "sectors": []
+ },
+ "aptima": {
+  "name": "Aptima",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-26",
+  "sectors": []
+ },
+ "marvelltechnology": {
+  "name": "Marvell Technology",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-26",
+  "sectors": []
+ },
+ "chicagomercantileexchange": {
+  "name": "Chicago Mercantile Exchange",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-26",
+  "sectors": []
+ },
+ "kleinfelder": {
+  "name": "Kleinfelder Inc",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-26",
+  "sectors": []
+ },
+ "lennoxinternational": {
+  "name": "Lennox International",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-26",
+  "sectors": []
+ },
+ "viragames": {
+  "name": "Vira Games",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-26",
+  "sectors": []
+ },
+ "conceptplus": {
+  "name": "Concept Plus",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-26",
+  "sectors": []
+ },
+ "principals": {
+  "name": "The Principals Group",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-26",
+  "sectors": []
+ },
+ "jimmytechnologies": {
+  "name": "Jimmy Technologies",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-26",
+  "sectors": []
+ },
+ "allyndpartners": {
+  "name": "AllyNd Partners",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-26",
+  "sectors": []
+ },
+ "keyrus": {
+  "name": "Keyrus",
+  "sources": [
+   "feed"
+  ],
+  "status": "feed",
+  "trials": 0,
+  "ticker": "",
+  "added": "2026-11-26",
+  "sectors": []
  }
 }
