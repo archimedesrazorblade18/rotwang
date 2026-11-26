@@ -64,6 +64,7 @@ SEEN      = HERE / "radar_seen.json"        # every role ever shown, with first-
 CONFIG    = HERE / "radar_config.json"      # SEC contact email
 HTML_OUT  = HERE / "radar.html"
 ALERT_OUT = HERE / "radar_alert.md"
+GOOGLE_SAVE = HERE / "radar_google.json"     # the last Google Jobs results, reused by reruns that week
 LOG       = HERE / "radar_log.txt"          # every run and every error, readable from Drive
 APP_DATA  = HERE / "data.json"              # what the installed app reads
 META      = HERE / "radar_meta.json"        # when the universe was last rebuilt
@@ -1532,6 +1533,50 @@ def _careers_todo(reg: dict) -> list[str]:
     return todo
 
 
+RECHECK_SYSTEMS = {"phenom", "successfactors"}      # systems that became readable on 26 Nov 2026
+
+
+def recheck_systems(reg: dict, verbose: bool = False) -> int:
+    """Companies whose careers page runs on a system that ROTWANG has since
+    learned to read: find the site and start watching it. Each company is
+    tried once a month."""
+    todo = [c for c in reg.values() if c.get("careers_system") in RECHECK_SYSTEMS
+            and c.get("status") != "watching" and c.get("careers")
+            and (c.get("rechecked") or "0000") < (datetime.now(timezone.utc) - timedelta(days=30)).strftime("%Y-%m-%d")]
+    if not todo:
+        return 0
+    s = requests.Session()
+    s.mount("https://", HTTPAdapter(pool_maxsize=20, max_retries=0))
+    print(f"  Re-checking {len(todo)} careers sites on Phenom and SuccessFactors…")
+    added = 0
+
+    def one(c):
+        try:
+            hit = careers.find_system(s, c["careers"])
+        except Exception:
+            hit = None
+        if not hit:
+            return c, None, [], False
+        roles, ok = read_board(s, {"ats": hit[0], "token": hit[1], "name": c["name"],
+                                   "sectors": c.get("sectors") or []})
+        return c, hit, roles, ok
+
+    with ThreadPoolExecutor(max_workers=8) as ex:
+        for c, hit, roles, ok in ex.map(one, todo):
+            c["rechecked"] = TODAY
+            if hit and ok:
+                c.update({"status": "watching", "ats": hit[0], "token": hit[1], "resolved": TODAY,
+                          "verified": TODAY, "fails": 0, "found_by": "careers page",
+                          "careers_system": hit[0]})
+                added += 1
+            if verbose:
+                print(f"    {'+' if hit and ok else '-'} {c['name'][:34]:34} "
+                      f"{(hit[0] + ' ' + hit[1]) if hit else 'not found':60} {len(roles)} jobs")
+    save_json(COMPANIES, reg)
+    print(f"  {added} of {len(todo)} now read directly")
+    return added
+
+
 def find_careers_pages(reg: dict, limit: int = 0, verbose: bool = False) -> int:
     todo = _careers_todo(reg)
     if limit:
@@ -2471,6 +2516,12 @@ def google_jobs(reg: dict, prof: dict) -> list[dict]:
     if not key:
         print("  Google Jobs: no SERPAPI_KEY set — skipped")
         return []
+    # A rerun in the same week reuses the last searches: the free plan has 250 a month.
+    saved = load_json(GOOGLE_SAVE, {})
+    fresh = (datetime.now(timezone.utc) - timedelta(days=6)).strftime("%Y-%m-%d")
+    if os.getenv("RADAR_GOOGLE", "search") == "reuse" and saved.get("rows") and saved.get("date", "") >= fresh:
+        print(f"  Google Jobs: reusing {len(saved['rows'])} listings from {saved['date']} (no searches spent)")
+        return [dict(r) for r in saved["rows"]]
     s = requests.Session()                        # no automatic retries: each retry is a paid search
     s.headers.update({"User-Agent": "rotwang-radar/1.0"})
     firm_keys = {company_key(n) for n in _feed_firms()}
@@ -2545,6 +2596,8 @@ def google_jobs(reg: dict, prof: dict) -> list[dict]:
             time.sleep(0.5)
     print(f"  Google Jobs: {used} searches, {read} listings read, {len(out)} candidates"
           + (f", {slow} slow answers retried" if slow else ""))
+    if used:
+        save_json(GOOGLE_SAVE, {"date": TODAY, "rows": out})
     return out
 
 
@@ -2839,6 +2892,39 @@ def alert_text(new: list[dict], current: list[dict], reg: dict) -> str:
     return "\n".join(lines) + "\n"
 
 
+ISSUE_OUT = HERE / "radar_issue.md"
+ALERT_MIN_RATE = int(os.getenv("RADAR_ALERT_MIN_RATE", "0"))   # $/hr; 0 lists every new contract
+APP_URL = os.getenv("RADAR_APP_URL", "https://archimedesrazorblade18.github.io/rotwang/")
+
+
+def issue_text(new: list[dict]) -> str:
+    """The Monday alert: new contracts, highest rate first, then new roles worth
+    pitching. Empty when there is nothing new, so no alert is sent."""
+    con = [r for r in new if r.get("contract") and (r.get("hourly") or 0) >= ALERT_MIN_RATE
+           or (r.get("contract") and not r.get("hourly") and ALERT_MIN_RATE == 0)]
+    con.sort(key=lambda r: (-(r.get("hourly") or 0), 0 if r.get("us", True) else 1, -r["fit"]))
+    pitch = sorted([r for r in new if r.get("convertible")],
+                   key=lambda r: (-(r.get("hourly") or 0), -_SENIOR_RANK.get(r.get("seniority", ""), 0)))
+    if not con and not pitch:
+        return ""
+    def line(r):
+        rate = f"**${r['hourly']}/hr** · " if r.get("hourly") else ""
+        where = f" · {r['location']}" if r.get("location") else ""
+        return f"- {rate}[{r['title']}]({r['url']}) — {r['company']}{where}"
+    out = [f"**{len(con)} new contract role(s)** and {len(pitch)} new role(s) to pitch as contract. "
+           f"[Open ROTWANG]({APP_URL})", ""]
+    if con:
+        out += ["### New contracts", ""] + [line(r) for r in con[:30]]
+        if len(con) > 30:
+            out.append(f"- …and {len(con) - 30} more in the app")
+        out.append("")
+    if pitch:
+        out += ["### New roles to pitch as contract", ""] + [line(r) for r in pitch[:8]]
+        if len(pitch) > 8:
+            out.append(f"- …and {len(pitch) - 8} more in the app")
+    return "\n".join(out) + "\n"
+
+
 def send_email(body: str, n_new: int) -> None:
     to, user, pw = (os.getenv("RADAR_EMAIL_TO"), os.getenv("RADAR_SMTP_USER"),
                     os.getenv("RADAR_SMTP_PASS"))
@@ -3029,6 +3115,7 @@ def main() -> int:
     p.add_argument("--open", action="store_true", help="open radar.html when done")
     p.add_argument("--hosts", nargs="+", metavar="URL", help="testing: show what careers pages load")
     p.add_argument("--check-keys", action="store_true", help="test the search keys (never prints them)")
+    p.add_argument("--recheck", action="store_true", help="testing: re-check careers sites on newly readable systems")
     p.add_argument("--peek", nargs="+", metavar="URL", help="testing: show how a careers page lists jobs")
     p.add_argument("--read", nargs="+", metavar="ATS:TOKEN", help="testing: run a reader, e.g. phenom:careers.roche.com|global/en")
     p.add_argument("--careers", type=int, metavar="N",
@@ -3081,6 +3168,9 @@ def main() -> int:
         return status(reg)
     if a.careers:
         find_careers_pages(reg, a.careers, verbose=True)
+        return 0
+    if a.recheck:
+        recheck_systems(reg, verbose=True)
         return 0
     if a.check_keys:
         s = requests.Session()
@@ -3136,6 +3226,10 @@ def main() -> int:
     if not a.no_resolve:
         resolve(reg, RESOLVE_BUDGET)
         try:
+            recheck_systems(reg)
+        except Exception as e:
+            log(f"recheck error: {e.__class__.__name__}: {e}")
+        try:
             find_careers_pages(reg)
         except Exception as e:                    # the finder must never sink the sweep
             log(f"careers error: {e.__class__.__name__}: {e}")
@@ -3143,6 +3237,10 @@ def main() -> int:
     body = alert_text(new, current, reg)
     ALERT_OUT.write_text(body, encoding="utf-8")
     print(f"  {ALERT_OUT.name} written")
+    try:
+        ISSUE_OUT.write_text(issue_text(new), encoding="utf-8")
+    except Exception as e:
+        log(f"issue text error: {e.__class__.__name__}: {e}")
     try:
         send_email(body, len(new))
     except Exception as e:

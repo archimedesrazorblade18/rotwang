@@ -350,6 +350,34 @@ def find_careers(s, name: str, domain: str, home: str = ""):
     return None
 
 
+def find_system(s, url: str):
+    """The readable system behind a careers page that uses Phenom or
+    SuccessFactors: the page itself, or a jobs/careers site it links to.
+    Returns (ats, token, page_url) or None."""
+    r = _get(s, url)
+    if r is None:
+        return None
+    hit = detect(r.text, r.url)
+    if hit and not hit[0].startswith("unread"):
+        return hit[0], hit[1], r.url
+    own = (urlparse(r.url).hostname or "").removeprefix("www.")
+    cands = []
+    for u, label in _links(r.text, r.url):
+        h = (urlparse(u).hostname or "").lower()
+        if not h or u in cands:
+            continue
+        if _OPENINGS_LINK.search(label) or (h != own and h.startswith(("jobs.", "careers.", "career."))):
+            cands.append(u)
+    for u in cands[:5]:
+        r2 = _get(s, u)
+        if r2 is None:
+            continue
+        hit = detect(r2.text, r2.url)
+        if hit and not hit[0].startswith("unread"):
+            return hit[0], hit[1], r2.url
+    return None
+
+
 def page_hosts(s, url: str) -> str:
     """For testing: the outside hosts a page loads or links to."""
     r = None
@@ -838,8 +866,8 @@ def read_successfactors(s, name, host):
             if not (t and l):
                 continue
             url = _html.unescape(l.group(1).strip()).split("?")[0]
-            if url in seen:
-                continue
+            if url in seen or "/job/" not in url:
+                continue                           # "No jobs currently available" placeholder
             seen.add(url)
             title = _html.unescape(t.group(1)).strip()
             where = ""

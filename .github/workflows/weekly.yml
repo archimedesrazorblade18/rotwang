@@ -9,9 +9,21 @@ on:
         description: "Minutes for finding company careers pages"
         required: false
         default: "15"
+      google:
+        description: "Google Jobs: reuse this week's searches, or search again (uses the monthly allowance)"
+        required: false
+        default: "reuse"
+        type: choice
+        options: ["reuse", "search"]
+      alert:
+        description: "Send the alert for new roles"
+        required: false
+        default: true
+        type: boolean
 
 permissions:
   contents: write
+  issues: write               # the Monday alert is a GitHub issue: GitHub emails it and pushes it to the app
 
 concurrency:
   group: sweep
@@ -34,6 +46,7 @@ jobs:
           PYTHONUTF8: "1"
           RADAR_RESOLVE: "1600"
           RADAR_CAREERS_MIN: ${{ inputs.careers_minutes || '15' }}
+          RADAR_GOOGLE: ${{ inputs.google || 'search' }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           ADZUNA_APP_ID: ${{ secrets.ADZUNA_APP_ID }}
           ADZUNA_APP_KEY: ${{ secrets.ADZUNA_APP_KEY }}
@@ -48,7 +61,7 @@ jobs:
           git config user.name "rotwang-sweep"
           git config user.email "actions@users.noreply.github.com"
           git add data.json radar_companies.json radar_seen.json
-          for f in radar_meta.json radar_class.json radar_feed_state.json; do [ -f "$f" ] && git add "$f"; done; true
+          for f in radar_meta.json radar_class.json radar_feed_state.json radar_google.json; do [ -f "$f" ] && git add "$f"; done; true
           git diff --cached --quiet && { echo "Nothing changed"; exit 0; }
           git commit -m "Weekly sweep $(date -u +%F)"
           # This run's lists are the newest: if anything else changed them meanwhile, keep this run's.
@@ -58,3 +71,18 @@ jobs:
             sleep 10
           done
           exit 1
+      - name: Send the alert
+        if: success() && (github.event_name == 'schedule' || inputs.alert)
+        env:
+          GH_TOKEN: ${{ github.token }}
+          OWNER: ${{ github.repository_owner }}
+        run: |
+          [ -s radar_issue.md ] || { echo "Nothing new: no alert"; exit 0; }
+          printf '\ncc @%s\n' "$OWNER" >> radar_issue.md
+          gh label create alert --color FBCA04 --description "ROTWANG new roles" 2>/dev/null || true
+          for n in $(gh issue list --label alert --state open --json number -q '.[].number'); do
+            gh issue close "$n" >/dev/null || true      # last week's alert
+          done
+          n=$(grep -m1 -oE '^\*\*[0-9]+' radar_issue.md | tr -dc '0-9')
+          gh issue create --title "ROTWANG: ${n:-New} new contract roles, $(date -u '+%b %-d')" \
+            --label alert --body-file radar_issue.md
