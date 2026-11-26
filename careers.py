@@ -368,6 +368,27 @@ def page_hosts(s, url: str) -> str:
             ", ".join(f"{h}({n})" for h, n in sorted(hosts.items(), key=lambda x: -x[1])[:14]))
 
 
+_PEEK = ["phApp.ddo", "eagerLoadRefineSearch", "totalHits", "refNum", "successfactors", "career?company=",
+         "jobs.sap.com", "hr.cloud.sap", "rmk", "data-row", "jobTitle-link", "/job/", "searchResultsShell",
+         "jobs-list", "JobPosting", "sitemap"]
+
+
+def peek(s, url: str) -> str:
+    """For testing: status, final address and the text around system markers."""
+    try:
+        r = s.get(url, headers=UA, timeout=T, allow_redirects=True)
+    except Exception as e:
+        return f"{url}: {e.__class__.__name__}"
+    t = r.text or ""
+    out = [f"{url} -> {r.url} [{r.status_code}] {len(t)} chars {_title(t)[:60]!r}"]
+    for m in _PEEK:
+        i = t.find(m)
+        if i >= 0:
+            snip = re.sub(r"\s+", " ", t[max(0, i - 120): i + 260])
+            out.append(f"      [{m}] x{t.count(m)}: {snip}")
+    return "\n".join(out)
+
+
 # ── Readers ──────────────────────────────────────────────────────────────────
 # Each returns (roles, ok). ok=False means the system didn't answer.
 

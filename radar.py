@@ -3029,6 +3029,8 @@ def main() -> int:
     p.add_argument("--open", action="store_true", help="open radar.html when done")
     p.add_argument("--hosts", nargs="+", metavar="URL", help="testing: show what careers pages load")
     p.add_argument("--check-keys", action="store_true", help="test the search keys (never prints them)")
+    p.add_argument("--peek", nargs="+", metavar="URL", help="testing: show how a careers page lists jobs")
+    p.add_argument("--read", nargs="+", metavar="ATS:TOKEN", help="testing: run a reader, e.g. phenom:careers.roche.com|global/en")
     p.add_argument("--careers", type=int, metavar="N",
                    help="look for the careers pages of N companies and show what was found")
     p.add_argument("--workday", action="store_true",
@@ -3096,6 +3098,21 @@ def main() -> int:
             d = r.json() if r.ok else {}
             print(f"  SerpApi: HTTP {r.status_code}, plan {d.get('plan_name')}, "
                   f"{d.get('total_searches_left', d.get('plan_searches_left'))} searches left")
+        return 0
+    if a.peek:
+        s = requests.Session()
+        for u in a.peek:
+            print(careers.peek(s, u))
+        return 0
+    if a.read:
+        s = requests.Session()
+        for spec in a.read:
+            ats, tok = spec.split(":", 1)
+            t0 = time.time()
+            roles, ok = read_board(s, {"ats": ats, "token": tok, "name": tok.split("|")[0], "sectors": ["pharma"]})
+            print(f"  {spec}: ok={ok} {len(roles)} roles in {time.time() - t0:.0f}s")
+            for r in roles[:8]:
+                print(f"      {r.title[:60]:60} | {r.location[:24]:24} | {r.url[:90]}")
         return 0
     if a.hosts:
         s = requests.Session()
