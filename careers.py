@@ -374,14 +374,17 @@ _PEEK = ["phApp.ddo", "eagerLoadRefineSearch", "totalHits", "refNum", "successfa
 
 
 def peek(s, url: str) -> str:
-    """For testing: status, final address and the text around system markers."""
+    """For testing: status, final address and the text around system markers.
+    Extra markers can follow the address: URL##marker1,marker2"""
+    url, _, extra = url.partition("##")
+    marks = [m for m in extra.split(",") if m] or _PEEK
     try:
         r = s.get(url, headers=UA, timeout=T, allow_redirects=True)
     except Exception as e:
         return f"{url}: {e.__class__.__name__}"
     t = r.text or ""
     out = [f"{url} -> {r.url} [{r.status_code}] {len(t)} chars {_title(t)[:60]!r}"]
-    for m in _PEEK:
+    for m in marks:
         i = t.find(m)
         if i >= 0:
             snip = re.sub(r"\s+", " ", t[max(0, i - 120): i + 260])
