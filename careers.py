@@ -218,6 +218,20 @@ def detect(page: str, page_url: str = ""):
     """(ats, token) for a readable system, ("unread:<name>", "") for a known
     one we can't read, or None."""
     t = _text(page)
+    # Phenom sites carry their job list as data in the page (and Workday apply
+    # links inside it), so they are recognised before the other systems.
+    if "phApp.ddo" in t:
+        b = re.search(r'"baseUrl"\s*:\s*"https?://([a-z0-9.-]+)/((?:[a-z]{2}(?:-[a-z]{2})?|global)/[a-z]{2})/?"',
+                      t, re.I)
+        if b:
+            return "phenom", f"{b.group(1).lower()}|{b.group(2).lower()}"
+    if page_url and re.search(r"rmkcdn\.successfactors\.com|/platform/csb/", t):
+        host = (urlparse(page_url).hostname or "").lower()
+        if host and "successfactors" not in host:
+            return "successfactors", host
+    sx = re.search(r"https?://(career\d*\.successfactors\.(?:com|eu))/career\?company=([A-Za-z0-9_]+)", t, re.I)
+    if sx:
+        return "sfxml", f"{sx.group(1).lower()}|{sx.group(2)}"
     for ats, pat in PATTERNS:
         for m in re.finditer(pat, t, re.I):
             g = m.groups()
@@ -751,9 +765,131 @@ def read_jsonld(s, name, url):
     return out, True
 
 
+# Phenom (Roche, Thermo Fisher, GSK, UCB, GE HealthCare ...): each search page
+# carries its first ten results as data. Its keyword search matches whole
+# words; a word it doesn't know returns every job, so those pages stop at one.
+PH_TERMS = ["biostatistics", "biostatistician", "statistician", "statistical programmer",
+            "statistics", "data scientist", "bioinformatics", "epidemiology",
+            "real world evidence", "pharmacometrics", "machine learning", "contract"]
+
+
+def _ph_ddo(text: str):
+    i = text.find("phApp.ddo")
+    j = text.find("{", i) if i >= 0 else -1
+    if j < 0:
+        return None
+    try:
+        return json.JSONDecoder().raw_decode(text, j)[0]
+    except ValueError:
+        return None
+
+
+def read_phenom(s, name, tok):
+    host, loc = (tok.split("|") + ["global/en"])[:2]
+    base = f"https://{host}/{loc.strip('/')}"
+    out, seen, ok = [], set(), False
+    for term in PH_TERMS:
+        for start in (0, 10, 20):
+            r = _get(s, f"{base}/search-results?keywords={quote(term)}&from={start}")
+            d = _ph_ddo(r.text) if r is not None else None
+            res = (d or {}).get("eagerLoadRefineSearch") or {}
+            if not res:
+                break
+            ok = True
+            jobs = (res.get("data") or {}).get("jobs") or []
+            for j in jobs:
+                jid = str(j.get("jobId") or j.get("jobSeqNo") or "")
+                if not jid or jid in seen:
+                    continue
+                seen.add(jid)
+                title = rw.clean(str(j.get("title") or ""))
+                slug = re.sub(r"[^A-Za-z0-9]+", "-", title).strip("-")
+                where = j.get("location") or ", ".join(
+                    str(v) for v in [j.get("city"), j.get("state"), j.get("country")] if v)
+                teaser = (j.get("ml_job_parser") or {}).get("descriptionTeaser") or j.get("descriptionTeaser") or ""
+                etype = " ".join(str(j.get(k) or "") for k in ("type", "jobType", "timeType", "employmentType"))
+                remote = re.search(r"remote|virtual|home", f"{where} {j.get('workplaceType') or ''} "
+                                   f"{j.get('locationType') or ''}", re.I)
+                out.append(_role(name, "careers site", title, f"{base}/job/{quote(jid)}/{slug}", where, etype,
+                                 bool(remote), j.get("postedDate"), teaser))
+            total = int(res.get("totalHits") or 0)
+            if total > 300 or start + 10 >= total or len(jobs) < 10:
+                break                              # an unknown word lists every job: one page is enough
+    return out, ok
+
+
+# SuccessFactors career sites (BioNTech, Perrigo, Lupin, Karl Storz ...): each
+# keyword search has an RSS feed with the full description.
+SF_TERMS = ["biostatistics", "statistician", "statistical", "statistics", "data scientist",
+            "bioinformatics", "epidemiology", "real world", "programmer", "machine learning",
+            "contract", "consultant"]
+
+
+def read_successfactors(s, name, host):
+    out, seen, ok = [], set(), False
+    for term in SF_TERMS:
+        r = _get(s, f"https://{host}/services/rss/job/?locale=en_US&keywords=({quote(term)})")
+        if r is None or "<rss" not in r.text[:500].lower():
+            continue
+        ok = True
+        for item in re.findall(r"<item>(.*?)</item>", r.text, re.S):
+            t = re.search(r"<title>(?:<!\[CDATA\[)?(.*?)(?:\]\]>)?</title>", item, re.S)
+            l = re.search(r"<link>(.*?)</link>", item, re.S)
+            if not (t and l):
+                continue
+            url = _html.unescape(l.group(1).strip()).split("?")[0]
+            if url in seen:
+                continue
+            seen.add(url)
+            title = _html.unescape(t.group(1)).strip()
+            where = ""
+            m = re.match(r"(.*\S)\s*\(([^()]*,[^()]*)\)\s*$", title)   # "Title (City, ST, US, 02139)"
+            if m:
+                title, where = m.group(1), m.group(2)
+            d = re.search(r"<description>(?:<!\[CDATA\[)?(.*?)(?:\]\]>)?</description>", item, re.S)
+            body = rw.clean(re.sub(r"<[^>]+>", " ", _html.unescape(d.group(1)))) [:1800] if d else ""
+            p = re.search(r"<pubDate>(.*?)</pubDate>", item)
+            out.append(_role(name, "careers site", title, url, where, "", False,
+                             _rss_date(p.group(1)) if p else "", body))
+    return out, ok
+
+
+def _rss_date(v: str) -> str:
+    from email.utils import parsedate_to_datetime
+    try:
+        return parsedate_to_datetime(v).strftime("%Y-%m-%d")
+    except (TypeError, ValueError):
+        return ""
+
+
+def read_sfxml(s, name, tok):
+    """Older SuccessFactors career pages (career5.successfactors.eu/career?company=X):
+    one XML file lists every job."""
+    host, cid = (tok.split("|") + [""])[:2]
+    r = _get(s, f"https://{host}/career?company={quote(cid)}&career_ns=job_listing_summary&resultType=XML",
+             timeout=(6, 40))
+    if r is None or "<JobTitle" not in r.text:
+        return [], False
+    out = []
+    for chunk in re.split(r"<JobTitle>", r.text)[1:]:
+        tm = re.match(r"(?:<!\[CDATA\[)?(.*?)(?:\]\]>)?</JobTitle>", chunk, re.S)
+        if not tm:
+            continue
+        req = re.search(r"<(?:ReqId|Job-Req-Id|JobReqId|Req-Id)>(?:<!\[CDATA\[)?\s*(\d+)", chunk)
+        where = re.search(r"<(?:Location|City|mfield\d)>(?:<!\[CDATA\[)?([^<\]]{2,80})", chunk)
+        d = re.search(r"<Job-Description>(?:<!\[CDATA\[)?(.*?)(?:\]\]>)?</Job-Description>", chunk, re.S)
+        url = (f"https://{host}/career?company={cid}&career_ns=job_listing&career_job_req_id={req.group(1)}"
+               if req else f"https://{host}/career?company={cid}")
+        body = rw.clean(re.sub(r"<[^>]+>", " ", _html.unescape(d.group(1))))[:1800] if d else ""
+        out.append(_role(name, "careers site", _html.unescape(tm.group(1)).strip(), url,
+                         where.group(1).strip() if where else "", "", False, "", body))
+    return out, True
+
+
 READERS = {"bamboohr": read_bamboohr, "breezy": read_breezy, "pinpoint": read_pinpoint,
            "teamtailor": read_teamtailor, "jazzhr": read_jazzhr, "jobvite": read_jobvite,
            "rippling": read_rippling, "icims": read_icims, "ukg": read_ukg, "oracle": read_oracle,
            "eightfold": read_eightfold, "adp": read_adp, "jsonld": read_jsonld,
            "radancy": read_radancy, "personio": read_personio, "isolved": read_isolved,
-           "trinet": read_trinet, "jobscore": read_jobscore, "page": read_page}
+           "trinet": read_trinet, "jobscore": read_jobscore, "page": read_page,
+           "phenom": read_phenom, "successfactors": read_successfactors, "sfxml": read_sfxml}
