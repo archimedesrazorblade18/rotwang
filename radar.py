@@ -2152,6 +2152,8 @@ def classify_rows(rows: list[dict]) -> int:
         ck = _class_key(r)
         if ck in cache:
             r["cls"] = cache[ck]
+        elif len(r.get("body") or "") < 120:
+            continue                               # nothing to read beyond the title: keyword rules decide
         elif ck not in seen:
             seen.add(ck); todo.append(r)
     if todo:
