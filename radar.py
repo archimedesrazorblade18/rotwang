@@ -3197,6 +3197,13 @@ def main() -> int:
             d = r.json() if r.ok else {}
             print(f"  SerpApi: HTTP {r.status_code}, plan {d.get('plan_name')}, "
                   f"{d.get('total_searches_left', d.get('plan_searches_left'))} searches left")
+        ak = _api_key().strip()
+        print(f"  Anthropic: key {'set' if ak else 'not set'}" + (f" ({len(ak)} characters)" if ak else ""))
+        if ak:
+            r = s.post("https://api.anthropic.com/v1/messages", timeout=(10, 60), json={
+                "model": CLASSIFY_MODEL, "max_tokens": 5, "messages": [{"role": "user", "content": "Say ok"}]},
+                headers={"x-api-key": ak, "anthropic-version": "2023-06-01", "content-type": "application/json"})
+            print(f"  Anthropic answer: HTTP {r.status_code} {r.text.replace(ak, '<key>')[:200]!r}")
         return 0
     if a.peek:
         s = requests.Session()
