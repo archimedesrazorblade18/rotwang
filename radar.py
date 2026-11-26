@@ -253,7 +253,27 @@ _WIDE_EXCLUDE = re.compile(
     r"intern|internship|co-op|apprentice)\b", re.I)
 
 
-_NEVER = re.compile(r"\b(intern|internship|co-op|coop|apprentice|summer student|student worker)\b", re.I)
+_NEVER = re.compile(r"\b(intern|internship|co-op|coop|apprentice|summer student|student worker|"
+                    r"post-?doc\w*|residency|resident|fellowship|graduate program|early career program)\b", re.I)
+# Fixed-term training posts (postdocs, residencies, fellowships) are not contracts.
+
+_TITLE_TAIL = re.compile(r"\s*(?:[:|\u2013-]\s*)?(?:view the role|tell me more|apply now|learn more|"
+                         r"read more|view job|see details|more info)\s*$", re.I)
+_TITLE_LOC = re.compile(r"\s+Location:\s.*$", re.I)
+
+
+def tidy_title(t: str) -> str:
+    """What a careers-page scrape glued onto a title: button text, a location
+    line, or UTF-8 read as Latin-1."""
+    t = t or ""
+    if "\u00e2" in t or "\u00c3" in t:
+        try:
+            t = t.encode("latin-1").decode("utf-8")
+        except (UnicodeEncodeError, UnicodeDecodeError):
+            pass
+    t = _TITLE_LOC.sub("", t)
+    t = _TITLE_TAIL.sub("", t)
+    return re.sub(r"\s+", " ", t).strip(" :|-")
 
 
 # The quantitative market: what a contract role's TITLE must mention to count
@@ -3025,6 +3045,7 @@ APP_URL = os.getenv("RADAR_APP_URL", "https://archimedesrazorblade18.github.io/r
 def issue_text(new: list[dict]) -> str:
     """The Monday alert: new contracts, highest rate first, then new roles worth
     pitching. Empty when there is nothing new, so no alert is sent."""
+    new = [r for r in new if not _NEVER.search(r.get("title") or "")]
     con = [r for r in new if r.get("contract") and (r.get("hourly") or 0) >= ALERT_MIN_RATE
            or (r.get("contract") and not r.get("hourly") and ALERT_MIN_RATE == 0)]
     con.sort(key=lambda r: (-(r.get("hourly") or 0), 0 if r.get("us", True) else 1, -r["fit"]))
@@ -3035,7 +3056,7 @@ def issue_text(new: list[dict]) -> str:
     def line(r):
         rate = f"**${r['hourly']}/hr** · " if r.get("hourly") else ""
         where = f" · {r['location']}" if r.get("location") else ""
-        return f"- {rate}[{r['title']}]({r['url']}) — {r['company']}{where}"
+        return f"- {rate}[{tidy_title(r['title'])}]({r['url']}) — {r['company']}{where}"
     out = [f"**{len(con)} new contract role(s)** and {len(pitch)} new role(s) to pitch as contract. "
            f"[Open ROTWANG]({APP_URL})", ""]
     if con:
@@ -3098,11 +3119,11 @@ def write_app_data(reg: dict, current: list[dict]) -> None:
     """docs/data.json — everything the installed app shows, as one small file."""
     roles = []
     for r in current:
-        if not r.get("us", True):
+        if not r.get("us", True) or _NEVER.search(r.get("title") or ""):
             continue
         c = reg.get(r.get("ck"), {})
         roles.append({
-            "id": r["key"], "title": r["title"], "company": r.get("company") or c.get("name", ""),
+            "id": r["key"], "title": tidy_title(r["title"]), "company": r.get("company") or c.get("name", ""),
             "sector": r.get("sector") or company_sector(c) or "health",
             "kind": "contract" if r.get("contract") else "pitch",
             "engagement": r.get("engagement") or ("contract" if r.get("contract") else "permanent"),
