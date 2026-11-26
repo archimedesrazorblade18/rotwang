@@ -798,7 +798,8 @@ def read_jsonld(s, name, url):
 # words; a word it doesn't know returns every job, so those pages stop at one.
 PH_TERMS = ["biostatistics", "biostatistician", "statistician", "statistical programmer",
             "statistics", "data scientist", "bioinformatics", "epidemiology",
-            "real world evidence", "pharmacometrics", "machine learning", "contract"]
+            "real world evidence", "pharmacometrics", "machine learning", "artificial intelligence",
+            "contract"]
 
 
 def _ph_ddo(text: str):
@@ -850,7 +851,7 @@ def read_phenom(s, name, tok):
 # keyword search has an RSS feed with the full description.
 SF_TERMS = ["biostatistics", "statistician", "statistical", "statistics", "data scientist",
             "bioinformatics", "epidemiology", "real world", "programmer", "machine learning",
-            "contract", "consultant"]
+            "artificial intelligence", "contract", "consultant"]
 
 
 def read_successfactors(s, name, host):

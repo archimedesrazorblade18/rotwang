@@ -99,7 +99,9 @@ LEADERSHIP_QUERIES = ["senior director biostatistics", "executive director biost
 CONTRACT_QUERIES = ["biostatistician", "statistician", "statistical programmer", "SAS programmer",
                     "clinical programmer", "R programmer", "data scientist", "machine learning engineer",
                     "AI engineer", "bioinformatics", "epidemiologist", "real world evidence",
-                    "biometrics", "clinical data scientist", "statistical analyst"]
+                    "biometrics", "clinical data scientist", "statistical analyst",
+                    "healthcare AI engineer", "clinical AI", "AI scientist", "LLM engineer",
+                    "generative AI", "AI data scientist", "machine learning scientist healthcare"]
 # Energy: the same disciplines, at oil & gas, pipeline, utility, solar / wind /
 # storage, grid-software and trading companies.
 ENERGY_CONTRACT_QUERIES = ["data scientist energy", "data scientist utility", "data scientist renewable",
@@ -115,9 +117,15 @@ TECH_CONTRACT_QUERIES = ["statistician contract", "data scientist contract", "ap
                          "statistician semiconductor", "data scientist semiconductor", "yield data scientist",
                          "reliability statistician", "data scientist photonics", "data scientist optics",
                          "machine learning scientist contract", "quantitative researcher contract",
-                         "statistical consultant", "survey statistician", "economist data scientist"]
+                         "statistical consultant", "survey statistician", "economist data scientist",
+                         "AI engineer contract", "machine learning engineer contract", "LLM engineer contract",
+                         "generative AI engineer contract", "NLP engineer contract",
+                         "computer vision engineer contract", "AI data scientist contract",
+                         "MLOps engineer contract", "AI consultant contract", "AI architect contract",
+                         "AI research scientist contract"]
 TECH_LEADERSHIP_QUERIES = ["director data science technology", "head of data science",
-                           "director statistics", "principal statistician"]
+                           "director statistics", "principal statistician",
+                           "head of AI", "director machine learning", "director of AI healthcare"]
 HIGH_RATE_HOURLY    = 100      # $/hr — the "High rate" section starts here
 HIGH_RATE_ANNUAL    = 200_000
 RESOLVE_BUDGET = int(os.getenv("RADAR_RESOLVE", "400"))   # companies probed per sweep
@@ -218,11 +226,12 @@ FDA_DX_PANELS = {"chemistry", "clinical chemistry", "hematology", "immunology",
                  "molecular genetics", "immunology and microbiology"}
 WORKDAY_TERMS = ["biostatistician", "statistician", "statistical programmer", "biometrics",
                  "real world evidence", "epidemiologist", "bioinformatics",
-                 "clinical evidence", "data scientist", "machine learning", "contractor"]
+                 "clinical evidence", "data scientist", "machine learning", "artificial intelligence",
+                 "contractor"]
 WORKDAY_ENERGY_TERMS = ["data scientist", "statistician", "quantitative", "forecasting",
                         "machine learning", "contractor"]
 WORKDAY_TECH_TERMS = ["statistician", "data scientist", "applied scientist", "quantitative",
-                      "machine learning", "contractor"]
+                      "machine learning", "artificial intelligence", "contractor"]
 # Wide scope also asks Workday boards for contract work by name
 WORKDAY_WIDE_TERMS = ["contract", "contractor", "consultant", "temporary", "freelance"]
 TODAY = datetime.now(timezone.utc).strftime("%Y-%m-%d")
@@ -250,7 +259,8 @@ _NEVER = re.compile(r"\b(intern|internship|co-op|coop|apprentice|summer student|
 # in quant scope. Deliberately about the work, never the sector.
 _QUANT = re.compile(
     r"statistic|biostat|biometric|data scien|data analy|analytics|machine learning|"
-    r"\bml\b|\bai\b|artificial intelligence|deep learning|\bllm|\bnlp\b|"
+    r"\bml\b|\bai\b|artificial intelligence|deep learning|\bllm|\bnlp\b|\bml ?ops\b|computer vision|"
+    r"generative|neural|natural language|"
     r"programm|\bsas\b|\br\b programm|python|bioinformat|computational|"
     r"quantitative|data engineer|epidemiolog|real[- ]world|\brwe\b|\bheor\b|"
     r"clinical data|data manag|model(l)?(ing|er)|forecast|simulation|"
@@ -325,12 +335,35 @@ _HEALTH_TITLE = re.compile(r"biostat|clinical|pharma|oncolog|real[- ]world|\brwe
 
 _TECH_PITCH = re.compile(
     r"statistic|biostat|((director|head|vp|vice president|chief)\b.*(data scien|decision scien|"
-    r"quantitative|analytics|experimentation|economi))", re.I)
+    r"quantitative|analytics|experimentation|economi|machine learning|\bml\b|\bai\b|"
+    r"artificial intelligence))", re.I)
+
+
+# AI and machine-learning work (engineering, research, data science). These
+# titles often say engineer, architect or platform, words that mark other jobs
+# elsewhere, so they have their own, shorter list of what disqualifies them.
+_AI_TITLE = re.compile(
+    r"machine learning|\bml\b|\bml ?ops\b|\bai\b|a\.i\.|artificial intelligence|deep learning|"
+    r"\bllms?\b|large language|generative|\bgen ?ai\b|\bnlp\b|natural language|computer vision|"
+    r"\bai/ml\b|\bml/ai\b|foundation model|\brag\b|agentic|ai agents?|prompt engineer|"
+    r"reinforcement learning|neural", re.I)
+_AI_ROLE = re.compile(r"engineer|scientist|research|developer|architect|specialist|consultant|lead|"
+                      r"head|director|manager|principal|analyst|modeler|expert|statistician|programmer", re.I)
+_AI_NOT = re.compile(
+    r"annotat|\btrainer\b|\btraining (data|tasks?)\b|tutor|rater|evaluator|label|\bsales\b|marketing|"
+    r"recruit|account (manager|executive)|customer|writer|translator|\bproduct (manager|owner|marketing)|"
+    r"program manag|project manag|business development|partnerships?|legal|counsel|policy|"
+    r"\bteacher\b|instructor|professor|faculty|postdoc|intern\b|internship|student", re.I)
+
+
+def ai_title(title: str) -> bool:
+    t = title or ""
+    return bool(_AI_TITLE.search(t) and _AI_ROLE.search(t)) and not _AI_NOT.search(t)
 
 
 def strict_title(title: str) -> bool:
     t = title or ""
-    return bool(_STRICT_FIELD.search(t)) and not _JUNK.search(t)
+    return (bool(_STRICT_FIELD.search(t)) and not _JUNK.search(t)) or ai_title(t)
 
 
 def leadership_title(title: str) -> bool:
@@ -370,7 +403,8 @@ def hourly_rate(pay: str):
 _HARD_ENGAGEMENT = re.compile(r"contract|temporary|\btemp\b|freelance|fractional|interim|1099|"
                               r"fixed[- ]term|hourly|part[- ]time", re.I)
 _CORE_TITLE = re.compile(r"statistic|biostat|programmer|data scien|machine learning|bioinformat|"
-                         r"epidemiolog|real[- ]world|\brwe\b|quantitative|forecast", re.I)
+                         r"epidemiolog|real[- ]world|\brwe\b|quantitative|forecast|\bai\b|"
+                         r"artificial intelligence|\bllm|\bnlp\b|computer vision|deep learning", re.I)
 
 
 def _SOFT_ONLY(title: str) -> bool:
@@ -1525,7 +1559,8 @@ def _careers_todo(reg: dict) -> list[str]:
     def prio(k):
         c = reg[k]
         secs = set(c.get("sectors") or [])
-        return (0 if secs & CAREERS_FIRST else 1,          # drugs, biotech, diagnostics first
+        return (0 if "healthai" in secs else 1,            # healthcare AI companies first
+                0 if secs & CAREERS_FIRST else 1,          # then drugs, biotech, diagnostics
                 0 if c.get("ticker") else 1,                # public companies
                 0 if c.get("country", "US") == "US" else 1,
                 -(c.get("trials") or 0), k)
@@ -2071,6 +2106,11 @@ For each posting, read the title AND the description and return one JSON object 
                           // clinical programming (SAS/R/Python), data science, machine learning / AI
                           // engineering or programming, bioinformatics / computational biology,
                           // epidemiology / real-world-evidence analytics, or quantitative modeling.
+                          // AI work counts in every industry: ML / AI engineers and scientists, applied
+                          // or research scientists in AI, LLM / generative AI / NLP / computer vision
+                          // engineering, MLOps for models, AI data scientists, AI architects and
+                          // hands-on AI consultants. NOT AI work: annotation, labelling, "AI trainer",
+                          // model rating or evaluation gigs, AI sales, AI product or program management.
                           // In energy that means: statistics, data science, ML / AI, forecasting (load,
                           // price, generation, weather), risk / reliability / asset-failure modeling,
                           // optimization / operations research, trading or market quantitative analysis,
@@ -2088,9 +2128,11 @@ For each posting, read the title AND the description and return one JSON object 
                           // At tech employers "lane" means: statistics, data science, experimentation /
                           // A-B testing / causal inference, applied or research science that is modeling,
                           // forecasting, yield / reliability / quality statistics (DOE, SPC), statistical
-                          // image or signal algorithms, econometrics, survey statistics.
-                          // NOT lane at tech employers: software / data / ML-ops / platform engineering,
-                          // IT, product or program management, sales, annotation or "AI trainer" gigs.
+                          // image or signal algorithms, econometrics, survey statistics, and all
+                          // AI / machine-learning engineering and research (see above).
+                          // NOT lane at tech employers: general software, web, data-platform or cloud
+                          // engineering not centred on ML / AI models, IT, product or program
+                          // management, sales, annotation or "AI trainer" gigs.
                           // health: employer or client is biotech, pharma, diagnostics, medical devices,
                           // a CRO, a hospital/health system, a payer, or health / life-science AI.
                           // energy: oil & gas, pipelines / midstream, electric or gas utilities, grid
@@ -2107,7 +2149,7 @@ For each posting, read the title AND the description and return one JSON object 
  "convertible": true|false,
                           // true when lane is true AND any of: the role is director level or above
                           // in biostatistics / biometrics / statistical programming / data science /
-                          // analytics / forecasting / quantitative research;
+                          // analytics / forecasting / quantitative research / machine learning / AI;
                           // OR it is the lead or sole statistician for a company's trials (e.g.
                           // reports to the CMO, owns SAPs and submissions); OR stated pay >= $200,000
                           // a year or >= $96/hr. These are needs a senior consultant can propose to
@@ -2121,7 +2163,7 @@ def _api_key() -> str:
 
 
 def _class_key(row: dict) -> str:
-    return hashlib.sha1(f"v3|{row['key']}|{row['title']}".encode("utf-8")).hexdigest()[:16]
+    return hashlib.sha1(f"v4|{row['key']}|{row['title']}".encode("utf-8")).hexdigest()[:16]
 
 
 def _ask_claude(batch: list[dict]) -> list[dict]:
@@ -2425,8 +2467,12 @@ SEARCH_QUERIES = [
     ("contract biostatistician", "health", 2),
     ("biostatistician contractor remote", "health", 2),
     ("contract statistical programmer clinical", "health", 2),
-    ("SAS programmer clinical trials contract", "health", 2),
-    ("contract statistician", "", 2),
+    ("SAS programmer clinical trials contract", "health", 1),
+    ("contract statistician", "", 1),
+    ("AI engineer contract healthcare", "health", 1),
+    ("machine learning engineer contract", "tech", 1),
+    ("AI data scientist contract", "", 1),
+    ("generative AI LLM engineer contract", "tech", 1),
     ("principal biostatistician consultant", "health", 1),
     ("real world evidence data scientist contract", "health", 1),
     ("epidemiologist contract", "health", 1),
@@ -3034,6 +3080,7 @@ def merge_curated(reg: dict) -> int:
         cur = fetch_curated()
     d = load_json(HERE / "rotwang_targets.json", {})
     groups = d.get("targets", {}) if isinstance(d, dict) else {}
+    domains = d.get("domains", {}) if isinstance(d, dict) else {}
     added = 0
     for g, sector in CURATED_GROUPS.items():          # every group a name sits in, not only the first
         for n in groups.get(g, []):
@@ -3045,6 +3092,8 @@ def merge_curated(reg: dict) -> int:
                           "trials": 0, "ticker": "", "added": TODAY}
                 added += 1
             c = reg[k]
+            if domains.get(n) and not c.get("website"):
+                c["website"] = domains[n]         # known address: the careers finder starts there
             if "curated" not in c.setdefault("sources", []):
                 c["sources"].append("curated")
             if sector not in c.setdefault("sectors", []):
