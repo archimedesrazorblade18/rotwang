@@ -37,6 +37,7 @@ import os
 import re
 import smtplib
 import sys
+import tempfile
 import time
 import webbrowser
 import threading
@@ -2182,6 +2183,7 @@ class _Busy(Exception):
 
 
 CLASS_MINUTES = int(os.getenv("RADAR_CLASS_MIN", "60"))   # reading time per run; the rest waits a week
+CLASS_STATS: dict = {}
 
 
 def _ask_claude(batch: list[dict]) -> list[dict]:
@@ -2189,7 +2191,7 @@ def _ask_claude(batch: list[dict]) -> list[dict]:
               "pay_field": r.get("pay") or "", "description": (r.get("body") or "")[:1500]}
              for i, r in enumerate(batch)]
     resp = requests.post("https://api.anthropic.com/v1/messages", timeout=(10, 120), json={
-        "model": CLASSIFY_MODEL, "max_tokens": 4000, "system": _CLASS_SYSTEM,
+        "model": CLASSIFY_MODEL, "max_tokens": 8000, "system": _CLASS_SYSTEM,
         "messages": [{"role": "user", "content": json.dumps(items, ensure_ascii=False)}]},
         headers={"x-api-key": _api_key(), "anthropic-version": "2023-06-01",
                  "content-type": "application/json"})
@@ -2197,9 +2199,26 @@ def _ask_claude(batch: list[dict]) -> list[dict]:
         raise _Busy(resp.headers.get("retry-after") or "")
     if not resp.ok:
         raise RuntimeError(f"HTTP {resp.status_code}: {resp.text[:200]}")
-    text = "".join(b.get("text", "") for b in resp.json().get("content", []))
+    data = resp.json()
+    text = "".join(b.get("text", "") for b in data.get("content", []))
+    CLASS_STATS["stop:" + str(data.get("stop_reason"))] = CLASS_STATS.get("stop:" + str(data.get("stop_reason")), 0) + 1
     a, b = text.find("["), text.rfind("]")
-    return json.loads(text[a:b + 1]) if a >= 0 and b > a else []
+    try:
+        return json.loads(text[a:b + 1]) if a >= 0 and b > a else []
+    except ValueError:
+        pass
+    # A cut-off or untidy answer: keep every complete verdict in it
+    out, dec, i = [], json.JSONDecoder(), text.find("{")
+    while 0 <= i < len(text):
+        try:
+            obj, end = dec.raw_decode(text, i)
+            if isinstance(obj, dict) and "id" in obj:
+                out.append(obj)
+            i = text.find("{", end)
+        except ValueError:
+            i = text.find("{", i + 1)
+    CLASS_STATS["salvaged"] = CLASS_STATS.get("salvaged", 0) + 1
+    return out
 
 
 def classify_rows(rows: list[dict]) -> int:
@@ -2220,7 +2239,7 @@ def classify_rows(rows: list[dict]) -> int:
             seen.add(ck); todo.append(r)
     if todo:
         print(f"  Reading {len(todo)} new job descriptions with Claude…")
-    done, waits = 0, 0
+    done, waits, fails, last_err = 0, 0, 0, ""
     stop = time.time() + CLASS_MINUTES * 60
     for i in range(0, len(todo), CLASS_BATCH):
         batch = todo[i:i + CLASS_BATCH]
@@ -2249,6 +2268,8 @@ def classify_rows(rows: list[dict]) -> int:
             continue
         if isinstance(out, Exception):
             e = out
+            fails += 1
+            last_err = f"{e.__class__.__name__}: {str(e)[:120]}"
             log(f"classify: batch failed ({e.__class__.__name__}: {e}) — keyword rules used for {len(batch)} roles")
             if "401" in str(e) or "403" in str(e):
                 print("  Claude rejected the API key — keyword rules used this run.")
@@ -2268,7 +2289,8 @@ def classify_rows(rows: list[dict]) -> int:
     for r in rows:
         r.setdefault("cls", cache.get(_class_key(r)))
     print(f"  Claude read {done} of {len(todo)} new descriptions"
-          + (f" (waited {waits} times for its per-minute limit)" if waits else ""))
+          + (f" (waited {waits} times for its per-minute limit)" if waits else "")
+          + (f"; {fails} batches failed: {last_err}" if fails else "") + f" {CLASS_STATS}")
     log(f"classify: {done} newly judged, {len(rows) - len(todo)} from cache")
     return done
 
@@ -3221,6 +3243,7 @@ def main() -> int:
     p.add_argument("--open", action="store_true", help="open radar.html when done")
     p.add_argument("--hosts", nargs="+", metavar="URL", help="testing: show what careers pages load")
     p.add_argument("--check-keys", action="store_true", help="test the search keys (never prints them)")
+    p.add_argument("--classify-test", metavar="ATS:TOKEN", help="testing: let Claude judge one board")
     p.add_argument("--recheck", action="store_true", help="testing: re-check careers sites on newly readable systems")
     p.add_argument("--peek", nargs="+", metavar="URL", help="testing: show how a careers page lists jobs")
     p.add_argument("--read", nargs="+", metavar="ATS:TOKEN", help="testing: run a reader, e.g. phenom:careers.roche.com|global/en")
@@ -3277,6 +3300,19 @@ def main() -> int:
         return 0
     if a.recheck:
         recheck_systems(reg, verbose=True)
+        return 0
+    if a.classify_test:
+        global CLASS_CACHE
+        CLASS_CACHE = Path(tempfile.gettempdir()) / "rotwang_class_test.json"
+        ats, tok = a.classify_test.split(":", 1)
+        roles, ok = read_board(requests.Session(), {"ats": ats, "token": tok, "name": tok.split("|")[0], "sectors": ["pharma"]})
+        rows = [{"key": r.dkey, "title": r.title, "company": r.company, "location": r.location,
+                 "pay": r.pay, "body": r.body or ""} for r in roles]
+        t0 = time.time()
+        classify_rows(rows)
+        print(f"  {len(rows)} rows, {sum(1 for r in rows if r.get('cls'))} judged in {time.time() - t0:.0f}s")
+        for r in rows[:6]:
+            print(f"    {r['title'][:50]:50} {json.dumps(r.get('cls'))[:150]}")
         return 0
     if a.check_keys:
         s = requests.Session()
