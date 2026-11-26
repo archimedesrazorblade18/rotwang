@@ -1561,10 +1561,19 @@ def recheck_systems(reg: dict, verbose: bool = False) -> int:
                                    "sectors": c.get("sectors") or []})
         return c, hit, roles, ok
 
+    todo.sort(key=lambda c: -(c.get("trials") or 0))   # the parent company claims a shared site first
+    watched = {(c.get("ats"), c.get("token")) for c in reg.values() if c.get("status") == "watching"}
     with ThreadPoolExecutor(max_workers=8) as ex:
         for c, hit, roles, ok in ex.map(one, todo):
             c["rechecked"] = TODAY
+            if hit and ok and (hit[0], hit[1]) in watched:
+                c["same_site_as"] = next((o["name"] for o in reg.values() if o.get("status") == "watching"
+                                          and (o.get("ats"), o.get("token")) == (hit[0], hit[1])), "")
+                if verbose:
+                    print(f"    = {c['name'][:34]:34} same site as {c['same_site_as']}")
+                continue                           # one site, read once (UCB and UCB Pharma)
             if hit and ok:
+                watched.add((hit[0], hit[1]))
                 c.update({"status": "watching", "ats": hit[0], "token": hit[1], "resolved": TODAY,
                           "verified": TODAY, "fails": 0, "found_by": "careers page",
                           "careers_system": hit[0]})
