@@ -2612,7 +2612,7 @@ _ENGINE_JUNK = re.compile(r"instructor|teacher|teaching|tutor|coordinator|resear
                           r"expert \(|\bjunior\b|\bjr\.?\b|entry[- ]level|volunteer|unpaid|new grad|"
                           r"recent grad|^university\b|\bassociate (data scientist|machine learning|ml engineer|"
                           r"statistician|bioinformatician)|professor|faculty|lecturer|tenure", re.I)
-_ENGINE_SRC = re.compile(r"adzuna|google jobs|remotive|jsearch|careerjet|asa career", re.I)
+_ENGINE_SRC = re.compile(r"adzuna|google jobs|remotive|jsearch|careerjet|asa career|workable search|hacker news", re.I)
 # For an employer's own listing on an index, "Consultant" is often a permanent
 # title (universities and hospitals: "Biostatistical Consultant II"). Only a hard
 # word in the title, or the description saying so, makes it a contract.
@@ -2794,6 +2794,14 @@ JSEARCH_PER_MONTH = int(os.getenv("JSEARCH_PER_MONTH", "190"))   # room left for
 # don't: listings by job site (Dice, LinkedIn, Indeed, ZipRecruiter), niche
 # specialties, and the staffing firms after the first few.
 JSEARCH_QUERIES = [
+    # Boards that block automated visits, read through Google's index instead.
+    ("biostatistician via biospace", "health"),
+    ("statistical programmer via biospace", "health"),
+    ("data scientist via biospace", "health"),
+    ("biostatistics director via biospace", "health"),
+    ("contract biostatistician via glassdoor", "health"),
+    ("AI engineer contract healthcare via wellfound", "health"),
+    ("machine learning contract via built in", "tech"),
     ("contract biostatistician via dice", "health"),
     ("contract statistical programmer via dice", "health"),
     ("SAS programmer contract via dice", "health"),
@@ -3006,6 +3014,138 @@ def asa_jobs(reg: dict, prof: dict) -> list[dict]:
     return out
 
 
+WORKABLE_TERMS = ["biostatistician", "biostatistics", "statistician", "statistical programmer",
+                  "clinical programmer", "data scientist", "machine learning", "AI engineer", "bioinformatics",
+                  "epidemiologist", "pharmacometrics", "real world evidence", "health economics",
+                  "computational biology", "clinical data scientist"]
+
+
+def workable_jobs(reg: dict, prof: dict) -> list[dict]:
+    """Workable's public job search: every company that hires through
+    Workable, with full descriptions and the employer's own job type."""
+    import html as _html
+    s = radar_session()
+    firm_keys = {company_key(n) for n in _feed_firms()}
+    out, read, seen, calls = [], 0, set(), 0
+    for kw in WORKABLE_TERMS:
+        token = None
+        for _ in range(3):
+            params = {"query": kw, "location": "United States"}
+            if token:
+                params["pageToken"] = token
+            try:
+                r = s.get("https://jobs.workable.com/api/v1/jobs", params=params, headers=careers.UA,
+                          timeout=(5, 30))
+                d = r.json() if r.ok else {}
+            except Exception as e:
+                log(f"workable '{kw}': {e.__class__.__name__}")
+                break
+            calls += 1
+            for j in d.get("jobs") or []:
+                if not isinstance(j, dict):
+                    continue
+                read += 1
+                url = j.get("url") or ""
+                if not url or url in seen:
+                    continue
+                seen.add(url)
+                co = j.get("company")
+                comp = (co.get("title") or co.get("name")) if isinstance(co, dict) else co
+                comp = comp or j.get("companyName") or (j.get("account") or {}).get("name", "")
+                lo = j.get("location") if isinstance(j.get("location"), dict) else {}
+                locs = [str(x) for x in (j.get("locations") or [])]
+                loc = ", ".join(x for x in (lo.get("city"), lo.get("subregion"), lo.get("countryName")) if x) \
+                    or ", ".join(x for x in locs if x != "TELECOMMUTE")
+                remote = "TELECOMMUTE" in locs or bool(j.get("workplace") == "remote")
+                body = re.sub(r"\s+", " ", _html.unescape(re.sub(r"<[^>]+>", " ", " ".join(
+                    str(j.get(k) or "") for k in ("description", "requirementsSection", "benefitsSection")))))
+                row = _engine_role(reg, prof, j.get("title"), comp, loc, "", j.get("employmentType") or "",
+                                   url, str(j.get("created") or j.get("published") or j.get("updated") or "")[:10],
+                                   body, remote, "Workable search", "", firm_keys)
+                if row:
+                    out.append(row)
+            token = d.get("nextPageToken")
+            if not token:
+                break
+            time.sleep(0.3)
+        time.sleep(0.3)
+    print(f"  Workable search: {calls} searches, {read} listings read, {len(out)} candidates")
+    return out
+
+
+_HN_ROLE = re.compile(r"((?:(?:senior|sr\.?|staff|principal|lead|founding|contract|freelance|part[- ]time|fractional)\s+)*"
+                      r"(?:machine learning|ML|AI|LLM|NLP|deep learning|computer vision|data|applied|research|"
+                      r"biostatistic\w*|statistic\w*|bioinformatics?|computational biology|MLOps)"
+                      r"(?:\s*/\s*\w+)?\s+(?:engineer|scientist|researcher|developer|statistician|consultant|"
+                      r"expert|specialist|analyst|lead|architect)"
+                      r"|(?:(?:senior|sr\.?|staff|principal|lead|contract|freelance|part[- ]time)\s+)*"
+                      r"(?:bio)?statistician|bioinformatician|epidemiologist|pharmacometrician)", re.I)
+_HN_CONTRACT = re.compile(r"(?<!smart )\b(contract(or)?|freelanc\w*|consult(ant|ing)|part[- ]time|fractional|1099|"
+                          r"c2c|hourly|per hour|/hr\b)", re.I)
+
+
+def hn_jobs(reg: dict, prof: dict) -> list[dict]:
+    """Hacker News: this month's "Who is hiring?" posts that offer contract or
+    freelance work, and every "Seeking freelancer" post, for AI, ML, data and
+    statistics roles. Public API, no key."""
+    import html as _html
+    s = radar_session()
+    api = "https://hn.algolia.com/api/v1"
+    try:
+        hits = s.get(f"{api}/search_by_date", params={"tags": "story,author_whoishiring", "hitsPerPage": 12},
+                     timeout=(5, 30)).json().get("hits") or []
+    except Exception as e:
+        log(f"hn: {e.__class__.__name__}")
+        return []
+    threads = {}
+    for h in hits:
+        t = h.get("title") or ""
+        if t.startswith("Ask HN: Who is hiring?"):
+            threads.setdefault("hiring", h.get("objectID"))
+        elif t.startswith("Ask HN: Freelancer?"):
+            threads.setdefault("freelance", h.get("objectID"))
+    firm_keys = {company_key(n) for n in _feed_firms()}
+    out, read = [], 0
+    for kind, sid in threads.items():
+        try:
+            item = s.get(f"{api}/items/{sid}", timeout=(5, 60)).json()
+        except Exception as e:
+            log(f"hn {kind}: {e.__class__.__name__}")
+            continue
+        for c in item.get("children") or []:
+            raw = c.get("text") or ""
+            if not raw:
+                continue
+            read += 1
+            plain = _html.unescape(re.sub(r"<[^>]+>", " ", raw.replace("<p>", "\n")))
+            first = plain.strip().split("\n")[0]
+            if kind == "freelance":
+                if not re.match(r"\s*seeking\s+freelancer", plain, re.I):
+                    continue
+            elif not _HN_CONTRACT.search(plain):
+                continue
+            m = _HN_ROLE.search(first) or _HN_ROLE.search(plain)
+            if not m:
+                continue
+            parts = [p.strip() for p in re.split(r"\s+[|•–-]\s+|\|", first) if p.strip()]
+            comp = parts[0] if parts and not re.match(r"seeking", parts[0], re.I) else ""
+            if not comp or len(comp) > 60:
+                dom = re.search(r"https?://(?:www\.)?([a-z0-9-]+)\.[a-z.]+", raw)
+                comp = dom.group(1).title() if dom else "Hacker News poster"
+            title = re.sub(r"\s+", " ", m.group(1)).strip()
+            title = title[:1].upper() + title[1:]
+            if kind == "freelance" and "freelance" not in title.lower():
+                title = f"Freelance {title}"
+            row = _engine_role(reg, prof, title, comp, first[:120], "", "contract" if kind == "freelance" else "",
+                               f"https://news.ycombinator.com/item?id={c.get('id')}",
+                               str(c.get("created_at") or "")[:10], plain,
+                               bool(re.search(r"\bremote\b", first, re.I)), "Hacker News", "tech", firm_keys)
+            if row:
+                out.append(row)
+    print(f"  Hacker News: {len(threads)} threads, {read} posts read, {len(out)} candidates")
+    return out
+
+
 def open_feeds(reg: dict, prof: dict) -> list[dict]:
     """Free job indexes that need no key: Remote OK, Jobicy, Himalayas, The Muse.
     Each is one or a few requests; any that fails or changes shape is skipped."""
@@ -3185,7 +3325,8 @@ def sweep(reg: dict, prof: dict) -> tuple[list[dict], list[dict], int]:
     # indexes; the feed reads them from there. Companies seen only through the
     # feed are recorded so they reach the globe.
     for name, fn in [("google jobs", google_jobs), ("jsearch", jsearch_jobs), ("careerjet", careerjet_jobs),
-                     ("asa career connect", asa_jobs),
+                     ("asa career connect", asa_jobs), ("workable search", workable_jobs),
+                     ("hacker news", hn_jobs),
                      ("agency feed", agency_feed), ("contract sweep", contract_sweep),
                      ("open feeds", open_feeds)]:
         try:
@@ -3528,7 +3669,7 @@ def main() -> int:
     p.add_argument("--hosts", nargs="+", metavar="URL", help="testing: show what careers pages load")
     p.add_argument("--check-keys", action="store_true", help="test the search keys (never prints them)")
     p.add_argument("--classify-test", metavar="ATS:TOKEN", help="testing: let Claude judge one board")
-    p.add_argument("--engine-test", metavar="NAME", help="testing: run one search engine alone (jsearch, careerjet, asa) with a few searches and print what it found")
+    p.add_argument("--engine-test", metavar="NAME", help="testing: run one search engine alone (jsearch, careerjet, asa, workable, hn) with a few searches and print what it found")
     p.add_argument("--recheck", action="store_true", help="testing: re-check careers sites on newly readable systems")
     p.add_argument("--peek", nargs="+", metavar="URL", help="testing: show how a careers page lists jobs")
     p.add_argument("--read", nargs="+", metavar="ATS:TOKEN", help="testing: run a reader, e.g. phenom:careers.roche.com|global/en")
@@ -3603,7 +3744,8 @@ def main() -> int:
         global JSEARCH_PER_RUN
         JSEARCH_PER_RUN = int(os.getenv("RADAR_TEST_SEARCHES", "3"))
         prof = device_aware(rw.active_profile(PROFILE))
-        fn = {"jsearch": jsearch_jobs, "careerjet": careerjet_jobs, "asa": asa_jobs}[a.engine_test]
+        fn = {"jsearch": jsearch_jobs, "careerjet": careerjet_jobs, "asa": asa_jobs,
+              "workable": workable_jobs, "hn": hn_jobs}[a.engine_test]
         if a.engine_test == "careerjet":
             global CONTRACT_QUERIES, TECH_CONTRACT_QUERIES, ENERGY_CONTRACT_QUERIES
             CONTRACT_QUERIES, TECH_CONTRACT_QUERIES, ENERGY_CONTRACT_QUERIES = CONTRACT_QUERIES[:3], [], []
