@@ -2080,7 +2080,7 @@ def keep_role(r, prof: dict, company: str, ck: str, agency: bool = False,
     if _ENGINE_SRC.search(r.source or "") and (_AI_GIG.search(company or "") or _ENGINE_JUNK.search(r.title or "")):
         return None                               # job-engine noise: AI-training gigs, junior and teaching posts
     lane = rw.gate(r, prof)
-    soft_index = "Adzuna" in (r.source or "") and not agency      # an employer's own listing on Adzuna
+    soft_index = bool(re.search(r"Adzuna|Careerjet", r.source or "")) and not agency   # an employer's own listing on an index
     if not r.contract and (_employer_contract(r.title, "") if soft_index else rw.is_contract(r.title)):
         r.contract = True
     if r.contract and _CONTRACT_NOUN.search(r.title or "") and not _ENGAGEMENT.search(r.title or ""):
@@ -2611,8 +2611,8 @@ _ENGINE_JUNK = re.compile(r"instructor|teacher|teaching|tutor|coordinator|resear
                           r"label(l)?ing|annotat|ai training|training tasks?|\bai models?\b|\btasks\b|task author|"
                           r"expert \(|\bjunior\b|\bjr\.?\b|entry[- ]level|volunteer|unpaid|new grad|"
                           r"recent grad|^university\b|\bassociate (data scientist|machine learning|ml engineer|"
-                          r"statistician|bioinformatician)", re.I)
-_ENGINE_SRC = re.compile(r"adzuna|google jobs|remotive", re.I)
+                          r"statistician|bioinformatician)|professor|faculty|lecturer|tenure", re.I)
+_ENGINE_SRC = re.compile(r"adzuna|google jobs|remotive|jsearch|careerjet|asa career", re.I)
 # For an employer's own listing on an index, "Consultant" is often a permanent
 # title (universities and hospitals: "Biostatistical Consultant II"). Only a hard
 # word in the title, or the description saying so, makes it a contract.
@@ -2633,7 +2633,10 @@ _JOBBOARD_SITES = re.compile(r"linkedin|indeed|ziprecruiter|glassdoor|dice|monst
                              r"bebee|learn4good|teal|whatjobs|getwork|jobgether|snagajob|upwork", re.I)
 
 
-def _engine_role(reg, prof, title, comp, loc, pay, jtype, url, posted, body, remote, label, hint, firm_keys):
+def _engine_role(reg, prof, title, comp, loc, pay, jtype, url, posted, body, remote, label, hint, firm_keys,
+                 soft=False):
+    """soft: the index labels nearly everything contract, so an employer's own
+    listing needs the word in its title or text (staffing firms keep the label)."""
     title, comp = rw.clean(str(title or "")), str(comp or "").strip()
     if not title or not comp or not url:
         return None
@@ -2642,10 +2645,12 @@ def _engine_role(reg, prof, title, comp, loc, pay, jtype, url, posted, body, rem
     if _JUNK.search(title) or _ENGINE_JUNK.search(title) or _AI_GIG.search(comp):
         return None
     body = rw.clean(str(body or ""))[:1800]
-    role = rw.Role(title=title, company=comp, location=str(loc or ""), pay=str(pay or ""),
-                   contract=rw.is_contract(title, str(jtype or ""), body), remote=bool(remote),
-                   source=f"{comp} · {label}", url=str(url), posted=str(posted or ""), body=body)
     agency = rw.is_agency(comp) or company_key(comp) in firm_keys
+    contract = (_employer_contract(title, body) if soft and not agency
+                else rw.is_contract(title, str(jtype or ""), body))
+    role = rw.Role(title=title, company=comp, location=str(loc or ""), pay=str(pay or ""),
+                   contract=contract, remote=bool(remote),
+                   source=f"{comp} · {label}", url=str(url), posted=str(posted or ""), body=body)
     ck = _feed_company(reg, comp, agency)
     sector = company_sector(reg.get(ck)) or ""
     if not sector:                                # the title says the industry, else the search does
@@ -2743,6 +2748,261 @@ def google_jobs(reg: dict, prof: dict) -> list[dict]:
           + (f", {slow} slow answers retried" if slow else ""))
     if used:
         save_json(GOOGLE_SAVE, {"date": TODAY, "rows": out})
+    return out
+
+
+def _annual_pay(lo, hi, period: str) -> str:
+    """Pay as the radar's parser reads it: hourly stays hourly, anything else a year."""
+    try:
+        lo, hi = float(lo or 0), float(hi or 0)
+    except (TypeError, ValueError):
+        return ""
+    if not (lo or hi):
+        return ""
+    lo, hi = lo or hi, hi or lo
+    p = (period or "").strip().upper()[:1]
+    if p == "H":
+        return f"${lo:,.0f}–${hi:,.0f} an hour"
+    mult = {"Y": 1, "A": 1, "M": 12, "W": 52, "D": 260}.get(p)
+    if not mult:
+        return ""
+    return f"${lo * mult:,.0f}–${hi * mult:,.0f} a year"
+
+
+def _engine_budget(save: Path, per_run: int, per_month: int) -> tuple[int, dict]:
+    """Searches this run may spend, keeping the month inside the free plan."""
+    st = load_json(save, {})
+    month = TODAY[:7]
+    used = st.get("used", 0) if st.get("month") == month else 0
+    return max(0, min(per_run, per_month - used)), {"month": month, "used": used}
+
+
+def _reuse(save: Path, label: str):
+    """Manual reruns in the same week reuse the last results: searches are limited."""
+    saved = load_json(save, {})
+    fresh = (datetime.now(timezone.utc) - timedelta(days=6)).strftime("%Y-%m-%d")
+    if os.getenv("RADAR_GOOGLE", "search") == "reuse" and saved.get("rows") and saved.get("date", "") >= fresh:
+        print(f"  {label}: reusing {len(saved['rows'])} listings from {saved['date']} (no searches spent)")
+        return [dict(r) for r in saved["rows"]]
+    return None
+
+
+JSEARCH_SAVE = HERE / "radar_jsearch.json"
+JSEARCH_PER_RUN = int(os.getenv("JSEARCH_PER_RUN", "38"))       # free plan: 200 a month
+JSEARCH_PER_MONTH = int(os.getenv("JSEARCH_PER_MONTH", "190"))   # room left for tests
+# JSearch reads Google's job index too, so it asks what the SerpApi searches
+# don't: listings by job site (Dice, LinkedIn, Indeed, ZipRecruiter), niche
+# specialties, and the staffing firms after the first few.
+JSEARCH_QUERIES = [
+    ("contract biostatistician via dice", "health"),
+    ("contract statistical programmer via dice", "health"),
+    ("SAS programmer contract via dice", "health"),
+    ("contract data scientist healthcare via dice", "health"),
+    ("machine learning engineer contract via dice", "tech"),
+    ("AI engineer contract via dice", "tech"),
+    ("contract biostatistician via linkedin", "health"),
+    ("contract statistical programmer via linkedin", "health"),
+    ("biostatistics consultant via linkedin", "health"),
+    ("contract data scientist via linkedin", "tech"),
+    ("AI engineer contract via linkedin", "tech"),
+    ("machine learning scientist contract via linkedin", "tech"),
+    ("contract biostatistician via indeed", "health"),
+    ("contract statistical programmer via indeed", "health"),
+    ("contract biostatistician via ziprecruiter", "health"),
+    ("contract statistician via ziprecruiter", ""),
+    ("pharmacometrics consultant contract", "health"),
+    ("real world evidence consultant contract", "health"),
+    ("HEOR consultant contract", "health"),
+    ("CDISC SDTM ADaM programmer contract", "health"),
+    ("R shiny developer clinical contract", "health"),
+    ("bioinformatician contract", "health"),
+    ("clinical data scientist contract", "health"),
+    ("healthcare AI engineer contract", "health"),
+    ("LLM engineer contract", "tech"),
+    ("NLP data scientist contract healthcare", "health"),
+    ("data scientist energy contract", "energy"),
+    ("fractional head of data science", ""),
+    ("interim head of biostatistics", "health"),
+]
+
+
+def jsearch_jobs(reg: dict, prof: dict) -> list[dict]:
+    """JSearch (OpenWeb Ninja; key in JSEARCH_API_KEY): Google's job index —
+    LinkedIn, Indeed, Glassdoor, ZipRecruiter, Dice — with full descriptions."""
+    key = os.getenv("JSEARCH_API_KEY", "").strip()
+    if not key:
+        print("  JSearch: no JSEARCH_API_KEY set — skipped")
+        return []
+    again = _reuse(JSEARCH_SAVE, "JSearch")
+    if again is not None:
+        return again
+    budget, st = _engine_budget(JSEARCH_SAVE, JSEARCH_PER_RUN, JSEARCH_PER_MONTH)
+    s = requests.Session()                        # no automatic retries: each one is a search
+    s.headers.update({"x-api-key": key, "User-Agent": "rotwang-radar/1.0"})
+    firm_keys = {company_key(n) for n in _feed_firms()}
+    plan = JSEARCH_QUERIES + [(f"{f} biostatistician", "health") for f in FIRM_SEARCHES[FIRMS_ON_GOOGLE:]]
+    out, used, read, seen = [], 0, 0, set()
+    for q, hint in plan:
+        if used >= budget:
+            break
+        try:
+            r = s.get("https://api.openwebninja.com/jsearch/search-v2", timeout=(10, 60),
+                      params={"query": q, "country": "us", "date_posted": "week"})
+        except Exception as e:
+            log(f"jsearch '{q}': {e.__class__.__name__}")
+            continue
+        used += 1
+        if r.status_code in (401, 403, 429):
+            log(f"jsearch: HTTP {r.status_code} — stopping for this run")
+            print(f"  JSearch: HTTP {r.status_code} — key refused or month used up")
+            break
+        try:
+            d = r.json() if r.ok else {}
+        except ValueError:
+            d = {}
+        jobs = d.get("data") if isinstance(d, dict) else None
+        if isinstance(jobs, dict):
+            jobs = jobs.get("jobs") or jobs.get("data") or []
+        for j in jobs or []:
+            if not isinstance(j, dict):
+                continue
+            read += 1
+            ident = (j.get("job_title"), j.get("employer_name"))
+            if ident in seen:
+                continue
+            seen.add(ident)
+            opts = [o for o in (j.get("apply_options") or []) if isinstance(o, dict) and o.get("apply_link")]
+            link = next((o["apply_link"] for o in opts if not _JOBBOARD_SITES.search(o["apply_link"])), None) \
+                or j.get("job_apply_link") or (opts[0]["apply_link"] if opts else None) or j.get("job_google_link")
+            if link and _NO_LINK.search(link):
+                continue
+            loc = j.get("job_location") or ", ".join(x for x in (j.get("job_city"), j.get("job_state")) if x)
+            jtype = " ".join(str(x) for x in ([j.get("job_employment_type")] + list(j.get("job_employment_types") or [])
+                                              + [j.get("contract_duration")]) if x)
+            pay = _annual_pay(j.get("job_min_salary"), j.get("job_max_salary"), j.get("job_salary_period") or "")
+            pub = str(j.get("job_publisher") or "web")
+            row = _engine_role(reg, prof, j.get("job_title"), j.get("employer_name"), loc, pay, jtype, link,
+                               str(j.get("job_posted_at_datetime_utc") or "")[:10], j.get("job_description"),
+                               bool(j.get("job_is_remote")), f"JSearch ({pub})", hint, firm_keys)
+            if row:
+                out.append(row)
+        time.sleep(0.3)
+    print(f"  JSearch: {used} searches, {read} listings read, {len(out)} candidates")
+    if used:
+        save_json(JSEARCH_SAVE, {"date": TODAY, "rows": out, "month": st["month"], "used": st["used"] + used})
+    return out
+
+
+CAREERJET_SAVE = HERE / "radar_careerjet.json"
+
+
+def careerjet_jobs(reg: dict, prof: dict) -> list[dict]:
+    """Careerjet (publisher key in CAREERJET_API_KEY): a job search engine like
+    Adzuna, contract listings only, for your roles by name."""
+    key = os.getenv("CAREERJET_API_KEY", "").strip()
+    if not key:
+        print("  Careerjet: no CAREERJET_API_KEY set — skipped")
+        return []
+    again = _reuse(CAREERJET_SAVE, "Careerjet")
+    if again is not None:
+        return again
+    s = radar_session()
+    ua = careers.UA["User-Agent"]
+    ip = ""
+    try:                                          # Careerjet asks for the caller's address
+        ip = s.get("https://api.ipify.org", timeout=(5, 15)).text.strip()
+    except Exception:
+        pass
+    firm_keys = {company_key(n) for n in _feed_firms()}
+    plan = ([(q, "") for q in CONTRACT_QUERIES] + [(q, "tech") for q in TECH_CONTRACT_QUERIES]
+            + [(q, "energy") for q in ENERGY_CONTRACT_QUERIES])
+    out, used, read, seen = [], 0, 0, set()
+    for q, hint in plan:
+        try:
+            r = s.get("https://search.api.careerjet.net/v4/query", auth=(key, ""), timeout=(5, 30),
+                      params={"locale_code": "en_US", "keywords": q, "contract_type": "c", "sort": "date",
+                              "page_size": 50, "fragment_size": 800, "user_ip": ip or "127.0.0.1",
+                              "user_agent": ua})
+        except Exception as e:
+            log(f"careerjet '{q}': {e.__class__.__name__}")
+            continue
+        used += 1
+        if r.status_code in (401, 403, 429):
+            log(f"careerjet: HTTP {r.status_code} {r.text.replace(key, '<key>')[:160]!r} — stopping")
+            print(f"  Careerjet: HTTP {r.status_code} — key refused or limit reached")
+            break
+        try:
+            d = r.json() if r.ok else {}
+        except ValueError:
+            d = {}
+        for j in (d.get("jobs") if isinstance(d, dict) else None) or []:
+            if not isinstance(j, dict):
+                continue
+            read += 1
+            ident = (j.get("title"), j.get("company"))
+            if ident in seen:
+                continue
+            seen.add(ident)
+            pay = _annual_pay(j.get("salary_min"), j.get("salary_max"), str(j.get("salary_type") or "")) \
+                or str(j.get("salary") or "")
+            loc = j.get("locations") or ""
+            body = j.get("description") or ""
+            row = _engine_role(reg, prof, j.get("title"), j.get("company"), loc, pay, "contract", j.get("url"),
+                               str(j.get("date") or "")[:10], body,
+                               bool(re.search(r"remote|anywhere", f"{loc} {body[:300]}", re.I)),
+                               "Careerjet", hint, firm_keys, soft=True)
+            if row:
+                out.append(row)
+        time.sleep(0.5)
+    print(f"  Careerjet: {used} searches, {read} listings read, {len(out)} candidates")
+    if used:
+        save_json(CAREERJET_SAVE, {"date": TODAY, "rows": out})
+    return out
+
+
+ASA_TERMS = ["biostatistician", "statistician", "statistical programmer", "biostatistics",
+             "statistical consultant", "contract", "consultant", "data scientist", "pharmacometrics",
+             "epidemiologist", "machine learning", "real world evidence"]
+
+
+def asa_jobs(reg: dict, prof: dict) -> list[dict]:
+    """ASA Career Connect, the American Statistical Association's job board:
+    its public job feed, one request per search word. No key."""
+    import html as _html
+    import xml.etree.ElementTree as ET
+    s = radar_session()
+    firm_keys = {company_key(n) for n in _feed_firms()}
+    out, read, seen, ok = [], 0, set(), 0
+    for kw in ASA_TERMS:
+        try:
+            r = s.get("https://careerconnect.amstat.org/jobsrss/", headers=careers.UA, timeout=(5, 30),
+                      params={"keywords": kw, "countrycode": "US"})
+            root = ET.fromstring(r.content) if r.ok else None
+        except Exception as e:
+            log(f"asa '{kw}': {e.__class__.__name__}")
+            continue
+        if root is None:
+            continue
+        ok += 1
+        for it in root.iter("item"):
+            read += 1
+            head, link = (it.findtext("title") or "").strip(), (it.findtext("link") or "").strip()
+            if not link or link in seen:
+                continue
+            seen.add(link)
+            comp, _, title = head.partition(": ")
+            if not title:
+                comp, title = "", head
+            desc = re.sub(r"\s+", " ", _html.unescape(re.sub(r"<[^>]+>", " ", it.findtext("description") or ""))).strip()
+            lead = desc.split(": ", 1)[0]                 # "Salary: Employer: text"
+            pay = lead if re.search(r"\$\s?\d", lead) else ""
+            row = _engine_role(reg, prof, title, comp, "", pay, "", link,
+                               careers._rss_date(it.findtext("pubDate") or ""), desc,
+                               bool(re.search(r"\bremote\b", desc, re.I)), "ASA Career Connect", "", firm_keys)
+            if row:
+                out.append(row)
+        time.sleep(0.4)
+    print(f"  ASA Career Connect: {ok} searches, {read} listings read, {len(out)} candidates")
     return out
 
 
@@ -2924,7 +3184,8 @@ def sweep(reg: dict, prof: dict) -> tuple[list[dict], list[dict], int]:
     # Recruiters and consultancies post on their own sites but syndicate to the
     # indexes; the feed reads them from there. Companies seen only through the
     # feed are recorded so they reach the globe.
-    for name, fn in [("google jobs", google_jobs),
+    for name, fn in [("google jobs", google_jobs), ("jsearch", jsearch_jobs), ("careerjet", careerjet_jobs),
+                     ("asa career connect", asa_jobs),
                      ("agency feed", agency_feed), ("contract sweep", contract_sweep),
                      ("open feeds", open_feeds)]:
         try:
@@ -3144,7 +3405,9 @@ def write_app_data(reg: dict, current: list[dict]) -> None:
                    "mass_failure": bool(SWEEP_HEALTH.get("mass"))},
         "reader": bool(_api_key()), "index": bool(_has_adzuna()),
         "engines": {"google_jobs": bool(os.getenv("SERPAPI_KEY")),
-                    "adzuna": bool(_has_adzuna())},
+                    "adzuna": bool(_has_adzuna()),
+                    "jsearch": bool(os.getenv("JSEARCH_API_KEY")),
+                    "careerjet": bool(os.getenv("CAREERJET_API_KEY"))},
         "roles": roles}
     APP_DATA.parent.mkdir(parents=True, exist_ok=True)
     if SWEEP_HEALTH.get("mass") and APP_DATA.exists():
@@ -3265,6 +3528,7 @@ def main() -> int:
     p.add_argument("--hosts", nargs="+", metavar="URL", help="testing: show what careers pages load")
     p.add_argument("--check-keys", action="store_true", help="test the search keys (never prints them)")
     p.add_argument("--classify-test", metavar="ATS:TOKEN", help="testing: let Claude judge one board")
+    p.add_argument("--engine-test", metavar="NAME", help="testing: run one search engine alone (jsearch, careerjet, asa) with a few searches and print what it found")
     p.add_argument("--recheck", action="store_true", help="testing: re-check careers sites on newly readable systems")
     p.add_argument("--peek", nargs="+", metavar="URL", help="testing: show how a careers page lists jobs")
     p.add_argument("--read", nargs="+", metavar="ATS:TOKEN", help="testing: run a reader, e.g. phenom:careers.roche.com|global/en")
@@ -3335,6 +3599,22 @@ def main() -> int:
         for r in rows[:6]:
             print(f"    {r['title'][:50]:50} {json.dumps(r.get('cls'))[:150]}")
         return 0
+    if a.engine_test:
+        global JSEARCH_PER_RUN
+        JSEARCH_PER_RUN = int(os.getenv("RADAR_TEST_SEARCHES", "3"))
+        prof = device_aware(rw.active_profile(PROFILE))
+        fn = {"jsearch": jsearch_jobs, "careerjet": careerjet_jobs, "asa": asa_jobs}[a.engine_test]
+        if a.engine_test == "careerjet":
+            global CONTRACT_QUERIES, TECH_CONTRACT_QUERIES, ENERGY_CONTRACT_QUERIES
+            CONTRACT_QUERIES, TECH_CONTRACT_QUERIES, ENERGY_CONTRACT_QUERIES = CONTRACT_QUERIES[:3], [], []
+        rows = fn(reg, prof)
+        for r in rows[:25]:
+            print(f"    {'C' if r.get('contract') else '-'} {str(r.get('hourly') or ''):>4} "
+                  f"{r['title'][:55]:55} | {r.get('company', '')[:24]:24} | {r.get('source', '')[-28:]}")
+        bodies = [len(r.get("body") or "") for r in rows]
+        if bodies:
+            print(f"  description length: median {sorted(bodies)[len(bodies) // 2]} characters")
+        return 0
     if a.check_keys:
         s = requests.Session()
         aid, akey = os.getenv("ADZUNA_APP_ID", "").strip(), os.getenv("ADZUNA_APP_KEY", "").strip()
@@ -3351,6 +3631,26 @@ def main() -> int:
             d = r.json() if r.ok else {}
             print(f"  SerpApi: HTTP {r.status_code}, plan {d.get('plan_name')}, "
                   f"{d.get('total_searches_left', d.get('plan_searches_left'))} searches left")
+        jk = os.getenv("JSEARCH_API_KEY", "").strip()
+        print(f"  JSearch: key {'set' if jk else 'not set'}" + (f" ({len(jk)} characters)" if jk else ""))
+        if jk:
+            r = s.get("https://api.openwebninja.com/jsearch/search-v2", headers={"x-api-key": jk},
+                      params={"query": "contract biostatistician", "country": "us", "date_posted": "week"},
+                      timeout=(10, 60))
+            try:
+                d = r.json()
+                n = len(d.get("data") or []) if isinstance(d.get("data"), list) else d.get("data")
+                shape = f"{n} jobs" if isinstance(n, int) else f"keys {list(d)[:6]}"
+            except ValueError:
+                shape = repr(r.text.replace(jk, "<key>")[:160])
+            print(f"  JSearch answer: HTTP {r.status_code}, {shape}")
+        ck = os.getenv("CAREERJET_API_KEY", "").strip()
+        print(f"  Careerjet: key {'set' if ck else 'not set'}" + (f" ({len(ck)} characters)" if ck else ""))
+        if ck:
+            r = s.get("https://search.api.careerjet.net/v4/query", auth=(ck, ""), timeout=(5, 30),
+                      params={"locale_code": "en_US", "keywords": "biostatistician", "contract_type": "c",
+                              "page_size": 5, "user_ip": "127.0.0.1", "user_agent": careers.UA["User-Agent"]})
+            print(f"  Careerjet answer: HTTP {r.status_code} {r.text.replace(ck, '<key>')[:200]!r}")
         ak = _api_key().strip()
         print(f"  Anthropic: key {'set' if ak else 'not set'}" + (f" ({len(ak)} characters)" if ak else ""))
         if ak:
