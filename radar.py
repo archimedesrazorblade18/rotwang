@@ -3001,6 +3001,9 @@ def asa_jobs(reg: dict, prof: dict) -> list[dict]:
             comp, _, title = head.partition(": ")
             if not title:
                 comp, title = "", head
+            if (title.lower(), comp.lower()) in seen:
+                continue
+            seen.add((title.lower(), comp.lower()))
             desc = re.sub(r"\s+", " ", _html.unescape(re.sub(r"<[^>]+>", " ", it.findtext("description") or ""))).strip()
             lead = desc.split(": ", 1)[0]                 # "Salary: Employer: text"
             pay = lead if re.search(r"\$\s?\d", lead) else ""
@@ -3046,12 +3049,13 @@ def workable_jobs(reg: dict, prof: dict) -> list[dict]:
                     continue
                 read += 1
                 url = j.get("url") or ""
-                if not url or url in seen:
-                    continue
-                seen.add(url)
                 co = j.get("company")
                 comp = (co.get("title") or co.get("name")) if isinstance(co, dict) else co
                 comp = comp or j.get("companyName") or (j.get("account") or {}).get("name", "")
+                ident = (str(j.get("title") or "").lower(), str(comp or "").lower())
+                if not url or url in seen or ident in seen:
+                    continue
+                seen.update({url, ident})
                 lo = j.get("location") if isinstance(j.get("location"), dict) else {}
                 locs = [str(x) for x in (j.get("locations") or [])]
                 loc = ", ".join(x for x in (lo.get("city"), lo.get("subregion"), lo.get("countryName")) if x) \
@@ -3097,6 +3101,13 @@ def hn_jobs(reg: dict, prof: dict) -> list[dict]:
     except Exception as e:
         log(f"hn: {e.__class__.__name__}")
         return []
+    try:                                          # the freelancer thread has its own poster now
+        hits += s.get(f"{api}/search_by_date", timeout=(5, 30), params={
+            "tags": "story", "query": '"Seeking freelancer"', "hitsPerPage": 5}).json().get("hits") or []
+    except Exception as e:
+        log(f"hn freelancer: {e.__class__.__name__}")
+    month_ago = time.time() - 45 * 86400
+    hits = [h for h in hits if (h.get("created_at_i") or 0) >= month_ago]
     threads = {}
     for h in hits:
         t = h.get("title") or ""
